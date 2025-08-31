@@ -22,6 +22,8 @@ import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import CancellationPolicy from './Pages/CancellationPolicy/CancellationPolicy';
 import TermsOfUse from './Pages/TermsOfUse/TermsOfUse';
 import ShippingPolicy from './Pages/ShippingPolicy/ShippingPolicy';
+import SuccessPage from './Pages/SuccessPage/SuccessPage';
+import CancelPage from './Pages/CancelPage/CancelPage';
 
 
 const App = () => {
@@ -177,6 +179,10 @@ const App = () => {
 
               <Route path='/about-us' element={<AboutPage />} />
 
+              <Route path='/contact' element={<Contact />} />
+
+              <Route path='/search-listing' element={<SearchListing />} />
+
               <Route path='/blogs' element={<BlogPage />} />
 
               <Route path='/products' element={<Products />} />
@@ -187,11 +193,12 @@ const App = () => {
 
               <Route path='/checkout' element={<CheckoutPage />} />
 
-              <Route path='/contact' element={<Contact />} />
+              <Route path='/order-successful' element={<SuccessPage />} />
 
-              <Route path='/search-listing' element={<SearchListing />} />
+              <Route path='/order-cancel' element={<CancelPage />} />
 
-              <Route path='/counter-test-1' element={<IntersectionEx />} />
+
+              {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
 
               <Route path='/privacy-policy' element={<PrivacyPolicy />} />
 
@@ -202,6 +209,8 @@ const App = () => {
               <Route path='/shipping-policy' element={<ShippingPolicy />} />
 
               {/* <Route path='*' element={<Error404Page />} /> */}
+
+              <Route path='/counter-test-1' element={<IntersectionEx />} />
 
               <Route path='/test' element={<TestPage />} />
 

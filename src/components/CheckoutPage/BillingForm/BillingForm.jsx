@@ -143,12 +143,11 @@ const BillingForm = ({
                         />
                     </div>
 
-
                     <div className="pinCodeCont relative "  >
                         <InputBar label_text="PinCode" type="number" html_for="pincode" id="pincode"
                             onChange_func={(e) => setFormData({ ...formData, pincodeInp: Number(e.target.value) })}
                             // value={formData.pincodeInp ? formData.pincodeInp : ""}
-                            value={pincode ? pincode : ""}
+                            value={pincode ? pincode : formData.pincodeInp}
                         />
 
                         {

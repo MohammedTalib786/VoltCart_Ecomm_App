@@ -10,8 +10,13 @@ import FeatProductSlider from '../../components/FeatProductSlider/FeatProductSli
 import BlogSlider from '../../components/BlogSlider/BlogSlider'
 import Testimonials from '../../components/HomePage/Testimonials/Testimonials'
 import InstaFeed from '../../components/HomePage/InstagramSec/InstaFeed'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 
 const Home = () => {
+
+    // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
+    useDocumentTitle('VoltCart - All in One Solution for Electonic Items');
+
     return (
         <>
             {/* >>>>>>>>>>>>>> Full Width Spotlight */}
@@ -23,7 +28,7 @@ const Home = () => {
                 <InformationComp />
 
                 {/* >>>>>>>>>>>>>> Featured Prod Slider */}
-                <FeatProductSlider title="Featured Products" urlText="GO TO SHOP" urlVal="/products"   />
+                <FeatProductSlider title="Featured Products" urlText="GO TO SHOP" urlVal="/products" />
 
                 {/* >>>>>>>>>>>>>> Mobile Prod Slider */}
                 <ProductSlider title="Mobile Products" urlText="GO TO SHOP" urlVal="/products" categoryName="Covers and Cases" />

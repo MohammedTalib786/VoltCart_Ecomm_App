@@ -1,7 +1,8 @@
-import React from 'react'
 import Button from '../../FormComp/Button'
 
-const YourOrderComp = () => {
+const YourOrderComp = ({
+    orderProcessLoader
+}) => {
 
 
     return (
@@ -11,11 +12,15 @@ const YourOrderComp = () => {
                 <p>YourOrderComp</p>
 
                 {/* >>>>>>>>>>>>>> Demo Submit Button */}
-                <Button
-                    text='Dummy Place Order'
-                    btnWidth='w-[100%]'
-                    type="submit"
-                />
+                <div className="flex" >
+                    <Button
+                        // text='Dummy Place Order'
+                        text={orderProcessLoader ? <span className="orderProcessLoader m-2"></span> : "Dummy Place Order"}
+                        btnWidth='w-[100%]'
+                        type="submit"
+                    />
+
+                </div>
             </div>
 
         </>

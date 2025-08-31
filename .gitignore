@@ -27,3 +27,6 @@ updates.txt
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore Windows system files
+desktop.ini
