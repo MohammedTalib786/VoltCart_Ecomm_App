@@ -6,14 +6,17 @@
 .breadCrumbs:last-child a::after {
     display: none;
 }
+
 .breadCrumbs:last-child a {
     cursor: auto;
     color: #d9d9d9
 }
+
 .breadCrumbs a {
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'montserrat';
     font-weight: 500;
-    color:#000
+    /* color: var(--primary-color); */
+    color: white;
 
 }

@@ -24,6 +24,7 @@ import TermsOfUse from './Pages/TermsOfUse/TermsOfUse';
 import ShippingPolicy from './Pages/ShippingPolicy/ShippingPolicy';
 import SuccessPage from './Pages/SuccessPage/SuccessPage';
 import CancelPage from './Pages/CancelPage/CancelPage';
+import Cursor from './components/Cursor/Cursor';
 
 
 const App = () => {
@@ -164,6 +165,8 @@ const App = () => {
 
   return (
     <>
+
+      <Cursor />
 
       <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
 

@@ -5,6 +5,7 @@
 @theme {
     --font-inter: "Inter", sans-serif;
     --font-montserrat: "Montserrat", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
     --color-primary: #0D6EFD;
     --color-para-black: #1a1a1a;
     --color-plain-bg-white: #f4f4f4;
@@ -25,6 +26,7 @@
 :root {
     --inter-font: "Inter", sans-serif;
     --montserrat-font: "Montserrat", sans-serif;
+    --poppins-font: "Poppins", sans-serif;
     --primary-color: #0D6EFD;
 
     --para-black-color: #1a1a1a;
@@ -44,6 +46,26 @@ body {
     background-color: #F4F4F4;
     overflow-x: hidden;
 }
+
+
+
+/* body {
+    cursor: none !important;
+}
+
+body a:hover,
+body a:active,
+body button:hover,
+body button:active,
+body div:hover,
+body div:active,
+body p:hover,
+body p:active,
+body span:hover,
+body span:active {
+    cursor: none !important;
+} */
+
 
 /* .head_foot_cont_full {
     background-color: brown !important;
@@ -93,7 +115,8 @@ body {
 }
 
 .info_pages p {
-    font-family: 'Inter';
+    /* font-family: 'Inter'; */
+    font-family: var(--poppins-font);
     font-size: 16px;
     line-height: 26px;
     font-weight: 400;

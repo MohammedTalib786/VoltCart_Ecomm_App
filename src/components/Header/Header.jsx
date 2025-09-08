@@ -72,7 +72,7 @@ const Header = () => {
 
 
     return (
-        <header className=' head_foot_cont_full w-full flex flex-col relative z-[9999999999] bg-white border-b border-[#b9b9b9] '
+        <header className=' head_foot_cont_full w-full flex flex-col relative bg-white border-b border-[#b9b9b9] '
         >
 
             {/* >>>>>>>>>>>>>>> Desktop Header */}

@@ -1,0 +1,70 @@
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Static Cursor image
+
+Cursor.jsx
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import './cursor.css'
+
+const Cursor = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [])
+
+  return (
+    <motion.div
+      className="custom-cursor"
+      animate={{
+        x: mousePosition.x - 8, // adjust offset to center
+        y: mousePosition.y - 7,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+
+        // type: "tween",
+        // ease: "easeOut",
+        // duration: 0.2,
+
+        // type: "tween",
+        // ease: "linear",
+        // duration: 0.4, // more duration = more lag
+
+      }}
+    />
+  )
+}
+
+export default Cursor
+
+
+cursor.css
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
+    background-image: url(http://localhost:5173/src/assets/cursor_img_main.png);
+    border: 0;
+    border-radius: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    /* background: var(--primary-color); */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
