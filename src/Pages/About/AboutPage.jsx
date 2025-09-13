@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useInViewMotion } from '../../hooks/useInViewMotion'; // update this path
 import { useInViewMotionFades } from '../../hooks/useInViewMotionFades'; // update this path
 import NumberCounter from '../../components/AnimatedNumber/NumberCounter'
-import './about-us.css'
+import './about-us.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import AboutSpotlight from '../../components/AboutPage/AboutSpotlight';
 import AboutIntro from '../../components/AboutPage/AboutIntro';
@@ -14,7 +14,6 @@ import AboutVissionMission from '../../components/AboutPage/AboutVissionMission'
 
 
 const About = () => {
-
   // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
   useDocumentTitle('About Us - VoltCart');
 

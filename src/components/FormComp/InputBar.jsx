@@ -27,7 +27,7 @@ const InputBar = ({
                 onClick={handlerCountryInp}
             /> */}
 
-            {label_text && <label htmlFor={html_for} className='block mb-2 font-[inter] text-[16px] font-medium text-black-1c' > {label_text} </label>}
+            {label_text && <label htmlFor={html_for} className='block mb-2 font-poppins text-[16px] font-medium text-black-1c  ' > {label_text} </label>}
             <input
                 type={type} readOnly={read_only} name={name} id={id} value={value} placeholder={placeholder}
                 className={`${class_name} ${additionalClassName}`}

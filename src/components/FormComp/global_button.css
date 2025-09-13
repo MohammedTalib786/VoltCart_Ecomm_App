@@ -1,0 +1,11 @@
+
+.global_btn,
+.global_btn:hover {
+    transition: all .25s ease-in-out;
+}
+
+
+.global_btn:hover {
+    box-shadow: -2px 4px 12px 1px #0000003d;
+    border-radius: 12px;
+}

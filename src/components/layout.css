@@ -4,3 +4,16 @@
     padding: 0 50px;
     /* background-color: blanchedalmond; */
 }
+
+@media (min-width: 551px) and (max-width: 1024px) {
+    .container_layout {
+        padding: 0 30px;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .container_layout {
+        padding: 0 20px;
+    }
+}

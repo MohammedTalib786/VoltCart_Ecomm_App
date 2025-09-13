@@ -1,44 +1,43 @@
-a.active {
-    color: #0D6EFD;
-    font-weight: 500;
-}
-
-a.pending {
-    color: #1a1a1a;
-}
-
-
-.desktop_header ul li a {
+footer ul li a {
     display: block;
     position: relative;
     transition: all .35s ease-in-out;
-
+    width: fit-content;
 }
 
-.desktop_header ul li a:hover {
+footer ul li a:hover {
     color: var(--primary-color);
     transition: all .35s ease-in-out;
 }
 
-.desktop_header ul li a::after {
+footer ul li a::after {
     content: '';
     width: 0%;
-    height: 3px;
+    height: 1px;
+    /* background-color: var(--para-black-color); */
     background-color: var(--primary-color);
     display: block;
     position: absolute;
-    margin-top: 28px;
+    /* margin-top: 28px; */
     border-radius: 30px;
     transition: all .35s ease-in-out;
 }
 
-.desktop_header ul li a:hover::after {
+footer ul li a:hover::after {
     width: 100%;
     transition: all .35s ease-in-out;
 }
 
-.desktop_header ul li a.active::after {
+footer ul li a.active::after {
     width: 100%;
     transition: all .35s ease-in-out;
 }
 
+footer .socials button {
+    transition: all .35s ease-in-out;
+}
+
+footer .socials button:hover {
+    background-color: var(--primary-color);
+    transition: all .35s ease-in-out;
+}

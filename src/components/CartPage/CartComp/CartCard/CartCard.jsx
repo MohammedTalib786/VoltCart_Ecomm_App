@@ -4,6 +4,10 @@ import { useCart } from '../../../../contexts/ProdProvider'
 import { Link } from 'react-router-dom';
 
 import placeholderImg from '../../../../assets/placeholder_img.png'
+import Button from '../../../FormComp/Button';
+import { FiMinus } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+
 
 const CartCard = ({
     id,
@@ -54,14 +58,14 @@ const CartCard = ({
 
         <div className="cart_card w-full p-[20px] flex justify-between items-center rounded-[12px] border-[1px] border-[#737373] " >
 
-            <Link to={`/products/${slug}`}   className=' w-full ' >
-                <div className="prodInfo  flex w-full items-center gap-[30px] ">
+            <Link to={`/products/${slug}`} className=' w-full ' >
+                <div className="prodInfo flex w-full items-center gap-[20px] ">
                     <img src={feat_img}
                         alt="" className='w-[110px] rounded-[12px] '
 
                     />
-                    <div className="text">
-                        <h3 className=' text-[22px]/[28px] ' >{prodName}</h3>
+                    <div className="text flex flex-col items-start gap-[5px] ">
+                        <h3 className=' text-[22px]/[28px] mr-[30px] ' >{prodName}</h3>
                         <h5 className=' text-[20px]/[28px] font-semi-bold text-[var(--primary-color)] ' >&#8377;{price}</h5>
                         <button
                             onClick={(e) => {
@@ -74,8 +78,8 @@ const CartCard = ({
                     </div>
                 </div>
             </Link>
-                            
-            <div className="qnty flex items-center h-fit p-[10px] relative ">
+
+            <div className="qnty flex items-center h-fit p-[12px] relative border-1 border-primary rounded-[12px]   ">
                 {/* >>>>>>>>>>>>>>>>>>>> Message */}
                 {
                     msg.maxItemMsg &&
@@ -92,11 +96,12 @@ const CartCard = ({
                 }
                 {/* >>>>>>>>>>>>>>>>>>>> ENDS Message */}
 
-                <button
-                    onClick={handlerMinusQnt}
-                    className=' qnty_btns  w-[40px] h-[40px] flex justify-center items-center text-[24px]/[30px] bg-black text-white hover:bg-white hover:text-black transition-all border-[1px] border-black cursor-pointer ' >
-                    -
-                </button>
+                <Button
+                    handlerClickBtnComp={handlerMinusQnt}
+                    text={<FiMinus className='text-[25px]/[25px]' />}
+                    additionalClass="w-[50px] h-[45px]  desktop:p-[0]  "
+                />
+
 
                 <input type="number"
                     id='qunt_val'
@@ -105,11 +110,12 @@ const CartCard = ({
                     onChange={(e) => changeQuantityFunc(id, Number(e.target.value < 1 ? 1 : e.target.value > 10 ? 10 : e.target.value))}
                 />
 
-                <button
-                    onClick={handlerAddQnt}
-                    className=' qnty_btns  w-[40px] h-[40px] flex justify-center items-center text-[24px]/[30px] bg-black text-white hover:bg-white hover:text-black transition-all border-[1px] border-black cursor-pointer ' >
-                    +
-                </button>
+                <Button
+                    handlerClickBtnComp={handlerAddQnt}
+                    text={<FiPlus className='text-[25px]/[25px]' />}
+                    additionalClass="w-[50px] h-[45px]  desktop:p-[0]  "
+                />
+
             </div>
 
         </div>

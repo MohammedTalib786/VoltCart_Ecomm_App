@@ -1,15 +1,15 @@
 import React from 'react'
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
-import about from '../../assets/about-page/revised-img/about_spotligh.jpg'
+import spotlightImg from '../../assets/about-page/revised-img/about_spotlight.jpg'
 const AboutSpotlight = () => {
   return (
     <div
-        className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full h-[90vh] flex relative "
-        style={{ backgroundImage: `url(${about})` }}>
+        className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full desktop:h-[90vh] gt-tab:h-[90vh] tab:h-[60vh] h-[65vh] flex relative "
+        style={{ backgroundImage: `url(${spotlightImg})` }}>
 
         <div className="container_layout m-auto flex justify-center items-center flex-col  ">
           <BreadCrumbs/>
-          <h1 className="font-[inter] font-bold text-[90px]/[100px] uppercase text-white mt-[10px] relative z-[99] " >About Us</h1>
+          <h1 className="font-poppins font-bold tab:text-[90px]/[100px] text-[55px]/[65px]  uppercase text-white mt-[10px] relative z-[99] " >About Us</h1>
         </div>
 
       </div>

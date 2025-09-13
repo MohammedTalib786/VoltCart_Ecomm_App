@@ -21,12 +21,6 @@ const ShippingForm = ({
         pincode: false
     })
     const regex = /^\d{6}$/;
-    // console.log('shippingDetails in ship form comp ', shippingDetails)
-
-    const handlerDemo = () => {
-        // console.log('Click Btn');
-        setIsVisible(prev => !prev);
-    }
 
     const handlerCountryInp = () => {
         showCountryMsg(true)
@@ -66,7 +60,13 @@ const ShippingForm = ({
     // console.log('Outside Scope', shippingDetails.states)
 
     useEffect(() => {
-        setFormData({ stateInp: shippingDetails.states })
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            town_cityInp: shippingDetails.town_city,
+            stateInp: shippingDetails.states,
+            pincodeInp: shippingDetails.pincode,
+        }));
+
     }, [shippingDetails.states, shippingDetails.pincode, shippingDetails.town_city])
 
     return (
@@ -88,13 +88,18 @@ const ShippingForm = ({
                     </div>
 
                     <div className="stateCont  relative "  >
-                        <SelectDropdown label_text="State" html_for="state" id="state" value={formData.stateInp} onchange_func={(e) => setFormData({ ...formData, stateInp: e.target.value })} options_arr={statesJSON}
+                        <SelectDropdown label_text="State" html_for="state" id="state" 
+                        value={formData.stateInp}
+                        onchange_func={(e) => setFormData({ ...formData, stateInp: e.target.value })} options_arr={statesJSON}
                         />
                     </div>
 
                     <div className="townCityCont relative "  >
-                        <InputBar label_text="Town/City" html_for="town-city" id="town-city" type="text" onChange_func={(e) => setFormData({ ...formData, town_cityInp: e.target.value })}
+                        <InputBar label_text="Town/City" html_for="town-city" id="town-city" type="text"
+                            onChange_func={(e) => setFormData({ ...formData, town_cityInp: e.target.value })}
+                            value={formData.town_cityInp?formData.town_cityInp:''}
                         />
+
                         {
                             errorMsg.townCity &&
                             <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] left-[90px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
@@ -104,7 +109,9 @@ const ShippingForm = ({
                     </div>
 
                     <div className="pinCodeCont relative "  >
-                        <InputBar label_text="PinCode" html_for="pincode" id="pincode" type="number" onChange_func={(e) => setFormData({ ...formData, pincodeInp: Number(e.target.value) })}
+                        <InputBar label_text="PinCode" html_for="pincode" id="pincode" type="number" 
+                        onChange_func={(e) => setFormData({ ...formData, pincodeInp: Number(e.target.value) })}
+                        value={formData.pincodeInp? formData.pincodeInp:''}
                         />
                         {
                             errorMsg.pincode &&

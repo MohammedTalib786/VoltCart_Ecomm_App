@@ -35,7 +35,7 @@
     opacity: 1;
     pointer-events: all;
     /* top: 310px; */
-    top: 290px;
+    /* top: 290px; */
 }
 
 .item_added_toolTip::after {

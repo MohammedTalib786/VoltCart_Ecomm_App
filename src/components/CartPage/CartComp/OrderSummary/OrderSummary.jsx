@@ -96,7 +96,7 @@ const OrderSummary = () => {
 
     return (
         <div className="order_sum flex flex-col gap-[16px] w-[40%] p-[20px] rounded-[12px] border-[1px] border-[#737373]  ">
-            <h3 className='uppercase text-[32px]/[40px]  ' >Order Summary</h3>
+            <h3 className='font-poppins uppercase text-[32px]/[40px]  ' >Order Summary</h3>
             <div className="calculations flex flex-col gap-[20px] "  >
 
                 <div className="subtotal flex flex-col gap-[8px] "  >
@@ -152,6 +152,7 @@ const OrderSummary = () => {
                 <Button
                     handlerClickBtnComp={handlerToCheckoutPage}
                     text='Proceed to Checkout'
+                    additionalClass="min-w-full"
                 />
 
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ENDS Place Order Button */}
