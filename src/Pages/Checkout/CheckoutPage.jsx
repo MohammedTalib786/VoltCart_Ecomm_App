@@ -6,16 +6,23 @@ import { useNavigate } from 'react-router-dom';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { loadRazorpayScript } from '../../utils/loadRazorpay';
 import CheckoutPageSpotlight from '../../components/CheckoutPage/CheckoutPageSpotlight';
+import { useCartTotal } from '../../contexts/cartTotalProvider';
 
 const CheckoutPage = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Checkout - VoltCart');
+
     const [orderProcessLoader, setOrderProcessLoader] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false)
-
     let { cartProducts, loadingCart } = useCart()
-
     let navigate = useNavigate();
+    let { itemTotal } = useCartTotal()
+
+    // console.log('item total inside checkout page', itemTotal)
+
+    // useEffect(() => {
+    //     console.log('cartProducts', cartProducts)
+    // }, [])
 
     useEffect(() => {
         if (!loadingCart && cartProducts.length === 0) navigate('/cart');
@@ -47,7 +54,6 @@ const CheckoutPage = () => {
 
     // >>>>>>>>>>>>>>>>>>>>> Form Validation
     const handlerPlaceOrder = async (e) => {
-
         e.preventDefault();
         setOrderProcessLoader(true);
         setIsDisabled(true)
@@ -118,7 +124,6 @@ const CheckoutPage = () => {
             }
 
             else {
-
                 setOrderProcessLoader(true);
                 setIsDisabled(true)
                 console.log('formData.first_name', formData.first_name)
@@ -136,6 +141,7 @@ const CheckoutPage = () => {
                 // // ];
 
                 const items = cartProducts;
+                const totalAmt = itemTotal.total
                 const name = `${formData.first_name} ${formData.last_name}`;
 
                 const res = await fetch(import.meta.env.VITE_BACKEND_RAZORPAY_FETCH_URL, {
@@ -143,7 +149,7 @@ const CheckoutPage = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ items, name }),
+                    body: JSON.stringify({ items, name, totalAmt }),
                 });
 
                 const data = await res.json();
@@ -159,7 +165,7 @@ const CheckoutPage = () => {
                     amount: data.amount,
                     currency: data.currency,
                     name: 'VoltCart',
-                    description: 'Order Payment',
+                    description: 'Order Payment for VoltCart',
                     order_id: data.orderId,
                     handler: function (response) {
                         // Redirect after payment success

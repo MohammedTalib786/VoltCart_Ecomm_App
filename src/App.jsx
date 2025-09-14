@@ -25,11 +25,9 @@ import ShippingPolicy from './Pages/ShippingPolicy/ShippingPolicy';
 import SuccessPage from './Pages/SuccessPage/SuccessPage';
 import CancelPage from './Pages/CancelPage/CancelPage';
 import Cursor from './components/Cursor/Cursor';
-
+import { CartTotalProvider } from './contexts/cartTotalProvider'
 
 const App = () => {
-
-  let navigate = useNavigate();
 
   const [loadingCart, setLoadingCart] = useState(true);
   let [cartProducts, setCartProducts] = useState([
@@ -42,6 +40,16 @@ const App = () => {
     //   quantity: 1
     // }
   ])
+
+  const [itemTotal, setItemTotal] = useState({
+    total: 0
+  })
+
+  const calculateTotal = (amt) => {
+    setItemTotal({total: amt})
+  }
+
+  console.log('itemTotal', itemTotal, typeof itemTotal  )
 
 
   let [shippingDetails, setShippingDetails] = useState({
@@ -98,6 +106,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("shippingDetails", JSON.stringify(shippingDetails));
   }, [shippingDetails])
+
 
 
 
@@ -166,66 +175,68 @@ const App = () => {
   return (
     <>
 
-      <Cursor />
+      {/* <Cursor /> */}
+      <CartTotalProvider value={{ itemTotal, calculateTotal }}  >
 
-      <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
+        <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
 
-        <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
+          <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
 
-          <ScrollToTopFunc />
+            <ScrollToTopFunc />
 
-          <Routes>
+            <Routes>
 
-            <Route path='/' element={<Layout />}  >
+              <Route path='/' element={<Layout />}  >
 
-              <Route index element={<HomePage />} />
+                <Route index element={<HomePage />} />
 
-              <Route path='/about-us' element={<AboutPage />} />
+                <Route path='/about-us' element={<AboutPage />} />
 
-              <Route path='/contact' element={<Contact />} />
+                <Route path='/contact' element={<Contact />} />
 
-              <Route path='/search-listing' element={<SearchListing />} />
+                <Route path='/search-listing' element={<SearchListing />} />
 
-              <Route path='/blogs' element={<BlogPage />} />
+                <Route path='/blogs' element={<BlogPage />} />
 
-              <Route path='/products' element={<Products />} />
+                <Route path='/products' element={<Products />} />
 
-              <Route path='/products/:slug' element={<ProductDetail />} />
+                <Route path='/products/:slug' element={<ProductDetail />} />
 
-              <Route path='/cart' element={<CartPage />} />
+                <Route path='/cart' element={<CartPage />} />
 
-              <Route path='/checkout' element={<CheckoutPage />} />
+                <Route path='/checkout' element={<CheckoutPage />} />
 
-              <Route path='/order-successful' element={<SuccessPage />} />
+                <Route path='/order-successful' element={<SuccessPage />} />
 
-              <Route path='/order-cancel' element={<CancelPage />} />
+                <Route path='/order-cancel' element={<CancelPage />} />
 
 
-              {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
+                {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
 
-              <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
 
-              <Route path='/cancellation-policy' element={<CancellationPolicy />} />
+                <Route path='/cancellation-policy' element={<CancellationPolicy />} />
 
-              <Route path='/terms-of-use' element={<TermsOfUse />} />
+                <Route path='/terms-of-use' element={<TermsOfUse />} />
 
-              <Route path='/shipping-policy' element={<ShippingPolicy />} />
+                <Route path='/shipping-policy' element={<ShippingPolicy />} />
 
-              {/* <Route path='*' element={<Error404Page />} /> */}
+                {/* <Route path='*' element={<Error404Page />} /> */}
 
-              <Route path='/counter-test-1' element={<IntersectionEx />} />
+                <Route path='/counter-test-1' element={<IntersectionEx />} />
 
-              <Route path='/test' element={<TestPage />} />
+                <Route path='/test' element={<TestPage />} />
 
-            </Route>
+              </Route>
 
-            <Route path='*' element={<Error404Page />} />
+              <Route path='*' element={<Error404Page />} />
 
-          </Routes>
+            </Routes>
 
-        </ShippingDetProvider>
+          </ShippingDetProvider>
 
-      </ProdProvider>
+        </ProdProvider>
+      </CartTotalProvider>
 
     </>
   )

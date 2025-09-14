@@ -3,6 +3,7 @@ import { useCart } from '../../../contexts/ProdProvider'
 import Button from '../../FormComp/Button'
 import { useShippingDetails } from '../../../contexts/ShippingDetProvider'
 import { useEffect, useState } from 'react'
+import { useCartTotal } from '../../../contexts/cartTotalProvider'
 
 const YourOrderComp = ({
     orderProcessLoader,
@@ -10,6 +11,8 @@ const YourOrderComp = ({
 }) => {
     let { cartProducts } = useCart();
     // console.log('cartProducts', cartProducts)
+
+    let { itemTotal, calculateTotal } = useCartTotal()
 
     let cartItemSubTotal = 0;
 
@@ -58,6 +61,13 @@ const YourOrderComp = ({
         setGstText(text);
     }, [cartItemTotal, states])
 
+
+    useEffect(() => {
+        calculateTotal(cartItemTotal)
+    }, [cartItemTotal])
+
+    // console.log('itemTotal inside yourOrderComp ', itemTotal, typeof itemTotal)
+
     return (
         <>
             <div className=' w-[50%] h-full bg-white rounded-[12px] flex flex-col justify-between ' >
@@ -81,12 +91,24 @@ const YourOrderComp = ({
 
                         <div className=" py-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <p className='  text-[22px]/[28px] w-[100%]  ' >Shipping Charges</p>
-                            <div className="shippingDetailsInfo flex flex-col gap-[6px] ">
-                                <p className='text-[18px]/[26px] ' >Flat Rate: &#8377;{shippingCharges}</p>
-                                <p className='text-[18px]/[26px] ' >
-                                    Shipping to {town_city}, {pincode}, {states}
-                                </p>
-                            </div>
+
+                            {
+                                town_city === undefined ||
+                                    town_city === '' ||
+                                    states === '' ||
+                                    states === undefined ||
+                                    pincode === 0 ||
+                                    pincode === '' ||
+                                    pincode === undefined
+                                    ? (<p  className='text-[18px]/[26px] ' >Add Shipping Details (City, Pincode, State) </p>)
+                                    : (<div className="shippingDetailsInfo flex flex-col gap-[6px] ">
+                                        <p className='text-[18px]/[26px] ' >Flat Rate: &#8377;{shippingCharges}</p>
+                                        <p className='text-[18px]/[26px] ' >
+                                            Shipping to {town_city}, {pincode}, {states}
+                                        </p>
+                                    </div>)
+                            }
+
 
                         </div>
 
