@@ -1,12 +1,12 @@
-import React from 'react'
 
 const SelectDropdown = ({
   label_text,
   html_for,
   id,
-  value,
+  // value="Maharashtra",
+  value="",
   onchange_func,
-  options_arr = []
+  options_arr = [],
 }) => {
   return (
     <>
@@ -20,7 +20,7 @@ const SelectDropdown = ({
         {
           options_arr.map((elem) => {
             // console.log('Main State', elem.name)
-            return <option key={elem.code} value={elem.name} >{elem.name}</option>
+            return <option  key={elem.code} value={elem.name} >{elem.name}</option>
           })
         }
       </select>

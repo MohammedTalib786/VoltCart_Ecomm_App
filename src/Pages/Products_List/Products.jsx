@@ -79,20 +79,22 @@ const Products = () => {
                                 : error ?
                                     (<p className="text-red-500">Something went wrong: {error.message}</p>) :
                                     (
-                                        prodData.filter(item => checkValue.length === 0 ? prodData : item.category === `${checkValue}`).map(elem => <ProductCard
-                                            urlToProd={elem.slug}
-                                            key={elem.id}
-                                            id={elem.id}
-                                            slug={elem.slug}
-                                            boxWidth={"lg:w-[30%] md:w-[46%]"}
-                                            name={elem.name}
-                                            price={elem.price.sale_price}
-                                            featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}
-                                            ImageGalleryFirst={!elem.img_gallery[1] || elem.img_gallery[1] == "empty" ? placeholderImg : elem.img_gallery[1]}
-                                            // ImageGalleryFirst={}
-                                            prodCat={elem.category}
-                                        />
-                                        )
+                                        prodData.filter(item => checkValue.length === 0
+                                            ? prodData
+                                            : item.category === `${checkValue}`).map(elem => <ProductCard
+                                                urlToProd={elem.slug}
+                                                key={elem.id}
+                                                id={elem.id}
+                                                slug={elem.slug}
+                                                boxWidth={"lg:w-[30%] md:w-[46%]"}
+                                                name={elem.name}
+                                                price={elem.price.sale_price}
+                                                featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}
+                                                ImageGalleryFirst={!elem.img_gallery[1] || elem.img_gallery[1] == "empty" ? placeholderImg : elem.img_gallery[1]}
+                                                // ImageGalleryFirst={}
+                                                prodCat={elem.category}
+                                            />
+                                            )
                                     )
                         }
                     </div>

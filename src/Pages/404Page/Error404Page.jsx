@@ -22,7 +22,7 @@ const Error404Page = () => {
                 className=' m-0 '
             >
                 <div className="h-screen w-full bg-gray-100 flex items-center">
-                    <div className="container flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
+                    <div className="flex mx-auto items-center justify-center px-5 text-gray-700">
                         <div className="max-w-md">
 
                             <div className="text-[60px]/[70px] font-light text-[var(--black-color)] mb-[12px] "><CountUp end={404} duration={1.5} /></div>

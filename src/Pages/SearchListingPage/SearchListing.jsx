@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import blogData from '../../../blogdata.json'
+// import blogData from '../../../blogdata.json'
 import useFetch from '../../hooks/useFetch';
 import SkeletonLoader from '../../components/Loader/SearchBoxSkeleton';
 import SearchBox from '../../components/SearchListing/SearchBox';
@@ -15,20 +15,20 @@ const SearchListing = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const query = queryParams.get('query');
-    // console.log('search main Query: ', query);
     let [loader, setLoader] = useState(true)
-
     let [results, setResults] = useState([]);
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
-    // will use the blog api as well ...Further
-    // (Currently its Dummy Data)
+    let blogsAPI = import.meta.env.VITE_BLOGS_API_KEY;
 
     let useProdList = useFetch(productsAPI);
+    let useBlogList = useFetch(blogsAPI);
     let prodData = useProdList.data;
+    let blogData = useBlogList.data;
 
     let blog_filtered = blogData.filter(elem => {
-        let blogTitle = elem.name.toLowerCase()
+        // console.log('Blogs Elem', elem)
+        let blogTitle = elem.blog_title.toLowerCase()
         let searchQuery = query.toLowerCase();
         return blogTitle.includes(searchQuery);
     })
@@ -47,11 +47,9 @@ const SearchListing = () => {
         setLoader(false)
     }, [query, prodData, blogData])
 
-
-    // console.log('Main Result for Query: Italian Pueblo', results);
+    // console.log('Results', results);
 
     return (
-
         <>
 
             {/* >>>>>>>>>>>>>> In Cont */}
@@ -69,22 +67,14 @@ const SearchListing = () => {
                             <SkeletonLoader /> :
                             results.length <= 0 ?
                                 <SearchBox name="No Results Found!" /> :
-                                results.map((elem, ind) => <SearchBox key={ind} name={elem.name} slug={elem.slug} />)
+                                results.map((elem, ind) => <SearchBox key={ind}
+                                    name={elem.name ? elem.name : elem.blog_title}
+                                    slug={elem.slug ? elem.slug : elem.blog_slug}
+                                    feat_img={elem.feat_img ? elem.feat_img : elem.blog_feat_img}
+                                    category={ elem.name ? 'Product': 'Blog' }
+                                    categoryURL={elem.name ? 'products': 'blogs'}
+                                />)
                     }
-
-
-                    {/* <div className="search_box bg-[#d9d9d9] rounded-[6px] w-full px-[30px] py-[20px] flex justify-start items-center " >
-                        <p>Hello</p>
-                    </div>
-                    <div className="search_box bg-[#d9d9d9] rounded-[6px] w-full px-[30px] py-[20px] flex justify-start items-center " >
-                        <p>Hello</p>
-                    </div>
-                    <div className="search_box bg-[#d9d9d9] rounded-[6px] w-full px-[30px] py-[20px] flex justify-start items-center " >
-                        <p>Hello</p>
-                    </div>
-                    <div className="search_box bg-[#d9d9d9] rounded-[6px] w-full px-[30px] py-[20px] flex justify-start items-center " >
-                        <p>Hello</p>
-                    </div> */}
 
                 </div>
 

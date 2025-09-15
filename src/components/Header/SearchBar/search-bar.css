@@ -3,6 +3,16 @@
     transition: all 0.9s ease-in-out;
 }
 
+
+.searchBarMainBox .search_btn,
+.searchBarMainBox .search_btn:hover {
+    box-shadow: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
 /*
 .searchBarMainBox {
 } */

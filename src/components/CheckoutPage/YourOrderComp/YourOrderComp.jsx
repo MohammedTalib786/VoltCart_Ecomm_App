@@ -7,23 +7,20 @@ import { useCartTotal } from '../../../contexts/cartTotalProvider'
 
 const YourOrderComp = ({
     orderProcessLoader,
-    isDisabled
+    isDisabled,
+    cartProducts,
+    cartItemSubTotal,
+    itemTotal,
+    calculateTotal,
+    shippingDetails,
+    shippingCharges,
+    setShippingCharges
+
 }) => {
-    let { cartProducts } = useCart();
-    // console.log('cartProducts', cartProducts)
 
-    let { itemTotal, calculateTotal } = useCartTotal()
-
-    let cartItemSubTotal = 0;
-
-    let { shippingDetails } = useShippingDetails();
     let [pincode, states, town_city] = [shippingDetails.pincode, shippingDetails.states, shippingDetails.town_city]
-
-    let [shippingCharges, setShippingCharges] = useState(55);
     let [cartItemTotal, setCartItemTotal] = useState(cartItemSubTotal);
-
     let [gstText, setGstText] = useState('')
-
     cartProducts.map(elem => cartItemSubTotal += (elem.price * elem.quantity))
 
     // >>>>>>>>>>>>>>>>>>>>>>>>> Set Shipping Charges
@@ -80,18 +77,19 @@ const YourOrderComp = ({
                         <div className=" py-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <div className="prods flex flex-col gap-[8px] ">
                                 {
-                                    cartProducts.map(elem => <p className=' text-[18px]/[26px]  ' key={elem.id} > <span className='text-primary ' ></span>&nbsp;{elem.name}<span className='font-[500] ' >&nbsp; x{elem.quantity}</span> </p>)
+                                    cartProducts.map(elem => <p className=' text-[18px]/[26px]  ' key={elem.id} >
+                                        <span className='text-primary ' >&#8377;{elem.price * elem.quantity}</span>&nbsp;{elem.name}<span className='font-[500] ' >&nbsp; x{elem.quantity}</span>
+                                    </p>)
                                 }
                             </div>
                             <p className=' text-[18px]/[26px] w-[100%]  ' >
                                 Subtotal: &nbsp;
-                                <span className='  text-[22px]/[28px] w-[100%] text-[var(--primary-color)] ' >&#8377;{cartItemSubTotal}</span>
+                                <span className=' text-[22px]/[28px] w-[100%] text-[var(--primary-color)] ' >&#8377;{cartItemSubTotal}</span>
                             </p>
                         </div>
 
                         <div className=" py-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <p className='  text-[22px]/[28px] w-[100%]  ' >Shipping Charges</p>
-
                             {
                                 town_city === undefined ||
                                     town_city === '' ||
@@ -100,7 +98,7 @@ const YourOrderComp = ({
                                     pincode === 0 ||
                                     pincode === '' ||
                                     pincode === undefined
-                                    ? (<p  className='text-[18px]/[26px] ' >Add Shipping Details (City, Pincode, State) </p>)
+                                    ? (<p className='text-[18px]/[26px] ' >Add Shipping Details (City, Pincode, State) </p>)
                                     : (<div className="shippingDetailsInfo flex flex-col gap-[6px] ">
                                         <p className='text-[18px]/[26px] ' >Flat Rate: &#8377;{shippingCharges}</p>
                                         <p className='text-[18px]/[26px] ' >
@@ -108,7 +106,6 @@ const YourOrderComp = ({
                                         </p>
                                     </div>)
                             }
-
 
                         </div>
 
@@ -127,7 +124,7 @@ const YourOrderComp = ({
                         <div className=" pb-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <p className='flex gap-[10px] ' >
                                 <input type="radio" checked name="" id="razorpay_checked" readOnly />
-                                <label htmlFor="razorpay_checked">Razorpay</label>
+                                <label className='text-[18px]/[26px]' htmlFor="razorpay_checked">Razorpay</label>
                             </p>
                         </div>
 

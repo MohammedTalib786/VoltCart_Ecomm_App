@@ -53,7 +53,7 @@ const Header = () => {
 
     const handlerSearchActive = () => {
         // setSearchBoxOpen(true)
-        console.log('searchBoxOpen', searchBoxOpen)
+        // console.log('searchBoxOpen', searchBoxOpen)
         if (searchBoxOpen.opacity === 0) {
             setSearchBoxOpen({
                 topVal: "top-[85px]",
@@ -132,7 +132,6 @@ const Header = () => {
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
                         {/* <MdOutlineShoppingCart className=' text-[24px]/[24px] text-para-black   ' /> */}
                         <MdOutlineShoppingCart className=' text-[24px]/[24px] text-[#393939]   ' />
-
                         {
                             cartProducts && cartProducts.length >= 1 ? <div className=" text-white bg-[var(--primary-color)] text-[13px]/[13px] rounded-[50%] w-[24px] h-[24px] p-0 flex justify-center items-center absolute top-[-14px] right-[-16px]    ">{mainCartItemLen}</div> : null
                         }
@@ -142,14 +141,8 @@ const Header = () => {
 
             </div>
 
-            {/* {
-                searchBoxOpen && <SearchBar />
-            } */}
 
             <SearchBar searchBoxOpen={searchBoxOpen} setSearchBoxOpen={setSearchBoxOpen} />
-
-
-
 
             {/* >>>>>>>>>>>>>>> Mobile Header */}
             <div className='mobile_header gt-tab:hidden flex py-[25px] items-center mx-auto tab:px-[30px] px-[20px] w-full ' >
@@ -165,17 +158,13 @@ const Header = () => {
 
                 </div>
 
-
                 {/* // Absolute Navbar */}
                 <motion.div
                     animate={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
                     className=" w-[70%] h-[100vh] z-[9999] bg-white  tab:left-[0px] flex  absolute top-0   flex-col justify-start gap-[50px] px-[30px] pt-[100px] pb-[30px]  "
                     transition={{ type: 'spring', stiffness: 300, damping: 35, }}
                     style={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
-
                 >
-
-                
 
                     <button
                         onClick={() => setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })}

@@ -1,31 +1,35 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from "react-router";
-import Layout from './components/Layout'
+import Lenis from 'lenis';
+
 import HomePage from './Pages/Home/HomePage'
 import AboutPage from './Pages/About/AboutPage'
 import BlogPage from './Pages/Blogs/BlogPage';
 import Error404Page from './Pages/404Page/Error404Page';
 import Products from './Pages/Products_List/Products';
 import CartPage from './Pages/Cart/CartPage';
-import { ProdProvider } from './contexts/ProdProvider';
-import { ShippingDetProvider } from './contexts/ShippingDetProvider';
 import ProductDetail from './Pages/Product_Detail/ProductDetail';
 import TestPage from './Pages/Test/TestPage';
 import Contact from './Pages/Contact/Contact';
 import CheckoutPage from './Pages/Checkout/CheckoutPage';
 import SearchListing from './Pages/SearchListingPage/SearchListing';
-import Lenis from 'lenis';
-import ScrollToTopFunc from './components/ScrollToTopFunc/ScrollToTopFunc';
 import IntersectionEx from './Pages/CounterTest/IntersectionEx';
-
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import CancellationPolicy from './Pages/CancellationPolicy/CancellationPolicy';
 import TermsOfUse from './Pages/TermsOfUse/TermsOfUse';
 import ShippingPolicy from './Pages/ShippingPolicy/ShippingPolicy';
 import SuccessPage from './Pages/SuccessPage/SuccessPage';
 import CancelPage from './Pages/CancelPage/CancelPage';
+
+import Layout from './components/Layout'
+import ScrollToTopFunc from './components/ScrollToTopFunc/ScrollToTopFunc';
 import Cursor from './components/Cursor/Cursor';
+
+import { ProdProvider } from './contexts/ProdProvider';
+import { ShippingDetProvider } from './contexts/ShippingDetProvider';
 import { CartTotalProvider } from './contexts/cartTotalProvider'
+import { OrderProvider } from './contexts/orderItemsProvider';
+
 
 const App = () => {
 
@@ -41,16 +45,53 @@ const App = () => {
     // }
   ])
 
-  const [itemTotal, setItemTotal] = useState({
-    total: 0
-  })
+  let [orderItems, setOrderItems] = useState([
+    {
+      name: "Talib",
+      email_id: "shaikhtalib2705@gmail.com",
+      phone: "8787878787",
+      town_city: "Mumbai",
+      state: "Maharashtra",
+      pincode: 400070,
+      date: "05 May 2025",
+      prod_arr: ["SHADOW 5000mAh MagSafe Power Bank", "SHADOW 5000mAh MagSafe Power Bank"],
+      price: [500, 400],
+      quantity: [5, 2],
+      shipping_rate: 55,
+      total: 1200
+    }
+  ])
 
-  const calculateTotal = (amt) => {
-    setItemTotal({total: amt})
+
+
+  const addOrderItems = ({
+    name, email_id, phone, town_city, state, pincode,date, prod_arr, price, quantity, shipping_rate, total
+  }) => {
+    setOrderItems([
+      ...orderItems, {
+        name: name,
+        email_id: email_id,
+        phone: phone,
+        town_city: town_city,
+        state: state,
+        pincode: pincode,
+        date: date,
+        prod_arr: prod_arr,
+        price: price,
+        quantity: quantity,
+        shipping_rate: shipping_rate,
+        total: total
+      }
+    ])
   }
 
-  console.log('itemTotal', itemTotal, typeof itemTotal  )
 
+  
+  const [itemTotal, setItemTotal] = useState({ total: 0 })
+
+  const calculateTotal = (amt) => setItemTotal({ total: amt })
+
+  // console.log('itemTotal', itemTotal, typeof itemTotal)
 
   let [shippingDetails, setShippingDetails] = useState({
     first_name: "",
@@ -78,22 +119,24 @@ const App = () => {
 
   // >>>>>>>>>>>>>> Get Cart Items from Local Storage
   useEffect(() => {
-
     let getCartItems = JSON.parse(localStorage.getItem("cartItems"))
     setCartProducts(getCartItems || []);
     setLoadingCart(false)
-
   }, [])
 
 
   // >>>>>>>>>>>>>> Get Shipping Details from Local Storage
   useEffect(() => {
-
     let getShippingDetails = JSON.parse(localStorage.getItem("shippingDetails"))
     setShippingDetails(getShippingDetails || {});
-
   }, [])
 
+
+  // >>>>>>>>>>>>>> Get Order Items from Local Storage
+  useEffect(() => {
+    let getOrderItems = JSON.parse(localStorage.getItem("orderItems"))
+    setOrderItems(getOrderItems || []);
+  }, [])
 
 
   // >>>>>>>>>>>>>> Set Cart Item
@@ -108,10 +151,14 @@ const App = () => {
   }, [shippingDetails])
 
 
+  // >>>>>>>>>>>>>> Set Order Items
+  useEffect(() => {
+    localStorage.setItem("orderItems", JSON.stringify(orderItems));
+  }, [orderItems])
 
 
   const addToCartFunc = (cartItem) => {
-    // console.log('Added To CaRT')
+    // console.log('Added To Cart')
     setCartProducts((prevItem) => {
       let existingItem = prevItem.find((elem) => elem.id === cartItem.id)
       // console.log('existingItem', existingItem)
@@ -176,67 +223,73 @@ const App = () => {
     <>
 
       {/* <Cursor /> */}
-      <CartTotalProvider value={{ itemTotal, calculateTotal }}  >
 
-        <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
+      <OrderProvider value={{ orderItems, addOrderItems }} >
 
-          <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
+        <CartTotalProvider value={{ itemTotal, calculateTotal }}  >
 
-            <ScrollToTopFunc />
+          <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
 
-            <Routes>
+            <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
 
-              <Route path='/' element={<Layout />}  >
+              <ScrollToTopFunc />
 
-                <Route index element={<HomePage />} />
+              <Routes>
 
-                <Route path='/about-us' element={<AboutPage />} />
+                <Route path='/' element={<Layout />}  >
 
-                <Route path='/contact' element={<Contact />} />
+                  <Route index element={<HomePage />} />
 
-                <Route path='/search-listing' element={<SearchListing />} />
+                  <Route path='/about-us' element={<AboutPage />} />
 
-                <Route path='/blogs' element={<BlogPage />} />
+                  <Route path='/contact' element={<Contact />} />
 
-                <Route path='/products' element={<Products />} />
+                  <Route path='/search-listing' element={<SearchListing />} />
 
-                <Route path='/products/:slug' element={<ProductDetail />} />
+                  <Route path='/blogs' element={<BlogPage />} />
 
-                <Route path='/cart' element={<CartPage />} />
+                  <Route path='/products' element={<Products />} />
 
-                <Route path='/checkout' element={<CheckoutPage />} />
+                  <Route path='/products/:slug' element={<ProductDetail />} />
 
-                <Route path='/order-successful' element={<SuccessPage />} />
+                  <Route path='/cart' element={<CartPage />} />
 
-                <Route path='/order-cancel' element={<CancelPage />} />
+                  <Route path='/checkout' element={<CheckoutPage />} />
+
+                  <Route path='/order-successful' element={<SuccessPage />} />
+
+                  <Route path='/order-cancel' element={<CancelPage />} />
 
 
-                {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
+                  {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
 
-                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                  <Route path='/privacy-policy' element={<PrivacyPolicy />} />
 
-                <Route path='/cancellation-policy' element={<CancellationPolicy />} />
+                  <Route path='/cancellation-policy' element={<CancellationPolicy />} />
 
-                <Route path='/terms-of-use' element={<TermsOfUse />} />
+                  <Route path='/terms-of-use' element={<TermsOfUse />} />
 
-                <Route path='/shipping-policy' element={<ShippingPolicy />} />
+                  <Route path='/shipping-policy' element={<ShippingPolicy />} />
 
-                {/* <Route path='*' element={<Error404Page />} /> */}
+                  {/* <Route path='*' element={<Error404Page />} /> */}
 
-                <Route path='/counter-test-1' element={<IntersectionEx />} />
+                  <Route path='/counter-test-1' element={<IntersectionEx />} />
 
-                <Route path='/test' element={<TestPage />} />
+                  <Route path='/test' element={<TestPage />} />
 
-              </Route>
+                </Route>
 
-              <Route path='*' element={<Error404Page />} />
+                <Route path='*' element={<Error404Page />} />
 
-            </Routes>
+              </Routes>
 
-          </ShippingDetProvider>
+            </ShippingDetProvider>
 
-        </ProdProvider>
-      </CartTotalProvider>
+          </ProdProvider>
+
+        </CartTotalProvider>
+
+      </OrderProvider>
 
     </>
   )

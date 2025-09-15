@@ -7,22 +7,31 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { loadRazorpayScript } from '../../utils/loadRazorpay';
 import CheckoutPageSpotlight from '../../components/CheckoutPage/CheckoutPageSpotlight';
 import { useCartTotal } from '../../contexts/cartTotalProvider';
+import { useOrder } from '../../contexts/orderItemsProvider';
+import { useShippingDetails } from '../../contexts/ShippingDetProvider';
 
 const CheckoutPage = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Checkout - VoltCart');
 
+    let navigate = useNavigate();
+
+    let cartItemSubTotal = 0;
     const [orderProcessLoader, setOrderProcessLoader] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false)
     let { cartProducts, loadingCart } = useCart()
-    let navigate = useNavigate();
-    let { itemTotal } = useCartTotal()
+    let { itemTotal, calculateTotal } = useCartTotal()
+    let { shippingDetails } = useShippingDetails();
+    let [shippingCharges, setShippingCharges] = useState(55);
+    let { orderItems, addOrderItems } = useOrder()
 
-    // console.log('item total inside checkout page', itemTotal)
+    let date = `${new Date().getDate()} ${new Date().getMonth()} ${new Date().getFullYear()}`;
 
     // useEffect(() => {
     //     console.log('cartProducts', cartProducts)
-    // }, [])
+    //     console.log('cartProducts Slice', cartProducts.slice(-1))
+    // }, [cartProducts])
+
 
     useEffect(() => {
         if (!loadingCart && cartProducts.length === 0) navigate('/cart');
@@ -52,6 +61,7 @@ const CheckoutPage = () => {
     const phoneNumberRegex = /^\d{10}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
     // >>>>>>>>>>>>>>>>>>>>> Form Validation
     const handlerPlaceOrder = async (e) => {
         e.preventDefault();
@@ -61,12 +71,12 @@ const CheckoutPage = () => {
 
         try {
             // 1️⃣ Ensure Razorpay SDK is loaded
-            const scriptLoaded = await loadRazorpayScript("https://checkout.razorpay.com/v1/checkout.js");
+            // const scriptLoaded = await loadRazorpayScript("https://checkout.razorpay.com/v1/checkout.js");
 
-            if (!scriptLoaded) {
-                alert("Failed to load Razorpay SDK. Please check your internet connection.");
-                return;
-            }
+            // if (!scriptLoaded) {
+            //     alert("Failed to load Razorpay SDK. Please check your internet connection.");
+            //     return;
+            // }
 
             if (formData.first_name === '' || !formData.first_name) {
                 console.log('first_name inp cant be empty!')
@@ -126,81 +136,98 @@ const CheckoutPage = () => {
             else {
                 setOrderProcessLoader(true);
                 setIsDisabled(true)
-                console.log('formData.first_name', formData.first_name)
-                console.log('formData.last_name', formData.last_name)
-                console.log('formData.phone_number', formData.phone_number)
-                console.log('formData.email_address', formData.email_address)
-                console.log('formData.pincodeInp', formData.pincodeInp)
-                console.log('formData.stateInp', formData.stateInp)
-                console.log('formData.street_address', formData.street_address)
-                console.log('formData.town_cityInp', formData.town_cityInp)
+                // console.log('formData.first_name', formData.first_name)
+                // console.log('formData.last_name', formData.last_name)
+                // console.log('formData.phone_number', formData.phone_number)
+                // console.log('formData.email_address', formData.email_address)
+                // console.log('formData.pincodeInp', formData.pincodeInp)
+                // console.log('formData.stateInp', formData.stateInp)
+                // console.log('formData.street_address', formData.street_address)
+                // console.log('formData.town_cityInp', formData.town_cityInp)
+
+                console.log('cartProducts checkout', cartProducts)
+
+                addOrderItems({
+                    name: `${formData.first_name} ${formData.last_name}`,
+                    email_id: formData.email_address,
+                    phone: formData.phone_number,
+                    town_city: formData.town_cityInp,
+                    state: formData.stateInp,
+                    pincode: formData.pincodeInp,
+                    date: date,
+                    prod_arr: cartProducts.map(elem => elem.name),
+                    price: cartProducts.map(elem => elem.price),
+                    quantity: cartProducts.map(elem => elem.quantity),
+                    shipping_rate: shippingCharges,
+                    total: itemTotal.total
+                })
 
                 // // const items = [
                 // //     { name: 'T-shirt', quantity: 2, price: 300 },
                 // //     { name: 'Shoes', quantity: 1, price: 1200 },
                 // // ];
 
-                const items = cartProducts;
-                const totalAmt = itemTotal.total
-                const name = `${formData.first_name} ${formData.last_name}`;
+                // const items = cartProducts;
+                // const totalAmt = itemTotal.total
+                // const name = `${formData.first_name} ${formData.last_name}`;
 
-                const res = await fetch(import.meta.env.VITE_BACKEND_RAZORPAY_FETCH_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ items, name, totalAmt }),
-                });
+                // const res = await fetch(import.meta.env.VITE_BACKEND_RAZORPAY_FETCH_URL, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify({ items, name, totalAmt }),
+                // });
 
-                const data = await res.json();
+                // const data = await res.json();
 
-                if (!data.orderId) return alert('Failed to create order');
-                if (!data.orderId) {
-                    console.log('No orderId received:', data);
-                    return alert('Failed to create order');
-                }
+                // if (!data.orderId) return alert('Failed to create order');
+                // if (!data.orderId) {
+                //     console.log('No orderId received:', data);
+                //     return alert('Failed to create order');
+                // }
 
-                const options = {
-                    key: import.meta.env.VITE_RAZORPAY_KEY_ID, // NOT the secret
-                    amount: data.amount,
-                    currency: data.currency,
-                    name: 'VoltCart',
-                    description: 'Order Payment for VoltCart',
-                    order_id: data.orderId,
-                    handler: function (response) {
-                        // Redirect after payment success
-                        // window.location.href = `/success?payment_id=${response.razorpay_payment_id}`;
-                        window.location.href = `/order-successful?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}`;
-                    },
-                    prefill: {
-                        // name: data.name,
-                        name: formData.first_name,
-                        email: formData.email_address,
-                        contact: formData.phone_number,
-                    },
-                    theme: {
-                        color: '#3399cc',
-                    },
-                    modal: {
-                        ondismiss: function () {
-                            window.location.href = '/order-cancel';
-                        },
-                    },
-                };
+                // const options = {
+                //     key: import.meta.env.VITE_RAZORPAY_KEY_ID, // NOT the secret
+                //     amount: data.amount,
+                //     currency: data.currency,
+                //     name: 'VoltCart',
+                //     description: 'Order Payment for VoltCart',
+                //     order_id: data.orderId,
+                //     handler: function (response) {
+                //         // Redirect after payment success
+                //         // window.location.href = `/success?payment_id=${response.razorpay_payment_id}`;
+                //         window.location.href = `/order-successful?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}`;
+                //     },
+                //     prefill: {
+                //         // name: data.name,
+                //         name: formData.first_name,
+                //         email: formData.email_address,
+                //         contact: formData.phone_number,
+                //     },
+                //     theme: {
+                //         color: '#3399cc',
+                //     },
+                //     modal: {
+                //         ondismiss: function () {
+                //             window.location.href = '/order-cancel';
+                //         },
+                //     },
+                // };
 
-                const rzp = new window.Razorpay(options);
-                rzp.open();
+                // const rzp = new window.Razorpay(options);
+                // rzp.open();
 
-                setFormData({
-                    first_name: "",
-                    last_name: "",
-                    street_address: "",
-                    town_cityInp: "",
-                    pincodeInp: Number(""),
-                    stateInp: "Maharashtra",
-                    phone_number: Number(""),
-                    email_address: ""
-                })
+                // setFormData({
+                //     first_name: "",
+                //     last_name: "",
+                //     street_address: "",
+                //     town_cityInp: "",
+                //     pincodeInp: Number(""),
+                //     stateInp: "Maharashtra",
+                //     phone_number: Number(""),
+                //     email_address: ""
+                // })
 
                 return true;
 
@@ -216,6 +243,34 @@ const CheckoutPage = () => {
         }
     }
 
+
+
+    console.log('orderItems checkout', orderItems)
+    console.log("Main Final Order", orderItems.slice(-1))
+
+
+
+    // useEffect(() => {
+    //     cartProducts.map((elem) => {
+    //         console.log('elem', elem)
+    //         addOrderItems({
+    //             name: formData.first_name,
+    //             email_id: formData.email_address,
+    //             phone: formData.phone_number,
+    //             town_city: formData.town_cityInp,
+    //             state: formData.stateInp,
+    //             pincode: formData.pincodeInp,
+    //             prod_name: elem.name,
+    //             feat_img: elem.feat_img,
+    //             price: elem.price,
+    //             quantity: elem.quantity,
+    //             subtotal: 'subtotal',
+    //             shipping_rate: 'shipping_rate',
+    //             total: itemTotal.total,
+    //         })
+    //     })
+
+    // }, [cartProducts ])
 
     return (
 
@@ -236,7 +291,18 @@ const CheckoutPage = () => {
                                 <BillingForm errorMsg={errorMsg} formData={formData} setFormData={setFormData} />
                             </div>
 
-                            <YourOrderComp isDisabled={isDisabled} orderProcessLoader={orderProcessLoader} />
+                            <YourOrderComp
+                                cartProducts={cartProducts}
+                                cartItemSubTotal={cartItemSubTotal}
+                                itemTotal={itemTotal}
+                                calculateTotal={calculateTotal}
+                                shippingDetails={shippingDetails}
+                                shippingCharges={shippingCharges}
+                                setShippingCharges={setShippingCharges}
+                                isDisabled={isDisabled}
+                                orderProcessLoader={orderProcessLoader}
+                            />
+
                         </div>
                     </form>
                 </div>

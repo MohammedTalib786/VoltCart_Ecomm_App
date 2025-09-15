@@ -92,18 +92,18 @@ const ProductCard = ({
                                     text="Add to Cart"
                                     handlerClickBtnComp={handlerAddToCart}
                                     // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
-                                    bgClr="bg-black "
-                                    borderClr="bg-black"
-                                    additionalClass="add_to_cart_btn w-[85%] font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black "
+                                    // bgClr="bg-black "
+                                    // borderClr="bg-black"
+                                    additionalClass="add_to_cart_btn w-full font-poppins font-[500] text-[16px]/[24px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
                                 />) :
 
                                 (<Button
                                     text="View Cart"
                                     handlerClickBtnComp={handlerViewCart}
                                     // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
-                                    bgClr="bg-black "
-                                    borderClr="bg-black"
-                                    additionalClass=" view_cart_btn add_to_cart_btn underline w-[85%] font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black "
+                                    // bgClr="bg-black "
+                                    // borderClr="bg-black"
+                                    additionalClass=" view_cart_btn add_to_cart_btn underline w-full font-poppins font-[500] text-[16px]/[24px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
                                 />)
                         }
                     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useCart } from '../../../../contexts/ProdProvider';
 import ShippingForm from '../../ShippingComp/ShippingForm';
 import './orderSummary.css'
@@ -29,14 +29,13 @@ const OrderSummary = () => {
 
     cartProducts.map(elem => cartItemSubTotal += (elem.price * elem.quantity))
 
-
     // >>>>>>>>>>>>>>>>>>>>>>>>> Update Text of Shipping DropDown
     useEffect(() => {
         if (town_city === undefined || town_city === '' || states === '' || states === undefined || pincode === 0 || pincode === '' || pincode === undefined) setShippingMsgText('Calculate Shipping');
         else setShippingMsgText('Update Shipping Details');
     }, [shippingDetails])
 
-
+    // console.log('shippingDetails', shippingDetails)
 
     // >>>>>>>>>>>>>>>>>>>>>>>>> Set Shipping Charges
     useEffect(() => {
@@ -54,16 +53,21 @@ const OrderSummary = () => {
 
     useEffect(() => {
         // if (town_city !== '' || pincode !== 0 || pincode !== '' ) {
-        if (town_city === undefined || town_city === '' || states === '' || states === undefined || pincode === 0 || pincode === '' || pincode === undefined) {
+        if (town_city === undefined
+            || town_city === ''
+            || states === ''
+            || states === undefined
+            || pincode === 0
+            || pincode === ''
+            || pincode === undefined) {
             setCartItemTotal(cartItemSubTotal)
         }
+
         else {
             setCartItemTotal(cartItemSubTotal + shippingCharges)
         }
         // cartItemTotal
     }, [shippingDetails, cartItemSubTotal, shippingCharges])
-
-
 
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>> GST Logic
@@ -110,7 +114,7 @@ const OrderSummary = () => {
 
                     {/* >>>>>>>>>>>>>>>> Shipping Info Message Comp */}
                     {
-                        town_city &&
+                        town_city && states && states &&
                         <div className="shippingDetailsInfo py-[8px] flex flex-col gap-[6px] ">
                             <p>Flat Rate: &#8377;{shippingCharges}</p>
                             <p>

@@ -7,6 +7,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle'
 import spotlightImg from '../../assets/about-page/revised-img/about_spotlight.jpg'
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
 import CartSpotlight from '../../components/CartPage/CartSpotlight'
+import { useOrder } from '../../contexts/orderItemsProvider'
 
 const Cart = () => {
 
@@ -14,6 +15,12 @@ const Cart = () => {
     useDocumentTitle('Cart - VoltCart');
 
     let { cartProducts } = useCart();
+
+    // let { orderItems, addOrderItems } = useOrder();
+
+    // console.log('cartProducts ', cartProducts)
+
+    
 
     return (
 
