@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './productCard.css'
-
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../../contexts/ProdProvider'
 import placeholderImg from '../../assets/placeholder_img.png'
 import Button from '../FormComp/Button'
+import { BsCart2 } from "react-icons/bs";
 
 const ProductCard = ({
     id,
@@ -48,7 +48,8 @@ const ProductCard = ({
 
     return (
         <>
-            <div className={`prod_card flex flex-col gap-[12px] p-[20px] cursor-pointer ${boxWidth} bg-[#eeeeee] rounded-[9px] overflow-hidden `}
+            <div
+                className={`prod_card flex flex-col gap-[12px] p-[15px] cursor-pointer ${boxWidth} bg-[#eeeeee] rounded-[9px] overflow-hidden `}
             >
                 <Link to={`/products/${urlToProd}`} >
 
@@ -61,7 +62,7 @@ const ProductCard = ({
                         /> */}
 
                         {/* Crossfade that doesn't collapse layout */}
-                        <div className="image-wrapper">
+                        <div className="image-wrapper relative ">
                             {/* Base image in normal flow (defines height) */}
                             <img
                                 src={featImg}
@@ -74,38 +75,44 @@ const ProductCard = ({
                                 alt="prod-img-hover"
                                 loading="lazy"
                             />
+
+                            <span className='absolute bottom-[10px] left-[10px] bg-[#0d6efdb5] px-[12px] py-[8px] rounded-[6px] text-white text-[12px]/[14px] ' >Save 10%</span>
+
                         </div>
 
-                        <div className="texts flex flex-col text-center items-center w-[100%] lg:my-[14px] my-[10px]">
-                            <p className='font-[montserrat] font-[500] text-[#00000087] text-[10px] w-fit px-[10px] py-[04px] bg-[#E3F0FF] rounded-[12px] mb-[10px]' >{prodCat}</p>
-                            {/* <button className='font-[montserrat] font-[500] text-[#00000087] text-[10px] w-fit px-[10px] py-[04px] bg-[#E3F0FF] rounded-[12px] my-[10px]' >{prodCat}</button> */}
-                            <h3 className='font-[inter] font-[500] lg:text-[16px]/[20px] text-[14px]/[20px] w-[100%] capitalize ' >{name}</h3>
+                        <div className="texts flex flex-col text-center w-[100%] mt-[20px] mb-[15px] ">
+                            <h3 className='font-montserrat font-[500] text-[16px]/[22px] w-[100%] text-left mb-[10px] ' >{name}</h3>
+                            <p className='font-poppins font-[500] text-[#3d3d3d] text-left uppercase text-[12px]/[20px]  rounded-[12px] ' >{prodCat}</p>
                         </div>
 
-                        <p className='font-[inter] font-[600] text-center lg:text-[24px] text-[20px] w-[100%]'  > &#8377; {price} </p>
+                        <div className="flex w-full justify-between items-center  " >
 
-                        {/* <button className=' add_to_cart_btn font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[20px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer' >Add to Cart Old</button> */}
-                        {
-                            btnElement === "addToCart" ?
+                             <p className='font-poppins text-left font-[600] text-[22px]/[28px] w-[50%] '  > &#8377; {price}</p>
 
-                                (<Button
-                                    text="Add to Cart"
-                                    handlerClickBtnComp={handlerAddToCart}
-                                    // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
-                                    // bgClr="bg-black "
-                                    // borderClr="bg-black"
-                                    additionalClass="add_to_cart_btn w-full font-poppins font-[500] text-[16px]/[24px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
-                                />) :
+                            {/* <button className=' add_to_cart_btn font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[20px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer' >Add to Cart Old</button> */}
+                            {
+                                btnElement === "addToCart" ?
 
-                                (<Button
-                                    text="View Cart"
-                                    handlerClickBtnComp={handlerViewCart}
-                                    // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
-                                    // bgClr="bg-black "
-                                    // borderClr="bg-black"
-                                    additionalClass=" view_cart_btn add_to_cart_btn underline w-full font-poppins font-[500] text-[16px]/[24px] mt-[10px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
-                                />)
-                        }
+                                    (<Button
+                                        text="Add to Cart"
+                                        handlerClickBtnComp={handlerAddToCart}
+                                        btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />} 
+                                        // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
+                                        // bgClr="bg-black "
+                                        // borderClr="bg-black"
+                                        additionalClass="add_to_cart_btn w-full font-poppins font-[500] text-[16px]/[24px]  uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
+                                    />) :
+
+                                    (<Button
+                                        text="View Cart"
+                                        handlerClickBtnComp={handlerViewCart}
+                                        // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
+                                        // bgClr="bg-black "
+                                        // borderClr="bg-black"
+                                        additionalClass=" view_cart_btn add_to_cart_btn underline w-full font-poppins font-[500] text-[16px]/[24px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
+                                    />)
+                            }
+                        </div>
                     </div>
 
                 </Link>

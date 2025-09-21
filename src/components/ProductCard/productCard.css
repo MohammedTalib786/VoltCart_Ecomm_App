@@ -2,7 +2,15 @@
 .prod_card,
 .prod_card:hover {
     transition: all .25s ease-in-out;
-    box-shadow: -3px 6px 22px 0px #d5d5d5;
+}
+
+.prod_card {
+    /* box-shadow: -3px 6px 22px 0px #d5d5d5; */
+    background-color: white;
+}
+
+.prod_card:hover {
+    transform: translate(0px, -3px);
 }
 
 .prod_card img,

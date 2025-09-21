@@ -33,10 +33,10 @@ const About = () => {
 
       <AboutIntro />
 
-      <AboutJoinUs/>
+      <AboutJoinUs />
 
-      <AboutVissionMission/>
-      
+      <AboutVissionMission />
+
 
       {/* counter */}
       {/* <div className="w-[100%] flex flex-row flex-wrap border-1 border-[#e5e7eb]">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 
-
 const useFetch = (fetchURL) => {
     let [loader, setLoader] = useState(true);
     let [data, setData] = useState([])
@@ -15,16 +14,11 @@ const useFetch = (fetchURL) => {
                 setData(res)
                 setLoader(false);
             }
-
             fetchingData();
-            // console.log('inside custom hook | Data', data)
-
         }
         catch (err) {
             setError(err.message)
-            // console.log('inside custom hook | Error msg', err.message)
         }
-
     }, [fetchURL])
 
     return { data, loader, error }

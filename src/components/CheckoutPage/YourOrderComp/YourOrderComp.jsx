@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useCart } from '../../../contexts/ProdProvider'
 import Button from '../../FormComp/Button'
-import { useShippingDetails } from '../../../contexts/ShippingDetProvider'
 import { useEffect, useState } from 'react'
-import { useCartTotal } from '../../../contexts/cartTotalProvider'
 
 const YourOrderComp = ({
     orderProcessLoader,
@@ -15,7 +12,6 @@ const YourOrderComp = ({
     shippingDetails,
     shippingCharges,
     setShippingCharges
-
 }) => {
 
     let [pincode, states, town_city] = [shippingDetails.pincode, shippingDetails.states, shippingDetails.town_city]
@@ -57,7 +53,6 @@ const YourOrderComp = ({
         else text = `(includes <span className='text-[22px]/[28px] w-[100%] text-[var(--primary-color)] ' >₹${gstCalc.toFixed(2)}</span> IGST)`;
         setGstText(text);
     }, [cartItemTotal, states])
-
 
     useEffect(() => {
         calculateTotal(cartItemTotal)
@@ -106,7 +101,6 @@ const YourOrderComp = ({
                                         </p>
                                     </div>)
                             }
-
                         </div>
 
                         <div className=" py-[20px] px-[10px] flex flex-col gap-[15px] ">

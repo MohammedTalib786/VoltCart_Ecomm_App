@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-// import blogData from '../../../blogdata.json'
 import useFetch from '../../hooks/useFetch';
 import SkeletonLoader from '../../components/Loader/SearchBoxSkeleton';
 import SearchBox from '../../components/SearchListing/SearchBox';
@@ -8,74 +6,47 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 
 const SearchListing = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Search - VoltCart');
 
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const query = queryParams.get('query');
-    let [loader, setLoader] = useState(true)
-    let [results, setResults] = useState([]);
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
     let blogsAPI = import.meta.env.VITE_BLOGS_API_KEY;
 
-    let useProdList = useFetch(productsAPI);
-    let useBlogList = useFetch(blogsAPI);
-    let prodData = useProdList.data;
-    let blogData = useBlogList.data;
+    const { data: prodData, loader: prodLoading } = useFetch(productsAPI);
+    const { data: blogData, loader: blogLoading } = useFetch(blogsAPI);
 
-    let blog_filtered = blogData.filter(elem => {
-        // console.log('Blogs Elem', elem)
-        let blogTitle = elem.blog_title.toLowerCase()
-        let searchQuery = query.toLowerCase();
-        return blogTitle.includes(searchQuery);
-    })
-    // console.log('blog_filtered', blog_filtered)
+    const isLoader = prodLoading || blogLoading;
 
-    let prod_filtered = prodData.filter(elem => {
-        let prodTitle = elem.name.toLowerCase()
-        let searchQuery = query.toLowerCase();
-        return prodTitle.includes(searchQuery);
-    })
-    // console.log('prod_filtered', prod_filtered)
+    const blog_filtered = (blogData || []).filter(elem => elem.blog_title.toLowerCase().includes(query.toLowerCase()))
+    const prod_filtered = (prodData || []).filter(elem => elem.name.toLowerCase().includes(query.toLowerCase()))
 
-    useEffect(() => {
-        setLoader(true)
-        setResults([...prod_filtered, ...blog_filtered])
-        setLoader(false)
-    }, [query, prodData, blogData])
-
-    // console.log('Results', results);
+    const results = [...prod_filtered, ...blog_filtered];
 
     return (
         <>
-
             {/* >>>>>>>>>>>>>> In Cont */}
-            <div className="container_layout mx-auto flex justify-center items-start flex-col gap-[15px] w-full " >
+            <div className="container_layout min-h-[90vh] mx-auto flex justify-start items-start flex-col gap-[15px] w-full " >
                 <h2 className='pt-[50px] pb-[5px] text-[22px]/[28px] ' >{results.length <= 0 ? "" : `Search Results for: "${query}"`}</h2>
 
                 <div className="search_box_cont w-full flex flex-col gap-[20px] pb-[50px] " >
-
-                    {/* {
-                        loader ? <SkeletonLoader /> : results.map(elem => <SearchBox name={elem.name} />)
-                    } */}
-
                     {
-                        loader ?
+                        isLoader ?
                             <SkeletonLoader /> :
                             results.length <= 0 ?
-                                <SearchBox name="No Results Found!" /> :
-                                results.map((elem, ind) => <SearchBox key={ind}
+                                <SearchBox isDisabled={true} categoryURL="" slug="" name="No Results Found!" /> :
+                                results.map((elem, ind) => <SearchBox
+                                    key={ind} isDisabled={false}
                                     name={elem.name ? elem.name : elem.blog_title}
                                     slug={elem.slug ? elem.slug : elem.blog_slug}
                                     feat_img={elem.feat_img ? elem.feat_img : elem.blog_feat_img}
-                                    category={ elem.name ? 'Product': 'Blog' }
-                                    categoryURL={elem.name ? 'products': 'blogs'}
+                                    category={elem.name ? 'Product' : 'Blog'}
+                                    categoryURL={elem.name ? 'products' : 'blogs'}
                                 />)
                     }
-
                 </div>
 
             </div>

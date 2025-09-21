@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from "react-router";
 import Lenis from 'lenis';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
 import HomePage from './Pages/Home/HomePage'
 import AboutPage from './Pages/About/AboutPage'
@@ -34,6 +36,7 @@ import { OrderProvider } from './contexts/orderItemsProvider';
 const App = () => {
 
   const [loadingCart, setLoadingCart] = useState(true);
+  const [loadingOrder, setLoadingOrder] = useState(true);
   let [cartProducts, setCartProducts] = useState([
     // {
     //   id: 1,
@@ -46,26 +49,25 @@ const App = () => {
   ])
 
   let [orderItems, setOrderItems] = useState([
-    {
-      name: "Talib",
-      email_id: "shaikhtalib2705@gmail.com",
-      phone: "8787878787",
-      town_city: "Mumbai",
-      state: "Maharashtra",
-      pincode: 400070,
-      date: "05 May 2025",
-      prod_arr: ["SHADOW 5000mAh MagSafe Power Bank", "SHADOW 5000mAh MagSafe Power Bank"],
-      price: [500, 400],
-      quantity: [5, 2],
-      shipping_rate: 55,
-      total: 1200
-    }
+    // {
+    //   name: "Talib",
+    //   email_id: "shaikhtalib2705@gmail.com",
+    //   phone: "8787878787",
+    //   town_city: "Mumbai",
+    //   state: "Maharashtra",
+    //   pincode: 400070,
+    //   date: "05 May 2025",
+    //   prod_arr: ["SHADOW 5000mAh MagSafe Power Bank", "SHADOW 5000mAh MagSafe Power Bank"],
+    //   price: [500, 400],
+    //   quantity: [5, 2],
+    //   shipping_rate: 55,
+    //   total: 1200
+    // }
   ])
 
 
-
   const addOrderItems = ({
-    name, email_id, phone, town_city, state, pincode,date, prod_arr, price, quantity, shipping_rate, total
+    name, email_id, phone, town_city, state, pincode, date, prod_arr, price, quantity, shipping_rate, total
   }) => {
     setOrderItems([
       ...orderItems, {
@@ -86,7 +88,7 @@ const App = () => {
   }
 
 
-  
+
   const [itemTotal, setItemTotal] = useState({ total: 0 })
 
   const calculateTotal = (amt) => setItemTotal({ total: amt })
@@ -136,6 +138,7 @@ const App = () => {
   useEffect(() => {
     let getOrderItems = JSON.parse(localStorage.getItem("orderItems"))
     setOrderItems(getOrderItems || []);
+    setLoadingOrder(false)
   }, [])
 
 
@@ -171,6 +174,10 @@ const App = () => {
 
     })
     // console.log(cartItem)
+  }
+
+  const clearCartFunc = () => {
+    setCartProducts([])
   }
 
 
@@ -217,6 +224,19 @@ const App = () => {
 
   // >>>>>>>>>>>>>>>>>>> ENDS Initialize LENIS
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (in milliseconds)
+      disable: function () {
+        var maxWidth = 768; // Adjust this value as needed for your mobile breakpoint
+        return window.innerWidth < maxWidth;
+      }
+      // easing: 'ease-in-out',
+      // delay: 1000,
+      // Other configuration options can be added here
+    });
+  }, []); // Empty dependency array ensures it runs only once
+
 
 
   return (
@@ -224,11 +244,11 @@ const App = () => {
 
       {/* <Cursor /> */}
 
-      <OrderProvider value={{ orderItems, addOrderItems }} >
+      <OrderProvider value={{ orderItems, loadingOrder, addOrderItems }} >
 
         <CartTotalProvider value={{ itemTotal, calculateTotal }}  >
 
-          <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc }} >
+          <ProdProvider value={{ cartProducts, loadingCart, addToCartFunc, changeQuantityFunc, removeFromCartFunc, clearCartFunc }} >
 
             <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
 
