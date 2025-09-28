@@ -41,6 +41,8 @@ const Header = () => {
     useMotionValueEvent(scrollY, 'change', (event) => event > 10 ? setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" }) : '')
 
 
+
+
     useEffect(() => {
         // console.log("Route changed to:", location.pathname);
         // You can call analytics or do other side effects here
@@ -71,6 +73,13 @@ const Header = () => {
     }
 
 
+
+    useEffect(() => {
+        setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })
+    }, [location.pathname])
+
+    // console.log('header location', location)
+    // console.log('header location', location)
     return (
         <header className=' head_foot_cont_full w-full flex flex-col relative bg-white border-b border-[#b9b9b9] '
         >
@@ -85,7 +94,7 @@ const Header = () => {
                 </div>
 
                 <div
-                    className="  gt-tab:flex hidden  z-40 flex-wrap items-center gap-4 mx-auto w-[60%]    " >
+                    className="  gt-tab:flex hidden  z-40 flex-wrap items-center gap-4 mx-auto w-[60%]  " >
 
                     <div className=' head_foot_cont max-w-[1440px] flex flex-wrap justify-center items-center gt-tab:p-0 mx-auto w-full ' id='collapseMenu' >
                         <ul
@@ -180,7 +189,7 @@ const Header = () => {
                         />
                     </Link>
 
-                    <nav className='mob_nav  ' >
+                    <nav className='mob_nav ' >
                         <ul className=' flex flex-col ' >
                             <li className='max-lg:border-b py-[20px] '>
                                 <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >Home</NavLink>

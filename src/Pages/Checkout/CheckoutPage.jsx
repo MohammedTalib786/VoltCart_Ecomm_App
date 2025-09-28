@@ -61,6 +61,11 @@ const CheckoutPage = () => {
     const phoneNumberRegex = /^\d{10}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
+    // useEffect(() => {
+    //     // formData.
+    // }, [formData.phone_number])
+
     // >>>>>>>>>>>>>>>>>>>>> Form Validation
     const handlerPlaceOrder = async (e) => {
         e.preventDefault();
@@ -228,11 +233,10 @@ const CheckoutPage = () => {
                     email_address: ""
                 })
 
-                // navigate('/order-successful?payment_id=pay_RGgpQ0yAfQZTPh&order_id=order_RGgnjEo8sd9j2i')
-                // navigate('/order-cancel')
+                // // navigate('/order-successful?payment_id=pay_RGgpQ0yAfQZTPh&order_id=order_RGgnjEo8sd9j2i')
+                // // navigate('/order-cancel')
                 return true;
             }
-
         }
         catch (err) {
             console.log(err)
@@ -277,7 +281,6 @@ const CheckoutPage = () => {
                 </div>
             </div>
         </>
-
     )
 }
 

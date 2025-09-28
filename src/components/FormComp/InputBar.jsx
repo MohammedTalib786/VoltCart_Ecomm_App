@@ -15,8 +15,10 @@ const InputBar = ({
     value,
     name,
     onclick_func,
-    onChange_func
+    onChange_func,
+    on_input_func
 }) => {
+
     // let combinedClass = `${class_name} ${additionalClassName}`
     return (
         <>
@@ -33,6 +35,7 @@ const InputBar = ({
                 className={`${class_name} ${additionalClassName}`}
                 onClick={onclick_func}
                 onChange={onChange_func}
+                onInput={on_input_func}
             />
         </>
     )

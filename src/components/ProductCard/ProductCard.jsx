@@ -17,6 +17,7 @@ const ProductCard = ({
     urlToProd,
     prodCat = "Case & cover",
     ImageGalleryFirst,
+    savePercent=20
 }) => {
 
     let [btnElement, setBtnElement] = useState('addToCart');
@@ -76,7 +77,9 @@ const ProductCard = ({
                                 loading="lazy"
                             />
 
-                            <span className='absolute bottom-[10px] left-[10px] bg-[#0d6efdb5] px-[12px] py-[8px] rounded-[6px] text-white text-[12px]/[14px] ' >Save 10%</span>
+                            <span
+                                className='absolute bottom-[10px] left-[10px] bg-[#0d6efdb5] px-[12px] py-[8px] rounded-[6px] text-white text-[12px]/[14px] ' >
+                                Save {savePercent}%</span>
 
                         </div>
 
@@ -87,7 +90,7 @@ const ProductCard = ({
 
                         <div className="flex w-full justify-between items-center  " >
 
-                             <p className='font-poppins text-left font-[600] text-[22px]/[28px] w-[50%] '  > &#8377; {price}</p>
+                            <p className='font-poppins text-left font-[600] text-[22px]/[28px] w-[50%] '  > &#8377;{price}</p>
 
                             {/* <button className=' add_to_cart_btn font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[20px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer' >Add to Cart Old</button> */}
                             {
@@ -96,7 +99,7 @@ const ProductCard = ({
                                     (<Button
                                         text="Add to Cart"
                                         handlerClickBtnComp={handlerAddToCart}
-                                        btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />} 
+                                        btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                         // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
                                         // bgClr="bg-black "
                                         // borderClr="bg-black"

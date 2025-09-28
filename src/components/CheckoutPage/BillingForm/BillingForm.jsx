@@ -24,6 +24,8 @@ const BillingForm = ({
         }
     }, [pincode, states, town_city]);
 
+    // console.log('formData.phone_number', formData.phone_number)
+
     return (
         <>
             <div className=""  >
@@ -76,8 +78,14 @@ const BillingForm = ({
 
                     <div className="phoneCont relative "  >
                         <InputBar label_text="Phone" type="number" html_for="phone_number" id="phone_number"
-                            onChange_func={(e) => setFormData({ ...formData, phone_number: e.target.value })}
+                            onChange_func={(e) =>
+                                setFormData({ ...formData, phone_number: e.target.value })
+                            }
                             value={formData.phone_number ? formData.phone_number : ""}
+                            on_input_func={(e) =>
+                                e.target.value.length > 10 ? e.target.value = e.target.value.slice(0, 10) : e.target.value
+                            }
+
                         />
 
                         {
@@ -86,7 +94,6 @@ const BillingForm = ({
                                 Invalid Phone Number!
                             </p>
                         }
-
                     </div>
 
 
@@ -100,7 +107,7 @@ const BillingForm = ({
                     </div>
 
 
-                    <div className="streetAddress relative flex  gap-[22px] "  >
+                    <div className="streetAddress relative flex gap-[22px] " >
                         <div className="w-[50%] ">
                             <InputBar label_text="Street Address" type="text" html_for="streetAddress_1" id="streetAddress_1"
                                 onChange_func={(e) => setFormData({ ...formData, street_address: e.target.value })}
@@ -167,7 +174,7 @@ const BillingForm = ({
                         />
                     </div>
 
-                    <div className="pinCodeCont relative "  >
+                    <div className="pinCodeCont relative " >
                         <InputBar label_text="PinCode" type="number" html_for="pincode" id="pincode"
                             onChange_func={(e) => {
                                 let newPincode = e.target.value;
@@ -176,6 +183,7 @@ const BillingForm = ({
                                 addShippingDetails(updatedFormData.town_cityInp, updatedFormData.pincodeInp, updatedFormData.stateInp);
                             }}
                             value={formData.pincodeInp}
+                            on_input_func={(e) => e.target.value.length > 6 ? e.target.value = e.target.value.slice(0, 6) : e.target.value}
                         />
 
                         {
@@ -184,7 +192,6 @@ const BillingForm = ({
                                 Invalid Pincode!
                             </p>
                         }
-
                     </div>
 
                 </div>

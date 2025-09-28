@@ -10,9 +10,8 @@ const Layout = () => {
     let location = useLocation();
     const path = location.pathname;
 
-    const hiddenExactPaths = ["/cart", "/checkout", '/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy'];
+    const hiddenExactPaths = ["/cart", "/checkout", '/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful' ];
     const isProductDetail = path.startsWith("/products/") && path !== "/products";
-
     const shouldShowNewsletter = !hiddenExactPaths.includes(path) && !isProductDetail;
 
     return (

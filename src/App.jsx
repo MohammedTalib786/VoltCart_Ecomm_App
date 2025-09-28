@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from "react-router";
 import Lenis from 'lenis';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
 
 import HomePage from './Pages/Home/HomePage'
 import AboutPage from './Pages/About/AboutPage'
@@ -223,20 +221,6 @@ const App = () => {
   }, []);
 
   // >>>>>>>>>>>>>>>>>>> ENDS Initialize LENIS
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration (in milliseconds)
-      disable: function () {
-        var maxWidth = 768; // Adjust this value as needed for your mobile breakpoint
-        return window.innerWidth < maxWidth;
-      }
-      // easing: 'ease-in-out',
-      // delay: 1000,
-      // Other configuration options can be added here
-    });
-  }, []); // Empty dependency array ensures it runs only once
-
 
 
   return (

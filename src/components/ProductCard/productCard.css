@@ -10,7 +10,9 @@
 }
 
 .prod_card:hover {
-    transform: translate(0px, -3px);
+    /* box-shadow: -5px 5px 0px 5px #000000; */
+    box-shadow: 0px 0px 12px 1px #00000040;
+    transform: translate(0px, -5px);
 }
 
 .prod_card img,
@@ -61,5 +63,10 @@
     transition: all .25s ease-in-out;
 }
 
+@media (min-width: 1200px) and (max-width: 1280px) {
+    .prod_card {
+        width: 32%;
+    }
+}
 
 /* ENDS CSS */

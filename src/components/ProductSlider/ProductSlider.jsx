@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react'
-
+import { useEffect, useState } from 'react';
+// Import Swiper styles
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import { Link } from 'react-router-dom';
 import './productSlider.css'
 import ProductCard from '../ProductCard/ProductCard'
-import { Link } from 'react-router-dom';
-
+import placeholderImg from '../../assets/placeholder_img.png'
 
 const ProductSlider = ({
     title,
@@ -29,29 +26,19 @@ const ProductSlider = ({
             let res = await data.json();
             setProdData(res)
         })()
-
     }, [])
-    // console.log('setted data', data)
 
-    let filteredData = data.filter((elem) => {
-        return elem.category == categoryName
-    })
-
-    // console.log('filteredData Final ', filteredData)
-
+    let filteredData = data.filter((elem) => elem.category == categoryName)
 
     return (
-
         <div className=' w-full py-[50px] ' >
 
             <div className="texts flex items-center justify-between pb-[20px] ">
-                <h3 className='font-[inter] font-medium text-[24px]/[32px] text-[#000] ' >{title}</h3>
-                <Link to={urlVal} className='font-[inter] font-regular text-[16px] hover:underline '>{urlText}</Link>
+                <h3 className='font-montserrat font-medium text-[28px]/[36px] text-black ' >{title}</h3>
+                <Link to={urlVal} className='font-montserrat font-regular text-[16px] hover:underline '>{urlText}</Link>
             </div>
 
-
             <div className="prodSlider">
-
                 <Swiper
                     // install Swiper modules
                     modules={[Pagination]}
@@ -64,7 +51,6 @@ const ProductSlider = ({
                             slidesPerView: 1,
                             spaceBetween: 20,
                         },
-                        
                         768: {
                             slidesPerView: 3,
                             spaceBetween: 20,
@@ -78,19 +64,29 @@ const ProductSlider = ({
                             spaceBetween: 20,
                         },
                     }}
-
                 >
                     {
                         filteredData.map((elem) => {
-                            return <SwiperSlide> <ProductCard name={elem.name} price={elem.price.sale_price} featImg={elem.feat_img} urlToProd={elem.slug} prodCat={categoryName} /> </SwiperSlide>
+                            return <SwiperSlide>
+                                <ProductCard
+                                    key={elem.id}
+                                    id={elem.id}
+                                    name={elem.name}
+                                    price={elem.price.sale_price}
+                                    // featImg={elem.feat_img}
+                                    featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}
+                                    ImageGalleryFirst={!elem.img_gallery[1] || elem.img_gallery[1] == "empty" ? placeholderImg : elem.img_gallery[1]}
+                                    urlToProd={elem.slug}
+                                    prodCat={categoryName}
+                                    savePercent={parseInt((elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100)}
+                                />
+                            </SwiperSlide>
+
                         })
                     }
 
-
                 </Swiper>
-
             </div>
-
         </div>
     )
 }

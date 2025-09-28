@@ -14,15 +14,10 @@ const Button = ({
     id,
     additionalClass,
     disabled = false,
-    aosValues = {},
     btnIcon
-
 }) => {
     return (
         <button
-            data-aos={aosValues.dataAos}
-            data-aos-duration={aosValues.aosDuration}
-            data-aos-offset={aosValues.aosOffset}
             onClick={handlerClickBtnComp}
             type={type}
             id={id}

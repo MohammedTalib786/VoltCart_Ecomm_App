@@ -1,0 +1,11 @@
+
+@media (min-width: 1200px) and (max-width: 1280px) {
+    .prod_list_cont {
+        gap: 20px;
+    }
+
+    .prod_card_list {
+        gap: 15px;
+    }
+
+}

@@ -33,11 +33,14 @@ footer ul li a.active::after {
     transition: all .35s ease-in-out;
 }
 
-footer .socials button {
+
+footer .socials a {
     transition: all .35s ease-in-out;
 }
 
-footer .socials button:hover {
-    background-color: var(--primary-color);
+
+footer .socials a:hover svg {
+    /* background-color: var(--primary-color); */
+    fill: var(--primary-color);
     transition: all .35s ease-in-out;
 }

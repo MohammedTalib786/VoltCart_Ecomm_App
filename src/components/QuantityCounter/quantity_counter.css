@@ -1,0 +1,8 @@
+.counter_btn {
+    padding: 0 !important;
+}
+
+.counter_btn:hover {
+    box-shadow: none;
+    border-radius: 0;
+}
