@@ -7,10 +7,19 @@ import './image-gallery-slider.css'
 
 const ImageGallerySlider = ({ apiImg }) => {
 
-    const handlerOnMouse = (e) => {
-        console.log('mouse is hovering');
-        console.log('eve target', e.target)
+    const handlerOnMouseOver = (e) => {
+        // console.log('mouse is hovering');
+        // console.log('eve target', e.target)
         e.target.style.scale = '1.5'
+        e.target.style.transition = 'all .25s ease-in-out'
+    }
+    
+    const  handlerOnMouseLeave = (e) => {
+        // console.log('mouse is hovering');
+        // console.log('eve target', e.target)
+        e.target.style.scale = '1'
+        e.target.style.transition = 'all .25s ease-in-out'
+
     }
 
     // const testimages = [
@@ -48,8 +57,13 @@ const ImageGallerySlider = ({ apiImg }) => {
             showPlayButton={false}
             autoPlay={false}
             showFullscreenButton={true}
-            onMouseOver={(e) => e.target.style.scale = '1.5'}
-            onMouseLeave={(e) => e.target.style.scale = '1'}
+            // onMouseOver={(e) => {
+            //     e.target.style.transition = '1.5'
+            //     e.target.style.scale = '1.5'
+
+            // }}
+            onMouseOver={handlerOnMouseOver}
+            onMouseLeave={handlerOnMouseLeave}
         />
 
 

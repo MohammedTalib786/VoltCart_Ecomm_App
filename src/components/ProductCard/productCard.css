@@ -67,6 +67,10 @@
     .prod_card {
         width: 32%;
     }
+    
+    .prodSlider .prod_card {
+        width: 100%;
+    }
 }
 
 /* ENDS CSS */

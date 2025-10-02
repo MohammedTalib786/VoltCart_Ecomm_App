@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
-import './productSlider.css'
 import ProductCard from '../ProductCard/ProductCard'
 import placeholderImg from '../../assets/placeholder_img.png'
+
+import './productSlider.css'
 
 const ProductSlider = ({
     title,

@@ -16,6 +16,8 @@ dist-ssr
 text-notes/
 resource.txt
 updates.txt
+potentialIssuesForLive.txt
+
 
 # Editor directories and files
 .vscode/*

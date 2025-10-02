@@ -38,6 +38,10 @@ const BillingForm = ({
                             <InputBar label_text="First Name" type="text" html_for="first_name" id="first_name"
                                 onChange_func={(e) => setFormData({ ...formData, first_name: e.target.value })}
                                 value={formData.first_name}
+                                on_input_func={(e) => {
+                                    e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "");
+                                    e.target.value.length > 20 ? e.target.value = e.target.value.slice(0, 20) : e.target.value;
+                                }}
                             />
                             {
                                 errorMsg.firstName &&
@@ -51,6 +55,10 @@ const BillingForm = ({
                             <InputBar label_text="Last Name" type="text" html_for="last_name" id="last_name"
                                 onChange_func={(e) => setFormData({ ...formData, last_name: e.target.value })}
                                 value={formData.last_name}
+                                on_input_func={(e) => {
+                                    e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "");
+                                    e.target.value.length > 20 ? e.target.value = e.target.value.slice(0, 20) : e.target.value;
+                                }}
                             />
                         </div>
                     </div>
@@ -70,9 +78,6 @@ const BillingForm = ({
                             </p>
                         }
 
-
-
-
                     </div>
 
 
@@ -82,9 +87,10 @@ const BillingForm = ({
                                 setFormData({ ...formData, phone_number: e.target.value })
                             }
                             value={formData.phone_number ? formData.phone_number : ""}
-                            on_input_func={(e) =>
+                            on_input_func={(e) => {
+                                e.target.value = e.target.value.replace(/\D/g, "")
                                 e.target.value.length > 10 ? e.target.value = e.target.value.slice(0, 10) : e.target.value
-                            }
+                            }}
 
                         />
 
@@ -130,6 +136,9 @@ const BillingForm = ({
                                     addShippingDetails(updatedFormData.town_cityInp, updatedFormData.pincodeInp, updatedFormData.stateInp);
                                 }}
                                 value={formData.town_cityInp}
+                                on_input_func={(e) => {
+                                    e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "")
+                                }}
                             />
                             {
                                 errorMsg.townCity &&
@@ -183,7 +192,10 @@ const BillingForm = ({
                                 addShippingDetails(updatedFormData.town_cityInp, updatedFormData.pincodeInp, updatedFormData.stateInp);
                             }}
                             value={formData.pincodeInp}
-                            on_input_func={(e) => e.target.value.length > 6 ? e.target.value = e.target.value.slice(0, 6) : e.target.value}
+                            on_input_func={(e) => {
+                                e.target.value = e.target.value.replace(/\D/g, "");
+                                e.target.value.length > 6 ? e.target.value = e.target.value.slice(0, 6) : e.target.value;
+                            }}
                         />
 
                         {

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import './productCard.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../../contexts/ProdProvider'
 import placeholderImg from '../../assets/placeholder_img.png'
 import Button from '../FormComp/Button'
 import { BsCart2 } from "react-icons/bs";
+
+import './productCard.css'
 
 const ProductCard = ({
     id,
@@ -17,13 +18,19 @@ const ProductCard = ({
     urlToProd,
     prodCat = "Case & cover",
     ImageGalleryFirst,
-    savePercent=20
+    savePercent = 20
 }) => {
 
     let [btnElement, setBtnElement] = useState('addToCart');
 
     let navigateToCart = useNavigate();
-    let { addToCartFunc } = useCart();
+    let { cartProducts, addToCartFunc } = useCart();
+
+    let checkExisting = cartProducts.filter(elem => {
+        // console.log('getting', elem.id === id)
+        // console.log(elem.id)
+        return elem.id === id;
+    })
 
     const ItemAddToCart = () => addToCartFunc({ id: id, name: name, feat_img: featImg, price: price, slug: slug, quantity: 1 });
 
@@ -35,8 +42,23 @@ const ProductCard = ({
         // >>>>>>>>>>>>>>>>>>>>>>> Calling Main Add to Cart Func
         e.stopPropagation();
         e.preventDefault();
-        ItemAddToCart();
-        checkAddToCartElem();
+
+        if (checkExisting[0] === undefined) {
+            ItemAddToCart();
+            checkAddToCartElem();
+        }
+        else if (checkExisting[0].quantity > 9) {
+            alert('maximum number reached!')
+            console.log('maximum number reached!')
+            return
+        }
+        else {
+            console.log('can add')
+            ItemAddToCart();
+            checkAddToCartElem();
+        }
+
+
     }
 
     const handlerViewCart = (e) => {

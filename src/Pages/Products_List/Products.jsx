@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import '../../components/layout.css'
 import Loader from '../../components/Loader/SkeletonLoader'
 import useFetch from '../../hooks/useFetch'
 import prodSpotlight from '../../assets/prodListing/productSpot.webp'
@@ -9,6 +8,8 @@ import placeholderImg from '../../assets/placeholder_img.png'
 import useDocumentTitle from '../../hooks/useDocumentTitle'
 import ProductsSpotlight from '../../components/ProductsListingPage/ProductsSpotlight'
 import ProductFilter from '../../components/ProductsListingPage/ProductFilter'
+
+import '../../components/layout.css'
 import './products.css'
 
 const Products = () => {

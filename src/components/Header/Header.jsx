@@ -13,6 +13,8 @@ import './header.css'
 import '../../index.css'
 import SearchBar from './SearchBar/SearchBar'
 
+
+
 const Header = () => {
     // let [openMenu, setOpenMenu] = useState('-540px');
     const location = useLocation();

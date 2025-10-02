@@ -10,7 +10,7 @@ const ProdInfoTab = ({
 
     return (
         <>
-            <div className="pt-[50px] w-full ">
+            <div className="pt-[50px] w-full  ">
 
 
                 <Tabs.Root
