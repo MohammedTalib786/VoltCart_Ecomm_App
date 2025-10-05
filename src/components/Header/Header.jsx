@@ -102,22 +102,22 @@ const Header = () => {
                         <ul
                             className='gt-tab:flex hidden gap-[40px] max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-poppins text-para-black block text-[16px]"} >Home</NavLink>
+                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Home</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-poppins text-para-black block text-[16px]"} >About Us</NavLink>
+                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >About Us</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-poppins text-para-black block text-[16px]"} >Blogs</NavLink>
+                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Blogs</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-poppins text-para-black block text-[16px]"} >Products</NavLink>
+                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Products</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-poppins text-para-black block text-[16px]"} >Contact</NavLink>
+                                <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Contact</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-poppins text-para-black block text-[16px]"} >Test</NavLink>
+                                <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-body text-para-black block text-[16px]"} >Test</NavLink>
                             </li>
                         </ul>
 

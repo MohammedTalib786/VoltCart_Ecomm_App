@@ -35,8 +35,8 @@ const ProductSlider = ({
         <div className=' w-full py-[50px] ' >
 
             <div className="texts flex items-center justify-between pb-[20px] ">
-                <h3 className='font-montserrat font-medium text-[28px]/[36px] text-black ' >{title}</h3>
-                <Link to={urlVal} className='font-montserrat font-regular text-[16px] hover:underline '>{urlText}</Link>
+                <h3 className='font-primary font-medium text-[28px]/[36px] text-black ' >{title}</h3>
+                <Link to={urlVal} className='font-primary font-regular text-[16px] hover:underline '>{urlText}</Link>
             </div>
 
             <div className="prodSlider">

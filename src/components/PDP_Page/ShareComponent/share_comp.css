@@ -63,7 +63,8 @@
 }
 
 .share_component .x_twit__icon {
-    border: 2px solid #00aced !important;
+    /* border: 2px solid #00aced !important; */
+    border: 2px solid black !important;
 }
 
 .share_component .telegram_icon {

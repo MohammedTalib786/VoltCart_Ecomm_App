@@ -129,7 +129,7 @@ const ProductDetail = () => {
                                 <div className="right_sec w-[100%] md:w-[50%] pr-[20px] ">
 
                                     <div className="flex justify-between items-center pb-[15px] ">
-                                        <span className='font-poppins text-[16px]/[24px] text-para-black  ' >{sku}</span>
+                                        <span className='font-body text-[16px]/[24px] text-para-black  ' >{sku}</span>
                                         <button title='Share this Product'
                                             className='share_btn cursor-pointer '
                                             onClick={() => openShareComp({ opacity: 1, pointerEvents: "all" })}
@@ -141,12 +141,12 @@ const ProductDetail = () => {
 
                                     <ShareComponent shareComp={shareComp} openShareComp={openShareComp} currentLocalShareURL={currentLocalShareURL} />
 
-                                    {/* <h3 className='font-montserrat text-[42px]/[55px] font-[400]'>{prodData?.name}</h3> */}
-                                    <h3 className='font-montserrat text-[42px]/[55px] font-[400]'>{name}</h3>
+                                    {/* <h3 className='font-primary text-[42px]/[55px] font-[400]'>{prodData?.name}</h3> */}
+                                    <h3 className='font-primary text-[42px]/[55px] font-[400]'>{name}</h3>
 
                                     <div className="price_cont flex flex-wrap items-center w-full  gap-[12px] my-[20px] " >
-                                        <p className='font-poppins  text-[32px]/[32px] text-center  text-[#000]'  > &#8377;{price.sale_price}</p>
-                                        <p className='font-poppins  text-[24px] text-center line-through text-[#A0A0A0]'  > &#8377;{price.reg_price}</p>
+                                        <p className='font-body  text-[32px]/[32px] text-center  text-[#000]'  > &#8377;{price.sale_price}</p>
+                                        <p className='font-body  text-[24px] text-center line-through text-[#A0A0A0]'  > &#8377;{price.reg_price}</p>
                                     </div>
 
                                     <div className=" flex gap-[15px] ">
@@ -184,7 +184,7 @@ const ProductDetail = () => {
 
                                     <div className="text py-[20px]">
                                         <p
-                                            className='font-poppins font-[400] text-[18px]/[26px] dang-cont'
+                                            className='font-body font-[400] text-[18px]/[26px] dang-cont'
                                             // dangerouslySetInnerHTML={{ __html: prodData?.description.length < 250 ? prodData?.description : prodData?.description.slice(0, 250) + '...' }}
                                             // dangerouslySetInnerHTML={{ __html: prodData?.description?.length < 250 ? prodData?.description : prodData?.description?.split(' ').slice(0, 60).join(' ') + '...' }}
                                             dangerouslySetInnerHTML={{ __html: description.length < 250 ? description : description?.split(' ').slice(0, 50).join(' ') + '...' }}

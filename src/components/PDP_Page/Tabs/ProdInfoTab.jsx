@@ -21,15 +21,15 @@ const ProdInfoTab = ({
                         className="TabsList w-full  "
                         aria-label="Manage your account">
 
-                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-montserrat text-[22px]/[28px] font-[500] text-black cursor-pointer  " value="product-desc" >
+                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-primary text-[22px]/[28px] font-[500] text-black cursor-pointer  " value="product-desc" >
                             About the Product
                         </Tabs.Trigger>
 
-                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-montserrat text-[22px]/[28px] font-[500] text-black cursor-pointer " value="specifications" >
+                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-primary text-[22px]/[28px] font-[500] text-black cursor-pointer " value="specifications" >
                             Specifications
                         </Tabs.Trigger>
 
-                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-montserrat text-[22px]/[28px] font-[500] text-black cursor-pointer " value="compatibility" >
+                        <Tabs.Trigger className="TabsTrigger w-[33%] py-[15px] font-primary text-[22px]/[28px] font-[500] text-black cursor-pointer " value="compatibility" >
                             Compatibility
                         </Tabs.Trigger>
 
@@ -41,7 +41,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-poppins font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_description }}
                         />
 
@@ -53,7 +53,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-poppins font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_specifications }}
                         />
                     </Tabs.Content>
@@ -64,7 +64,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-poppins font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_compatibility }}
                         />
                     </Tabs.Content>

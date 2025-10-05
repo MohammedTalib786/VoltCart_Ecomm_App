@@ -68,7 +68,7 @@ const SuccessPage = () => {
 
                 <div className="text-center mb-10">
                     <h1
-                        className="font-montserrat tab:text-[42px]/[50px] text-[32px]/[40px] font-[400]"
+                        className="font-primary tab:text-[48px]/[58px] text-[32px]/[40px] font-[400]"
                     >Thank You For Shopping With Us!</h1>
                     <p className="mt-4 text-para-black ">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
                 </div>

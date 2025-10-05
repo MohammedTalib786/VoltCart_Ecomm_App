@@ -78,8 +78,8 @@ const NewsletterComp = () => {
 
     return (
         <div className='w-full bg-[#eff2f4] py-[40px] px-[20px] flex flex-col justify-center items-center  border-[#b9b9b9] border-t ' >
-            <h3 className='font-montserrat font-[600] text-[22px]/[30px] text-[#1C1C1C] ' >Subscribe on our newsletter</h3>
-            <p className='text-[#606060] font-poppins font-[400] text-[16px]/[26px] pb-[20px] text-center ' >Get daily news on upcoming offers from many suppliers all over the world</p>
+            <h3 className='font-primary  tab:text-[24px]/[30px] text-[20px]/[26px] tab:pb-0 pb-[5px] font-[500] text-para-black capitalize ' >Subscribe on our newsletter</h3>
+            <p className='text-[#606060] font-body font-[400] text-[16px]/[26px] pb-[12px] text-center ' >Get daily news on upcoming offers from many suppliers all over the world</p>
 
             <form action=""
                 ref={formRef} onSubmit={handlerSubmitForm}
@@ -92,7 +92,7 @@ const NewsletterComp = () => {
                     <div className="flex flex-col  ">
 
                         <input type="email" placeholder='Email' name='from_email' value={emailValue} onChange={(e) => setEmailValue(e.target.value)}
-                            className=' font-poppins text-black-1c  tab:min-w-[300px] min-w-full  border-[#DEE2E7] border-1 bg-white placeholder:text-[#8B96A5] py-[8px] pr-[20px] pl-[40px] rounded-[6px] outline-0 '
+                            className=' font-body text-black-1c  tab:min-w-[300px] min-w-full  border-[#DEE2E7] border-1 bg-white placeholder:text-[#8B96A5] py-[8px] pr-[20px] pl-[40px] rounded-[6px] outline-0 '
                         />
 
                         {

@@ -7,6 +7,8 @@ import {
     LinkedinIcon,
     TwitterShareButton,
     TwitterIcon,
+    XIcon,
+
     TelegramShareButton,
     TelegramIcon,
     PinterestShareButton,
@@ -40,7 +42,7 @@ const ShareComponent = ({
                     onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })}
                 />
 
-                <h4 className='font-montserrat text-[22px]/[30px] text-black font-[500] ' >Share this Product</h4>
+                <h4 className='font-primary text-[22px]/[30px] text-black font-[500] ' >Share this Product</h4>
 
                 <div className="share_btns">
 
@@ -65,7 +67,8 @@ const ShareComponent = ({
 
                     {/* Twitter Share */}
                     <TwitterShareButton url={currentLocalShareURL} className='x_twit__icon'  >
-                        <TwitterIcon size={35} round />
+                        {/* <TwitterIcon size={35} round /> */}
+                        <XIcon size={35} round />
                     </TwitterShareButton>
 
                     {/* Telegram Share */}

@@ -28,7 +28,7 @@ const CancelPage = () => {
 
                     {/* Heading */}
                     {/* <h1 className="text-2xl font-bold text-black mb-2">Order Cancelled</h1> */}
-                    <h2 className="font-montserrat tab:text-[42px]/[50px] text-[32px]/[40px] font-[400] mb-[15px] " >Order Cancelled</h2>
+                    <h2 className="font-primary tab:text-[48px]/[58px] text-[32px]/[40px] font-[400] mb-[15px] " >Order Cancelled</h2>
 
                     <p className="text-black text-[18px]/[24px] mb-[25px]  " >
                         Your payment was not completed. Don’t worry, your cart is still saved.

@@ -11,6 +11,7 @@ import ProductFilter from '../../components/ProductsListingPage/ProductFilter'
 
 import '../../components/layout.css'
 import './products.css'
+import Button from '../../components/FormComp/Button'
 
 const Products = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
@@ -51,15 +52,15 @@ const Products = () => {
     return (
         <>
 
-            <div className="lg:w-[100%] flex flex-col items-center">
+            <div className="lg:w-[100%] flex flex-col items-center  ">
 
                 <ProductsSpotlight />
 
-                <div className=" container_layout flex flex-col justify-center items-center "  >
+                <div className=" container_layout flex flex-col justify-center items-center relative "  >
                     {/* >>>>>>>>>>>>>> In Cont */}
-                    <div className=" py-[100px] "  >
+                    <div className=" desktop:py-[100px] gt-tab:py-[60px] py-[60px]  "  >
 
-                        <div className=" flex md:flex-row flex-col gap-[40px] items-start prod_list_cont  " >
+                        <div className=" flex md:flex-row flex-col desktop:gap-[40px] gt-tab: gap-[25px] items-start prod_list_cont   " >
 
                             <ProductFilter
                                 minVal={minVal} maxVal={maxVal}
@@ -69,8 +70,18 @@ const Products = () => {
                                 handleCheckbox={handleCheckbox}
                             />
 
+                            {/* <button
+                                className='tab:hidden w-full flex items-center justify-center p-[10px] bg-transparent border-2 border-primary rounded-[12px] text-[18px]/[26px] tracking-[1.2px] font-[400] text-primary cursor-pointer '
+
+                            >Filter By</button> */}
+
+
+
+                      
+
+
                             <div
-                                className="flex lg:w-[75%] md:w-[75%] w-full flex-wrap justify-start items-center gap-[30px] prod_card_list  " >
+                                className="flex desktop:w-[75%] gt-tab:w-[70%] tab:w-[55%] w-full desktop:gap-[30px] gt-tab:gap-[25px] gap-[25px]  flex-wrap justify-start items-center  prod_card_list  " >
                                 {
                                     loader ?
                                         (<Loader />)
@@ -84,7 +95,7 @@ const Products = () => {
                                                         key={elem.id}
                                                         id={elem.id}
                                                         slug={elem.slug}
-                                                        boxWidth={"lg:w-[31%] md:w-[46%]"}
+                                                        boxWidth={"desktop:w-[31%] gt-tab:w-[48%] w-full "}
                                                         name={elem.name}
                                                         price={elem.price.sale_price}
                                                         featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}

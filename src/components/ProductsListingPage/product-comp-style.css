@@ -80,3 +80,13 @@
 } */
 
 
+.filter_by_mob_btn {
+  position: fixed;
+  width: 70%;
+  z-index: 999;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  letter-spacing: 1px;
+}
+

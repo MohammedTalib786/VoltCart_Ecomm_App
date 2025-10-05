@@ -11,6 +11,7 @@
 
 .onScrollBtn {
     bottom: 50px;
+    right: 20px;
     opacity: 1;
     pointer-events: all;
     transition: all .25s ease-in-out;

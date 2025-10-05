@@ -1,6 +1,8 @@
-const SkeletonLoaderCardComp = () => {
+const SkeletonLoaderCardComp = ({
+    additionalClassName=""
+}) => {
     return (
-        <div className="skeleton-card">
+        <div className={`skeleton-card ${additionalClassName} `} >
             <div className=" flex w-full relative ">
                 <div className="skeleton skeleton-img"></div>
                 <div className=" skeleton-badge"></div>

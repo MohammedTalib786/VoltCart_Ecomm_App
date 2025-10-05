@@ -1,4 +1,3 @@
-
 .skeleton-card {
     width: 300px;
     background: white;
@@ -67,6 +66,7 @@
 }
 
 
+
 @keyframes shimmer {
     0% {
         background-position: -400px 0;
@@ -74,5 +74,49 @@
 
     100% {
         background-position: 400px 0;
+    }
+}
+
+
+
+/* >>>>>>>>>>>>>>>>>>>> Media Queries */
+@media (max-width: 1024px) {
+    .skeleton-card {
+        min-width: 250px;
+        width: 100%;
+    }
+
+    .skeleton-card:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .skeleton-card {
+        min-width: 400px;
+        width: 100%;
+    }
+
+    .skeleton-card:nth-child(2) {
+        display: none;
+    }
+
+    .skeleton-card:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .skeleton-card {
+        min-width: 200px;
+        width: 100%;
+    }
+
+    .skeleton-card:nth-child(2) {
+        display: none;
+    }
+
+    .skeleton-card:last-child {
+        display: none;
     }
 }

@@ -1,6 +1,8 @@
 
-import './skeleton_loader.css'
 import SkeletonLoaderCardComp from './SkeletonLoaderCard/SkeletonLoaderCardComp'
+
+import './skeleton_loader.css'
+
 
 const Loader = () => {
     return (
@@ -10,7 +12,7 @@ const Loader = () => {
 
                 <SkeletonLoaderCardComp />
                 <SkeletonLoaderCardComp />
-                <SkeletonLoaderCardComp />
+                <SkeletonLoaderCardComp additionalClassName="tab:hidden " />
 
             </div>
 
@@ -19,7 +21,7 @@ const Loader = () => {
 
                 <SkeletonLoaderCardComp />
                 <SkeletonLoaderCardComp />
-                <SkeletonLoaderCardComp />
+                <SkeletonLoaderCardComp additionalClassName="tab:hidden " />
 
             </div>
 

@@ -24,9 +24,9 @@ const TopFooter = () => {
                 // 1440 Not Working => max-w-[1440px]
                 className=" head_foot_cont_full w-full max-w-[1400px] mx-auto flex desktop:flex-nowrap gt-tab:flex-wrap flex-wrap  gt-tab:gap-[40px] tab:gap-[40px] gap-x-0 gap-y-[25px] pt-[40px] pb-[50px] desktop:px-[50px] gt-tab:px-[30px] tab:px-[30px] px-[20px] " >
 
-                <div className="columns cols-1 gt-tab:w-[50%] tab:w-[45%] w-full flex flex-col gap-[15px] ">
+                <div className="columns cols-1 desktop:w-[50%] gt-tab:w-[50%] tab:w-[45%] w-full flex flex-col gap-[15px] ">
                     <Link to='/' ><img src={logo} alt="logo" className='max-w-[170px] ' /></Link>
-                    <p className='text-para-black font-[400] text-[16px]/[22px]  ' >Best information about the company gies here but now lorem ipsum is</p>
+                    <p className='text-para-black font-[400] text-[16px]/[22px] desktop:w-full gt-tab:w-[75%] w-full  ' >Best information about the company gies here but now lorem ipsum is</p>
                     <div className="socials flex gap-x-[20px] ">
 
                         <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
@@ -53,7 +53,7 @@ const TopFooter = () => {
                     </div>
                 </div>
 
-                <div className="columns cols-2  gt-tab:w-[20%] tab:w-[20%] w-[48%] " >
+                <div className="columns cols-2 desktop:w-[20%] gt-tab:w-[20%] tab:w-[20%] w-[48%] " >
                     <h4 className='text-[#1C1C1C] font-[600] text-[16px]/[22px] pb-[12px]   ' >Quick Links</h4>
                     <ul className='flex flex-col gap-[7px] ' >
 
@@ -73,7 +73,7 @@ const TopFooter = () => {
                     </ul>
                 </div>
 
-                <div className="columns cols-2  gt-tab:w-[20%] tab:w-[20%] w-[47%] " >
+                <div className="columns cols-2 desktop:w-[30%] gt-tab:w-[20%] tab:w-[20%] w-[47%] " >
                     <h4 className='text-[#1C1C1C] font-[600] text-[16px]/[22px] pb-[12px]   ' >Help</h4>
                     <ul className='flex flex-col gap-[7px] ' >
 
@@ -93,7 +93,7 @@ const TopFooter = () => {
                     </ul>
                 </div>
 
-                <div className="columns cols-2  gt-tab:w-[50%] tab:w-[45%] ">
+                <div className="columns cols-2 desktop:w-[40%] gt-tab:w-[50%] tab:w-[45%] ">
                     <h4 className='text-[#1C1C1C] font-[600] text-[16px]/[22px] pb-[12px]   ' >Contact</h4>
                     <ul className='flex flex-col gap-[14px] contact_info ' >
                         <li className=' text-para-black  font-[400] text-[16px]/[22px] flex justify-start items-center gap-[10px] transition-all ' >
@@ -111,8 +111,8 @@ const TopFooter = () => {
                     </ul>
                 </div>
 
-                <div className="columns  cols-2 gt-tab:w-[30%]  tab:w-[40%]  ">
-                    <h4 className='text-[#1C1C1C] font-[600] text-[16px]/[22px] pb-[12px] ' title='Need to use new image later ' >Payment Options</h4>
+                <div className="columns cols-2 desktop:w-[30%] gt-tab:w-[30%]  tab:w-[40%]  ">
+                    <h4 className='text-[#1C1C1C] font-[600] text-[16px]/[22px] pb-[12px] ' >Payment Options</h4>
                     <img src={paymentOptImgs} alt="" />
                 </div>
 
