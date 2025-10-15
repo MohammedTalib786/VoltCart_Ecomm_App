@@ -3,34 +3,88 @@ import { BsBoxFill } from 'react-icons/bs';
 import { FaTruckFast } from 'react-icons/fa6';
 import { IoShieldCheckmarkSharp } from 'react-icons/io5';
 import { PiCreditCardFill } from 'react-icons/pi';
+
+import { Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import ProdIconBox from './ProdIconBox';
+
+
 import './product-icon-details.css';
+
 
 const ProductIconDetails = () => {
   return (
-    
-    <div className="icons flex flex-wrap justify-center lg:justify-between  gap-[15px] sm:gap-[10px] items-center pt-[20px] pb-[20px] border-y-[1px]  border-dashed border-[#bcbcbc]">
-      
-      <div className="icon_box flex flex-col text-center justify-center items-center gap-[10px] bg-white w-[300px] sm:h-[130px] sm:w-[23%] px-[10px] py-[20px] rounded-[10px] cursor-default " >
-        <IoShieldCheckmarkSharp className='text-[30px]/[40px] fill-primary ' />
-        <h5 className='text-[16px]/[24px] font-[Poppins] text-para-black ' >100% Original Products</h5>
+    <>
+
+      {/* >>>>>>>>>>>>>>>>>> Desktop */}
+      <div className="icons hidden tab:flex flex-wrap justify-center lg:justify-between gt-tab:gap-[15px] gap-[20px] tab:flex-row flex-col items-center pt-[50px] pb-[50px] border-y-[1px] border-dashed border-[#bcbcbc]">
+
+        <ProdIconBox mainIcon={<IoShieldCheckmarkSharp className='text-[30px]/[40px] fill-primary ' />} textContent="100% Original Products" />
+        <ProdIconBox mainIcon={<FaTruckFast className='text-[30px]/[40px]  fill-primary ' />} textContent="Fast & Free Delivery" />
+        <ProdIconBox mainIcon={<BsBoxFill className='text-[30px]/[40px]  fill-primary ' />} textContent="Easy Returns" />
+        <ProdIconBox mainIcon={<PiCreditCardFill className='text-[30px]/[40px] fill-primary  ' />} textContent="Secure Payments" />
+
       </div>
 
-      <div className="icon_box flex flex-col text-center justify-center items-center gap-[10px] bg-white w-[300px] sm:h-[130px] sm:w-[23%] px-[10px] py-[20px] rounded-[10px] cursor-default " >
-        <FaTruckFast className='text-[30px]/[40px]  fill-primary ' />
-        <h5 className='text-[16px]/[24px] font-[Poppins]  ' >Fast & Free Delivery</h5>
+
+      {/* >>>>>>>>>>>>>>>>>> Mobile */}
+      <div className="prod_icon_box_slider flex tab:hidden pt-[50px] pb-[50px] border-y-[1px] border-dashed border-[#bcbcbc]" >
+
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Autoplay]}
+          spaceBetween={40}
+          slidesPerView={4}
+          navigation
+          loop={true}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false, // Autoplay continues after user interaction
+          // }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1025: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          <SwiperSlide>
+            <ProdIconBox mainIcon={<IoShieldCheckmarkSharp className='text-[30px]/[40px] fill-primary ' />} textContent="100% Original Products" />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <ProdIconBox mainIcon={<FaTruckFast className='text-[30px]/[40px]  fill-primary ' />} textContent="Fast & Free Delivery" />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <ProdIconBox mainIcon={<BsBoxFill className='text-[30px]/[40px]  fill-primary ' />} textContent="Easy Returns" />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <ProdIconBox mainIcon={<PiCreditCardFill className='text-[30px]/[40px] fill-primary  ' />} textContent="Secure Payments" />
+          </SwiperSlide>
+
+        </Swiper>
       </div>
 
-      <div className="icon_box flex flex-col text-center justify-center items-center gap-[10px] bg-white w-[300px] sm:h-[130px] sm:w-[23%] px-[10px] py-[20px] rounded-[10px] cursor-default " >
-        <BsBoxFill className='text-[30px]/[40px]  fill-primary ' />
-        <h5 className='text-[16px]/[24px] font-[Poppins]  ' >Easy Returns</h5>
-      </div>
+    </>
 
-      <div className="icon_box flex flex-col text-center justify-center items-center  gap-[15px] sm:gap-[10px] bg-white w-[300px] sm:h-[130px] sm:w-[23%] px-[10px] py-[20px] rounded-[10px] cursor-default " >
-        <PiCreditCardFill className='text-[30px]/[40px] fill-primary  ' />
-        <h5 className='text-[16px]/[24px] font-[Poppins] ' >Secure Payments</h5>
-      </div>
-
-    </div>
   )
 }
 

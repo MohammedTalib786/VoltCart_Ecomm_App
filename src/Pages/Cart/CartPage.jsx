@@ -15,18 +15,17 @@ const Cart = () => {
         <>
             <CartSpotlight />
 
-            <div className="py-[100px]">
+            <div className=" gt-tab:py-[100px] tab:py-[60px] py-[50px] ">
                 {/* >>>>>>>>>>>>>> In Cont */}
                 <div className="container_layout mx-auto flex justify-center items-center flex-col "  >
 
-                    <div className="cart_card_cont w-full  flex gap-[35px] "  >
-
+                    <div className="cart_card_cont w-full  flex  gt-tab:gap-[20px] gap-[35px] gt-tab:flex-row  flex-col "  >
                         {
                             cartProducts.length <= 0
                                 ? <CartCardForEmpty />
                                 : (
                                     <>
-                                        <div className=" w-[60%] flex flex-col gap-[15px]  "  >
+                                        <div className=" gt-tab:w-[60%]  tab:w-full flex flex-col tab:gap-[15px] gap-[20px]  "  >
                                             {
                                                 cartProducts.map((elem, index) =>
                                                     <CartCard

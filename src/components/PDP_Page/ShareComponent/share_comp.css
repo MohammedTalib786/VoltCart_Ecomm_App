@@ -74,3 +74,29 @@
 .share_component .pinterest_icon {
     border: 2px solid #e60023 !important;
 }
+
+@media (max-width: 600px) {
+
+    .share_component {
+        position: fixed;
+    }
+
+    .share_component .inside_share_cont {
+        width: 85%;
+        height: 50vh;
+        gap: 45px;
+    }
+
+    .share_component .share_btns {
+        gap: 15px;
+    }
+
+    .share_component .inside_share_cont .react-share__ShareButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .share_component .inside_share_cont .react-share__ShareButton svg {
+        width: 30px;
+    }
+}

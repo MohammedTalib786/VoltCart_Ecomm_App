@@ -50,7 +50,7 @@ const SkeletonLoaderProduct = () => {
 
                     <div className=" flex pb-[20px] justify-between ">
                         <div className="h-[20px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[80px] "></div>
-                        <div className="h-[20px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[65px] "></div>
+                        <div className="h-[20px] bg-transparent rounded-[8px] dark:bg-transparent w-[65px]  "></div>
                     </div>
 
                     <div className="load-title pb-[30px] ">
@@ -59,21 +59,21 @@ const SkeletonLoaderProduct = () => {
                     </div>
 
                     <div className="load-price flex pb-[30px] gap-[20px] ">
-                        <div className="  h-[25px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px] "></div>
-                        <div className="  h-[25px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px]  "></div>
+                        <div className="  h-[35px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px] "></div>
+                        <div className="  h-[35px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px]  "></div>
                     </div>
 
                     <div className="load-btns flex pb-[30px] gap-[20px] ">
-                        <div className="  h-[40px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-full "></div>
-                        <div className="  h-[40px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-full  "></div>
+                        <div className="  h-[45px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-full "></div>
+                        <div className="  h-[45px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-full  "></div>
                     </div>
 
                     <div className="">
-                        <div className="h-[10px] bg-gray-200 rounded-full dark:bg-gray-400 w-full mb-2.5"></div>
-                        <div className="h-[10px] bg-gray-200 rounded-full dark:bg-gray-400 w-full mb-2.5"></div>
-                        <div className="h-[10px] bg-gray-200 rounded-full dark:bg-gray-400  w-full mb-2.5"></div>
-                        <div className="h-[10px] bg-gray-200 rounded-full dark:bg-gray-400 w-full  mb-2.5"></div>
-                        <div className="h-[10px] bg-gray-200 rounded-full dark:bg-gray-400 w-[45%] "></div>
+                        <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-full mb-[15px] "></div>
+                        <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-full mb-[15px] "></div>
+                        <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400  w-full mb-[15px] "></div>
+                        <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-full  mb-[15px] "></div>
+                        <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-[45%] "></div>
                     </div>
 
                 </div>

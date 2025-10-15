@@ -27,6 +27,7 @@
 
 :root {
     --inter-font: "Inter", sans-serif;
+    --outfit-font: "Outfit", sans-serif;
     --montserrat-font: "Montserrat", sans-serif;
     --poppins-font: "Poppins", sans-serif;
     --primary-color: #0D6EFD;
@@ -54,8 +55,10 @@ body {
 
 
 button:disabled {
-  opacity: 0.6; /* Makes the button appear semi-transparent */
-  cursor: not-allowed; /* Changes the cursor to a "not allowed" symbol on hover */
+    opacity: 0.6;
+    /* Makes the button appear semi-transparent */
+    cursor: not-allowed;
+    /* Changes the cursor to a "not allowed" symbol on hover */
 }
 
 
@@ -93,7 +96,6 @@ body span:active {
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>> Information Pages Styles */
 
-
 .info_pages {
     /* background-color: var(--primary-color); */
     display: flex;
@@ -101,19 +103,20 @@ body span:active {
     padding: 50px !important;
 }
 
+
 .info_pages h1 {
-    font-family: 'Montserrat';
-    font-size: 42px;
-    line-height: 50px;
-    font-weight: 400;
+    font-family: var(--outfit-font);
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: 300;
     padding-bottom: 20px;
 }
 
 .info_pages h2 {
-    font-family: 'Montserrat';
+    font-family: var(--outfit-font);
     font-size: 22px;
     line-height: 28px;
-    font-weight: 600;
+    font-weight: 500;
     padding-bottom: 8px;
     padding-top: 10px;
     /* background-color: red; */
@@ -168,6 +171,43 @@ body span:active {
 /* .info_pages p:last-child {
     padding-bottom: 20px;
 } */
+
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .info_pages {
+        padding: 60px 30px !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+    .info_pages {
+        padding: 60px 30px !important;
+    }
+
+    .info_pages h1 {
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+
+@media (max-width: 600px) {
+    .info_pages {
+        padding: 50px 20px !important;
+    }
+
+    .info_pages h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .info_pages h2 {
+        font-size: 20px;
+        line-height: 26px;
+        /* font-weight: 500; */
+    }
+
+
+}
 
 
 
@@ -261,4 +301,8 @@ html.lenis body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.order_sum {
+      box-shadow: -3px 3px 14px 0px #0000000d;
 }

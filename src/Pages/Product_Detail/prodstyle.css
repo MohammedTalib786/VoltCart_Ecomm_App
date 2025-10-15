@@ -1,15 +1,52 @@
 .dang-cont ul {
-  margin-top: 15px;
-  margin-left: 20px;
+  /* margin-top: 15px;
+  margin-left: 20px; */
 }
 
 .dang-cont li {
-  list-style: circle;
+  /* list-style: circle;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 25px;
-  margin-top: 10px;
+  margin-top: 10px; */
 }
+
+
+
+.dang-cont ul li {
+  list-style: none;
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.dang-cont ul {
+  margin: 15px 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dang-cont ul li::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 7px;
+  width: 15px;
+  height: 15px;
+  /* background: url(../../../assets/paper-plane-solid-full.svg); */
+  background: url(../../assets/paper-plane-solid-full.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .dang-cont ul li {
+    font-size: 16px;
+  }
+}
+
+
 
 .right_sec .buy_now_btn {
   background: transparent;
@@ -36,8 +73,10 @@
 
 
 
+
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  .dang-cont li {
+  /* .dang-cont li {
     font-size: 14px;
-  }
+  } */
 }

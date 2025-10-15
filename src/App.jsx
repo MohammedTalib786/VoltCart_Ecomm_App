@@ -7,8 +7,8 @@ import AboutPage from './Pages/About/AboutPage'
 import BlogPage from './Pages/Blogs/BlogPage';
 import Error404Page from './Pages/404Page/Error404Page';
 import Products from './Pages/Products_List/Products';
-import CartPage from './Pages/Cart/CartPage';
 import ProductDetail from './Pages/Product_Detail/ProductDetail';
+import CartPage from './Pages/Cart/CartPage';
 import TestPage from './Pages/Test/TestPage';
 import Contact from './Pages/Contact/Contact';
 import CheckoutPage from './Pages/Checkout/CheckoutPage';

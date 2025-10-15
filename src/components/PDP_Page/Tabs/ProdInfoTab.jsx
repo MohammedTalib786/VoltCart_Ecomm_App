@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Tabs } from "radix-ui";
+
 import './prod_tab_style.css'
 
 const ProdInfoTab = ({
@@ -10,8 +11,7 @@ const ProdInfoTab = ({
 
     return (
         <>
-            <div className="pt-[50px] w-full  ">
-
+            <div className="pt-[50px] w-full hidden tab:block  ">
 
                 <Tabs.Root
                     className="TabsRoot prods_info_tabs  "
@@ -41,7 +41,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_description }}
                         />
 
@@ -53,7 +53,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_specifications }}
                         />
                     </Tabs.Content>
@@ -64,7 +64,7 @@ const ProdInfoTab = ({
                         </p> */}
 
                         <p
-                            className='Text font-body font-[400] text-[18px]/[26px] dang-cont'
+                            className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
                             dangerouslySetInnerHTML={{ __html: prod_compatibility }}
                         />
                     </Tabs.Content>

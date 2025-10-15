@@ -1,5 +1,4 @@
 import './global_button.css'
-import { BsCart2 } from "react-icons/bs";
 
 const Button = ({
     text = "Button",
@@ -16,6 +15,7 @@ const Button = ({
     disabled = false,
     btnIcon
 }) => {
+
     return (
         <button
             onClick={handlerClickBtnComp}

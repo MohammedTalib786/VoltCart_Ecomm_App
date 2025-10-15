@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 // Import Swiper styles
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -45,6 +45,7 @@ const ProductSlider = ({
                     modules={[Pagination]}
                     spaceBetween={40}
                     slidesPerView={4}
+                    // navigation
                     pagination={{ clickable: true }}
                     loop={true}
                     breakpoints={{
@@ -53,7 +54,7 @@ const ProductSlider = ({
                             spaceBetween: 20,
                         },
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                             spaceBetween: 20,
                         },
                         1024: {

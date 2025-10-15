@@ -1,7 +1,6 @@
 .icon_box,
 .icon_box svg,
-.icon_box:hover svg
-{
+.icon_box:hover svg {
     transition: all .25s ease-in-out;
 }
 
@@ -12,4 +11,16 @@
 .icon_box:hover svg {
     transition: all .25s ease-in-out;
     scale: 1.08;
+}
+
+.prod_icon_box_slider .swiper-button-prev::after,
+.prod_icon_box_slider .swiper-button-next::after {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .icon_box:hover {
+        box-shadow: none;
+    }
 }

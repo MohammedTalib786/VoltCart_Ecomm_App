@@ -121,8 +121,8 @@ const ProductCard = ({
 
                                     (<Button
                                         text="Add to Cart"
-                                        handlerClickBtnComp={handlerAddToCart}
                                         btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
+                                        handlerClickBtnComp={handlerAddToCart}
                                         // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
                                         // bgClr="bg-black "
                                         // borderClr="bg-black"
@@ -131,6 +131,7 @@ const ProductCard = ({
 
                                     (<Button
                                         text="View Cart"
+                                        btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                         handlerClickBtnComp={handlerViewCart}
                                         // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
                                         // bgClr="bg-black "

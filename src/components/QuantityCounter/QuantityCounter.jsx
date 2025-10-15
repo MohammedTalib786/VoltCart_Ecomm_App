@@ -6,7 +6,8 @@ import './quantity_counter.css'
 
 const QuantityCounter = ({
     id,
-    borderColor = "primary"
+    borderColor = "primary",
+    additionalClass
 }) => {
     let { cartProducts, changeQuantityFunc } = useCart()
     let item = cartProducts.find(item => item.id === id);
@@ -34,7 +35,7 @@ const QuantityCounter = ({
 
     return (
 
-        <div className={`qnty flex items-center h-fit p-[12px] relative border-[2px] border-${borderColor} rounded-[12px] `} >
+        <div className={`qnty flex items-center h-fit p-[12px] relative border-[2px] border-${borderColor} rounded-[12px] ${additionalClass} `} >
             {/* >>>>>>>>>>>>>>>>>>>> Message */}
             {
                 msg.maxItemMsg &&
