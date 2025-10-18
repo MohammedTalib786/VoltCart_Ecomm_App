@@ -104,6 +104,11 @@ const ShippingForm = ({
                         <InputBar label_text="Town/City" html_for="town-city" id="town-city" type="text"
                             onChange_func={(e) => setFormData({ ...formData, town_cityInp: e.target.value })}
                             value={formData.town_cityInp ? formData.town_cityInp : ''}
+
+                            on_input_func={(e) => {
+                                e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "")
+                            }}
+
                         />
 
                         {
@@ -118,6 +123,12 @@ const ShippingForm = ({
                         <InputBar label_text="PinCode" html_for="pincode" id="pincode" type="number"
                             onChange_func={(e) => setFormData({ ...formData, pincodeInp: Number(e.target.value) })}
                             value={formData.pincodeInp ? formData.pincodeInp : ''}
+
+                            on_input_func={(e) => {
+                                e.target.value = e.target.value.replace(/\D/g, "");
+                                e.target.value.length > 6 ? e.target.value = e.target.value.slice(0, 6) : e.target.value;
+                            }}
+
                         />
                         {
                             errorMsg.pincode &&

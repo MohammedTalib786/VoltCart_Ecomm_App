@@ -58,7 +58,7 @@ const Products = () => {
 
                 <div className=" container_layout flex flex-col justify-center items-center relative "  >
                     {/* >>>>>>>>>>>>>> In Cont */}
-                    <div className=" desktop:py-[100px] gt-tab:py-[60px] py-[60px]  "  >
+                    <div className=" desktop:py-[100px] gt-tab:py-[80px] py-[60px]  "  >
 
                         <div className=" flex md:flex-row flex-col desktop:gap-[40px] gt-tab: gap-[25px] items-start prod_list_cont   " >
 

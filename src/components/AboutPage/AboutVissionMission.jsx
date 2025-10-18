@@ -15,7 +15,7 @@ const AboutVissionMission = () => {
     return (
         <div className="container_layout">
 
-            <div className="main-cont flex items-center desktop:gap-[60px] tab:gap-[40px] gap-[30px] w-full gt-tab:py-[100px] tab:py-[80px] py-[60px] gt-tab:flex-row tab:flex-col flex-col " >
+            <div className="main-cont flex items-center desktop:gap-[60px] tab:gap-[40px] gap-[30px] w-full desktop:py-[100px] gt-tab:py-[80px] py-[60px] gt-tab:flex-row tab:flex-col flex-col " >
 
                 <div className="img desktop:w-[40%] gt-tab:w-[50%] tab:w-full w-full " >
                     <img

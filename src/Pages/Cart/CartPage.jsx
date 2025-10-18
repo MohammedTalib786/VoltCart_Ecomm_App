@@ -15,7 +15,7 @@ const Cart = () => {
         <>
             <CartSpotlight />
 
-            <div className=" gt-tab:py-[100px] tab:py-[60px] py-[50px] ">
+            <div className=" desktop:py-[100px] gt-tab:py-[80px] py-[60px] ">
                 {/* >>>>>>>>>>>>>> In Cont */}
                 <div className="container_layout mx-auto flex justify-center items-center flex-col "  >
 
@@ -25,18 +25,22 @@ const Cart = () => {
                                 ? <CartCardForEmpty />
                                 : (
                                     <>
-                                        <div className=" gt-tab:w-[60%]  tab:w-full flex flex-col tab:gap-[15px] gap-[20px]  "  >
-                                            {
-                                                cartProducts.map((elem, index) =>
-                                                    <CartCard
-                                                        key={`${elem.id}-${index}`}
-                                                        id={elem.id}
-                                                        prodName={elem.name}
-                                                        slug={elem.slug}
-                                                        price={elem.price}
-                                                        feat_img={elem.feat_img}
-                                                    />)
-                                            }
+                                        <div className="gt-tab:w-[60%] tab:w-full flex flex-col tab:gap-[15px] gap-[20px]">
+
+                                            <h3 className='font-primary tab:text-[36px]/[44px] text-[30px]/[38px] font-[400] ' >Cart Items</h3>
+                                            <div className=" flex flex-col tab:gap-[15px] gap-[20px]  "  >
+                                                {
+                                                    cartProducts.map((elem, index) =>
+                                                        <CartCard
+                                                            key={`${elem.id}-${index}`}
+                                                            id={elem.id}
+                                                            prodName={elem.name}
+                                                            slug={elem.slug}
+                                                            price={elem.price}
+                                                            feat_img={elem.feat_img}
+                                                        />)
+                                                }
+                                            </div>
                                         </div>
                                         <OrderSummary />
                                     </>

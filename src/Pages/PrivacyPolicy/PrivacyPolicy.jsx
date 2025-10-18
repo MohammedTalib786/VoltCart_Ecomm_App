@@ -1,4 +1,5 @@
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+
 import '../../index.css'
 
 const PrivacyPolicy = () => {

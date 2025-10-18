@@ -62,6 +62,77 @@ button:disabled {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* select {
+    appearance: none;
+    position: relative;
+    
+} */
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Hide native chevron */
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: 100%;
+  padding: 10px 35px 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white; */
+}
+
+
+.select-wrapper::after {
+    content: "";
+    background-image: url(./assets/icons/chevron_down.svg);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
+/* select::after {
+    content: "hello";
+    font-size: 14px;
+    color: #555;
+    position: absolute;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+    background-color: red;
+} */
+
+
+
+
+
+
+
+
+
 /* body {
     cursor: none !important;
 }
@@ -100,7 +171,7 @@ body span:active {
     /* background-color: var(--primary-color); */
     display: flex;
     align-items: flex-start;
-    padding: 50px !important;
+    padding: 80px 50px !important;
 }
 
 
@@ -175,7 +246,7 @@ body span:active {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
     .info_pages {
-        padding: 60px 30px !important;
+        padding: 80px 30px !important;
     }
 }
 
@@ -192,7 +263,7 @@ body span:active {
 
 @media (max-width: 600px) {
     .info_pages {
-        padding: 50px 20px !important;
+        padding: 60px 20px !important;
     }
 
     .info_pages h1 {
@@ -205,15 +276,10 @@ body span:active {
         line-height: 26px;
         /* font-weight: 500; */
     }
-
-
 }
 
 
-
-
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>> ENDS Information Pages Styles */
-
 
 
 
@@ -281,8 +347,8 @@ html.lenis body {
 } */
 
 .orderProcessLoader {
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     border: 2px solid #ffffff;
     /* border-bottom-color: var(--primary-clr); */
     border-bottom-color: transparent;
@@ -304,5 +370,5 @@ html.lenis body {
 }
 
 .order_sum {
-      box-shadow: -3px 3px 14px 0px #0000000d;
+    box-shadow: -3px 3px 14px 0px #0000000d;
 }

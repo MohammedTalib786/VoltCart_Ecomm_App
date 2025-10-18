@@ -62,14 +62,14 @@ const YourOrderComp = ({
 
     return (
         <>
-            <div className=' w-[50%] h-full bg-white rounded-[12px] flex flex-col justify-between ' >
+            <div className=' gt-tab:w-[50%] w-full h-full bg-white rounded-[12px] flex flex-col justify-between ' >
 
-                <div className="order_sum flex flex-col w-[100%] p-[30px] " >
-                    <h3 className='uppercase text-[32px]/[40px] ' >Your Order</h3>
+                <div className="order_sum flex flex-col w-[100%] tab:py-[30px] tab:px-[30px] py-[25px] px-[20px]  " >
+                    <h3 className=' font-primary tab:text-[36px]/[44px] text-[30px]/[38px] font-[400] ' >Your Order</h3>
 
                     <div className=" flex flex-col  "  >
 
-                        <div className=" py-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
+                        <div className=" py-[20px] tab:px-[10px] px-[5px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <div className="prods flex flex-col gap-[8px] ">
                                 {
                                     cartProducts.map(elem => <p className=' text-[18px]/[26px]  ' key={elem.id} >
@@ -83,8 +83,8 @@ const YourOrderComp = ({
                             </p>
                         </div>
 
-                        <div className=" py-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
-                            <p className='  text-[22px]/[28px] w-[100%]  ' >Shipping Charges</p>
+                        <div className=" py-[20px] tab:px-[10px] px-[5px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
+                            <p className='  font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] w-[100%]  ' >Shipping Charges</p>
                             {
                                 town_city === undefined ||
                                     town_city === '' ||
@@ -103,9 +103,10 @@ const YourOrderComp = ({
                             }
                         </div>
 
-                        <div className=" py-[20px] px-[10px] flex flex-col gap-[15px] ">
-                            <p className=' text-[22px]/[28px] w-[100%]  ' >Total</p>
-                            <div className="flex items-center "  >
+                        <div className=" py-[20px] tab:px-[10px] px-[5px] flex flex-col gap-[15px] ">
+                            <p className=' font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] w-[100%]  ' >Total</p>
+
+                            <div className="flex tab:items-center items-start tab:flex-row flex-col "  >
                                 <p className='  text-[22px]/[28px] w-fit text-[var(--primary-color)] pr-[10px] ' >
                                     &#8377;{cartItemTotal}
                                 </p>
@@ -115,26 +116,27 @@ const YourOrderComp = ({
                             </div>
                         </div>
 
-                        <div className=" pb-[20px] px-[10px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
+                        <div className=" pb-[20px] tab:px-[10px] px-[5px] border-b-1 border-[#676767] flex flex-col gap-[15px] ">
                             <p className='flex gap-[10px] ' >
                                 <input type="radio" checked name="" id="razorpay_checked" readOnly />
                                 <label className='text-[18px]/[26px]' htmlFor="razorpay_checked">Razorpay</label>
                             </p>
                         </div>
 
-                        <div className=" py-[20px] px-[10px] flex flex-col gap-[15px] ">
+                        <div className=" py-[20px] tab:px-[10px] px-[5px] flex flex-col gap-[15px] ">
                             <p className=' text-[16px]/[24px] w-[100%] ' >Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <Link to="/privacy-policy" className='text-primary '  >privacy policy.</Link></p>
                         </div>
 
-                        <div className=" py-[20px] px-[10px] w-full flex flex-col gap-[15px] ">
+                        <div className=" py-[10px] tab:px-[10px] px-[5px] w-full flex flex-col gap-[15px] ">
                             <Button
-                                text={orderProcessLoader ? <span className="orderProcessLoader m-2"></span> : "Place Order"}
-                                // text={<span className="orderProcessLoader m-2"></span>}
+                                text={orderProcessLoader ? <span className="orderProcessLoader m-[2px] "></span> : "Place Order"}
+                                // text={<span className="orderProcessLoader m-[2px] "></span>}
                                 btnWidth='w-full'
                                 type="submit"
                                 additionalClass="min-w-full"
                                 disabled={isDisabled}
                             />
+
                         </div>
 
                     </div>

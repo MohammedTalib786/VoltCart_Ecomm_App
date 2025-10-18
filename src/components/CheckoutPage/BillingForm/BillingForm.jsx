@@ -33,8 +33,8 @@ const BillingForm = ({
                     className="checkoutFormCont flex flex-col gap-[18px] pt-[20px] "
                 >
 
-                    <div className="nameCont relative flex justify-between gap-[22px] "  >
-                        <div className=" w-[50%] ">
+                    <div className="nameCont relative flex tab:flex-row flex-col justify-between gap-[22px] "  >
+                        <div className=" tab:w-[50%] w-full ">
                             <InputBar label_text="First Name" type="text" html_for="first_name" id="first_name"
                                 onChange_func={(e) => setFormData({ ...formData, first_name: e.target.value })}
                                 value={formData.first_name}
@@ -45,13 +45,13 @@ const BillingForm = ({
                             />
                             {
                                 errorMsg.firstName &&
-                                <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                                <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999] ' >
                                     Name Field Can not be Empty!
                                 </p>
                             }
                         </div>
 
-                        <div className=" w-[50%] ">
+                        <div className=" tab:w-[50%] w-full ">
                             <InputBar label_text="Last Name" type="text" html_for="last_name" id="last_name"
                                 onChange_func={(e) => setFormData({ ...formData, last_name: e.target.value })}
                                 value={formData.last_name}
@@ -73,7 +73,7 @@ const BillingForm = ({
 
                         {
                             errorMsg.email &&
-                            <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                            <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                 Invalid Email!
                             </p>
                         }
@@ -96,7 +96,7 @@ const BillingForm = ({
 
                         {
                             errorMsg.phone &&
-                            <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                            <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                 Invalid Phone Number!
                             </p>
                         }
@@ -113,21 +113,22 @@ const BillingForm = ({
                     </div>
 
 
-                    <div className="streetAddress relative flex gap-[22px] " >
-                        <div className="w-[50%] ">
+                    <div className="streetAddress relative flex tab:flex-row flex-col gap-[22px] " >
+
+                        <div className=" tab:w-[50%] w-full " >
                             <InputBar label_text="Street Address" type="text" html_for="streetAddress_1" id="streetAddress_1"
                                 onChange_func={(e) => setFormData({ ...formData, street_address: e.target.value })}
                                 value={formData.street_address}
                             />
                             {
                                 errorMsg.streetAddress &&
-                                <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                                <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                     Street Address Can not be empty!
                                 </p>
                             }
                         </div>
 
-                        <div className="w-[50%] ">
+                        <div className=" tab:w-[50%] w-full ">
                             <InputBar label_text="Town/City" type="text" html_for="town-city" id="town-city"
                                 onChange_func={(e) => {
                                     let newTownCity = e.target.value;
@@ -142,7 +143,7 @@ const BillingForm = ({
                             />
                             {
                                 errorMsg.townCity &&
-                                <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                                <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                     townCity Can not be empty!
                                 </p>
                             }
@@ -163,7 +164,7 @@ const BillingForm = ({
                         />
                         {
                             errorMsg.townCity &&
-                            <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                            <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                 townCity Can not be empty!
                             </p>
                         }
@@ -200,7 +201,7 @@ const BillingForm = ({
 
                         {
                             errorMsg.pincode &&
-                            <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] right-[30px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
+                            <p className='bg-red-800 text-white fixed top-[15px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
                                 Invalid Pincode!
                             </p>
                         }

@@ -100,23 +100,23 @@ const OrderSummary = () => {
 
     return (
         <div className="order_sum gt-tab:w-[40%] tab:w-full h-full flex flex-col gap-[16px] tab:pt-[40px] tab:px-[30px] tab:pb-[45px] pt-[25px] px-[20px] pb-[30px] rounded-[12px] bg-white  ">
-            <h3 className='font-primary text-[36px]/[44px] font-[400] ' >Order Summary</h3>
+            <h3 className='font-primary tab:text-[36px]/[44px] text-[30px]/[38px] font-[400] ' >Order Summary</h3>
             <div className="calculations flex flex-col gap-[20px] "  >
 
                 <div className="subtotal flex flex-col gap-[8px] "  >
-                    <h3 className=' font-body text-[22px]/[28px] font-[500] w-[100%]  ' >Subtotal</h3>
-                    <p className='  text-[22px]/[28px] w-[100%] text-[var(--primary-color)] ' >&#8377;{cartItemSubTotal}</p>
+                    <h3 className=' font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] w-[100%]  ' >Subtotal</h3>
+                    <p className='  tab:text-[22px]/[28px] text-[20px]/[26px] w-[100%] text-[var(--primary-color)] ' >&#8377;{cartItemSubTotal}</p>
                 </div>
 
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Shipping Comp */}
                 <div className="shipping flex flex-col gap-[8px] "   >
-                    <h3 className=' font-body text-[22px]/[28px] font-[500] w-[100%] ' > Shipping </h3>
+                    <h3 className=' font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] w-[100%] ' > Shipping </h3>
 
                     {/* >>>>>>>>>>>>>>>> Shipping Info Message Comp */}
                     {
                         town_city && states && states &&
                         <div className="shippingDetailsInfo py-[8px] flex flex-col gap-[6px] ">
-                            <p>Flat Rate: &#8377;{shippingCharges}</p>
+                            <p>Flat Rate: <span className='text-primary' >&#8377;{shippingCharges}</span></p>
                             <p>
                                 Shipping to {town_city}, {pincode}, {states}
                                 {/* DEMO: Shipping to Mum, 70, Maha, */}
@@ -138,9 +138,11 @@ const OrderSummary = () => {
 
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Total Amt Comp */}
                 <div className="subtotal flex flex-col gap-[8px] "  >
-                    <h3 className=' font-body text-[22px]/[28px] font-[500] w-[100%] ' >Total</h3>
-                    <div className="flex items-center "  >
-                        <p className='  text-[22px]/[28px] w-fit text-[var(--primary-color)] pr-[10px] ' >
+                    <h3 className=' font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] w-[100%] ' >Total</h3>
+
+                    {/* <div className="flex items-center "  > */}
+                    <div className="flex tab:items-center items-start tab:flex-row flex-col "  >
+                        <p className='  tab:text-[22px]/[28px] text-[20px]/[26px] w-fit text-[var(--primary-color)] pr-[10px] ' >
                             &#8377;{cartItemTotal}
                         </p>
 

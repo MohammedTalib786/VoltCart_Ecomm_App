@@ -22,6 +22,7 @@ const Header = () => {
         topVal: "-top-[490px]",
         opacity: 0,
         pointerEvents: "none"
+
     });
 
     let [openMenu, setOpenMenu] = useState({
@@ -43,8 +44,6 @@ const Header = () => {
     useMotionValueEvent(scrollY, 'change', (event) => event > 10 ? setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" }) : '')
 
 
-
-
     useEffect(() => {
         // console.log("Route changed to:", location.pathname);
         // You can call analytics or do other side effects here
@@ -52,6 +51,7 @@ const Header = () => {
             topVal: "-top-[490px]",
             opacity: 0,
             pointerEvents: "none"
+
         })
     }, [location]);
 
@@ -61,6 +61,44 @@ const Header = () => {
         if (searchBoxOpen.opacity === 0) {
             setSearchBoxOpen({
                 topVal: "top-[85px]",
+                opacity: 1,
+                pointerEvents: "all"
+            })
+        }
+        else {
+            setSearchBoxOpen({
+                topVal: "-top-[490px]",
+                opacity: 0,
+                pointerEvents: "none"
+            })
+        }
+    }
+
+    const handlerSearchActiveTab = () => {
+        // setSearchBoxOpen(true)
+        // console.log('searchBoxOpen', searchBoxOpen)
+        if (searchBoxOpen.opacity === 0) {
+            setSearchBoxOpen({
+                topVal: "top-[108px]",
+                opacity: 1,
+                pointerEvents: "all"
+            })
+        }
+        else {
+            setSearchBoxOpen({
+                topVal: "-top-[490px]",
+                opacity: 0,
+                pointerEvents: "none"
+            })
+        }
+    }
+
+    const handlerSearchActiveMobile = () => {
+        // setSearchBoxOpen(true)
+        // console.log('searchBoxOpen', searchBoxOpen)
+        if (searchBoxOpen.opacity === 0) {
+            setSearchBoxOpen({
+                topVal: "top-[88px]",
                 opacity: 1,
                 pointerEvents: "all"
             })
@@ -152,10 +190,7 @@ const Header = () => {
 
             </div>
 
-
-            <SearchBar searchBoxOpen={searchBoxOpen} setSearchBoxOpen={setSearchBoxOpen} />
-
-            {/* >>>>>>>>>>>>>>> Mobile Header */}
+            {/* >>>>>>>>>>>>>>> Tab/Mobile Header */}
             <div className='mobile_header gt-tab:hidden flex py-[25px] items-center mx-auto tab:px-[30px] px-[20px] w-full ' >
 
                 <div className=" tab:w-[20%] w-[15%] flex items-center " >
@@ -222,8 +257,15 @@ const Header = () => {
                 <div className="iconsCont tab:w-[20%] w-[25%] flex justify-end tab:gap-[24px] gap-[10px]  ">
 
                     <button
-                        onClick={handlerSearchActive}
-                        className="cart-box flex justify-center items-center flex-col relative cursor-pointer "
+                        onClick={handlerSearchActiveTab}
+                        className="cart-box tab:flex hidden justify-center items-center flex-col relative cursor-pointer  "
+                    >
+                        <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-para-black   ' />
+                    </button>
+
+                    <button
+                        onClick={handlerSearchActiveMobile}
+                        className="cart-box tab:hidden flex justify-center items-center flex-col relative cursor-pointer  "
                     >
                         <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-para-black   ' />
                     </button>
@@ -245,6 +287,8 @@ const Header = () => {
                 </div>
 
             </div>
+
+            <SearchBar searchBoxOpen={searchBoxOpen} setSearchBoxOpen={setSearchBoxOpen} />
 
         </header>
     )

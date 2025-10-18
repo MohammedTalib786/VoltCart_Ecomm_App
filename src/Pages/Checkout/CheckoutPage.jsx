@@ -254,14 +254,16 @@ const CheckoutPage = () => {
     return (
         <>
             <CheckoutPageSpotlight />
-            <div className="py-[100px]">
+
+            <div className="  desktop:py-[100px] gt-tab:py-[80px] py-[60px] " >
                 {/* >>>>>>>>>>>>>> In Cont */}
                 <div className="container_layout mx-auto flex justify-center items-center flex-col "  >
 
                     <form onSubmit={handlerPlaceOrder} className='w-full' >
-                        <div className="cart_card_cont w-full px-[50px] flex gap-[35px] "  >
+                        <div className="cart_card_cont w-full flex gt-tab:flex-row flex-col desktop:gap-[35px] gt-tab:gap-[25px] gap-[35px] " >
 
-                            <div className=" w-[50%] flex flex-col gap-[15px]  "  >
+                            <div className=" gt-tab:w-[50%] w-full flex flex-col gap-[15px]  "  >
+                                <h3 className=' font-primary tab:text-[36px]/[44px] text-[30px]/[38px] font-[400] ' >Billing Details</h3>
                                 <BillingForm errorMsg={errorMsg} formData={formData} setFormData={setFormData} />
                             </div>
 

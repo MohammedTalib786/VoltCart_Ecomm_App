@@ -8,6 +8,7 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import './success-page.css'
 import { useCart } from '../../contexts/ProdProvider';
+import { BsCart2 } from 'react-icons/bs';
 
 const SuccessPage = () => {
 
@@ -34,22 +35,20 @@ const SuccessPage = () => {
     // console.log('getSubtotal', getSubtotal)
     // console.log('query', orderIdParam)
 
-    useEffect(() => {
-        if (!loadingOrder &&
-            orderItems.length === 0 ||
-            !orderIdParam ||
-            orderIdParam === null
-        ) {
-            navigate('/cart')
-            // console.log('Will be Naviagte!')
-        }
-        else {
-            //  console.log('Will Not Naviagte!')
-
-            clearCartFunc();
-
-        }
-    }, [orderItems])
+    // useEffect(() => {
+    //     if (!loadingOrder &&
+    //         orderItems.length === 0 ||
+    //         !orderIdParam ||
+    //         orderIdParam === null
+    //     ) {
+    //         navigate('/cart')
+    //         // console.log('Will be Naviagte!')
+    //     }
+    //     else {
+    //         //  console.log('Will Not Naviagte!')
+    //         clearCartFunc();
+    //     }
+    // }, [orderItems])
 
     const handlerCopyToClipboard = () => {
         // console.log('copy text')
@@ -60,21 +59,22 @@ const SuccessPage = () => {
     }
 
     return (
-        <div 
-        className=' min-h-[90vh] flex items-center ' 
+        <div
+            className=' min-h-[90vh]  flex items-center '
         >
             {/* >>>>>>>>>>>>>> In Cont */}
-            <div className=" max-w-4xl mx-auto py-12 px-6">
+            <div 
+            className=" gt-tab:max-w-[900px] tab:max-w-[90%] mx-auto gt-tab:py-[60px] tab:py-[60px] " >
 
-                <div className="text-center mb-10">
-                    <h1
-                        className="font-primary tab:text-[48px]/[58px] text-[32px]/[40px] font-[400]"
-                    >Thank You For Shopping With Us!</h1>
+                <div className="text-center tab:mb-[40px]  ">
+
+                    <h1 className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] mb-[15px] ">Thank You For Shopping With Us!</h1>
                     <p className="mt-4 text-para-black ">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className=' p-6 relative order_info_cont ' >
+                <div className=" gt-tab:grid gt-tab:grid-cols-2 tab:flex tab:flex-col gap-8  " >
+
+                    <div className=' gt-tab:p-6 tab:p-0 relative order_info_cont ' >
                         {
                             !coppiedState
                                 ? <PiCopyLight
@@ -133,6 +133,7 @@ const SuccessPage = () => {
                             <Link to='/products' >
                                 <Button
                                     text='Return to shopping'
+                                    btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                     additionalClass='w-full'
                                 />
                             </Link>
@@ -140,7 +141,8 @@ const SuccessPage = () => {
                     </div>
 
                     <div className="bg-white p-6 rounded-lg">
-                        <h2 className="text-[22px]/[28px] font-[500] mb-6">Order Summary</h2>
+                        {/* <h2 className="text-[22px]/[28px] font-[500] mb-6">Order Summary</h2> */}
+                        <h3 className=" font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] mb-6 " >Order Summary</h3>
 
                         <div className="space-y-4">
                             <div className="space-y-2" >
