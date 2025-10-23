@@ -1,23 +1,12 @@
-
-
 import './spinner_loader.css'
 
-
-
-const SpinnerLoader = () => {
+const SpinnerLoader = ({ additionalClass }) => {
     return (
-
         <>
-            {/* >>>>>>>>>>>>>> In Cont */}
-            <div className=" w-full flex justify-center items-center gap-[20px]  " >
-
+            <div className={` w-full flex justify-center items-center gap-[20px] ${additionalClass} `} >
                 <span className="spin_loader w-[24px] h-[24px] "  ></span>
-
             </div>
-
         </>
-
-
     )
 }
 

@@ -5,7 +5,7 @@ import Button from '../FormComp/Button'
 const NewsletterComping = () => {
     return (
         <div className='w-full bg-[#eff2f4] py-[40px] flex flex-col justify-center items-center   ' >
-            <h3 className='font-[600] text-[20px]/[30px] text-[#1C1C1C] ' >Subscribe on our newsletter</h3>
+            <h3 className='font-[600] text-[20px]/[30px] text-black ' >Subscribe on our newsletter</h3>
             <p className='text-[#606060] font-[400] text-[16px]/[26px] pb-[20px] ' >Get daily news on upcoming offers from many suppliers all over the world</p>
 
             <form action=""

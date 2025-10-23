@@ -6,9 +6,11 @@ import { useEffect, useRef, useState } from 'react';
 import { PiCopyLight } from "react-icons/pi";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import './success-page.css'
 import { useCart } from '../../contexts/ProdProvider';
 import { BsCart2 } from 'react-icons/bs';
+
+import './success-page.css'
+
 
 const SuccessPage = () => {
 
@@ -60,21 +62,20 @@ const SuccessPage = () => {
 
     return (
         <div
-            className=' min-h-[90vh]  flex items-center '
+            className=' min-h-[90vh] flex items-center '
         >
             {/* >>>>>>>>>>>>>> In Cont */}
-            <div 
-            className=" gt-tab:max-w-[900px] tab:max-w-[90%] mx-auto gt-tab:py-[60px] tab:py-[60px] " >
+            <div
+                className=" gt-tab:max-w-[900px] tab:max-w-[90%] max-w-full mx-auto tab:px-0 px-[20px]  py-[60px] " >
 
-                <div className="text-center tab:mb-[40px]  ">
-
+                <div className="text-center tab:mb-[40px] mb-[30px] ">
                     <h1 className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] mb-[15px] ">Thank You For Shopping With Us!</h1>
-                    <p className="mt-4 text-para-black ">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
+                    <p className="mt-4 text-black ">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
                 </div>
 
                 <div className=" gt-tab:grid gt-tab:grid-cols-2 tab:flex tab:flex-col gap-8  " >
 
-                    <div className=' gt-tab:p-6 tab:p-0 relative order_info_cont ' >
+                    <div className=' gt-tab:p-6 tab:p-0 relative order_info_cont tab:mb-0 mb-[35px] ' >
                         {
                             !coppiedState
                                 ? <PiCopyLight
@@ -88,45 +89,47 @@ const SuccessPage = () => {
                                 />
                         }
                         {
-                            coppiedState && <p className=' transition-all absolute top-[-35px] right-[92px] p-[10px] bg-primary text-white text-[16px]/[16px] font-[400]  rounded-[12px]  ' >Order Detail Coppied to Clipboard</p>
+                            coppiedState && <p className=' OrderTxtCoppiedMsg transition-all p-[10px] bg-primary text-white text-[16px]/[24px] font-[400] rounded-[12px] absolute gt-tab:top-[-35px] gt-tab:right-[92px] tab:-top-[10px] tab:right-[60px] -top-[33px] right-[30px] w-auto  ' >Order Detail Coppied to Clipboard</p>
                         }
 
-                        <div className="space-y-4 order_info "
+                        <div className=" order_info flex flex-wrap gap-y-[15px] "
                             ref={order_info} >
-                            <div>
-                                <span className="font-[600] text-[18px]/[24px] ">Order ID: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{orderIdParam ? orderIdParam : 'null'}</span>
+
+                            <div className=' gt-tab:w-auto tab:w-[50%] w-auto ' >
+                                <span className="font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Order ID: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px]  ' >{orderIdParam ? orderIdParam : 'null'}</span>
                             </div>
 
-                            <div>
-                                <span className=" font-[600] text-[18px]/[24px] ">Name: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{mainOrder?.name ? mainOrder?.name : "No Data Found!"}</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className=" font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Name: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >{mainOrder?.name ? mainOrder?.name : "No Data Found!"}</span>
                             </div>
 
-                            <div>
-                                <span className=" font-[600] text-[18px]/[24px] ">Email: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{mainOrder?.email_id ? mainOrder?.email_id : "No Data Found!"}</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className=" font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Email: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >{mainOrder?.email_id ? mainOrder?.email_id : "No Data Found!"}</span>
                             </div>
 
-                            <div>
-                                <span className=" font-[600] text-[18px]/[24px] ">Phone: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{mainOrder?.phone ? mainOrder?.phone : "No Data Found!"}</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className=" font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Phone: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >{mainOrder?.phone ? mainOrder?.phone : "No Data Found!"}</span>
                             </div>
 
-                            <div>
-                                <span className=" font-[600] text-[18px]/[24px] ">Address: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{getAddress ? getAddress : "No Date Found!"}</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className=" font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Address: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >{getAddress ? getAddress : "No Date Found!"}</span>
                             </div>
 
-                            <div>
-                                <span className="font-[600] text-[18px]/[24px]">Order Date: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >{mainOrder?.date ? mainOrder.date : "No Data Found!"}</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className="font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Order Date: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >{mainOrder?.date ? mainOrder.date : "No Data Found!"}</span>
                             </div>
 
-                            <div>
-                                <span className=" font-[600] text-[18px]/[24px] ">Payment Method: </span>
-                                <span className=' font-[400] text-[18px]/[24px]' >Razorpay Online</span>
+                            <div className=' gt-tab:w-full tab:w-[50%] w-full ' >
+                                <span className=" font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Payment Method: </span>
+                                <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px] ' >Razorpay Online</span>
                             </div>
+
                         </div>
 
                         <div className="mt-[18px] space-x-4">

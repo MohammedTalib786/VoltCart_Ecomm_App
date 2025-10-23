@@ -11,3 +11,19 @@
 }
 
 
+@media (max-width: 600px) {
+    .copy_order_details_btn {
+        opacity: 1;
+        pointer-events: all;
+        transition: all .25s ease-in-out;
+    }
+}
+
+@media (max-width: 365px) {
+
+    .OrderTxtCoppiedMsg {
+        width: 100%;
+        top: -35px;
+        right: 0;
+    }
+}

@@ -78,14 +78,14 @@ const TopHeader = () => {
 
                     <button className="wishlist-box flex justify-center items-center flex-col cursor-pointer ">
                         {/* <img src={wishlistIcon} alt="wishlist icon" className="w-[24px] " /> */}
-                        <FaRegHeart className=' text-[22px]/[22px] text-[#1C1C1C]  ' />
+                        <FaRegHeart className=' text-[22px]/[22px] text-black  ' />
                     </button>
 
 
 
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
                         {/* <img src={cartIcon} alt="cart icon" className="w-[24px] " /> */}
-                        <MdOutlineShoppingCart className=' text-[24px]/[24px] text-[#1C1C1C]  ' />
+                        <MdOutlineShoppingCart className=' text-[24px]/[24px] text-black  ' />
 
                         {
                             cartProducts && cartProducts.length >= 1 ? <div className=" text-white bg-[var(--primary-color)] text-[13px]/[13px] rounded-[50%] w-[24px] h-[24px] p-0 flex justify-center items-center absolute top-[-14px] right-[-16px]    ">{mainCartItemLen}</div> : null
@@ -108,7 +108,7 @@ const TopHeader = () => {
                         onClick={() => setOpenMenu({ left: "0px", opacity: 1, pointerEvents: "all" })}
                         className=' cursor-pointer '  >
                         {/* <img src={hamNavIcon} alt="navbar-icon" className='w-[30px]' /> */}
-                        <RxHamburgerMenu className=' text-[#1C1C1C] text-[30px]/[30px]  ' />
+                        <RxHamburgerMenu className=' text-black text-[30px]/[30px]  ' />
                     </button>
 
                 </div>
@@ -136,19 +136,19 @@ const TopHeader = () => {
                     <nav className='mob_nav  ' >
                         <ul className=' flex flex-col ' >
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-[#1C1C1C] block text-[16px]"} >Home</NavLink>
+                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-black block text-[16px]"} >Home</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-[#1C1C1C] block text-[16px]"} >About Us</NavLink>
+                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-black block text-[16px]"} >About Us</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-[#1C1C1C] block text-[16px]"} >Blogs</NavLink>
+                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-black block text-[16px]"} >Blogs</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-[#1C1C1C] block text-[16px]"} >Products</NavLink>
+                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-black block text-[16px]"} >Products</NavLink>
                             </li>
                             <li className=' py-[10px] '>
-                                <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-[#1C1C1C] block text-[16px]"} >Contact</NavLink>
+                                <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 font-inter text-black block text-[16px]"} >Contact</NavLink>
                             </li>
                         </ul>
 

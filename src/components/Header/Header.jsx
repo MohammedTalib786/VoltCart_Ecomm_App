@@ -140,22 +140,22 @@ const Header = () => {
                         <ul
                             className='gt-tab:flex hidden gap-[40px] max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Home</NavLink>
+                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >Home</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >About Us</NavLink>
+                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >About Us</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Blogs</NavLink>
+                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >Blogs</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Products</NavLink>
+                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >Products</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-para-black block text-[16px]"} >Contact</NavLink>
+                                <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >Contact</NavLink>
                             </li>
                             <li className='max-lg:border-b '>
-                                <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-body text-para-black block text-[16px]"} >Test</NavLink>
+                                <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-body text-black block text-[16px]"} >Test</NavLink>
                             </li>
                         </ul>
 
@@ -169,17 +169,17 @@ const Header = () => {
                         onClick={handlerSearchActive}
                         className="cart-box flex justify-center items-center flex-col relative cursor-pointer "  >
                         <MdOutlineSearch
-                            className=' text-[28px]/[28px] text-para-black   '
+                            className=' text-[28px]/[28px] text-black   '
                         />
                     </button>
 
                     <button className="wishlist-box flex justify-center items-center flex-col cursor-pointer ">
                         {/* <img src={wishlistIcon} alt="wishlist icon" className="w-[24px] " /> */}
-                        <FaRegHeart className=' text-[22px]/[22px] text-para-black  ' />
+                        <FaRegHeart className=' text-[22px]/[22px] text-black  ' />
                     </button>
 
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
-                        {/* <MdOutlineShoppingCart className=' text-[24px]/[24px] text-para-black   ' /> */}
+                        {/* <MdOutlineShoppingCart className=' text-[24px]/[24px] text-black   ' /> */}
                         <MdOutlineShoppingCart className=' text-[24px]/[24px] text-[#393939]   ' />
                         {
                             cartProducts && cartProducts.length >= 1 ? <div className=" text-white bg-[var(--primary-color)] text-[13px]/[13px] rounded-[50%] w-[24px] h-[24px] p-0 flex justify-center items-center absolute top-[-14px] right-[-16px]    ">{mainCartItemLen}</div> : null
@@ -199,7 +199,7 @@ const Header = () => {
                         onClick={() => setOpenMenu({ left: "0px", opacity: 1, pointerEvents: "all" })}
                         className=' cursor-pointer '  >
                         {/* <img src={hamNavIcon} alt="navbar-icon" className='w-[30px]' /> */}
-                        <RxHamburgerMenu className=' text-para-black tab:text-[32px]/[32px] text-[26px]/[26px]  ' />
+                        <RxHamburgerMenu className=' text-black tab:text-[32px]/[32px] text-[26px]/[26px]  ' />
                     </button>
 
                 </div>
@@ -229,19 +229,19 @@ const Header = () => {
                     <nav className='mob_nav ' >
                         <ul className=' flex flex-col ' >
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >Home</NavLink>
+                                <NavLink to='/' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-black block text-[16px]"} >Home</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >About Us</NavLink>
+                                <NavLink to='/about-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-black block text-[16px]"} >About Us</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >Blogs</NavLink>
+                                <NavLink to='/blogs' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-black block text-[16px]"} >Blogs</NavLink>
                             </li>
                             <li className='max-lg:border-b py-[20px] '>
-                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >Products</NavLink>
+                                <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-black block text-[16px]"} >Products</NavLink>
                             </li>
                             <li className=' py-[10px] '>
-                                <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-para-black block text-[16px]"} >Contact</NavLink>
+                                <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-primary font-inter text-black block text-[16px]"} >Contact</NavLink>
                             </li>
                         </ul>
 
@@ -260,23 +260,23 @@ const Header = () => {
                         onClick={handlerSearchActiveTab}
                         className="cart-box tab:flex hidden justify-center items-center flex-col relative cursor-pointer  "
                     >
-                        <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-para-black   ' />
+                        <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-black   ' />
                     </button>
 
                     <button
                         onClick={handlerSearchActiveMobile}
                         className="cart-box tab:hidden flex justify-center items-center flex-col relative cursor-pointer  "
                     >
-                        <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-para-black   ' />
+                        <MdOutlineSearch className=' tab:text-[32px]/[32px] text-[24px]/[24px] text-black   ' />
                     </button>
 
                     <button className="wishlist-box flex justify-center items-center flex-col cursor-pointer ">
                         {/* <img src={wishlistIcon} alt="wishlist icon" className="w-[24px] " /> */}
-                        <FaRegHeart className=' tab:text-[24px]/[24px] text-[18px]/[18px] text-para-black  ' />
+                        <FaRegHeart className=' tab:text-[24px]/[24px] text-[18px]/[18px] text-black  ' />
                     </button>
 
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
-                        {/* <MdOutlineShoppingCart className=' text-[24px]/[24px] text-para-black   ' /> */}
+                        {/* <MdOutlineShoppingCart className=' text-[24px]/[24px] text-black   ' /> */}
                         <MdOutlineShoppingCart className=' tab:text-[28px]/[28px] text-[20px]/[20px] text-[#393939]   ' />
 
                         {

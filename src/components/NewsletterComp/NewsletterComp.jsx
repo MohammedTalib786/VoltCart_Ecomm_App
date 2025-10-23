@@ -78,7 +78,7 @@ const NewsletterComp = () => {
 
     return (
         <div className='w-full bg-[#eff2f4] py-[40px] px-[20px] flex flex-col justify-center items-center  border-[#b9b9b9] border-t ' >
-            <h3 className='font-primary  tab:text-[24px]/[30px] text-[20px]/[26px] tab:pb-0 pb-[5px] font-[500] text-para-black capitalize ' >Subscribe on our newsletter</h3>
+            <h3 className='font-primary  tab:text-[24px]/[30px] text-[20px]/[26px] tab:pb-0 pb-[5px] font-[500] text-black capitalize ' >Subscribe on our newsletter</h3>
             <p className='text-[#606060] font-body font-[400] text-[16px]/[26px] pb-[12px] text-center ' >Get daily news on upcoming offers from many suppliers all over the world</p>
 
             <form action=""
@@ -106,11 +106,12 @@ const NewsletterComp = () => {
                 </div>
 
                 {/* <Button disabled={true} type='submit' id="newsletter_submit_btn" text={<Loader />} btnWidth='fit' /> */}
-                <Button 
-                disabled={isDisabled} 
-                type='submit' id="newsletter_submit_btn" 
-                text={loader ? <Loader /> : "Subscribe"} btnWidth='fit'  
-                additionalClass="min-w-[115px]"
+                <Button
+                    disabled={isDisabled}
+                    type='submit' id="newsletter_submit_btn"
+                    text={loader ? <Loader /> : "Subscribe"} 
+                    btnWidth='fit'
+                    additionalClass="min-w-[115px]"
                 />
 
             </form>

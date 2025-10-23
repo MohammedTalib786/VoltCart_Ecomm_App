@@ -25,6 +25,9 @@
 }
 
 
+
+
+
 :root {
     --inter-font: "Inter", sans-serif;
     --outfit-font: "Outfit", sans-serif;
@@ -244,13 +247,33 @@ body span:active {
 } */
 
 
+.spot_title::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: white;
+    vertical-align: super;
+    margin-right: 16px;
+}
+
+
 @media (min-width: 1024px) and (max-width: 1200px) {
     .info_pages {
         padding: 80px 30px !important;
     }
+
+    .spot_title::before {
+        width: 50px;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 1023px) {
+    .spot_title::before {
+        width: 40px;
+        margin-right: 12px;
+    }
+
     .info_pages {
         padding: 60px 30px !important;
     }
@@ -262,6 +285,11 @@ body span:active {
 }
 
 @media (max-width: 600px) {
+    .spot_title::before {
+        width: 40px;
+        margin-right: 12px;
+    }
+
     .info_pages {
         padding: 60px 20px !important;
     }

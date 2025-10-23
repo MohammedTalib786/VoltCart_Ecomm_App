@@ -105,6 +105,29 @@ const ProductDetail = () => {
         }
     }
 
+    // obj.name;
+    // obj.age
+
+    // obj.name = 'talib';
+    // obj?.name = false 
+
+    useEffect(() => {
+        // console.log('description', description)
+        // console.log('description splt || ', description.split('<ul>').slice(0, 1).join('') )
+        // console.log('desc || ', description?.split(' ') )
+
+        function get() {
+            console.log('get')
+            let a = description?.split(' ');
+            let len = Math.floor((a?.length / 2))
+            // console.log('a', a)
+            console.log('len', len)
+            let mainVal  = a?.slice(0, len)
+            console.log('mainVal', mainVal)
+        }
+        get()
+
+    }, [description])
 
     return (
         <>

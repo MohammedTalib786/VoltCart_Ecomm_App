@@ -33,7 +33,7 @@
                         <NavLink to='/products' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 text-slate-900 block text-[16px]"} >Products</NavLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-3 px-3'>
-                        <NavLink to='/contact' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 text-slate-900 block text-[16px]"} >Contact</NavLink>
+                        <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "font-medium lg:hover:text-blue-700 text-slate-900 block text-[16px]"} >Contact</NavLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-3 px-3 relative ' >
                         <Link to='/cart' className="font-medium lg:hover:text-blue-700 text-slate-900 block text-[16px]"  >
