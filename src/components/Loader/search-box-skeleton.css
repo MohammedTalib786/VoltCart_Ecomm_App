@@ -1,7 +1,8 @@
 .search_loader_container {
     /* height: 100vh; */
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -10,20 +11,34 @@
 .post {
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     /* height: 80px; */
-    gap: 16px; /* Space between avatar and lines */
+    gap: 16px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
 }
 
 .post .avatar {
     flex-shrink: 0;
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 220px;
     background-color: #ccc;
     border-radius: 14px;
     background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
     background-size: 600px;
     animation: shine-avatar 1.6s infinite linear;
+}
+
+.post .avatar_label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 85px;
+    height: 25px;
+    background-color: #c3c3c3;
+    border-radius: 6px;
 }
 
 .post .lines {
@@ -38,7 +53,6 @@
 .post .line {
     width: 75%;
     /* height: 16px; */
-    
     border-radius: 7px;
     background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
     background-size: 600px;
@@ -50,9 +64,18 @@
     height: 20px;
 }
 
-.post .line:last-child {
-    width: 90%;
+.post .line:nth-child(2) {
+    /* width: 90%;
+    height: 50px; */
+    width: 100%;
     height: 50px;
+}
+
+.post .line:last-child {
+    /* width: 90%;
+    height: 50px; */
+    width: 100px;
+    height: 25px;
 }
 
 .post .line.short {
@@ -64,7 +87,8 @@
         background-position: -100px;
     }
 
-    40%, 100% {
+    40%,
+    100% {
         background-position: 140px;
     }
 }
@@ -74,7 +98,32 @@
         background-position: -32px;
     }
 
-    40%, 100% {
+    40%,
+    100% {
         background-position: 208px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .search_loader_container .post:last-child {
+        display: none;
+    }
+
+    .search_loader_container .post {
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .search_loader_container {
+        flex-direction: column;
+    }
+
+    .search_loader_container .post:last-child {
+        display: none;
+    }
+
+    .search_loader_container .post {
+        width: 100%;
     }
 }

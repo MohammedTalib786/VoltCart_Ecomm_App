@@ -7,12 +7,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 import { useCart } from '../../contexts/ProdProvider';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-// import logo from '../../../src/assets/final_logo.png';
+
 import logo from '../../../src/assets/logo.svg';
-import './header.css'
-import '../../index.css'
 import SearchBar from './SearchBar/SearchBar'
 
+import './header.css'
+import '../../index.css'
 
 
 const Header = () => {
@@ -22,7 +22,6 @@ const Header = () => {
         topVal: "-top-[490px]",
         opacity: 0,
         pointerEvents: "none"
-
     });
 
     let [openMenu, setOpenMenu] = useState({
@@ -128,8 +127,9 @@ const Header = () => {
             <div className='desktop_header gt-tab:flex hidden flex-wrap max-h-[90px] py-[20px] items-center max-w-[1440px] mx-auto gt-tab:px-[30px] desktop:px-[50px] w-full bg-transparent ' >
 
                 <div className="logoCont w-[20%]  ">
-                    <Link to="/" >
-                        <img src={logo} alt="logo" width="155px" />
+                    <Link to="/" className=' block w-fit '  >
+                        {/* <img src={logo} alt="logo" width="155px" /> */}
+                        <img src={logo} alt="logo" width="170px" />
                     </Link>
                 </div>
 
@@ -154,9 +154,9 @@ const Header = () => {
                             <li className='max-lg:border-b '>
                                 <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative font-medium  font-body text-black block text-[16px]"} >Contact</NavLink>
                             </li>
-                            <li className='max-lg:border-b '>
+                            {/* <li className='max-lg:border-b '>
                                 <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-body text-black block text-[16px]"} >Test</NavLink>
-                            </li>
+                            </li> */}
                         </ul>
 
                     </div>
@@ -205,12 +205,16 @@ const Header = () => {
                 </div>
 
                 {/* // Absolute Navbar */}
+
+
+
                 <motion.div
                     animate={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
-                    className=" w-[70%] h-[100vh] z-[9999] bg-white  tab:left-[0px] flex  absolute top-0   flex-col justify-start gap-[50px] px-[30px] pt-[100px] pb-[30px]  "
+                    className=" w-[85%] h-[100vh] z-[9999] bg-white tab:left-[0px] flex absolute top-0 flex-col justify-start gap-[50px] px-[30px] pt-[100px] pb-[30px]  "
                     transition={{ type: 'spring', stiffness: 300, damping: 35, }}
                     style={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
                 >
+
 
                     <button
                         onClick={() => setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })}
@@ -222,7 +226,7 @@ const Header = () => {
 
                     <Link to="/" >
                         <img src={logo} alt="logo"
-                            className=' w-[250px] tab:w-[250px] '
+                            className=' w-[200px] '
                         />
                     </Link>
 
@@ -246,7 +250,10 @@ const Header = () => {
                         </ul>
 
                     </nav>
+
+
                 </motion.div>
+
 
                 <div className="logoCont tab:w-[60%] w-[60%] flex justify-center  ">
                     <Link to="/" >
@@ -286,11 +293,11 @@ const Header = () => {
 
                 </div>
 
-            </div>
+            </div >
 
             <SearchBar searchBoxOpen={searchBoxOpen} setSearchBoxOpen={setSearchBoxOpen} />
 
-        </header>
+        </header >
     )
 }
 

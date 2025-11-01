@@ -9,7 +9,7 @@ import Error404Page from './Pages/404Page/Error404Page';
 import Products from './Pages/Products_List/Products';
 import ProductDetail from './Pages/Product_Detail/ProductDetail';
 import CartPage from './Pages/Cart/CartPage';
-import TestPage from './Pages/Test/TestPage';
+import TestPage from './Pages/TestPage/TestPage';
 import Contact from './Pages/Contact/Contact';
 import CheckoutPage from './Pages/Checkout/CheckoutPage';
 import SearchListing from './Pages/SearchListingPage/SearchListing';
@@ -29,6 +29,7 @@ import { ProdProvider } from './contexts/ProdProvider';
 import { ShippingDetProvider } from './contexts/ShippingDetProvider';
 import { CartTotalProvider } from './contexts/cartTotalProvider'
 import { OrderProvider } from './contexts/orderItemsProvider';
+import BlogDetails from './Pages/BlogsDetails/BlogDetails';
 
 
 const App = () => {
@@ -251,6 +252,8 @@ const App = () => {
                   <Route path='/search-listing' element={<SearchListing />} />
 
                   <Route path='/blogs' element={<BlogPage />} />
+
+                  <Route path='/blogs/:slug' element={<BlogDetails /> } />
 
                   <Route path='/products' element={<Products />} />
 

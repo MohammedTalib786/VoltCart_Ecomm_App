@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
+
+import placeholderImg from '../../assets/placeholder_img.png'
+import useFetch from '../../hooks/useFetch'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import Loader from '../../components/Loader/SkeletonLoader'
-import useFetch from '../../hooks/useFetch'
-import prodSpotlight from '../../assets/prodListing/productSpot.webp'
-import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
-import placeholderImg from '../../assets/placeholder_img.png'
-import useDocumentTitle from '../../hooks/useDocumentTitle'
 import ProductsSpotlight from '../../components/ProductsListingPage/ProductsSpotlight'
 import ProductFilter from '../../components/ProductsListingPage/ProductFilter'
 
+
 import '../../components/layout.css'
 import './products.css'
-import Button from '../../components/FormComp/Button'
+
 
 const Products = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Shop All - VoltCart');
+    useDocumentTitle('Shop E Gadgets Online | VoltCart');
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
     // console.log('Vite API Key', import.meta.env.VITE_PRODUCT_API_KEY)

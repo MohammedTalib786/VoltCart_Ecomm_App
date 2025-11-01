@@ -1,18 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-import { FaLocationDot, FaPhone } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+import {  useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
-import { useAnimation, useScroll } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
-import Button from '../../components/FormComp/Button';
-import InputBar from '../../components/FormComp/InputBar';
 import ContactSpotlight from '../../components/ContactPage/ContactSpotlight'
-
-import ContactIconBoxesBackup from '../../components/ContactPage/ContactIconBoxesBackup';
-import ContactIconBoxes from '../../components/ContactPage/ContactIconBoxes';
 import ContactIframe from '../../components/ContactPage/ContactIframe';
 import ContactForm from '../../components/ContactPage/ContactForm';
 import ContactInfo from '../../components/ContactPage/ContactInfo';
@@ -23,7 +13,8 @@ import './contactStyle.css';
 const Contact = () => {
 
   // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-  useDocumentTitle('Get in Touch - VoltCart');
+  useDocumentTitle('Get in Touch | We’re Here to Help | VoltCart');
+
 
   let formRef = useRef();
   let [errorMsg, setErrorMsg] = useState({
@@ -37,7 +28,7 @@ const Contact = () => {
 
   let [toggleMsg, setToggleMsg] = useState(false)
   let [succesMsg, setSuccessMsg] = useState({})
-  
+
 
   let [cFormData, setcFormData] = useState({
     name: '',
@@ -165,7 +156,7 @@ const Contact = () => {
           {/* <ContactIconBoxesBackup /> */}
 
 
-          <div className="flex gt-tab:flex-row flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] desktop:gap-[40px] gt-tab:gap-[30px] tab:gap-[60px] gap-[40px] " >
+          <div className="flex gt-tab:flex-row flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] desktop:gap-[50px] gt-tab:gap-[30px] tab:gap-[60px] gap-[50px] " >
 
 
             <ContactInfo />

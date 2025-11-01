@@ -84,7 +84,7 @@ const TermsOfUse = () => {
                 <p>These Terms of Service and any separate agreements whereby we provide all claims and disputes arising in connection with the website services shall be governed by and construed in accordance with the laws of India.</p>
 
                 <h2>CONTACT INFORMATION</h2>
-                <p>Questions about the Terms of Service should be sent to us at <a href="#">info@voltcart.com</a></p>
+                <p>Questions about the Terms of Service should be sent to us at <a href="mailto:info.voltcartt@gmail.com">info.voltcartt@gmail.com</a></p>
 
 
             </div>

@@ -75,7 +75,7 @@ const CancelPage = () => {
 
                     {/* Support link */}
                     <p className="mt-6 text-[14px]/[14px] ">
-                        Need help? <Link to="/contact" className="underline ">Contact Support</Link>
+                        Need help? <Link to="/contact-us" className="underline ">Contact Support</Link>
                     </p>
                 </div>
             </div>

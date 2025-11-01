@@ -1,13 +1,16 @@
-import './about-us.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import AboutSpotlight from '../../components/AboutPage/AboutSpotlight';
 import AboutIntro from '../../components/AboutPage/AboutIntro';
 import AboutJoinUs from '../../components/AboutPage/AboutJoinUs';
 import AboutVissionMission from '../../components/AboutPage/AboutVissionMission';
 
+import './about-us.css';
+import OurPromise from '../../components/AboutPage/OurPromise';
+
+
 const About = () => {
   // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-  useDocumentTitle('About Us - VoltCart');
+  useDocumentTitle('About VoltCart | Redefining Everyday Tech Essentials');
 
   return (
 
@@ -19,6 +22,8 @@ const About = () => {
       <AboutJoinUs />
 
       <AboutVissionMission />
+
+      <OurPromise />
 
     </div>
 

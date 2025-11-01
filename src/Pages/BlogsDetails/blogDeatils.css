@@ -1,0 +1,63 @@
+.blogDesc h2 {
+    font-family: var(--outfit-font);
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 400;
+    color: black;
+    padding-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.blogDesc p {
+    font-family: var(--poppins-font);
+    font-size: 18px;
+    line-height: 28px;
+    color: black;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.blogDesc strong {
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.blogDesc br {
+    display: none;
+}
+
+.share_blog .share_btns button {
+    transition: all .25s ease-in-out;
+}
+
+.share_blog .share_btns button:hover {
+    scale: 1.12;
+}
+
+.blog_slider .swiper {
+    min-height: 350px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .blogDesc h2 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .blogDesc h2 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .blogDesc p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .blog_slider .swiper {
+        min-height: 550px;
+    }
+}

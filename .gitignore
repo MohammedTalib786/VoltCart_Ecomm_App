@@ -32,3 +32,6 @@ potentialIssuesForLive.txt
 
 # Ignore Windows system files
 desktop.ini
+
+# Additional Files and Folders
+

@@ -1,13 +1,14 @@
 import { useOrder } from '../../contexts/orderItemsProvider'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Button from '../../components/FormComp/Button';
 import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from 'react';
 import { PiCopyLight } from "react-icons/pi";
 import { IoCheckmarkOutline } from "react-icons/io5";
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import { useCart } from '../../contexts/ProdProvider';
 import { BsCart2 } from 'react-icons/bs';
+
+import { useCart } from '../../contexts/ProdProvider';
+import Button from '../../components/FormComp/Button';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 import './success-page.css'
 

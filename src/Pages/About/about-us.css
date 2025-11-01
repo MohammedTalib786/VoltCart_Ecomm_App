@@ -1,4 +1,3 @@
-
 .about_spotlight_bg::before {
     content: '';
     position: absolute;
@@ -22,4 +21,41 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+
+
+
+
+.about_intro_sec ul li {
+    list-style: none;
+    position: relative;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.about_intro_sec ul {
+    margin: 15px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about_intro_sec ul li::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 7px;
+    width: 15px;
+    height: 15px;
+    /* background: url(../../../assets/paper-plane-solid-full.svg); */
+    background: url(../../assets/paper-plane-solid-full.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+@media (max-width: 600px) {
+    .about_intro_sec ul li {
+        font-size: 16px;
+    }
 }

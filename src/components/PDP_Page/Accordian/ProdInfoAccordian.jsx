@@ -41,7 +41,7 @@ const ProdInfoAccordian = ({
                             className=' accord_trigger font-primary text-left text-[22px]/[28px] font-[500] text-black w-full px-[20px] py-[15px] cursor-pointer flex items-center justify-between '
                         >Specifications <BsChevronDown className=' w-[20px] ' /></Accordion.Trigger>
                         <Accordion.Content
-                            className='AccordionContent px-[10px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
+                            className='AccordionContent px-[20px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
                         >
                             <p
                                 className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
@@ -55,7 +55,7 @@ const ProdInfoAccordian = ({
                             className=' accord_trigger font-primary text-left text-[22px]/[28px] font-[500] text-black w-full px-[20px] py-[15px] cursor-pointer flex items-center justify-between '
                         >Compatibility <BsChevronDown className=' w-[20px] ' /></Accordion.Trigger>
                         <Accordion.Content
-                            className='AccordionContent px-[10px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
+                            className='AccordionContent px-[20px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
                         >
 
                             <p

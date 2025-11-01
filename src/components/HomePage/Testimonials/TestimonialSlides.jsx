@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 

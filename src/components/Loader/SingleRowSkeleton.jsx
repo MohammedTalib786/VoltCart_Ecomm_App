@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './skeleton_loader.css'
 
 const SingleRowSkeleton = () => {

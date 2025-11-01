@@ -34,12 +34,13 @@ footer ul li a.active::after {
 }
 
 
-footer .socials a {
+.socials a,
+.socials a svg {
     transition: all .35s ease-in-out;
 }
 
 
-footer .socials a:hover svg {
+.socials a:hover svg {
     /* background-color: var(--primary-color); */
     fill: var(--primary-color);
     transition: all .35s ease-in-out;

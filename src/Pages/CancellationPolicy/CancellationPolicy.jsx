@@ -35,7 +35,7 @@ const CancellationPolicy = () => {
                     <li><strong>Incorrect Product Delivered</strong> – The delivered product differs from your order, including issues such as incorrect size, design, or colour.</li>
                 </ul>
 
-                <p>To process an exchange, please send product images immediately after opening the package and email us at <a href="#">info@voltcart.com</a> <strong>within 48 hours of delivery</strong>. Include the following information:</p>
+                <p>To process an exchange, please send product images immediately after opening the package and email us at <a href="mailto:info.voltcartt@gmail.com">info.voltcartt@gmail.com</a> <strong>within 48 hours of delivery</strong>. Include the following information:</p>
 
                 <ul>
                     <li>Order Number</li>

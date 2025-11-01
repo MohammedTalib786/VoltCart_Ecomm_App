@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { IoShieldCheckmarkSharp } from 'react-icons/io5'
 
 const ProdIconBox = ({ mainIcon, textContent }) => {

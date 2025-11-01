@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { BsBoxFill } from 'react-icons/bs';
 import { FaTruckFast } from 'react-icons/fa6';
 import { IoShieldCheckmarkSharp } from 'react-icons/io5';

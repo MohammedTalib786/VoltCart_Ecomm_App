@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { PiShoppingCartLight } from "react-icons/pi";
 import { PiMedalLight } from "react-icons/pi";
 import { LiaTagSolid } from "react-icons/lia";

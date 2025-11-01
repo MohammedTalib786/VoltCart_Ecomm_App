@@ -1,4 +1,4 @@
-import React from 'react'
+
 import emailIcon from './TopFooter/email_icon.svg'
 import Button from '../FormComp/Button'
 

@@ -1,21 +1,21 @@
-import React from 'react'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 import SpotlightSlider from '../../components/HomePage/SpotlightSlider/SpotlightSlider'
-import '../../components/layout.css'
 import NewYearSaleSec from '../../components/HomePage/NewYearSale/NewYearSaleSec'
 import InformationComp from '../../components/HomePage/InformationComp/InformationComp'
-
 import NewsLetter from '../../components/HomePage/NewsLetter/NewsLetter'
 import ProductSlider from '../../components/ProductSlider/ProductSlider'
 import FeatProductSlider from '../../components/FeatProductSlider/FeatProductSlider'
-import BlogSlider from '../../components/BlogSlider/BlogSlider'
+
 import Testimonials from '../../components/HomePage/Testimonials/Testimonials'
 import InstaFeed from '../../components/HomePage/InstagramSec/InstaFeed'
-import useDocumentTitle from '../../hooks/useDocumentTitle'
+
+import '../../components/layout.css'
+
 
 const Home = () => {
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('VoltCart - All in One Solution for Electonic Items');
+    useDocumentTitle('All in One Solution for E Gadgets Online');
 
     return (
         <>
@@ -43,7 +43,7 @@ const Home = () => {
 
             {/* >>>>>>>>>>>>>> In Cont */}
             <div className="container_layout mx-auto flex justify-center items-center flex-col  "  >
-                <BlogSlider />
+                {/* <BlogSlider /> */}
                 <Testimonials />
             </div>
 

@@ -1,17 +1,18 @@
 import { useLocation } from 'react-router-dom'
+
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useFetch from '../../hooks/useFetch';
 import SkeletonLoader from '../../components/Loader/SearchBoxSkeleton';
 import SearchBox from '../../components/SearchListing/SearchBox';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 
 const SearchListing = () => {
-    // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Search - VoltCart');
-
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const query = queryParams.get('query');
+
+    // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
+    useDocumentTitle(`Search Results for ${query ? query : "Data"} | VoltCart`);
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
     let blogsAPI = import.meta.env.VITE_BLOGS_API_KEY;
@@ -26,29 +27,46 @@ const SearchListing = () => {
 
     const results = [...prod_filtered, ...blog_filtered];
 
+    // useEffect(() => {
+
+    //     results.map((elem) => {
+    //         console.log('elem', elem)
+    //         console.log('blog_category', elem.blog_category);
+    //     })
+
+    // }, [results])
+
+
+
+
     return (
         <>
             {/* >>>>>>>>>>>>>> In Cont */}
-            <div className="container_layout min-h-[90vh] mx-auto flex justify-start items-start flex-col gap-[15px] w-full " >
-                <h2 className='pt-[50px] pb-[5px] text-[22px]/[28px] ' >{results.length <= 0 ? "" : `Search Results for: "${query}"`}</h2>
+            <div className=" pt-[60px] pb-[80px] ">
 
-                <div className="search_box_cont w-full flex flex-col gap-[20px] pb-[50px] " >
-                    {
-                        isLoader ?
-                            <SkeletonLoader /> :
-                            results.length <= 0 ?
-                                <SearchBox isDisabled={true} categoryURL="" slug="" name="No Results Found!" /> :
-                                results.map((elem, ind) => <SearchBox
-                                    key={ind} isDisabled={false}
-                                    name={elem.name ? elem.name : elem.blog_title}
-                                    slug={elem.slug ? elem.slug : elem.blog_slug}
-                                    feat_img={elem.feat_img ? elem.feat_img : elem.blog_feat_img}
-                                    category={elem.name ? 'Product' : 'Blog'}
-                                    categoryURL={elem.name ? 'products' : 'blogs'}
-                                />)
-                    }
+                <div className="container_layout min-h-[90vh] mx-auto flex justify-start items-start flex-col gap-[15px] w-full " >
+
+                    <h2 className=' pb-[5px] text-[22px]/[28px] ' >{results.length <= 0 ? "" : `Search Results for: "${query}"`}</h2>
+
+                    <div className="search_box_cont w-full flex justify-between flex-wrap desktop:gap-y-[30px] gt-tab:gap-y-[40px] tab:gap-y-[25px] gap-y-[30px]   " >
+                        {
+                            isLoader ?
+                                <SkeletonLoader /> :
+                                results.length <= 0 ?
+                                    <SearchBox isDisabled={true} categoryURL="" slug="" name="No Results Found!" /> :
+                                    results.map((elem, ind) => <SearchBox
+                                        key={ind} isDisabled={false}
+                                        name={elem.name ? elem.name : elem.blog_title}
+                                        slug={elem.slug ? elem.slug : elem.blog_slug}
+                                        feat_img={elem.feat_img ? elem.feat_img : elem.blog_feat_img}
+                                        post_category={elem.name ? 'Product' : 'Blog'}
+                                        post_categoryURL={elem.name ? 'products' : 'blogs'}
+                                        category={elem.category ? elem.category : elem.blog_category}
+                                    />)
+                        }
+                    </div>
+
                 </div>
-
             </div>
         </>
 

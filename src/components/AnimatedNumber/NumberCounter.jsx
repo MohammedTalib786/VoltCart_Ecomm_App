@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NumCount from 'react-countup'
 
 const NumberCounter = ({ number, title, width }) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useParams } from 'react-router-dom';
 import SpinnerLoader from '../../components/Loader/SpinnerLoader';
 import useFetch from '../../hooks/useFetch';

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import searchIcon from '../../../assets/Header/search_icon.svg'
 import { IoIosSearch } from "react-icons/io";
 

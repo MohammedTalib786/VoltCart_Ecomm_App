@@ -1,4 +1,5 @@
 import ContactIconBoxes from './ContactIconBoxes'
+import ContactSocials from './ContactSocials'
 
 const ContactInfo = () => {
     return (
@@ -10,10 +11,13 @@ const ContactInfo = () => {
             >Connecting You, <br className=' gt-tab:block tab:hidden block ' />Wherever You Are</h2>
 
             <p
-                className=" text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] pt-[10px] pb-[30px] " 
+                className=" text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] pt-[10px] pb-[30px] "
             >Send in your query for product related information. For bulk purchase / distribution you can contact us on the details given below:</p>
 
             <ContactIconBoxes />
+
+            <ContactSocials />
+
 
         </div>
     )

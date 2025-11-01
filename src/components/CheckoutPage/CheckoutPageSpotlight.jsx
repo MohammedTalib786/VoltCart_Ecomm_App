@@ -1,7 +1,8 @@
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
 
 // import spotlightImg from '../../assets/about-page/revised-img/about_spotlight.jpg'
-import spotlightImg from '../../assets/checkout-page/spotlight_img.jpg'
+// import spotlightImg from '../../assets/checkout-page/spotlight_img.jpg'
+import spotlightImg from '../../assets/checkout-page/checkout_spotlight_main.webp'
 
 const CheckoutPageSpotlight = () => {
   return (

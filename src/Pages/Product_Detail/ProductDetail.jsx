@@ -1,32 +1,26 @@
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useScroll, useMotionValueEvent } from 'framer-motion'
+import { BsCart2 } from 'react-icons/bs';
+
+import placeholderImg from '../../assets/placeholder_img.png';
+import { useCart } from '../../contexts/ProdProvider';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useFetch from '../../hooks/useFetch';
 import Button from '../../components/FormComp/Button';
-import NumCounter from '../../components/NumCounter/NumCounter';
 import ImageGallerySlider from '../../components/PDP_Page/ImageGallerySliders/ImageGallerySlider';
 import ProductIconDetails from '../../components/PDP_Page/ProductFeaturesBlock/ProductIconDetails';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import Loader from '../../components/Loader/SkeletonLoaderProduct';
-import placeholderImg from '../../assets/placeholder_img.png';
-import QuantityCounter from '../../components/QuantityCounter/QuantityCounter';
-import { BsCart2 } from 'react-icons/bs';
 import ProdInfoTab from '../../components/PDP_Page/Tabs/ProdInfoTab';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { TfiClose } from "react-icons/tfi";
-
-import { MdShare } from "react-icons/md";
-import { useCart } from '../../contexts/ProdProvider';
-import { useEffect, useState } from 'react';
-
 import ShareComponent from '../../components/PDP_Page/ShareComponent/ShareComponent';
-import { Accordion } from 'radix-ui';
 import ProdInfoAccordian from '../../components/PDP_Page/Accordian/ProdInfoAccordian';
 
 import './prodstyle.css'
 
 
 const ProductDetail = () => {
-
     let params = useParams();
     let navigate = useNavigate()
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
@@ -38,6 +32,14 @@ const ProductDetail = () => {
         = prodData;
     // console.log('prodData'.prodData)
     if (!prodData) return ("no product found")
+
+
+    // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
+    let prod_det_meta_title = ""
+    name?.split(' ')?.map(elem => prod_det_meta_title += `${elem.toUpperCase().slice(0, 1)}${elem.toLowerCase().slice(1)} `)
+    useDocumentTitle(`Buy ${prod_det_meta_title ? prod_det_meta_title : "VoltCart Product"} Online at Best Price | VoltCart`);
+    // console.log('prod_det_meta_title', prod_det_meta_title)
+
 
     let [btnElement, setBtnElement] = useState('addToCart');
     const checkAddToCartElem = () => setBtnElement(btnElement === "addToCart" ? "viewCart" : "addToCart")
@@ -105,29 +107,6 @@ const ProductDetail = () => {
         }
     }
 
-    // obj.name;
-    // obj.age
-
-    // obj.name = 'talib';
-    // obj?.name = false 
-
-    useEffect(() => {
-        // console.log('description', description)
-        // console.log('description splt || ', description.split('<ul>').slice(0, 1).join('') )
-        // console.log('desc || ', description?.split(' ') )
-
-        function get() {
-            console.log('get')
-            let a = description?.split(' ');
-            let len = Math.floor((a?.length / 2))
-            // console.log('a', a)
-            console.log('len', len)
-            let mainVal  = a?.slice(0, len)
-            console.log('mainVal', mainVal)
-        }
-        get()
-
-    }, [description])
 
     return (
         <>

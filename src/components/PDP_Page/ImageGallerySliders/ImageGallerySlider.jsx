@@ -10,7 +10,7 @@ const ImageGallerySlider = ({ apiImg }) => {
     const handlerOnMouseOver = (e) => {
         // console.log('mouse is hovering');
         // console.log('eve target', e.target)
-        e.target.style.scale = '1.5'
+        e.target.style.scale = '1.2'
         e.target.style.transition = 'all .25s ease-in-out'
     }
     

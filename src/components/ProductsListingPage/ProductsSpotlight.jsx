@@ -1,6 +1,7 @@
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
 // import spotlightImg from '../../assets/about-page/revised-img/about_spotlight.jpg'
-import spotlightImg from '../../assets/prodListing/spotlight_pdp.jpg'
+// import spotlightImg from '../../assets/prodListing/spotlight_pdp.jpg'
+import spotlightImg from '../../assets/prodListing/prod_listing_postlight.webp'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 

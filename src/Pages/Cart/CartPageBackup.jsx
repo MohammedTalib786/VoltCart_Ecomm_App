@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useCart } from '../../contexts/ProdProvider'
 import CartCard from '../../components/CartPage/CartCard'
 import CartCardForEmpty from '../../components/CartPage/CartCardForEmpty'
