@@ -18,7 +18,8 @@ const ProductCard = ({
     urlToProd,
     prodCat = "Case & cover",
     ImageGalleryFirst,
-    savePercent = 20
+    savePercent = 20,
+    // additionalClass
 }) => {
 
     let [btnElement, setBtnElement] = useState('addToCart');
@@ -73,33 +74,24 @@ const ProductCard = ({
     return (
         <>
             <div
-                className={`prod_card flex flex-col gap-[12px] p-[15px] cursor-pointer ${boxWidth} bg-[#eeeeee] rounded-[9px] overflow-hidden `}
+                className={`prod_card flex flex-col gap-[12px] p-[15px] cursor-pointer ${boxWidth} rounded-[9px] overflow-hidden  `}
             >
                 <Link to={`/products/${urlToProd}`} >
 
-                    <div className="w-[100%] flex flex-col items-center">
-
-                        {/* <img
-                            // src={featImg}
-                            src={hoverImage}
-                            alt="prod-img" className='min-w-[200px] w-full object-cover rounded-lg '
-                        /> */}
+                    <div className="w-full flex flex-col items-center">
 
                         {/* Crossfade that doesn't collapse layout */}
                         <div className="image-wrapper relative ">
-                            {/* Base image in normal flow (defines height) */}
                             <img
                                 src={featImg}
                                 alt="prod-img"
                                 loading="lazy"
                             />
-                            {/* Hover image overlaid and faded in */}
                             <img
                                 src={ImageGalleryFirst}
                                 alt="prod-img-hover"
                                 loading="lazy"
                             />
-
                             <span
                                 className='absolute bottom-[10px] left-[10px] bg-[#0d6efdb5] px-[12px] py-[8px] rounded-[6px] text-white text-[12px]/[14px] ' >
                                 Save {savePercent}%</span>
@@ -115,7 +107,6 @@ const ProductCard = ({
 
                             <p className='font-primary text-left font-[500] text-[22px]/[28px] w-[50%] '  > &#8377;{price}</p>
 
-                            {/* <button className=' add_to_cart_btn font-[inter] font-[500] text-[14px] w-[200px] rounded-[12px] mt-[20px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer' >Add to Cart Old</button> */}
                             {
                                 btnElement === "addToCart" ?
 
@@ -123,9 +114,6 @@ const ProductCard = ({
                                         text="Add to Cart"
                                         btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                         handlerClickBtnComp={handlerAddToCart}
-                                        // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
-                                        // bgClr="bg-black "
-                                        // borderClr="bg-black"
                                         additionalClass="add_to_cart_btn w-full font-body text-[16px]/[24px]  uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
                                     />) :
 
@@ -133,9 +121,6 @@ const ProductCard = ({
                                         text="View Cart"
                                         btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                         handlerClickBtnComp={handlerViewCart}
-                                        // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
-                                        // bgClr="bg-black "
-                                        // borderClr="bg-black"
                                         additionalClass=" view_cart_btn add_to_cart_btn underline w-full font-body text-[16px]/[24px] uppercase transition-all flex justify-center items-center lg:py-[10px] py-[7px] "
                                     />)
                             }

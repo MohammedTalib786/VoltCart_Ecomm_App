@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate } from "react-router";
+import { Routes, Route, useNavigate, useLocation } from "react-router";
 import Lenis from 'lenis';
 
 import HomePage from './Pages/Home/HomePage'
@@ -33,6 +33,44 @@ import BlogDetails from './Pages/BlogsDetails/BlogDetails';
 
 
 const App = () => {
+
+
+  let location = useLocation();
+
+
+
+  const whiteBgPages = ['/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful'];
+
+  useEffect(() => {
+
+
+    const path = location.pathname;
+
+    const isProductDetail = path.startsWith("/products/") && path !== "/products";
+    const isBlogDetail = path.startsWith("/blogs/") && path !== "/blogs";
+    const allWhiteBgPages = !whiteBgPages.includes(path) && !isProductDetail && !isBlogDetail;
+
+
+
+    // console.log('location', location)
+    console.log('location', location.pathname)
+
+    console.log('check incl', !allWhiteBgPages)
+    // console.log('check inside incl',)
+
+    if (!allWhiteBgPages) {
+      document.body.classList.add('whiteBgPages')
+    }
+    else {
+      document.body.classList.remove('whiteBgPages')
+
+    }
+
+    // document.body.classList.add('whiteBgPages')
+
+  }, [location.pathname])
+
+
 
   const [loadingCart, setLoadingCart] = useState(true);
   const [loadingOrder, setLoadingOrder] = useState(true);
@@ -253,7 +291,7 @@ const App = () => {
 
                   <Route path='/blogs' element={<BlogPage />} />
 
-                  <Route path='/blogs/:slug' element={<BlogDetails /> } />
+                  <Route path='/blogs/:slug' element={<BlogDetails />} />
 
                   <Route path='/products' element={<Products />} />
 

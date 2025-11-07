@@ -10,7 +10,7 @@ const AboutIntro = () => {
                 <img src={logoIcon} alt="" className=' gt-tab:w-[100px] w-[80px] ' />
 
                 <h2
-                    className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] ">What We Offer</h2>
+                    className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300]  ">What We Offer</h2>
 
                 {/* <div className=" w-[800px] ">
                     <p

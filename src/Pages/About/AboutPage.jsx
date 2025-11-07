@@ -14,7 +14,7 @@ const About = () => {
 
   return (
 
-    <div className="lg:w-[100%] flex flex-col items-center">
+    <div className="lg:w-full flex flex-col items-center">
       <AboutSpotlight />
 
       <AboutIntro />

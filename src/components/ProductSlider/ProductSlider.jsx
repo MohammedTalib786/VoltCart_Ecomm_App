@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-// Import Swiper styles
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
+
 import ProductCard from '../ProductCard/ProductCard'
 import placeholderImg from '../../assets/placeholder_img.png'
 
+import 'swiper/css';
+import 'swiper/css/pagination';
 import './productSlider.css'
+
 
 const ProductSlider = ({
     title,

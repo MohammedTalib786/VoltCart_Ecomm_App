@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import FilterTest from './FilterTest'
+import { motion } from 'framer-motion'
 import { TfiClose } from "react-icons/tfi";
-
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 
 import Button from '../FormComp/Button';
 
 import './product-comp-style.css'
+
 
 const ProductFilter = ({
     minVal,
@@ -16,13 +15,7 @@ const ProductFilter = ({
     checkValue,
     handleCheckbox
 }) => {
-
-
     let [filterBox, setFilterBox] = useState({
-        // opacity: 1,
-        // pointerEvents: "all",
-        // top: "0px"
-        // opacity: 0,
         pointerEvents: "none",
         top: "400px"
     })
@@ -30,18 +23,10 @@ const ProductFilter = ({
     let [filterBoxCont, setFilterBoxCont] = useState({
         opacity: 0,
         pointerEvents: "none"
-        // opacity: 1,
-        // pointerEvents: "all"
     })
 
-
-
-
-
     return (
-
         <>
-
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>> Desktop Filter Section */}
             <div
                 className=" desktop:w-[25%] gt-tab:w-[30%] w-[45%] sticky top-[25px] left-0 tab:flex hidden  " >
@@ -144,10 +129,10 @@ const ProductFilter = ({
             />
 
 
+
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>> Mobile Filter Section */}
             <motion.div
                 className=" mob_filter desktop:w-[25%] gt-tab:w-[30%] w-[100%] tab:hidden flex items-end fixed bottom-0 left-0 z-[999999] h-[100vh]  bg-[#000000bf]  "
-
                 animate={{ opacity: filterBoxCont.opacity, pointerEvents: filterBoxCont.pointerEvents }}
                 // transition={{ type: 'spring', stiffness: 300, damping: 35, }}
                 transition={{ type: 'tween', duration: .5, ease: 'easeInOut' }}
@@ -168,7 +153,6 @@ const ProductFilter = ({
 
                 <motion.div
                     className="cat-search w-full  px-[20px] py-[30px] max-h-[60vh]  rounded-tl-[22px] rounded-tr-[22px] flex flex-col justify-center bg-white relative "
-
                     animate={{ pointerEvents: filterBox.pointerEvents, top: filterBox.top }}
                     transition={{ type: 'tween', duration: .5, ease: 'easeInOut' }}
                     style={{ pointerEvents: filterBox.pointerEvents, top: filterBox.top }}

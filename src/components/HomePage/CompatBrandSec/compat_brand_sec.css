@@ -1,0 +1,107 @@
+.logo-marquee,
+.logo-marquee * {
+    transition: all .25s ease-in-out;
+}
+
+.logo-marquee img {
+    opacity: 0.85;
+}
+
+.logo-marquee img:hover {
+    opacity: 1;
+}
+
+.logo-marquee {
+    padding: 40px 0 0;
+    position: relative;
+    max-width: 1040px;
+    margin-inline: auto;
+}
+
+.logo-marquee--marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+}
+
+.logo-marquee--marquee::before,
+.logo-marquee--marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 160px;
+    height: 100%;
+    z-index: 999;
+}
+
+.logo-marquee--marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, white 10%, transparent 100%);
+}
+
+.logo-marquee--marquee::after {
+    right: -1px;
+    background: linear-gradient(-90deg, white 10%, transparent 100%);
+}
+
+
+.logo-marquee--marquee-group {
+    animation: scroll-left 10s linear infinite;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: auto;
+}
+
+@media (prefers-reduced-motion) {
+    .logo-marquee--marquee-group {
+        animation-play-state: paused;
+    }
+}
+
+.logo-marquee--marquee-group img {
+    height: 64px;
+    padding: 0 40px;
+    width: auto;
+}
+
+.logo-marquee--marquee-group img.samsung_logo {
+
+    height: 120px;
+}
+
+
+@media (max-width: 991.98px) {
+    .logo-marquee--marquee-group img {
+        height: 56px;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .logo-marquee--marquee-group img {
+        height: 48px;
+        padding: 0 30px;
+    }
+
+    .logo-marquee--marquee::before,
+    .logo-marquee--marquee::after {
+        width: 80px;
+    }
+
+    .logo-marquee img {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

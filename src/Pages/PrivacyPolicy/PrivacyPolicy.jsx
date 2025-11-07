@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 import '../../index.css'
+import { useLocation } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
+
+    let location = useLocation()
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Privacy Policy - VoltCart');

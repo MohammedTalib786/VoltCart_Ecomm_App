@@ -1,0 +1,12 @@
+.whyChooseSec .icon_box:hover svg path {
+    stroke: #0D6EFD;
+}
+
+.whyChooseSec .icon_box.icon_box_fill:hover svg path {
+    fill: #0D6EFD;
+    stroke: none;
+}
+
+.whyChooseSec .icon_box:hover h5 {
+    color: #0D6EFD;
+}

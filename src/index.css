@@ -57,6 +57,17 @@ body {
 }
 
 
+body.whiteBgPages .layout_container {
+    margin-top: 85px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    body.whiteBgPages .layout_container {
+        margin-top: 102px;
+    }
+}
+
+
 button:disabled {
     opacity: 0.6;
     /* Makes the button appear semi-transparent */

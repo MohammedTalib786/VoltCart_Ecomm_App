@@ -6,7 +6,7 @@ import spotlightImg from '../../assets/cart-page/cart_spotlight_main.webp'
 const CartSpotlight = () => {
   return (
     <div
-      className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full desktop:h-[65vh] gt-tab:h-[90vh] tab:h-[60vh] h-[65vh] flex relative "
+      className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full desktop:h-[70vh] gt-tab:h-[75vh] tab:h-[65vh] h-[70vh] flex relative "
       style={{ backgroundImage: `url(${spotlightImg})` }}>
 
       <div className="container_layout m-auto flex justify-center items-center flex-col  ">

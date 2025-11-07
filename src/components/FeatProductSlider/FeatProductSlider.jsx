@@ -28,21 +28,22 @@ const FeatProductSlider = ({
     let error = useProdList.error;
     let prodData = useProdList.data;
 
-    let filteredData = prodData.filter((elem) =>  elem.featured_col )
+    let filteredData = prodData.filter((elem) => elem.featured_col)
     // console.log('filtered', filteredArr)
 
     return (
+
         <div className=' w-full py-[50px]' >
 
             <div className="texts flex items-center justify-between pb-[20px] ">
-                <h3 className='uppercase text-[32px]/[40px] ' >{title}</h3>
-                <Link
+                <h3 className=' font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-left ' >{title}</h3>
+                {/* <Link
                     to={urlVal}
                     className=' hover:underline '
                 >
 
                     {urlText}
-                </Link>
+                </Link> */}
             </div>
 
 
@@ -65,10 +66,21 @@ const FeatProductSlider = ({
                                 (<p className="text-red-500">Something went wrong: {error.message}</p>) :
                                 (
                                     filteredData.map((elem) => {
-                                        return <SwiperSlide> <ProductCard name={elem.name} price={elem.price.sale_price} 
-                                        // featImg={elem.feat_img}
-                                        featImg={placeholderImg}
-                                        urlToProd={elem.slug} /> </SwiperSlide>
+                                        return <SwiperSlide> <ProductCard
+                                            urlToProd={elem.slug}
+                                            key={elem.id}
+                                            id={elem.id}
+                                            slug={elem.slug}
+                                            boxWidth={"desktop:w-[100%] gt-tab:w-[48%] w-full "}
+                                            name={elem.name}
+                                            price={elem.price.sale_price}
+                                            featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}
+                                            ImageGalleryFirst={!elem.img_gallery[1] || elem.img_gallery[1] == "empty" ? placeholderImg : elem.img_gallery[1]}
+                                            // ImageGalleryFirst={}
+                                            prodCat={elem.category}
+                                            savePercent={parseInt((elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100)}
+
+                                        /> </SwiperSlide>
                                     })
                                 )
                     }

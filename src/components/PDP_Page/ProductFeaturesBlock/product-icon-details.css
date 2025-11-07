@@ -1,15 +1,13 @@
 .icon_box,
-.icon_box svg,
-.icon_box:hover svg {
+.icon_box * {
     transition: all .25s ease-in-out;
 }
 
 .icon_box:hover {
-    box-shadow: -3px 6px 22px 0px #b9b9b9;
+    box-shadow: -3px 6px 22px 0px #b9b9b952;
 }
 
 .icon_box:hover svg {
-    transition: all .25s ease-in-out;
     scale: 1.08;
 }
 

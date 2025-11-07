@@ -1,44 +1,128 @@
-a.active {
-    color: #0D6EFD;
-    font-weight: 500;
+header.head_foot_cont_full,
+header.head_foot_cont_full * {
+    transition: all .45s ease-in-out;
 }
 
-a.pending {
-    color: #1a1a1a;
+
+header.head_foot_cont_full .desktop_header ul li a.active {
+    font-family: var(--outfit-font);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
 }
 
+header.head_foot_cont_full.scrolledHeader .desktop_header ul li a.active {
+    color: var(--primary-color);
+}
+
+header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a.active {
+    color: white;
+}
+
+header.head_foot_cont_full.scrolledHeader .desktop_header ul li a:hover {
+    color: var(--primary-color);
+}
 
 .desktop_header ul li a {
     display: block;
     position: relative;
-    transition: all .35s ease-in-out;
-
-}
-
-.desktop_header ul li a:hover {
-    color: var(--primary-color);
-    transition: all .35s ease-in-out;
 }
 
 .desktop_header ul li a::after {
+    transition: all .45s ease-in-out;
     content: '';
     width: 0%;
     height: 3px;
-    background-color: var(--primary-color);
+    background-color: white;
     display: block;
     position: absolute;
     margin-top: 28px;
     border-radius: 30px;
-    transition: all .35s ease-in-out;
 }
 
-.desktop_header ul li a:hover::after {
+
+header.head_foot_cont_full .desktop_header ul li a:hover::after {
+    transition: all .45s ease-in-out;
     width: 100%;
-    transition: all .35s ease-in-out;
 }
 
-.desktop_header ul li a.active::after {
+header.head_foot_cont_full.scrolledHeader .desktop_header ul li a:hover::after {
+    transition: all .45s ease-in-out;
+    background-color: var(--primary-color);
+}
+
+header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a:hover::after {
+    transition: all .45s ease-in-out;
+    background-color: white;
+}
+
+header.head_foot_cont_full .desktop_header ul li a.active::after {
+    transition: all .45s ease-in-out;
     width: 100%;
-    transition: all .35s ease-in-out;
 }
 
+header.head_foot_cont_full.scrolledHeader .desktop_header ul li a.active::after {
+    transition: all .45s ease-in-out;
+    background-color: var(--primary-color);
+}
+
+header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a.active::after {
+    transition: all .45s ease-in-out;
+    background-color: white;
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> For White Bg Pages */
+
+body.whiteBgPages header.head_foot_cont_full {
+    background-color: white;
+}
+
+body.whiteBgPages header.head_foot_cont_full .logoCont path {
+    fill: var(--primary-color);
+}
+
+
+body.whiteBgPages header.head_foot_cont_full .desktop_header ul li a {
+    color: black;
+}
+
+body.whiteBgPages header.head_foot_cont_full .iconsCont .search_btn svg path {
+    fill: black;
+}
+
+body.whiteBgPages header.head_foot_cont_full .iconsCont .wishlist-box svg path {
+    stroke: black;
+}
+
+
+body.whiteBgPages header.head_foot_cont_full .iconsCont .cart-box svg g {
+    stroke: black;
+}
+
+
+body.whiteBgPages header.head_foot_cont_full .desktop_header ul li a.active {
+
+    color: var(--primary-color);
+}
+
+body.whiteBgPages header.head_foot_cont_full .desktop_header ul li a:hover {
+    color: var(--primary-color);
+}
+
+body.whiteBgPages header.head_foot_cont_full.scrolledHeader .desktop_header ul li a.active::after,
+body.whiteBgPages header.head_foot_cont_full.scrolledHeader .desktop_header ul li a:hover::after,
+body.whiteBgPages header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a.active::after,
+body.whiteBgPages header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a:hover::after {
+    transition: all .45s ease-in-out;
+    background-color: var(--primary-color);
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+    .head_foot_cont_full {
+        background-color: white;
+    }
+}

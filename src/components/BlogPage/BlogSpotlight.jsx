@@ -16,7 +16,7 @@ const BlogSpotlight = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full desktop:h-[90vh] gt-tab:h-[90vh] tab:h-[60vh] h-[65vh] flex relative "
+                className=" about_spotlight_bg bg-center bg-cover bg-no-repeat w-full desktop:h-[90vh] gt-tab:h-[90vh] tab:h-[60vh] h-[75vh] flex relative "
                 transition={{ duration: 0.8, ease: "easeInOut" }}
                 style={{ backgroundImage: `url(${spotlightImg})` }}
             >

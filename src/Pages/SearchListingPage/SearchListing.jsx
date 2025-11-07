@@ -4,6 +4,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useFetch from '../../hooks/useFetch';
 import SkeletonLoader from '../../components/Loader/SearchBoxSkeleton';
 import SearchBox from '../../components/SearchListing/SearchBox';
+import NoResultSearchBox from '../../components/SearchListing/NoResultSearchBox';
 
 
 const SearchListing = () => {
@@ -53,7 +54,7 @@ const SearchListing = () => {
                             isLoader ?
                                 <SkeletonLoader /> :
                                 results.length <= 0 ?
-                                    <SearchBox isDisabled={true} categoryURL="" slug="" name="No Results Found!" /> :
+                                    <NoResultSearchBox /> :
                                     results.map((elem, ind) => <SearchBox
                                         key={ind} isDisabled={false}
                                         name={elem.name ? elem.name : elem.blog_title}
@@ -65,6 +66,8 @@ const SearchListing = () => {
                                     />)
                         }
                     </div>
+
+                    
 
                 </div>
             </div>

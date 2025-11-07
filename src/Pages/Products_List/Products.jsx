@@ -8,7 +8,6 @@ import Loader from '../../components/Loader/SkeletonLoader'
 import ProductsSpotlight from '../../components/ProductsListingPage/ProductsSpotlight'
 import ProductFilter from '../../components/ProductsListingPage/ProductFilter'
 
-
 import '../../components/layout.css'
 import './products.css'
 

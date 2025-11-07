@@ -31,8 +31,14 @@ const ShareComponent = ({
             animate={{ opacity: shareComp.opacity, pointerEvents: shareComp.pointerEvents }}
             transition={{ type: 'spring', stiffness: 300, damping: 35, }}
             style={{ opacity: shareComp.opacity, pointerEvents: shareComp.pointerEvents }}
+
+            onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })}
+
         >
-            <div className="inside_share_cont">
+            <div
+                className="inside_share_cont"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <TfiClose className='text-[26px]/[26px] absolute top-[15px] right-[20px] cursor-pointer  '
                     onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })}
                 />
