@@ -68,6 +68,19 @@ body.whiteBgPages .layout_container {
 }
 
 
+/* // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Enable It Later */
+/* ::-webkit-scrollbar {
+    background: rgb(136, 136, 136);
+    width: 5px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0D6EFD;
+    border-radius: 26px;
+} */
+
+
 button:disabled {
     opacity: 0.6;
     /* Makes the button appear semi-transparent */
@@ -115,6 +128,7 @@ button:disabled {
 
 .select-wrapper::after {
     content: "";
+    /* background-image: url(./assets/icons/chevron_down.svg); */
     background-image: url(./assets/icons/chevron_down.svg);
     width: 22px;
     height: 22px;

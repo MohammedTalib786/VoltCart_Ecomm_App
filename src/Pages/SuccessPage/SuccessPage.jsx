@@ -1,14 +1,14 @@
-import { useOrder } from '../../contexts/orderItemsProvider'
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { IoCloseOutline } from "react-icons/io5";
-import { useEffect, useRef, useState } from 'react';
 import { PiCopyLight } from "react-icons/pi";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { BsCart2 } from 'react-icons/bs';
 
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import { useOrder } from '../../contexts/orderItemsProvider'
 import { useCart } from '../../contexts/ProdProvider';
 import Button from '../../components/FormComp/Button';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 import './success-page.css'
 
@@ -16,50 +16,37 @@ import './success-page.css'
 const SuccessPage = () => {
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Order Successful');
+    useDocumentTitle('Thank You! Your Order Has Been Successfully Placed');
 
+    let location = useLocation();
     let order_info = useRef();
     let { orderItems, loadingOrder } = useOrder();
     let [mainOrder] = orderItems.slice(-1);
-    const location = useLocation();
     let navigate = useNavigate();
     let [coppiedState, setCoppiedState] = useState(false)
-
     let { clearCartFunc } = useCart();
-
     let getAddress = `${mainOrder?.town_city ? mainOrder?.town_city : null}, ${mainOrder?.pincode ? mainOrder?.pincode : null}, ${mainOrder?.state ? mainOrder?.state : null} `;
     let getSubtotal = mainOrder?.total - mainOrder?.shipping_rate;
 
     const queryParams = new URLSearchParams(location.search);
     const orderIdParam = queryParams.get('order_id');
 
-    // console.log('orderItems', orderItems, typeof orderItems)
-    // console.log('mainOrder', mainOrder, typeof mainOrder)
-    // console.log('getSubtotal', getSubtotal)
-    // console.log('query', orderIdParam)
+    useEffect(() => {
+        if (!loadingOrder &&
+            orderItems.length === 0 ||
+            !orderIdParam ||
+            orderIdParam === null
+        ) navigate('/cart')
 
-    // useEffect(() => {
-    //     if (!loadingOrder &&
-    //         orderItems.length === 0 ||
-    //         !orderIdParam ||
-    //         orderIdParam === null
-    //     ) {
-    //         navigate('/cart')
-    //         // console.log('Will be Naviagte!')
-    //     }
-    //     else {
-    //         //  console.log('Will Not Naviagte!')
-    //         clearCartFunc();
-    //     }
-    // }, [orderItems])
+        else clearCartFunc();
+    }, [orderItems])
 
     const handlerCopyToClipboard = () => {
-        // console.log('copy text')
         setCoppiedState(true)
-        // console.log(order_info.current.innerText)
         navigator.clipboard.writeText(order_info.current.innerText)
         setTimeout(() => setCoppiedState(false), 2000)
     }
+
 
     return (
         <div
@@ -90,7 +77,7 @@ const SuccessPage = () => {
                                 />
                         }
                         {
-                            coppiedState && <p className=' OrderTxtCoppiedMsg transition-all p-[10px] bg-primary text-white text-[16px]/[24px] font-[400] rounded-[12px] absolute gt-tab:top-[-35px] gt-tab:right-[92px] tab:-top-[10px] tab:right-[60px] -top-[33px] right-[30px] w-auto  ' >Order Detail Coppied to Clipboard</p>
+                            coppiedState && <p className=' OrderTxtCoppiedMsg transition-all p-[10px] bg-primary text-white text-[16px]/[24px] font-[400] rounded-[12px] absolute gt-tab:top-[-35px] gt-tab:right-[92px] tab:-top-[10px] tab:right-[60px] -top-[33px] right-[30px] w-auto  ' >Order details coppied to clipboard</p>
                         }
 
                         <div className=" order_info flex flex-wrap gap-y-[15px] "
@@ -145,7 +132,6 @@ const SuccessPage = () => {
                     </div>
 
                     <div className="bg-white p-6 rounded-lg">
-                        {/* <h2 className="text-[22px]/[28px] font-[500] mb-6">Order Summary</h2> */}
                         <h3 className=" font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] mb-6 " >Order Summary</h3>
 
                         <div className="space-y-4">

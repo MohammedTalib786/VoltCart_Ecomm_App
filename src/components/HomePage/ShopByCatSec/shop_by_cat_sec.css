@@ -1,0 +1,97 @@
+/* tab:gap-[35px] gap-[30px]  */
+
+
+@media (min-width: 1281px) {
+    .shop_cat_sec_one {
+        gap: 30px;
+    }
+}
+
+
+@media (min-width: 1200px) and (max-width: 1280px) {
+    .shop_cat_sec_one {
+        gap: 50px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .shop_cat_sec_one {
+        gap: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .shop_cat_sec_one {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .shop_cat_sec_one {
+        gap: 25px;
+    }
+}
+
+
+
+.cat_card,
+.cat_card * {
+    transition: all .45s ease-in-out;
+}
+
+.cat_card {
+    box-shadow: -5px -5px 18px 0px #00000012;
+}
+
+.cat_card::before {
+    content: '';
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.55) 25%,
+            rgba(0, 0, 0, 0.15) 50%,
+            rgba(0, 0, 0, 0.05) 75%,
+            transparent 100%);
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .45s ease-in-out;
+}
+
+.cat_card:hover .texts {
+    bottom: 30px;
+}
+
+.cat_card:hover .texts p.shop_link {
+    opacity: 1;
+    bottom: -5px;
+    pointer-events: all;
+}
+
+.cat_card:hover::before {
+    height: 70%;
+    transition: all .45s ease-in-out;
+}
+
+@media (max-width: 500px) {
+
+    .cat_card .texts {
+        bottom: 30px;
+    }
+
+
+    .cat_card .texts p.shop_link {
+        opacity: 1;
+        bottom: -5px;
+        pointer-events: all;
+    }
+
+    .cat_card::before {
+        height: 70%;
+        transition: all .45s ease-in-out;
+    }
+
+
+}

@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, useLocation } from "react-router";
 import Lenis from 'lenis';
 
+
 import HomePage from './Pages/Home/HomePage'
 import AboutPage from './Pages/About/AboutPage'
 import BlogPage from './Pages/Blogs/BlogPage';
-import Error404Page from './Pages/404Page/Error404Page';
+import BlogDetails from './Pages/BlogsDetails/BlogDetails';
 import Products from './Pages/Products_List/Products';
 import ProductDetail from './Pages/Product_Detail/ProductDetail';
 import CartPage from './Pages/Cart/CartPage';
@@ -20,56 +21,40 @@ import TermsOfUse from './Pages/TermsOfUse/TermsOfUse';
 import ShippingPolicy from './Pages/ShippingPolicy/ShippingPolicy';
 import SuccessPage from './Pages/SuccessPage/SuccessPage';
 import CancelPage from './Pages/CancelPage/CancelPage';
-
-import Layout from './components/Layout'
-import ScrollToTopFunc from './components/ScrollToTopFunc/ScrollToTopFunc';
-import Cursor from './components/Cursor/Cursor';
+import Error404Page from './Pages/404Page/Error404Page';
 
 import { ProdProvider } from './contexts/ProdProvider';
 import { ShippingDetProvider } from './contexts/ShippingDetProvider';
 import { CartTotalProvider } from './contexts/cartTotalProvider'
 import { OrderProvider } from './contexts/orderItemsProvider';
-import BlogDetails from './Pages/BlogsDetails/BlogDetails';
+
+import Layout from './components/Layout'
+import ScrollToTopFunc from './components/ScrollToTopFunc/ScrollToTopFunc';
+import Cursor from './components/Cursor/Cursor';
+
 
 
 const App = () => {
-
-
   let location = useLocation();
 
-
-
-  const whiteBgPages = ['/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful'];
+  const whiteBgPages = ['/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful', '/*'];
 
   useEffect(() => {
-
-
     const path = location.pathname;
 
     const isProductDetail = path.startsWith("/products/") && path !== "/products";
     const isBlogDetail = path.startsWith("/blogs/") && path !== "/blogs";
     const allWhiteBgPages = !whiteBgPages.includes(path) && !isProductDetail && !isBlogDetail;
-
-
-
     // console.log('location', location)
-    console.log('location', location.pathname)
-
-    console.log('check incl', !allWhiteBgPages)
-    // console.log('check inside incl',)
+    // console.log('check incl', !allWhiteBgPages)
 
     if (!allWhiteBgPages) {
       document.body.classList.add('whiteBgPages')
     }
     else {
       document.body.classList.remove('whiteBgPages')
-
     }
-
-    // document.body.classList.add('whiteBgPages')
-
   }, [location.pathname])
-
 
 
   const [loadingCart, setLoadingCart] = useState(true);
@@ -253,6 +238,12 @@ const App = () => {
 
     animationFrame = requestAnimationFrame(raf);
 
+
+    // 👉 Make it accessible globally
+    window.lenis = lenis;
+
+
+
     return () => {
       cancelAnimationFrame(animationFrame); // ✅ Clean up
       lenis.destroy();
@@ -264,6 +255,8 @@ const App = () => {
 
   return (
     <>
+
+
 
       {/* <Cursor /> */}
 
@@ -277,17 +270,17 @@ const App = () => {
 
               <ScrollToTopFunc />
 
-              <Routes>
 
-                <Route path='/' element={<Layout />}  >
+
+              <Routes  >
+
+                <Route path='/' element={<Layout />} >
 
                   <Route index element={<HomePage />} />
 
                   <Route path='/about-us' element={<AboutPage />} />
 
                   <Route path='/contact-us' element={<Contact />} />
-
-                  <Route path='/search-listing' element={<SearchListing />} />
 
                   <Route path='/blogs' element={<BlogPage />} />
 
@@ -304,6 +297,8 @@ const App = () => {
                   <Route path='/order-successful' element={<SuccessPage />} />
 
                   <Route path='/order-cancel' element={<CancelPage />} />
+
+                  <Route path='/search-listing' element={<SearchListing />} />
 
 
                   {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
@@ -327,6 +322,8 @@ const App = () => {
                 <Route path='*' element={<Error404Page />} />
 
               </Routes>
+
+
 
             </ShippingDetProvider>
 

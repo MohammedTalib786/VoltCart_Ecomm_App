@@ -28,28 +28,16 @@ const SearchListing = () => {
 
     const results = [...prod_filtered, ...blog_filtered];
 
-    // useEffect(() => {
-
-    //     results.map((elem) => {
-    //         console.log('elem', elem)
-    //         console.log('blog_category', elem.blog_category);
-    //     })
-
-    // }, [results])
-
-
-
-
     return (
         <>
             {/* >>>>>>>>>>>>>> In Cont */}
-            <div className=" pt-[60px] pb-[80px] ">
 
-                <div className="container_layout min-h-[90vh] mx-auto flex justify-start items-start flex-col gap-[15px] w-full " >
+            <div className=" pt-[60px] pb-[80px] ">
+                <div className="container_layout gt-tab:min-h-[80vh]  mx-auto flex justify-start items-start flex-col gap-[15px] w-full " >
 
                     <h2 className=' pb-[5px] text-[22px]/[28px] ' >{results.length <= 0 ? "" : `Search Results for: "${query}"`}</h2>
 
-                    <div className="search_box_cont w-full flex justify-between flex-wrap desktop:gap-y-[30px] gt-tab:gap-y-[40px] tab:gap-y-[25px] gap-y-[30px]   " >
+                    <div className="search_box_cont w-full flex justify-start gap-[22px] flex-wrap desktop:gap-y-[30px] gt-tab:gap-y-[40px] tab:gap-y-[25px] gap-y-[30px]   " >
                         {
                             isLoader ?
                                 <SkeletonLoader /> :
@@ -67,12 +55,9 @@ const SearchListing = () => {
                         }
                     </div>
 
-                    
-
                 </div>
             </div>
         </>
-
     )
 }
 

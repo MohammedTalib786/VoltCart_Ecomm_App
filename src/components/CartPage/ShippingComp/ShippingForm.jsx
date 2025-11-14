@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
+
+import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import statesJSON from '../../states_JSON/states.json'
 import Button from '../../FormComp/Button';
-import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import InputBar from '../../FormComp/InputBar';
 import SelectDropdown from '../../FormComp/SelectDropdown';
+
 
 const ShippingForm = ({
     setIsVisible
 }) => {
-
     let { shippingDetails, addShippingDetails } = useShippingDetails();
-
     let [countryMsg, showCountryMsg] = useState(false);
     let [formData, setFormData] = useState({
         town_cityInp: "",
@@ -30,11 +30,7 @@ const ShippingForm = ({
 
     // >>>>>>>>>>>>>>>>>>>>> Form Validation
     const handlerSubmitForm = () => {
-        // console.log("Button CLicked");
-
         if (formData.town_cityInp === '' || !formData.town_cityInp) {
-            // console.log('town city inp cant be empty!')
-            // console.log('formData.town_cityInp', formData.town_cityInp)
             setErrorMsg({ ...errorMsg, townCity: true })
             setTimeout(() => {
                 setErrorMsg({ ...errorMsg, townCity: false })
@@ -42,7 +38,6 @@ const ShippingForm = ({
         }
 
         else if (!formData.pincodeInp || !regex.test(formData.pincodeInp)) {
-            // console.log('Pincode Invalid!');
             setErrorMsg({ ...errorMsg, pincode: true })
             setTimeout(() => {
                 setErrorMsg({ ...errorMsg, pincode: false })
@@ -50,18 +45,13 @@ const ShippingForm = ({
         }
 
         else {
-            // townCity, pincode, State
             addShippingDetails(formData.town_cityInp,
                 formData.pincodeInp,
                 formData.stateInp === "" || formData.stateInp == undefined ? "Maharashtra" : formData.stateInp);
 
             setIsVisible(prev => !prev);
-            // setFormData({ town_cityInp: '', pincodeInp: Number(""), stateInp: "" })
-            // setFormData({ town_cityInp: '', pincodeInp: Number(""), stateInp: formData.stateInp })
         }
     }
-
-    // console.log('Outside Scope', shippingDetails.states)
 
     useEffect(() => {
         setFormData(prevFormData => ({
@@ -76,7 +66,6 @@ const ShippingForm = ({
     return (
         <>
             <div className=""  >
-
                 <div
                     className="shippingFormCont flex flex-col gap-[18px] pt-[20px] " >
 
@@ -86,14 +75,13 @@ const ShippingForm = ({
                         {
                             countryMsg &&
                             <p className='bg-[var(--primary-color)] text-white  absolute w-auto text-center top-[0px] left-[90px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
-                                Currently Ships Only in India
+                                Currently ships only within India.
                             </p>
                         }
                     </div>
 
                     <div className="stateCont  relative "  >
                         <SelectDropdown label_text="State" html_for="state" id="state"
-                            // value={formData.stateInp ? formData.stateInp : "No State Found"}
                             options_arr={statesJSON}
                             value={formData.stateInp ? formData.stateInp : "Maharashtra"}
                             onchange_func={(e) => setFormData({ ...formData, stateInp: e.target.value })}
@@ -104,17 +92,12 @@ const ShippingForm = ({
                         <InputBar label_text="Town/City" html_for="town-city" id="town-city" type="text"
                             onChange_func={(e) => setFormData({ ...formData, town_cityInp: e.target.value })}
                             value={formData.town_cityInp ? formData.town_cityInp : ''}
-
-                            on_input_func={(e) => {
-                                e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "")
-                            }}
-
+                            on_input_func={(e) => e.target.value = e.target.value.replace(/[\d!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "")}
                         />
-
                         {
                             errorMsg.townCity &&
                             <p className='bg-red-800 text-white  absolute w-auto text-center top-[0px] left-[90px] text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px]  ' >
-                                Input field Can not be Empty!
+                                Input field can not be empty!
                             </p>
                         }
                     </div>
@@ -123,12 +106,10 @@ const ShippingForm = ({
                         <InputBar label_text="PinCode" html_for="pincode" id="pincode" type="number"
                             onChange_func={(e) => setFormData({ ...formData, pincodeInp: Number(e.target.value) })}
                             value={formData.pincodeInp ? formData.pincodeInp : ''}
-
                             on_input_func={(e) => {
                                 e.target.value = e.target.value.replace(/\D/g, "");
                                 e.target.value.length > 6 ? e.target.value = e.target.value.slice(0, 6) : e.target.value;
                             }}
-
                         />
                         {
                             errorMsg.pincode &&

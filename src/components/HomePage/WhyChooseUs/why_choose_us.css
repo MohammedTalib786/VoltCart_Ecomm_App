@@ -1,12 +1,33 @@
-.whyChooseSec .icon_box:hover svg path {
-    stroke: #0D6EFD;
+@media (min-width: 768px) {
+    .whyChooseSec .icon_box:hover svg path {
+        stroke: #0D6EFD;
+    }
+
+    .whyChooseSec .icon_box.icon_box_fill:hover svg path {
+        fill: #0D6EFD;
+        stroke: none;
+    }
+
+    .whyChooseSec .icon_box:hover h5 {
+        color: #0D6EFD;
+    }
 }
 
-.whyChooseSec .icon_box.icon_box_fill:hover svg path {
-    fill: #0D6EFD;
-    stroke: none;
+
+.whyChooseSec .swiper .swiper-button-prev::after,
+.whyChooseSec .swiper .swiper-button-next::after {
+    font-size: 28px;
 }
 
-.whyChooseSec .icon_box:hover h5 {
+.whyChooseSec .swiper .swiper-button-prev,
+.whyChooseSec .swiper .swiper-button-next {
     color: #0D6EFD;
+}
+
+.whyChooseSec .swiper .swiper-button-prev {
+    left: 0;
+}
+
+.whyChooseSec .swiper .swiper-button-next {
+    right: 0;
 }

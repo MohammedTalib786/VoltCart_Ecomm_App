@@ -29,7 +29,7 @@ const ProductFilter = ({
         <>
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>> Desktop Filter Section */}
             <div
-                className=" desktop:w-[25%] gt-tab:w-[30%] w-[45%] sticky top-[25px] left-0 tab:flex hidden  " >
+                className=" desktop:w-[25%] gt-tab:w-[30%] w-[45%] sticky gt-tab:top-[110px] top-[130px] left-0 tab:flex hidden  " >
 
                 <div className="cat-search  w-full bg-white px-[20px] py-[30px] rounded-[12px] 
             sticky top-[100px]  "> {/* This sticky not Working >>> */}

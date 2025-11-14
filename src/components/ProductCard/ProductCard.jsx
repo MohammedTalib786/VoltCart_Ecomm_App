@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useCart } from '../../contexts/ProdProvider'
-import placeholderImg from '../../assets/placeholder_img.png'
-import Button from '../FormComp/Button'
 import { BsCart2 } from "react-icons/bs";
 
+import placeholderImg from '../../assets/placeholder_img.png'
+import { useCart } from '../../contexts/ProdProvider'
+import Button from '../FormComp/Button'
+
 import './productCard.css'
+
 
 const ProductCard = ({
     id,
@@ -21,12 +23,9 @@ const ProductCard = ({
     savePercent = 20,
     // additionalClass
 }) => {
-
     let [btnElement, setBtnElement] = useState('addToCart');
-
     let navigateToCart = useNavigate();
     let { cartProducts, addToCartFunc } = useCart();
-
     let checkExisting = cartProducts.filter(elem => {
         // console.log('getting', elem.id === id)
         // console.log(elem.id)

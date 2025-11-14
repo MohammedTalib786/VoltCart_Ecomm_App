@@ -23,8 +23,6 @@ const BlogDetails = () => {
 
   if (!blogData) return ("no Blog found")
 
-
-
   // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
   useDocumentTitle(`${blog_title ? blog_title : "Article"} | Expert Insights from VoltCart`);
 
@@ -39,8 +37,8 @@ const BlogDetails = () => {
 
               <h1 className=" mt-[10px] font-primary desktop:text-[45px]/[55px] gt-tab:text-[34px]/[42px] tab:text-[30px]/[40px] text-[26px]/[34px] font-[300] ">{blog_title}</h1>
 
-              <div className="py-[50px] ">
-                <img className={` object-cover w-full  object-center rounded-[12px] `} src={blog_inside_img} />
+              <div className=" gt-tab:py-[50px] py-[30px] ">
+                <img className={` object-cover w-full  object-center tab:rounded-[22px] rounded-[12px]  `} src={blog_feat_img} />
               </div>
 
               <p className="blogDesc" dangerouslySetInnerHTML={{ __html: blog_content }} />
@@ -50,7 +48,9 @@ const BlogDetails = () => {
 
             <div className="sliders blog_slider desktop:pb-[100px] gt-tab:pb-[80px] pb-[60px] ">
               <h3 className="font-primary gt-tab:text-[50px]/[60px] tab:text-[45px]/[50px] text-[38px]/[42px] font-[200] pb-[30px]">Related Posts</h3>
-              <BlogDetailsSlider />
+              <BlogDetailsSlider
+                blog_id={blog_id}
+              />
             </div>
 
           </div>

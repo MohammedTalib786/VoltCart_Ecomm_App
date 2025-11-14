@@ -1,4 +1,3 @@
-
 const SkeletonLoaderProduct = () => {
     return (
 
@@ -58,9 +57,9 @@ const SkeletonLoaderProduct = () => {
                         <div className="  h-[26px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-[70%] mt-[10px] "></div>
                     </div>
 
-                    <div className="load-price flex pb-[30px] gap-[20px] ">
-                        <div className="  h-[35px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px] "></div>
-                        <div className="  h-[35px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[120px]  "></div>
+                    <div className="load-price flex flex-col pb-[30px] gap-[10px] ">
+                        <div className="  h-[35px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[160px] "></div>
+                        <div className="  h-[25px] bg-gray-200 rounded-[8px] dark:bg-gray-400 w-[200px]  "></div>
                     </div>
 
                     <div className="load-btns flex pb-[30px] gap-[20px] ">
@@ -69,6 +68,7 @@ const SkeletonLoaderProduct = () => {
                     </div>
 
                     <div className="">
+                        <div className="h-[25px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-[200px] mb-[15px] "></div>
                         <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-full mb-[15px] "></div>
                         <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400 w-full mb-[15px] "></div>
                         <div className="h-[17px] bg-gray-200 rounded-[6px] dark:bg-gray-400  w-full mb-[15px] "></div>

@@ -23,9 +23,6 @@ const Header = () => {
     let [svgLogoColor, setSvgLogoColor] = useState('white');
     let [navLinksAndIconsColor, setNavLinksAndIconsColor] = useState('white');
     let [scrolledHeader, setScrolledHeader] = useState('unScrolledHeader');
-
-
-
     let [searchBoxOpen, setSearchBoxOpen] = useState({
         topVal: "-top-[490px]",
         opacity: 0,
@@ -58,19 +55,12 @@ const Header = () => {
         else {
             setHeaderBg('transparent')
             setSvgLogoColor('white')
-
             setNavLinksAndIconsColor('white')
-
             setScrolledHeader('unScrolledHeader')
-
         }
-
-
     })
 
     useEffect(() => {
-        // console.log("Route changed to:", location.pathname);
-        // You can call analytics or do other side effects here
         setSearchBoxOpen({
             topVal: "-top-[490px]",
             opacity: 0,
@@ -80,30 +70,45 @@ const Header = () => {
     }, [location]);
 
     const handlerSearchActive = () => {
-        // setSearchBoxOpen(true)
-        // console.log('searchBoxOpen', searchBoxOpen)
         if (searchBoxOpen.opacity === 0) {
             setSearchBoxOpen({
                 topVal: "top-[85px]",
                 opacity: 1,
                 pointerEvents: "all"
             })
+            setHeaderBg('white');
+            setSvgLogoColor('#0D6EFD')
+            setScrolledHeader('scrolledHeader')
+            setNavLinksAndIconsColor('black')
         }
+
         else {
             setSearchBoxOpen({
                 topVal: "-top-[490px]",
                 opacity: 0,
                 pointerEvents: "none"
             })
+
+            if (window.scrollY > 10) {
+                setHeaderBg('white');
+                setSvgLogoColor('#0D6EFD')
+                setScrolledHeader('scrolledHeader')
+                setNavLinksAndIconsColor('black')
+            }
+
+            else {
+                setHeaderBg('transparent')
+                setSvgLogoColor('white')
+                setNavLinksAndIconsColor('white')
+                setScrolledHeader('unScrolledHeader')
+            }
         }
     }
 
     const handlerSearchActiveTab = () => {
-        // setSearchBoxOpen(true)
-        // console.log('searchBoxOpen', searchBoxOpen)
         if (searchBoxOpen.opacity === 0) {
             setSearchBoxOpen({
-                topVal: "top-[108px]",
+                topVal: "top-[104px]",
                 opacity: 1,
                 pointerEvents: "all"
             })
@@ -118,11 +123,9 @@ const Header = () => {
     }
 
     const handlerSearchActiveMobile = () => {
-        // setSearchBoxOpen(true)
-        // console.log('searchBoxOpen', searchBoxOpen)
         if (searchBoxOpen.opacity === 0) {
             setSearchBoxOpen({
-                topVal: "top-[88px]",
+                topVal: "top-[86px]",
                 opacity: 1,
                 pointerEvents: "all"
             })
@@ -140,14 +143,9 @@ const Header = () => {
         setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })
     }, [location.pathname])
 
-    // console.log('header location', location)
-    // console.log('header location', location)
-
-
 
     return (
-        // <header className=' head_foot_cont_full w-full flex flex-col relative bg-white border-b border-[#b9b9b9] ' >
-        <header className={` head_foot_cont_full ${scrolledHeader} w-full flex flex-col bg-${headerBg}  fixed top-0 z-[999999]  border-b border-[#7b7b7b87] `} >
+        <header className={` head_foot_cont_full ${scrolledHeader} w-full flex flex-col bg-${headerBg}  fixed top-0 z-[999]  border-b border-[#7b7b7b87] `} >
 
             {/* >>>>>>>>>>>>>>> Desktop Header */}
             <div className='desktop_header gt-tab:flex hidden flex-wrap max-h-[90px] py-[20px] items-center max-w-[1440px] mx-auto gt-tab:px-[30px] desktop:px-[50px] w-full bg-transparent ' >
@@ -181,7 +179,6 @@ const Header = () => {
                     </Link>
                 </div>
 
-
                 <div
                     className="  gt-tab:flex hidden  z-40 flex-wrap items-center gap-4 mx-auto w-[60%]  " >
 
@@ -203,14 +200,10 @@ const Header = () => {
                             <li className='max-lg:border-b '>
                                 <NavLink to='/contact-us' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ` relative font-primary text-[18px]/[24px] font-[300]  text-${navLinksAndIconsColor} block tracking-[0.5px] `} >Contact</NavLink>
                             </li>
-                            {/* <li className='max-lg:border-b '>
-                                <NavLink to='/test' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : " relative  font-medium  font-body text-black block text-[16px]"} >Test</NavLink>
-                            </li> */}
                         </ul>
 
                     </div>
                 </div>
-
 
                 <div className="iconsCont desktop:w-[20%] gt-tab:w-[15%] flex justify-end gap-[24px]  ">
 
@@ -224,13 +217,13 @@ const Header = () => {
 
                     <button className="wishlist-box flex justify-center items-center flex-col cursor-pointer ">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke={navLinksAndIconsColor} stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke={navLinksAndIconsColor} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" /></svg>
 
                     </button>
 
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><rect width="24" height="24" fill="none" /><g fill="none" stroke={navLinksAndIconsColor} stroke-width="1.5"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 4h2l3.504 11H17" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><rect width="24" height="24" fill="none" /><g fill="none" stroke={navLinksAndIconsColor} strokeWidth="1.5"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path strokeLinecap="round" strokeLinejoin="round" d="M3.5 4h2l3.504 11H17" /><path strokeLinecap="round" strokeLinejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
 
                         {
                             cartProducts && cartProducts.length >= 1 ? <div className=" text-white bg-[var(--primary-color)] text-[13px]/[13px] rounded-[50%] w-[24px] h-[24px] p-0 flex justify-center items-center absolute top-[-14px] right-[-16px]    ">{mainCartItemLen}</div> : null
@@ -249,7 +242,6 @@ const Header = () => {
                     <button
                         onClick={() => setOpenMenu({ left: "0px", opacity: 1, pointerEvents: "all" })}
                         className=' cursor-pointer '  >
-                        {/* <img src={hamNavIcon} alt="navbar-icon" className='w-[30px]' /> */}
                         <RxHamburgerMenu className=' text-black tab:text-[32px]/[32px] text-[26px]/[26px]  ' />
                     </button>
 
@@ -258,7 +250,6 @@ const Header = () => {
                 {/* // Absolute Navbar */}
                 <div
                     className=" mob_header_nav w-[100%] h-[100vh] z-[9999] bg-[#0000001f] tab:left-[0px] flex absolute top-0 flex-col justify-start gap-[50px] px-[30px] pt-[100px] pb-[30px]  "
-                    // style={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
                     style={{ left: 0, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
 
                     onClick={() => setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })}
@@ -269,13 +260,10 @@ const Header = () => {
                         style={{ left: openMenu.left, opacity: openMenu.opacity, pointerEvents: openMenu.pointerEvents }}
                         onClick={(e) => e.stopPropagation()}
                     >
-
                         <button
                             onClick={() => setOpenMenu({ left: "-540px", opacity: 0, pointerEvents: "none" })}
                             className='w-fit absolute top-[30px] right-[30px] cursor-pointer  ' >
-                            {/* <img src={closeIcon} alt="" className='w-[30px] ' /> */}
                             <TfiClose className=' text-black text-[28px]/[28px]  ' />
-
                         </button>
 
                         <Link to="/" >
@@ -305,11 +293,9 @@ const Header = () => {
 
                         </nav>
 
-
                     </div>
 
                 </div>
-
 
                 <div className="logoCont tab:w-[60%] w-[60%] flex justify-center  ">
                     <Link to="/" >
@@ -318,37 +304,26 @@ const Header = () => {
                 </div>
 
                 <div className="iconsCont tab:w-[20%] w-[25%] flex justify-end tab:gap-[24px] gap-[10px]  ">
-
                     <button
                         onClick={handlerSearchActiveTab}
                         className="cart-box tab:flex hidden justify-center items-center flex-col relative cursor-pointer  "
                     >
-                        <svg className=' tab:w-[34px]  w-[24px] '  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path fill="black" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
+                        <svg className=' tab:w-[34px]  w-[24px] ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
                     </button>
 
                     <button
                         onClick={handlerSearchActiveMobile}
                         className="cart-box tab:hidden flex justify-center items-center flex-col relative cursor-pointer  "
                     >
-
-                        <svg className=' tab:w-[34px]  w-[24px] '  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
-
-
+                        <svg className=' tab:w-[34px]  w-[24px] ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
                     </button>
 
                     <button className="wishlist-box flex justify-center items-center flex-col cursor-pointer ">
-
-
-                        <svg className=' tab:w-[30px]  w-[22px] '  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" /></svg>
-
-
+                        <svg className=' tab:w-[30px]  w-[22px] ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" /></svg>
                     </button>
 
                     <Link to='/cart' className="cart-box flex justify-center items-center flex-col relative "  >
-
-
-                        <svg className=' tab:w-[34px]  w-[24px] ' xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><rect width="24" height="24" fill="none" /><g fill="none" stroke="black" stroke-width="1.5"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 4h2l3.504 11H17" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
-
+                        <svg className=' tab:w-[34px]  w-[24px] ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" fill="none" /><g fill="none" stroke="black" strokeWidth="1.5"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path strokeLinecap="round" strokeLinejoin="round" d="M3.5 4h2l3.504 11H17" /><path strokeLinecap="round" strokeLinejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
                         {
                             cartProducts && cartProducts.length >= 1 ? <div className=" text-white bg-[var(--primary-color)] text-[13px]/[13px] rounded-[50%] w-[24px] h-[24px] p-0 flex justify-center items-center absolute top-[-14px] right-[-16px]    ">{mainCartItemLen}</div> : null
                         }
@@ -358,10 +333,17 @@ const Header = () => {
 
             </div >
 
-            <SearchBar searchBoxOpen={searchBoxOpen} setSearchBoxOpen={setSearchBoxOpen} />
+            <SearchBar
+                searchBoxOpen={searchBoxOpen}
+                setSearchBoxOpen={setSearchBoxOpen}
+                setHeaderBg={setHeaderBg}
+                setSvgLogoColor={setSvgLogoColor}
+                setNavLinksAndIconsColor={setNavLinksAndIconsColor}
+                setScrolledHeader={setScrolledHeader}
+            />
 
         </header >
     )
 }
 
-export default Header
+export default Header;

@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
 
 import logo from '../../../assets/logo.svg';
 import paymentOptImgs from '../../../assets/Footer/payment_gateway_options.png'
-
 
 
 const TopFooter = () => {
@@ -21,7 +15,7 @@ const TopFooter = () => {
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> First Col */}
                 <div className="columns cols-1 desktop:w-[50%] gt-tab:w-[50%] tab:w-[45%] w-full flex flex-col gap-[15px] ">
                     <Link to='/' ><img src={logo} alt="logo" className='max-w-[170px] ' /></Link>
-                    <p className='text-black font-[400] text-[16px]/[22px] desktop:w-full gt-tab:w-[75%] w-full  ' >Best information about the company gies here but now lorem ipsum is</p>
+                    <p className='text-black font-[400] text-[16px]/[22px] desktop:w-full gt-tab:w-[75%] w-full  ' >At VoltCart, products are more than accessories. premium isn’t just a label for us, it’s a promise.</p>
                     <div className="socials flex gap-x-[30px] ">
 
                         <a target="_blank" href="https://api.whatsapp.com/send?phone=9987034815" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
@@ -30,7 +24,7 @@ const TopFooter = () => {
                             </svg>
                         </a>
 
-                        <a target="_blank" href="https://www.instagram.com/its_tausifshaikh/" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
+                        <a target="_blank" href="https://www.instagram.com/_talib__shaikh/" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-instagram" viewBox="0 0 16 16">
                                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
                             </svg>
@@ -42,32 +36,11 @@ const TopFooter = () => {
                             </svg>
                         </a>
 
-                        <a target="_blank" href="https://x.com/Shaikhtausif84/" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
+                        <a target="_blank" href="https://x.com/STalib01786/" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-twitter-x" viewBox="0 0 16 16">
                                 <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                             </svg>
                         </a>
-
-
-                        {/* <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
-                            <FaFacebookF className='text-[22px]/[22px] h-fit fill-para-black ' />
-                        </a>
-
-                        <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
-                            <FaTwitter className='text-[22px]/[22px] h-fit fill-para-black ' />
-                        </a>
-
-                        <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
-                            <FaLinkedinIn className='text-[22px]/[22px] h-fit fill-para-black ' />
-                        </a>
-
-                        <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
-                            <FaInstagram className='text-[22px]/[22px] h-fit fill-para-black ' />
-                        </a>
-
-                        <a href="#" className=' flex justify-center items-center rounded-[50px] cursor-pointer transition-all ' >
-                            <FaYoutube className='text-[22px]/[22px] h-fit fill-para-black ' />
-                        </a> */}
 
                     </div>
                 </div>
@@ -84,7 +57,7 @@ const TopFooter = () => {
                             <Link to="/blogs">Blogs</Link>
                         </li>
                         <li className=' text-text-black  font-[400] text-[16px]/[22px] transition-all ' >
-                            <Link to="/products">Shop All</Link>
+                            <Link to="/products">Products</Link>
                         </li>
                         <li className=' text-text-black  font-[400] text-[16px]/[22px] transition-all '  >
                             <Link to="/contact-us">Contact Us</Link>
@@ -132,11 +105,6 @@ const TopFooter = () => {
                             <a href="mailto:info.voltcartt@gmail.com">info.voltcartt@gmail.com</a>
                         </li>
 
-                        {/* <li className=' text-black font-[400] text-[16px]/[22px] flex justify-start desktop:items-start gt-tab:items-center items-start gap-[10px] ' >
-                            <svg className='fill-para-black desktop:w-[40px] gt-tab:w-[25px] tab:w-[35px] w-[30px]  ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z" /></svg>
-                            <span>13th Street 47 W 13th St, New York, NY 10011, USA</span>
-                        </li> */}
-
                     </ul>
                 </div>
 
@@ -151,4 +119,4 @@ const TopFooter = () => {
     )
 }
 
-export default TopFooter
+export default TopFooter;

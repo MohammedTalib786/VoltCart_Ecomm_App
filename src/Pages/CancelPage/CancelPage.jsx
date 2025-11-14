@@ -1,24 +1,18 @@
-import { useState } from "react"
 import { Link, useNavigate } from 'react-router-dom';
-import { IoCloseOutline } from "react-icons/io5";
-import Button from '../../components/FormComp/Button';
 import { BsCart2 } from "react-icons/bs";
 import { BsCartXFill } from "react-icons/bs";
 
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import Button from '../../components/FormComp/Button';
+
 
 const CancelPage = () => {
-    const navigate = useNavigate();
+
+    // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
+    useDocumentTitle('Your Order Has Been Canceled | VoltCart');
 
     return (
         <>
-            {/* >>>>>>>>>>>>>> In Cont */}
-            {/* <div className="container_layout mx-auto flex justify-center items-center flex-col  "  >
-                <h2>The Order has been Cancelled!</h2>
-            </div> */}
-
-
-
-
             <div className="flex items-center justify-center min-h-[90vh]  " >
                 <div className=" bg-white w-full flex flex-col items-center  gt-tab:max-w-[850px]  tab:max-w-[650px] max-w-[85%] rounded-2xl px-[20px] py-[50px] text-center">
 
@@ -37,16 +31,8 @@ const CancelPage = () => {
                         Your payment was not completed. Don’t worry, your cart is still saved.
                     </p>
 
-                    {/* Order/cart info placeholder (optional) */}
-                    {/* <div className="bg-white/5 border border-white/10 rounded-lg p-4 mb-6 text-gray-200">
-                        <p className="text-sm">Order ID: <span className="text-gray-100">N/A</span></p>
-                        <p className="text-sm">Items: <span className="text-gray-100">3</span></p>
-                        <p className="text-sm">Total: <span className="text-gray-100">₹15,999</span></p>
-                    </div> */}
-
                     {/* CTA buttons */}
                     <div className="  tab:w-[90%] w-full flex flex-col items-center gap-[20px]   " >
-
 
                         <div className=" w-full flex tab:gap-[20px] gap-[12px]  tab:flex-row flex-col " >
                             <Link
@@ -65,7 +51,7 @@ const CancelPage = () => {
                             >
                                 <Button
                                     text="Back to Home"
-                                    btnIcon={<svg xmlns="http://www.w3.org/2000/svg" className=" w-[18px] fill-white "  viewBox="0 0 640 640"><path d="M304 70.1C313.1 61.9 326.9 61.9 336 70.1L568 278.1C577.9 286.9 578.7 302.1 569.8 312C560.9 321.9 545.8 322.7 535.9 313.8L527.9 306.6L527.9 511.9C527.9 547.2 499.2 575.9 463.9 575.9L175.9 575.9C140.6 575.9 111.9 547.2 111.9 511.9L111.9 306.6L103.9 313.8C94 322.6 78.9 321.8 70 312C61.1 302.2 62 287 71.8 278.1L304 70.1zM320 120.2L160 263.7L160 512C160 520.8 167.2 528 176 528L224 528L224 424C224 384.2 256.2 352 296 352L344 352C383.8 352 416 384.2 416 424L416 528L464 528C472.8 528 480 520.8 480 512L480 263.7L320 120.3zM272 528L368 528L368 424C368 410.7 357.3 400 344 400L296 400C282.7 400 272 410.7 272 424L272 528z"/></svg>}
+                                    btnIcon={<svg xmlns="http://www.w3.org/2000/svg" className=" w-[18px] fill-white " viewBox="0 0 640 640"><path d="M304 70.1C313.1 61.9 326.9 61.9 336 70.1L568 278.1C577.9 286.9 578.7 302.1 569.8 312C560.9 321.9 545.8 322.7 535.9 313.8L527.9 306.6L527.9 511.9C527.9 547.2 499.2 575.9 463.9 575.9L175.9 575.9C140.6 575.9 111.9 547.2 111.9 511.9L111.9 306.6L103.9 313.8C94 322.6 78.9 321.8 70 312C61.1 302.2 62 287 71.8 278.1L304 70.1zM320 120.2L160 263.7L160 512C160 520.8 167.2 528 176 528L224 528L224 424C224 384.2 256.2 352 296 352L344 352C383.8 352 416 384.2 416 424L416 528L464 528C472.8 528 480 520.8 480 512L480 263.7L320 120.3zM272 528L368 528L368 424C368 410.7 357.3 400 344 400L296 400C282.7 400 272 410.7 272 424L272 528z" /></svg>}
                                     btnWidth="w-full"
                                     additionalClass="min-w-full"
                                 />
@@ -79,8 +65,6 @@ const CancelPage = () => {
                     </p>
                 </div>
             </div>
-
-
         </>
     )
 }

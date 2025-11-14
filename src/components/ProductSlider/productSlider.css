@@ -15,9 +15,15 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
+@media (min-width: 801px) and (max-width: 1200px) {
     .prodSlider .swiper {
         height: 520px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+    .prodSlider .swiper {
+        height: 540px;
     }
 }
 
@@ -29,7 +35,7 @@
 
 @media (min-width: 391px) and (max-width: 425px) {
     .prodSlider .swiper {
-        height: 560px;
+        height: 580px;
     }
 }
 

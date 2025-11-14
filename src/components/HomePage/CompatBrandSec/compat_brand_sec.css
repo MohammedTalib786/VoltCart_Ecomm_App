@@ -67,9 +67,8 @@
     width: auto;
 }
 
-.logo-marquee--marquee-group img.samsung_logo {
-
-    height: 120px;
+.logo-marquee--marquee-group .samsung_logo {
+    height: 100px;
 }
 
 

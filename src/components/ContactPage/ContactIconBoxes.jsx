@@ -14,8 +14,11 @@ const ContactIconBoxes = () => {
                     <FaLocationDot className=" w-[20px] h-[20px] " />
                     <div className="">
                         <h5 className="font-primary font-[500] text-[20px]/[20px] pb-[10px] ">Location Address</h5>
-                        <p className="font-body font-[400] text-[16px] ">
+                        {/* <p className="font-body font-[400] text-[16px] ">
                             Shop No. 2, near Cement Bridge, Baramulla, <br className=' gt-tab:block hidden  ' />Jammu and Kashmir 193101
+                        </p> */}
+                        <p className="font-body font-[400] text-[16px] ">
+                            Vinoba Bhave Nagar, Kurla (West), <br className=' gt-tab:block hidden  ' />Mumbai - 400070, Maharashtra
                         </p>
                     </div>
                 </div>

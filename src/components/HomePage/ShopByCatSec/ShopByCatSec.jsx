@@ -1,52 +1,66 @@
+// import categoryImgOne from '../../../assets/HomePage/category_img_1.jpg'
+// import categoryImgTwo from '../../../assets/HomePage/category_img_2.jpg'
 
-import Button from '../../FormComp/Button'
+import coverCasesCatImg from '../../../assets/HomePage/mobile_cover_cat_image.webp'
+import coverCasesCatImgMob from '../../../assets/HomePage/mobile_cover_cat_image_mob.webp'
+import PowerBnkCatImg from '../../../assets/HomePage/power_bank_cat_image.webp'
+import watchStrpCatImg from '../../../assets/HomePage/watch_strap_cat_image.webp'
+
 import ShopCatCard from './ShopCatCard'
 
-import categoryImgOne from '../../../assets/HomePage/category_img_1.jpg'
-import categoryImgTwo from '../../../assets/HomePage/category_img_2.jpg'
+import './shop_by_cat_sec.css'
+
 
 
 const ShopByCatSec = () => {
     return (
-        <div className="flex flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] gt-tab:gap-[30px] tab:gap-[25px] gap-[15px] ">
-
-            {/* <img src={logoIcon} alt="" className=' gt-tab:w-[100px] w-[80px] ' /> */}
+        <div className=" w-full flex flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] gt-tab:gap-[30px] tab:gap-[25px] gap-[15px] bg-white ">
 
             <h2
                 className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-left ">Shop By Category</h2>
 
-
-            <div className="w-full flex gt-tab:flex-row flex-col tab:gap-[35px] gap-[30px]  " >
+            <div className=" shop_cat_sec_one w-full flex gt-tab:flex-row flex-col  " >
 
                 <div className=" gt-tab:w-[50%] w-full ">
-                    <ShopCatCard additionalClass="h-full gt-tab:max-h-full tab:max-h-[350px]  " catImg={categoryImgOne} />
+                    {/* >>>>>> Desktop Card */}
+                    <ShopCatCard
+                        additionalClass=" desktop:max-h-[750px] gt-tab:max-h-[620px]   gt-tab:block hidden "
+                        catImg={coverCasesCatImg}
+                        catName="Mobile Covers"
+                        imgHeight=" desktop:max-h-[750px] gt-tab:max-h-[620px] " 
+                        catLink="/products?category=covers_and_cases" 
+                    />
+
+                    {/* >>>>>> Mobile Card */}
+                    <ShopCatCard
+                        additionalClass=" gt-tab:hidden block tab:max-h-[550px]  "
+                        catImg={coverCasesCatImgMob}
+                        catName="Mobile Covers"
+                        imgHeight=" tab:max-h-[550px] tab:min-h-auto max-h-[350px] min-h-[350px] " 
+                        catLink="/products?category=covers_and_cases" 
+                        
+                    />
+
                 </div>
 
-                <div className=" gt-tab:w-[50%] tab:w-full gt-tab:h-auto tab:h-[350px] flex gt-tab:flex-col tab:flex-row flex-col tab:gap-[35px] gap-[30px]  ">
-                    <ShopCatCard additionalClass="h-full max-h-[350px] " catImg={categoryImgOne} />
-                    <ShopCatCard additionalClass="h-full max-h-[350px] " catImg={categoryImgTwo} />
+                <div className=" gt-tab:w-[50%] tab:w-full gt-tab:h-auto flex gt-tab:flex-col tab:flex-row flex-col justify-between  gt-tab:gap-0 tab:gap-[30px] gap-[25px] ">
+                    <ShopCatCard
+                        additionalClass=" gt-tab:max-h-[360px] tab:max-h-[250px]  "
+                        catImg={PowerBnkCatImg}
+                        catName="Power Banks"
+                        imgHeight=" gt-tab:max-h-[360px] gt-tab:min-h-auto tab:min-h-[250px] min-h-[350px] " 
+                        catLink="/products?category=power_bank" 
+                    />
+                    <ShopCatCard
+                        additionalClass=" gt-tab:max-h-[360px] tab:max-h-[250px]  "
+                        catImg={watchStrpCatImg}
+                        catName="Stand and Straps"
+                        imgHeight=" gt-tab:max-h-[360px] gt-tab:min-h-auto tab:min-h-[250px] min-h-[350px] " 
+                        catLink="/products?category=stand_and_straps" 
+                    />
                 </div>
 
             </div>
-
-
-
-
-            {/* <div className=" desktop:w-[1100px] w-full ">
-                <p
-                    className=" text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] text-center pt-[0px] pb-[10px] " >
-                    VoltCart delivers a seamless blend of design excellence, engineering precision, and everyday practicality through our range of products. Engineered for protection, designed for style. Each case is built with premium materials that shield your device from impact while maintaining a sleek, minimalist form. Reliable energy, anytime, anywhere. Our power banks combine intelligent charging technology with compact, modern design — keeping you powered on the go. Every VoltCart product is thoughtfully curated to enhance your digital lifestyle, merging form, function, and innovation in every detail.
-                </p>
-
-            </div> */}
-
-
-
-            {/* <Button
-                text="Explore More"
-                additionalClass=" w-full "
-            /> */}
-
 
         </div>
     )

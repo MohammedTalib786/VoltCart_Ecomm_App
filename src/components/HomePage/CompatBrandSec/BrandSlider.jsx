@@ -17,11 +17,11 @@ const BrandSlider = () => {
 
         <>
 
-            <div class="logo-marquee">
+            <div className="logo-marquee">
 
-                <div class="logo-marquee--marquee">
+                <div className="logo-marquee--marquee">
 
-                    <div class="logo-marquee--marquee-group">
+                    <div className="logo-marquee--marquee-group">
                         <BrandCard brandLogo={appleLogo} />
                         <BrandCard brandLogo={boatLogo} />
                         <BrandCard brandLogo={dellLogo} />
@@ -32,7 +32,7 @@ const BrandSlider = () => {
                         <BrandCard brandLogo={xiaomiLogo} />
                     </div>
 
-                    <div aria-hidden="true" class="logo-marquee--marquee-group">
+                    <div aria-hidden="true" className="logo-marquee--marquee-group">
                         <BrandCard brandLogo={appleLogo} />
                         <BrandCard brandLogo={boatLogo} />
                         <BrandCard brandLogo={dellLogo} />

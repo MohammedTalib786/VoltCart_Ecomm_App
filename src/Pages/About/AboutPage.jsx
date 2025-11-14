@@ -3,9 +3,9 @@ import AboutSpotlight from '../../components/AboutPage/AboutSpotlight';
 import AboutIntro from '../../components/AboutPage/AboutIntro';
 import AboutJoinUs from '../../components/AboutPage/AboutJoinUs';
 import AboutVissionMission from '../../components/AboutPage/AboutVissionMission';
+import OurPromise from '../../components/AboutPage/OurPromise';
 
 import './about-us.css';
-import OurPromise from '../../components/AboutPage/OurPromise';
 
 
 const About = () => {

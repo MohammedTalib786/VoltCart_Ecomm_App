@@ -1,27 +1,29 @@
-import './error404Page.css'
-import Button from '../../components/FormComp/Button'
-import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
+import CountUp from 'react-countup';
+
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import Button from '../../components/FormComp/Button'
 import Header from '../../components/Header/Header';
 import ScrollToTopButton from '../../components/ScrollToTopButton/ScrollToTopButton';
 import Footer from '../../components/Footer/Footer';
 
+import './error404Page.css'
+
 
 const Error404Page = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Sorry What You Are Looking For Is Not Found');
+
+    document.body.classList.add("whiteBgPages");
 
     return (
         <>
             <Header />
             <div
-                // className=' tab:mt-[60px] mt-[56px] '
                 className=' m-0 '
             >
-                <div className=" desktop:min-h-[90vh] gt-tab:min-h-[88vh] min-h-[90vh] w-full bg-gray-100 flex items-center">
-                    <div className=" desktop:max-w-[1440px] max-w-full flex gt-tab:flex-row flex-col-reverse gt-tab:gap-[0px] gap-[30px] mx-auto items-center justify-center gt-tab:px-[50px] tab:px-[30px] tab:pt-[0px] tab:pb-[0px] pt-[30px] pb-[60px]  px-[20px] text-gray-700">
+                <div className="  min-h-[100vh] w-full bg-gray-100 flex items-center">
+                    <div className=" desktop:max-w-[1440px] max-w-full flex gt-tab:flex-row flex-col-reverse gt-tab:gap-[0px] gap-[30px] mx-auto items-center justify-center gt-tab:px-[50px] tab:px-[30px] tab:pt-[0px] tab:pb-[0px] pt-[100px] pb-[60px]  px-[20px] text-gray-700">
 
                         <div className=" w-full flex flex-col gt-tab:items-start items-center ">
 
@@ -55,10 +57,7 @@ const Error404Page = () => {
 
             <Footer />
         </>
-
-
-
     )
 }
 
-export default Error404Page
+export default Error404Page;

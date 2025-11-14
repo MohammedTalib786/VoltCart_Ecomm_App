@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import placeholderImg from '../../assets/placeholder_img.png'
 import useFetch from '../../hooks/useFetch'
@@ -22,6 +23,15 @@ const Products = () => {
     let useProdList = useFetch(productsAPI);
     let { loader, error, data: prodData } = useProdList;
     let [checkValue, setcheckValue] = useState([])
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const query = queryParams.get('category');
+
+    useEffect(() => {
+        if (query === "power_bank") setcheckValue((prev) => [...prev, 'Power Banks']);
+        else if (query === "stand_and_straps") setcheckValue((prev) => [...prev, 'Stand and Straps']);
+        else if (query === "covers_and_cases") setcheckValue((prev) => [...prev, 'Covers and Cases']);
+    }, [location.pathname])
 
     const handleCheckbox = (e) => {
         const value = e.target.value;
@@ -43,22 +53,23 @@ const Products = () => {
         if (maxVal > 0) setPriceFilter(maxVal)
     }, [maxVal])
 
-    // The Main Filter
-    // let mainFiltStatic = prodData.filter(elem => ["Covers and Cases", "Power Banks"].includes(elem.category)).filter(elem => elem.price.sale_price <= 180 )
-    // let mainFilt = prodData.filter(elem => checkValue.length === 0 ? prodData : checkValue.includes(elem.category)).filter(elem => elem.price.sale_price <= priceFilter)
-    // console.log('mainFilt', mainFilt)
+    let mainData = prodData
+        .filter(elem => checkValue.length === 0 ? prodData : checkValue.includes(elem.category))
+        .filter(elem => elem.price.sale_price <= priceFilter)
+
+    // console.log('mainData', mainData)
+    // console.log('checkValue', checkValue)
+
 
     return (
         <>
-
             <div className="lg:w-[100%] flex flex-col items-center  ">
 
                 <ProductsSpotlight />
 
                 <div className=" container_layout flex flex-col justify-center items-center relative "  >
                     {/* >>>>>>>>>>>>>> In Cont */}
-                    <div className=" desktop:py-[100px] gt-tab:py-[80px] py-[60px]  "  >
-
+                    <div className=" w-full desktop:py-[100px] gt-tab:py-[80px] py-[60px]  "  >
                         <div className=" flex md:flex-row flex-col desktop:gap-[40px] gt-tab: gap-[25px] items-start prod_list_cont   " >
 
                             <ProductFilter
@@ -68,17 +79,6 @@ const Products = () => {
                                 checkValue={checkValue}
                                 handleCheckbox={handleCheckbox}
                             />
-
-                            {/* <button
-                                className='tab:hidden w-full flex items-center justify-center p-[10px] bg-transparent border-2 border-primary rounded-[12px] text-[18px]/[26px] tracking-[1.2px] font-[400] text-primary cursor-pointer '
-
-                            >Filter By</button> */}
-
-
-
-                      
-
-
                             <div
                                 className="flex desktop:w-[75%] gt-tab:w-[70%] tab:w-[55%] w-full desktop:gap-[30px] gt-tab:gap-[25px] gap-[25px]  flex-wrap justify-start items-center  prod_card_list  " >
                                 {
@@ -87,9 +87,9 @@ const Products = () => {
                                         : error ?
                                             (<p className="text-red-500">Something went wrong: {error.message}</p>) :
                                             (
-                                                // prodData.filter(item => checkValue.length === 0 ? prodData : item.category === `${checkValue}`)
-                                                prodData.filter(elem => checkValue.length === 0 ? prodData : checkValue.includes(elem.category)).filter(elem => elem.price.sale_price <= priceFilter)
-                                                    .map(elem => <ProductCard
+                                                mainData.length < 1
+                                                    ? <p className=' font-[400] font-primary text-[20px]/[28px] ' >No Products Found!</p>
+                                                    : mainData.map(elem => <ProductCard
                                                         urlToProd={elem.slug}
                                                         key={elem.id}
                                                         id={elem.id}

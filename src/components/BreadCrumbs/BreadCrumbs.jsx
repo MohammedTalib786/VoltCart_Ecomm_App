@@ -14,7 +14,7 @@ const BreadCrumbs = ({ breadColor = "black" }) => {
         );
     });
 
-    return <nav className='relative z-[999] ' >
+    return <nav className='relative z-[99] ' >
         <span className='breadCrumbs ' key='home' >
             <Link className={`text-[${breadColor}] `} to='/'  >Home</Link>
         </span>

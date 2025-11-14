@@ -1,24 +1,37 @@
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Pagination, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 
-import placeholderImg from '../../../assets/placeholder_img.png'
-import subtleBgImg from '../../../assets/HomePage/spotlight_images/subtle_bg_img.jpg'
+import subtleBgImg from '../../../assets/HomePage/spotlight_images/subtle_bg_img.webp'
 import phoneCoverSpotImg from '../../../assets/HomePage/spotlight_images/phone_cover_spotlight_obj.webp'
 import powerBankSpotImg from '../../../assets/HomePage/spotlight_images/power_bank_spotlight_obj.webp'
 import watchesSpotImg from '../../../assets/HomePage/spotlight_images/watches_spotlight_obj.webp'
+import useFetch from '../../../hooks/useFetch';
 import Slides from './Slides';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './spotlight_slider_home_pg.css'
+
 
 
 const SpotlightSlider = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeIndexObj, setActiveIndexObj] = useState(0);
+
+    let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
+    let { data: prodData } = useFetch(productsAPI)
+
+    let prices = [];
+    let percents = [];
+    prodData.map(elem => {
+        prices.push(elem.price.sale_price)
+        percents.push((parseInt(elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100).toFixed())
+    })
+
+    let saleMainPrice = prices.sort().slice(0, 1).join()
+    let mainPercentage = percents.sort().slice(-1).join()
 
     let slides = [
         {
@@ -42,7 +55,7 @@ const SpotlightSlider = () => {
             objectImg: watchesSpotImg,
             objectImgAddClass: "gt-tab:max-w-[400px] tab:max-w-[300px] max-w-[240px] "
         }
-    ]
+    ];
 
     return (
         <div className=" bg-[#F6F6F6] home_pg_spotlight_slider ">
@@ -55,7 +68,7 @@ const SpotlightSlider = () => {
                 loop={true}
                 effect="fade"
                 fadeEffect={{ crossFade: true }}
-                speed={800}
+                speed={2000}
                 onSlideChange={(swiper) => {
                     setActiveIndex(swiper.realIndex)
                     setActiveIndexObj(swiper.realIndex)
@@ -73,6 +86,8 @@ const SpotlightSlider = () => {
                                 objectImg={elem.objectImg}
                                 objectImgAddClass={elem.objectImgAddClass}
                                 dynBgColor={elem.dynBgColor}
+                                saleMainPrice={saleMainPrice}
+                                mainPercentage={mainPercentage}
                             /> </SwiperSlide>
                     })
                 }

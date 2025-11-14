@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react'
-import BillingForm from '../../components/CheckoutPage/BillingForm/BillingForm';
-import YourOrderComp from '../../components/CheckoutPage/YourOrderComp/YourOrderComp';
-import { useCart } from '../../contexts/ProdProvider';
 import { useNavigate } from 'react-router-dom';
-import useDocumentTitle from '../../hooks/useDocumentTitle';
+
 import { loadRazorpayScript } from '../../utils/loadRazorpay';
-import CheckoutPageSpotlight from '../../components/CheckoutPage/CheckoutPageSpotlight';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import { useCart } from '../../contexts/ProdProvider';
 import { useCartTotal } from '../../contexts/cartTotalProvider';
 import { useOrder } from '../../contexts/orderItemsProvider';
 import { useShippingDetails } from '../../contexts/ShippingDetProvider';
+import CheckoutPageSpotlight from '../../components/CheckoutPage/CheckoutPageSpotlight';
+import BillingForm from '../../components/CheckoutPage/BillingForm/BillingForm';
+import YourOrderComp from '../../components/CheckoutPage/YourOrderComp/YourOrderComp';
+
 
 const CheckoutPage = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Checkout - VoltCart');
+    useDocumentTitle('Secure Checkout | Complete Your Order Safely');
 
     let navigate = useNavigate();
-
     let cartItemSubTotal = 0;
     const [orderProcessLoader, setOrderProcessLoader] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false)
@@ -27,11 +28,6 @@ const CheckoutPage = () => {
 
     let get_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][new Date().getMonth()];
     let date = `${new Date().getDate()} ${get_months} ${new Date().getFullYear()}`;
-
-    // useEffect(() => {
-    //     console.log('cartProducts', cartProducts)
-    //     console.log('cartProducts Slice', cartProducts.slice(-1))
-    // }, [cartProducts])
 
     useEffect(() => {
         if (!loadingCart && cartProducts.length === 0) navigate('/cart');
@@ -61,17 +57,11 @@ const CheckoutPage = () => {
     const phoneNumberRegex = /^\d{10}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
-    // useEffect(() => {
-    //     // formData.
-    // }, [formData.phone_number])
-
     // >>>>>>>>>>>>>>>>>>>>> Form Validation
     const handlerPlaceOrder = async (e) => {
         e.preventDefault();
         setOrderProcessLoader(true);
         setIsDisabled(true)
-        // console.log("Button CLicked");
 
         try {
             // 1️⃣ Ensure Razorpay SDK is loaded
@@ -148,7 +138,6 @@ const CheckoutPage = () => {
                 console.log('formData.stateInp', formData.stateInp)
                 console.log('formData.street_address', formData.street_address)
                 console.log('formData.town_cityInp', formData.town_cityInp)
-
                 console.log('cartProducts checkout', cartProducts)
 
                 addOrderItems({
@@ -165,11 +154,6 @@ const CheckoutPage = () => {
                     shipping_rate: shippingCharges,
                     total: itemTotal.total
                 })
-
-                // // const items = [
-                // //     { name: 'T-shirt', quantity: 2, price: 300 },
-                // //     { name: 'Shoes', quantity: 1, price: 1200 },
-                // // ];
 
                 const items = cartProducts;
                 const totalAmt = itemTotal.total
@@ -199,12 +183,9 @@ const CheckoutPage = () => {
                     description: 'Order Payment for VoltCart',
                     order_id: data.orderId,
                     handler: function (response) {
-                        // Redirect after payment success
-                        // window.location.href = `/success?payment_id=${response.razorpay_payment_id}`;
                         window.location.href = `/order-successful?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}`;
                     },
                     prefill: {
-                        // name: data.name,
                         name: formData.first_name,
                         email: formData.email_address,
                         contact: formData.phone_number,
@@ -233,8 +214,6 @@ const CheckoutPage = () => {
                     email_address: ""
                 })
 
-                // // navigate('/order-successful?payment_id=pay_RGgpQ0yAfQZTPh&order_id=order_RGgnjEo8sd9j2i')
-                // // navigate('/order-cancel')
                 return true;
             }
         }
@@ -248,8 +227,6 @@ const CheckoutPage = () => {
         }
     }
 
-    // console.log('orderItems checkout', orderItems)
-    // console.log("Main Final Order", orderItems.slice(-1))
 
     return (
         <>

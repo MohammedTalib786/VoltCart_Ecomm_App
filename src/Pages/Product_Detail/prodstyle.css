@@ -1,17 +1,9 @@
 .dang-cont ul {
-  /* margin-top: 15px;
-  margin-left: 20px; */
+  margin: 15px 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
-.dang-cont li {
-  /* list-style: circle;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 25px;
-  margin-top: 10px; */
-}
-
-
 
 .dang-cont ul li {
   list-style: none;
@@ -20,12 +12,6 @@
   line-height: 26px;
 }
 
-.dang-cont ul {
-  margin: 15px 25px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 
 .dang-cont ul li::before {
   content: '';
@@ -48,35 +34,22 @@
 
 
 
+.right_sec,
+.right_sec * {
+  transition: all 0.25s ease-in-out;
+}
+
 .right_sec .buy_now_btn {
   background: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
-  transition: all 0.25s ease-in-out;
 }
 
 .right_sec .buy_now_btn:hover {
   background-color: var(--primary-color);
   color: white;
-  transition: all 0.25s ease-in-out;
-}
-
-.right_sec .buy_now_btn svg {
-  transition: all 0.25s ease-in-out;
 }
 
 .right_sec .buy_now_btn:hover svg {
   fill: white;
-  transition: all 0.25s ease-in-out;
-}
-
-
-
-
-
-
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-  /* .dang-cont li {
-    font-size: 14px;
-  } */
 }

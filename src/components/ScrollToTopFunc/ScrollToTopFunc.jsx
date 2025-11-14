@@ -5,8 +5,11 @@ const ScrollToTopFunc = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Reset scroll to top immediately on route change
-    window.scrollTo(0, 0);
+    const lenis = window.lenis;
+    const timer = setTimeout(() => lenis ? lenis.scrollTo(0, { immediate: true }) : window.scrollTo(0, 0), 50);
+
+    return () => clearTimeout(timer);
+
   }, [pathname]);
 
   return null;

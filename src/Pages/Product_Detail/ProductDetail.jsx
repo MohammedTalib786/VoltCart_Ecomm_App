@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useScroll, useMotionValueEvent } from 'framer-motion'
 import { BsCart2 } from 'react-icons/bs';
@@ -24,50 +24,34 @@ const ProductDetail = () => {
     let params = useParams();
     let navigate = useNavigate()
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
-    // console.log('params', params, typeof params)
-
     let useProdDetail = useFetch(`${productsAPI}${params.slug}`);
     let { loader, error, data: prodData } = useProdDetail;
     let { category, compatibility, description, feat_img, excerpt, featured_col, id, img_gallery, inStock, name, price, sku, slug, specifications }
         = prodData;
-    // console.log('prodData'.prodData)
-    if (!prodData) return ("no product found")
 
+    if (!prodData) return ("no product found")
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     let prod_det_meta_title = ""
     name?.split(' ')?.map(elem => prod_det_meta_title += `${elem.toUpperCase().slice(0, 1)}${elem.toLowerCase().slice(1)} `)
     useDocumentTitle(`Buy ${prod_det_meta_title ? prod_det_meta_title : "VoltCart Product"} Online at Best Price | VoltCart`);
-    // console.log('prod_det_meta_title', prod_det_meta_title)
-
 
     let [btnElement, setBtnElement] = useState('addToCart');
     const checkAddToCartElem = () => setBtnElement(btnElement === "addToCart" ? "viewCart" : "addToCart")
-
     let { cartProducts, addToCartFunc } = useCart();
-
     let [shareComp, openShareComp] = useState({
         opacity: 0,
         pointerEvents: "none"
-        // opacity: 1,
-        // pointerEvents: "all"
     })
-
     const { scrollY } = useScroll()
 
     useMotionValueEvent(scrollY, 'change', (event) => {
-        // console.log('event', event)
         return event > 1 ? openShareComp({ opacity: 0, pointerEvents: "none" }) : '';
     })
 
     let currentLocalShareURL = `${window.location.hostname}:${window.location.port}${window.location.pathname}`
-
     let checkExisting = cartProducts.filter(elem => elem.id === id)
-    // console.log('checkExisting[0]', checkExisting[0])
 
-    // Issue when there is no product
-
-    // and add a msg when someone puts something in cart
     const handlerAddToCartItem = () => {
         console.log('item added to cart')
 
@@ -76,7 +60,7 @@ const ProductDetail = () => {
             checkAddToCartElem()
         }
         else if (checkExisting[0].quantity > 9) {
-            alert('maximum number reached!')
+            alert('Maximum number of single cart items reached.')
             console.log('maximum number reached!')
             return
         }
@@ -97,7 +81,7 @@ const ProductDetail = () => {
             navigate("/checkout")
         }
         else if (checkExisting[0].quantity > 9) {
-            alert('Please Reduce the Quantity of This Product From Cart to Continue!')
+            alert('Please reduce the quantity of this product in your cart to continue.')
             console.log('maximum number reached!')
             return
         }
@@ -125,7 +109,6 @@ const ProductDetail = () => {
                                 <div className="left_sec w-[100%] md:w-[50%] tab:pt-0 pt-[50px] " >
                                     {/* >>>>>>>>>> Image Gallery Slider */}
                                     <ImageGallerySlider
-                                        // apiImg={!prodData?.img_gallery || prodData?.img_gallery.length < 2 ? [placeholderImg, placeholderImg, placeholderImg, placeholderImg] : prodData?.img_gallery}
                                         apiImg={!img_gallery || img_gallery.length < 2 ? [placeholderImg, placeholderImg, placeholderImg, placeholderImg] : img_gallery}
                                     />
                                 </div>
@@ -138,7 +121,7 @@ const ProductDetail = () => {
                                     </div>
 
                                     <div className="flex justify-between items-center  gt-tab:pb-[5px]  ">
-                                        <span className='font-body text-[16px]/[24px] text-black  ' >{sku}</span>
+                                        <span className='font-body text-[16px]/[24px] text-black  ' >SKU: {sku}</span>
                                         <button title='Share this Product'
                                             className='share_btn cursor-pointer '
                                             onClick={() => openShareComp({ opacity: 1, pointerEvents: "all" })}
@@ -147,30 +130,34 @@ const ProductDetail = () => {
                                         </button>
                                     </div>
 
-
                                     <ShareComponent shareComp={shareComp} openShareComp={openShareComp} currentLocalShareURL={currentLocalShareURL} />
 
-                                    {/* <h3 className='font-primary text-[42px]/[55px] font-[400]'>{prodData?.name}</h3> */}
                                     <h3 className='font-primary gt-tab:text-[34px]/[42px] tab:text-[30px]/[40px] text-[26px]/[34px] font-[300]'>{name}</h3>
 
-                                    <div className="price_cont flex flex-wrap items-center w-full  gap-[12px] my-[20px] gt-tab:mt-[15px] " >
-                                        <p className='font-body tab:text-[30px]/[36px] text-[28px]/[34px] text-center  text-black'  > &#8377;{price?.sale_price}</p>
-                                        <p className='font-body tab:text-[24px]/[30px] text-[22px]/[28px] text-center line-through text-[#A0A0A0]'  > &#8377;{price?.reg_price}</p>
+                                    <div className="price_cont flex flex-col  w-full gap-[6px] my-[20px]  " >
+                                        <p
+                                            className='font-body tab:text-[30px]/[36px] text-[28px]/[34px] text-left  text-black  '
+                                        > &#8377;{price?.sale_price}
+                                            <span className=' text-primary text-[20px]/[28px] ml-[8px] ' >
+                                                {price.reg_price || price.sale_price
+                                                    ? parseInt((price.reg_price - price.sale_price) / price.reg_price * 100) : "20"}% Off
+                                            </span>
+                                        </p>
+                                        {/* <p className='font-body tab:text-[24px]/[30px] text-[22px]/[28px] text-center line-through text-[#A0A0A0]'  > &#8377;{price?.reg_price}</p> */}
+
+                                        <p
+                                            className='font-body text-left text-[#494949] text-[16px]/[22px] flex items-center gap-[6px] '
+                                        >M.R.P <span className='line-through font-[600] ' >&#8377;{price?.reg_price}</span> <span className=' text-[12px]/[18px] ' >(Inclusive of all taxes)</span></p>
                                     </div>
 
                                     <div className=" flex gap-[15px] gt-tab:flex-row  tab:flex-col flex-col ">
-
                                         {
                                             btnElement === "addToCart" ?
-
                                                 (<Button
                                                     text="Add to Cart"
                                                     handlerClickBtnComp={handlerAddToCartItem}
                                                     btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                                     additionalClass=" w-full "
-                                                // additionalClass="add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black cursor-pointer"
-                                                // bgClr="bg-black "
-                                                // borderClr="bg-black"
                                                 />) :
 
                                                 (<Button
@@ -178,9 +165,6 @@ const ProductDetail = () => {
                                                     handlerClickBtnComp={handlerViewCart}
                                                     btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
                                                     additionalClass=" w-full "
-                                                // additionalClass=" view_cart_btn add_to_cart_btn w-[85%] top-[295px] left-[22px] absolute  uppercase transition-all flex justify-center items-center p-[12px 25px] px-[25px] py-[12px] border border-black bg-black text-white hover:bg-white hover:text-black hover:underline cursor-pointer  "
-                                                // bgClr="bg-black "
-                                                // borderClr="bg-black"
                                                 />)
                                         }
 
@@ -193,12 +177,18 @@ const ProductDetail = () => {
                                     </div>
 
                                     <div className="text tab:py-[20px] pt-[20px] " >
-                                        <p
+
+                                        <h5 className=" pt-[15px] pb-[10px] font-primary text-[22px]/[28px] font-[500] text-black   "  >
+                                            Product Description</h5>
+
+                                        <p className='text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont' >
+                                            {excerpt}
+                                        </p>
+
+                                        {/* <p
                                             className='text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
-                                            // dangerouslySetInnerHTML={{ __html: prodData?.description.length < 250 ? prodData?.description : prodData?.description.slice(0, 250) + '...' }}
-                                            // dangerouslySetInnerHTML={{ __html: prodData?.description?.length < 250 ? prodData?.description : prodData?.description?.split(' ').slice(0, 60).join(' ') + '...' }}
                                             dangerouslySetInnerHTML={{ __html: description?.split('<ul>')?.slice(0, 1)?.join() }}
-                                        />
+                                        /> */}
                                     </div>
 
                                 </div>
@@ -206,27 +196,29 @@ const ProductDetail = () => {
 
                             <div className="w-[100%]  ">
                                 <ProductIconDetails />
-
                             </div>
 
                             <ProdInfoTab
-                                prod_description={description ? description : "No Description Found for this Product!"}
-                                prod_specifications={specifications ? specifications : "No Specifications Found for this Product!"}
-                                prod_compatibility={compatibility ? compatibility : "No Compatibilities Found for this Product!"}
+                                prod_description={description ? description : "No description found for this item!"}
+                                prod_specifications={specifications ? specifications : "No specifications found for this item!"}
+                                prod_compatibility={compatibility ? compatibility : "No compatibilities found for this item!"}
                             />
-
 
                             <ProdInfoAccordian
-                                prod_description={description ? description : "No Description Found for this Product!"}
-                                prod_specifications={specifications ? specifications : "No Specifications Found for this Product!"}
-                                prod_compatibility={compatibility ? compatibility : "No Compatibilities Found for this Product!"}
+                                prod_description={description ? description : "No description found for this item!"}
+                                prod_specifications={specifications ? specifications : "No specifications found for this item!"}
+                                prod_compatibility={compatibility ? compatibility : "No compatibilities found for this item!"}
                             />
 
-
-                            <ProductSlider title="Related Products" urlText="" urlVal="/products" categoryName={category} />
+                            <ProductSlider
+                                prodId={id}
+                                title="Related Products"
+                                urlText=""
+                                urlVal="/products"
+                                categoryName={category}
+                            />
 
                         </div>
-
                     </>
                 )
             }

@@ -8,6 +8,16 @@
     text-transform: capitalize;
 }
 
+.blogDesc h3 {
+    font-family: var(--outfit-font);
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
 .blogDesc p {
     font-family: var(--poppins-font);
     font-size: 18px;
@@ -17,10 +27,46 @@
     margin-bottom: 15px;
 }
 
+.blogDesc img {
+    border-radius: 22px;
+    margin: 30px 0;
+}
+
 .blogDesc strong {
     font-weight: 500;
     margin-bottom: 4px;
-    display: block;
+    /* display: block; */
+}
+
+.blogDesc ul {
+    margin: 15px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blogDesc ul li {
+    list-style: none;
+    position: relative;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+}
+
+.blogDesc ul li strong {
+    /* display: block; */
+}
+
+.blogDesc ul li::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 7px;
+    width: 15px;
+    height: 15px;
+    background: url(../../assets/paper-plane-solid-full.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
 }
 
 .blogDesc br {
@@ -41,8 +87,17 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .blogDesc h2 {
-        font-size: 22px;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .blogDesc h3 {
+        font-size: 20px;
         line-height: 28px;
+    }
+
+    .blogDesc p {
+        margin-bottom: 10px;
     }
 }
 
@@ -52,10 +107,22 @@
         line-height: 26px;
     }
 
+    .blogDesc h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
     .blogDesc p {
         font-size: 16px;
         line-height: 26px;
+        margin-bottom: 10px;
     }
+
+
+    .blogDesc img {
+        border-radius: 12px;
+    }
+
 
     .blog_slider .swiper {
         min-height: 550px;

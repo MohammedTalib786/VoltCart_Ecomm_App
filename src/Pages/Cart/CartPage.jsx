@@ -1,14 +1,15 @@
 import { useCart } from '../../contexts/ProdProvider'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 import CartCard from '../../components/CartPage/CartComp/CartCard/CartCard'
 import CartCardForEmpty from '../../components/CartPage/CartComp/CartCard/CartCardForEmpty'
 import OrderSummary from '../../components/CartPage/CartComp/OrderSummary/OrderSummary'
-import useDocumentTitle from '../../hooks/useDocumentTitle'
 import CartSpotlight from '../../components/CartPage/CartSpotlight'
+
 
 const Cart = () => {
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Cart - VoltCart');
+    useDocumentTitle('Your Shopping Cart | Review & Proceed to Checkout');
     let { cartProducts } = useCart();
 
     return (

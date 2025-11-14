@@ -1,7 +1,5 @@
 .search_box {
-    /* box-shadow: -3px 6px 22px 0px #d5d5d5; */
     overflow: hidden;
-    /* border: 0 !important; */
 }
 
 .search_box .search_feat_img {
@@ -9,10 +7,7 @@
 }
 
 .search_box,
-.search_box .search_feat_img,
-.search_box .cta,
-.search_box .cta p,
-.search_box .cta svg {
+.search_box * {
     transition: all .25s ease-in-out;
 }
 
@@ -26,32 +21,27 @@
 
 .search_box .cta svg {
     transform: rotate(-45deg);
-    transition: all .25s ease-in-out;
     color: black;
     opacity: 0;
 }
 
 .search_box:hover {
     box-shadow: 0px 3px 16px 0px #c5c5c57a;
-    transition: all .25s ease-in-out;
 }
 
 .search_box:hover .cta {
     opacity: 1;
     pointer-events: all;
-    transition: all .25s ease-in-out;
     transform: translateX(0px);
 }
 
 .search_box:hover svg {
-    transition: all .25s ease-in-out;
     color: var(--primary-color);
     opacity: 1;
 }
 
 .search_box:hover .cta p {
     color: var(--primary-color);
-    transition: all .25s ease-in-out;
 }
 
 .search_box .search_feat_img:hover {

@@ -1,97 +1,63 @@
 .blog-card {
-    box-shadow: -3px 6px 22px 0px #d5d5d5;
+    box-shadow: -4px 4px 14px 0px #6f6f6f3b;
     overflow: hidden;
 }
 
-.blog-card img,
-.blog-card .cta,
-.blog-card .cta svg,
-.blog-card .cta p,
-.blog-card h4 {
-    transition: all .25s ease-in-out;
-}
-
-.blog-card h4 {
-    color: black;
-}
-
-.blog-card h4:hover {
-    color: var(--primary-color);
-}
-
-.blog-card:hover img {
-    transform: scale(1.12);
+.blog-card,
+.blog-card * {
     transition: all .25s ease-in-out;
 }
 
 .blog-card .cta {
-    width: fit-content;
-    opacity: 0;
-    pointer-events: none;
     position: relative;
-    top: 15px;
-    transform: translateX(-25px);
+    left: -25px;
 }
 
-.blog-card .cta:hover {
-    transform: translateX(0px);
+.blog-card .cta svg {
+    opacity: 0;
 }
 
 .blog-card:hover .cta {
-    opacity: 1;
-    pointer-events: all;
-    transition: all .25s ease-in-out;
-    top: 0px;
-}
+    left: 0;
 
-.blog-card .cta svg {
-    transform: rotate(-45deg);
-    transition: all .25s ease-in-out;
-    color: var(--primary-color);
-}
-
-.blog-card .cta:hover p {
-    color: var(--primary-color);
-    transition: all .25s ease-in-out;
-}
-
-.blog-card .cta svg {
-    transition: all .25s ease-in-out;
-    opacity: 0;
-}
-
-.blog-card .cta:hover svg {
-    transition: all .25s ease-in-out;
-    opacity: 1;
-}
-
-
-
-@media (min-width: 1200px) and (max-width: 1300px) {
-    .swiper .blog-card {
-        width: 100%;
-    }
-
-    .blog-card {
-        width: 48%;
-    }
-}
-
-@media (max-width: 600px) {
-    .blog-card .cta {
-        opacity: 1;
-        pointer-events: all;
-        top: 0px;
-        transform: translateX(0px);
-    }
-
-    .blog-card .cta svg {
-        opacity: 1;
-        color: black;
-    }
-
-    .blog-card .cta:hover svg {
+    p {
         color: var(--primary-color);
     }
 
+    svg {
+        opacity: 1;
+        fill: var(--primary-color);
+    }
+}
+
+.blog-card:hover img.blog_feat_img {
+    scale: 1.06;
+}
+
+/* tab:h-[275px] h-[510px]  */
+@media (min-width: 768px) {
+    .blog-card {
+        height: 275px;
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-card .cta {
+        left: 0;
+
+        p {
+            color: var(--primary-color);
+        }
+
+        svg {
+            opacity: 1;
+            fill: var(--primary-color);
+        }
+    }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+    .blog-card {
+        height: 510px;
+    }
 }
