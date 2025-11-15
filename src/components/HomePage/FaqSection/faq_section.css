@@ -1,0 +1,15 @@
+.faq_accord_cont {}
+
+
+.faq_accord_cont .AccordionItem {
+    box-shadow: 0px 2px 4px 0px #0000002e;
+}
+
+.faq_accord_cont .faq-content a {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.faq_accord_cont .faq-content a:hover {
+    text-decoration: underline;
+}

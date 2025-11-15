@@ -15,6 +15,7 @@ import Contact from './Pages/Contact/Contact';
 import CheckoutPage from './Pages/Checkout/CheckoutPage';
 import SearchListing from './Pages/SearchListingPage/SearchListing';
 import IntersectionEx from './Pages/CounterTest/IntersectionEx';
+import HelpPage from './Pages/HelpPage/HelpPage';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import CancellationPolicy from './Pages/CancellationPolicy/CancellationPolicy';
 import TermsOfUse from './Pages/TermsOfUse/TermsOfUse';
@@ -34,10 +35,11 @@ import Cursor from './components/Cursor/Cursor';
 
 
 
+
 const App = () => {
   let location = useLocation();
 
-  const whiteBgPages = ['/search-listing', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful', '/*'];
+  const whiteBgPages = ['/search-listing', '/help-and-support', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful', '/*'];
 
   useEffect(() => {
     const path = location.pathname;
@@ -302,6 +304,8 @@ const App = () => {
 
 
                   {/* >>>>>>>>>>>>>>>>>>>>>>>>> Policy Pages */}
+
+                  <Route path='/help-and-support' element={<HelpPage />} />
 
                   <Route path='/privacy-policy' element={<PrivacyPolicy />} />
 

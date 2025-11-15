@@ -98,7 +98,7 @@ const Slides = ({
                         >
                             <span
                                 className='  bg-[#0d6efdb5] w-fit px-[12px] py-[8px] rounded-[6px] text-white desktop:text-[16px]/[20px] tab:text-[14px]/[20px] text-[12px]/[18px] relative z-[999] ' >
-                                Flat {mainPercentage ? mainPercentage : 'Loading'}% Off</span>
+                                Flat {mainPercentage ? mainPercentage : '20'}% Off</span>
 
                             <h3 className=" desktop:w-[70%] gt-tab:w-[80%] tab:w-[70%] w-full capitalize font-primary font-[300] desktop:text-[70px]/[75px] gt-tab:text-[60px]/[60px] tab:text-[55px]/[55px] text-[38px]/[38px] text-white tab:my-[24px] my-[14px]  relative z-[99] gt-tab:text-left text-center " >
                                 {title}
@@ -109,7 +109,7 @@ const Slides = ({
                             </h4>
 
                             <h2 className=" flex items-center gap-[6px] font-body font-[300] desktop:text-[24px]/[32px] gt-tab:text-[20px]/[28px] text-[14px]/[20px] text-[#ffffffcc] relative z-[99] tab:mt-[10px] tab:mb-[25px] mt-[6px] mb-[15px]  " >
-                                From: <span className=' desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] font-[500] text-[#d5b303] '  >&#8377;{saleMainPrice ? saleMainPrice : 'Loading'}</span>
+                                From: <span className=' desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] font-[500] text-[#d5b303] '  >&#8377;{saleMainPrice ? saleMainPrice : '999'}</span>
                             </h2>
 
                             <Link to="/products" >

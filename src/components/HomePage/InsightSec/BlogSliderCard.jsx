@@ -14,7 +14,8 @@ const BlogSliderCard = ({
             to={`/blogs/${slug}`}
             className=' block  w-full  '
         >
-            <div className=" blog_post_box w-full  rounded-[16px] pt-[25px] px-[20px] pb-[30px] flex flex-col justify-start gap-[20px] bg-[#f4f4f4] " >
+            {/* <div className=" blog_post_box w-full  rounded-[16px] pt-[25px] px-[20px] pb-[30px] flex flex-col justify-start gap-[20px] bg-[#f4f4f4] " > */}
+            <div className=" blog_post_box w-full  rounded-[16px] pt-[25px] px-[20px] pb-[30px] flex flex-col justify-start gap-[20px] bg-white " >
 
                 <div className=" relative rounded-[12px] overflow-hidden w-full ">
                     <img src={feat_img} alt="img" className=' blog_post_feat_img w-full desktop:h-[250px] gt-tab:h-[250px] tab:h-[250px] h-[250px] object-cover rounded-[12px] ' />

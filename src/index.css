@@ -25,30 +25,23 @@
 }
 
 
-
-
-
 :root {
     --inter-font: "Inter", sans-serif;
     --outfit-font: "Outfit", sans-serif;
     --montserrat-font: "Montserrat", sans-serif;
     --poppins-font: "Poppins", sans-serif;
     --primary-color: #0D6EFD;
-
     --para-black-color: #1a1a1a;
     --plain-bg-white-color: #f4f4f4;
-
     --black-color: black;
     --white-color: white;
 }
-
 
 
 html {
     font-family: Poppins;
     scroll-behavior: smooth;
 }
-
 
 
 body {
@@ -60,6 +53,32 @@ body {
 body.whiteBgPages .layout_container {
     margin-top: 85px;
 }
+
+
+/* >>>>>>>>>>>>>>>>>>>>>>>> LENIS Req CSS */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>> ENDS LENIS Req CSS */
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
     body.whiteBgPages .layout_container {
@@ -83,27 +102,9 @@ body.whiteBgPages .layout_container {
 
 button:disabled {
     opacity: 0.6;
-    /* Makes the button appear semi-transparent */
     cursor: not-allowed;
-    /* Changes the cursor to a "not allowed" symbol on hover */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* select {
-    appearance: none;
-    position: relative;
-    
-} */
 
 .select-wrapper {
     position: relative;
@@ -111,24 +112,16 @@ button:disabled {
     width: 100%;
 }
 
+
 /* Hide native chevron */
 .select-wrapper select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* width: 100%;
-  padding: 10px 35px 10px 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: white; */
 }
-
 
 .select-wrapper::after {
     content: "";
-    /* background-image: url(./assets/icons/chevron_down.svg); */
     background-image: url(./assets/icons/chevron_down.svg);
     width: 22px;
     height: 22px;
@@ -142,48 +135,6 @@ button:disabled {
 }
 
 
-/* select::after {
-    content: "hello";
-    font-size: 14px;
-    color: #555;
-    position: absolute;
-    right: 0;
-    top: 0;
-    pointer-events: none;
-    background-color: red;
-} */
-
-
-
-
-
-
-
-
-
-/* body {
-    cursor: none !important;
-}
-
-body a:hover,
-body a:active,
-body button:hover,
-body button:active,
-body div:hover,
-body div:active,
-body p:hover,
-body p:active,
-body span:hover,
-body span:active {
-    cursor: none !important;
-} */
-
-
-/* .head_foot_cont_full {
-    background-color: brown !important;
-    width: 100%;
-} */
-
 .head_foot_cont {
     /* background-color: yellowgreen !important; */
     width: 100%;
@@ -192,16 +143,18 @@ body span:active {
 }
 
 
-
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>> Information Pages Styles */
-
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Information (Policies) Pages Styles */
 .info_pages {
-    /* background-color: var(--primary-color); */
     display: flex;
     align-items: flex-start;
     padding: 80px 50px !important;
 }
 
+.info_pages.help_page {
+    display: flex;
+    align-items: flex-start;
+    padding: 80px 50px 0 !important;
+}
 
 .info_pages h1 {
     font-family: var(--outfit-font);
@@ -211,6 +164,10 @@ body span:active {
     padding-bottom: 20px;
 }
 
+.info_pages.help_page h1 {
+    padding: 0;
+}
+
 .info_pages h2 {
     font-family: var(--outfit-font);
     font-size: 22px;
@@ -218,16 +175,13 @@ body span:active {
     font-weight: 500;
     padding-bottom: 8px;
     padding-top: 10px;
-    /* background-color: red; */
 }
 
 .info_pages h2:first-of-type {
     padding-top: 0 !important;
-    /* background-color: aqua; */
 }
 
 .info_pages p {
-    /* font-family: 'Inter'; */
     font-family: var(--poppins-font);
     font-size: 16px;
     line-height: 26px;
@@ -240,37 +194,46 @@ body span:active {
 }
 
 .info_pages ul {
-    list-style-type: disc;
     margin-left: 26px;
     padding: 10px 0;
 }
 
-.info_pages ul ul {
-    list-style-type: circle;
+.info_pages>ul ul {
+    list-style-type: disc;
 }
 
 .info_pages ul li {
     padding: 5px 0;
 }
 
+.info_pages>ul>li {
+    list-style: none;
+    position: relative;
+}
+
+.info_pages>ul>li::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    background: url(./assets/paper-plane-solid-full.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
 .info_pages p:has(+ ul) {
     padding-bottom: 0;
-    /* background-color: aqua; */
 }
 
 .info_pages a {
-    /* background-color: red; */
     color: var(--primary-color);
 }
 
 .info_pages a:hover {
     text-decoration: underline;
 }
-
-/* .info_pages p:last-child {
-    padding-bottom: 20px;
-} */
-
 
 .spot_title::before {
     content: '';
@@ -327,13 +290,10 @@ body span:active {
     .info_pages h2 {
         font-size: 20px;
         line-height: 26px;
-        /* font-weight: 500; */
     }
 }
 
-
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>> ENDS Information Pages Styles */
-
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ENDS Information (Policies) Pages Styles */
 
 
 @media (max-width: 767px) {
@@ -341,44 +301,6 @@ body span:active {
         width: 100%;
     }
 }
-
-/* 1024 - 60
-1280 - 38 */
-
-/* 
-@media (min-width: 1441px) {
-    .head_foot_cont {
-    }
-} */
-
-/* footer.head_foot_cont_full {
-    padding: 30px 50px;
-} */
-
-
-/* >>>>>>>>>>>>>>>>>>>>>>>> LENIS Req CSS */
-html.lenis,
-html.lenis body {
-    height: auto;
-}
-
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-    overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-    pointer-events: none;
-}
-
-/* >>>>>>>>>>>>>>>>>>>>>>>> ENDS LENIS Req CSS */
 
 
 @media (min-width: 769px) and (max-width: 1279px) {
@@ -388,22 +310,10 @@ html.lenis body {
 }
 
 
-
-/* .orderProcessLoader {
-    border: 1px solid #ffffff;
-    border-top: 3px solid #000000;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-} */
-
 .orderProcessLoader {
     width: 23px;
     height: 23px;
     border: 2px solid #ffffff;
-    /* border-bottom-color: var(--primary-clr); */
     border-bottom-color: transparent;
     background-color: transparent;
     border-radius: 50%;

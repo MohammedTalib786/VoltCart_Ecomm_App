@@ -8,7 +8,7 @@ const CompatBrandSec = () => {
             <h3
                 className=' font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-center tab:px-0 px-[20px] pb-[30px]  '
             >
-                Compatible With Brands Like
+                Compatible With <br className=" tab:hidden block " />Brands Like
             </h3>
 
             <BrandSlider />

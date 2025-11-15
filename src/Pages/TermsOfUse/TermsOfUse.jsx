@@ -1,4 +1,5 @@
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+
 import '../../index.css'
 
 const TermsOfUse = () => {
@@ -19,8 +20,8 @@ const TermsOfUse = () => {
                 <h2>GENERAL INFORMATION</h2>
                 <p>The user certifies that he/she is at least 18 (eighteen) years of age or has the consent of a parent or legal guardian. Our products shall not be used for any illegal or unauthorized purpose nor shall you, in the use of service, violate any laws within your jurisdiction (including but not limited to copyright laws. Any violation, illegal or unauthorized usage of our trademarks, whether registered or under registration, will be liable for legal action. We reserve the right to refuse the services to anyone at any time for any reason.</p>
 
-                <h2>PERSONAL INFORMATION</h2>
-                <p>In order to use this platform the user must set up an account with www.voltcart.com before availing of any online services provided through the website. Certain user information is required to create an account at our website. Your submission of personal information through the website is governed by our Privacy Policy. It is the sole responsibility of the user to maintain the confidentiality of the user Id and password received upon completion of the registration. You shall remain solely liable for all the actions undertaken through your account.</p>
+                {/* <h2>PERSONAL INFORMATION</h2>
+                <p>In order to use this platform the user must set up an account with www.voltcart.com before availing of any online services provided through the website. Certain user information is required to create an account at our website. Your submission of personal information through the website is governed by our Privacy Policy. It is the sole responsibility of the user to maintain the confidentiality of the user Id and password received upon completion of the registration. You shall remain solely liable for all the actions undertaken through your account.</p> */}
 
                 <h2>COMMUNICATION</h2>
                 <p>By accepting the Terms of Use you agree to receive communication and newsletters via SMS and emails from us, which you may unsubscribe any time.</p>

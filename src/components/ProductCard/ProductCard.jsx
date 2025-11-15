@@ -48,7 +48,7 @@ const ProductCard = ({
             checkAddToCartElem();
         }
         else if (checkExisting[0].quantity > 9) {
-            alert('maximum number reached!')
+            alert('Maximum number of single cart items reached.')
             console.log('maximum number reached!')
             return
         }

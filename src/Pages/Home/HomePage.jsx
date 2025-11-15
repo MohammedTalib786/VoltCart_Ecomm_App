@@ -7,12 +7,15 @@ import WhyChooseUs from '../../components/HomePage/WhyChooseUs/WhyChooseUs'
 import InsightSec from '../../components/HomePage/InsightSec/InsightSec'
 
 import '../../components/layout.css'
+import FaqSection from '../../components/HomePage/FAQsection/FaqSection'
 
 
 const Home = () => {
 
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('All in One Solution for E Gadgets Online');
+
+
 
     return (
         <>
@@ -41,8 +44,14 @@ const Home = () => {
                 <WhyChooseUs />
             </div>
 
-            <div className="w-full bg-white ">
+            <div className=" w-full bg-white " >
                 <div className=" bg-white container_layout mx-auto flex justify-center items-center flex-col  "  >
+                    <FaqSection />
+                </div>
+            </div>
+
+            <div className="w-full  ">
+                <div className="  container_layout mx-auto flex justify-center items-center flex-col  "  >
                     <InsightSec />
                 </div>
             </div>

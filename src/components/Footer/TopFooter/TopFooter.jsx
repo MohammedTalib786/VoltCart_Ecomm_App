@@ -83,6 +83,9 @@ const TopFooter = () => {
                         <li className=' text-black   font-[400] text-[16px]/[22px] transition-all '  >
                             <Link to="/shipping-policy" >Shipping Policy</Link>
                         </li>
+                        <li className=' text-black   font-[400] text-[16px]/[22px] transition-all '  >
+                            <Link to="/help-and-support">Help and Support</Link>
+                        </li>
 
                     </ul>
                 </div>

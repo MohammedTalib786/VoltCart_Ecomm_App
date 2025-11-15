@@ -7,7 +7,7 @@ const BlogCardListing = ({ value, loader, error, blogData }) => {
   let mainData = blogData.filter((dataFil) => value === "" ? blogData : dataFil.blog_category === value)
 
   return (
-    <div className={`flex flex-row  flex-wrap gap-[25px] m-auto  w-full`}>
+    <div className={`flex flex-row  flex-wrap gt-tab:gap-[23px] gap-[25px] m-auto  w-full`}>
       {
         loader ? <Loader /> : error ? (<p>Error in fecthing Data something went wrong</p>)
           : mainData.length < 1

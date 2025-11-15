@@ -4,7 +4,7 @@ import './insight_sec.css'
 
 const InsightSec = () => {
     return (
-        <div className=" w-full flex flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] bg-white ">
+        <div className=" w-full flex flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px]  ">
 
             <h2
                 className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-left ">Insights & Smart Tips</h2>

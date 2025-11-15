@@ -33,7 +33,7 @@
     display: block;
     width: 160px;
     height: 100%;
-    z-index: 999;
+    z-index: 99;
 }
 
 .logo-marquee--marquee::before {
@@ -72,10 +72,20 @@
 }
 
 
+@media (max-width: 1024px) {
+    .logo-marquee {
+        padding: 30px 0 0;
+    }
+}
+
 @media (max-width: 991.98px) {
     .logo-marquee--marquee-group img {
         height: 56px;
         padding: 0 30px;
+    }
+
+    .logo-marquee {
+        padding: 20px 0 0;
     }
 }
 
@@ -92,6 +102,10 @@
 
     .logo-marquee img {
         opacity: 1;
+    }
+
+    .logo-marquee {
+        padding: 0;
     }
 }
 
