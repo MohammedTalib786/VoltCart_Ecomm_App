@@ -1,7 +1,5 @@
-
 .spin_loader {
     border: 2px solid #ffffff;
-    /* border-bottom-color: var(--primary-clr); */
     border-bottom-color: transparent;
     background-color: transparent;
     border-radius: 50%;

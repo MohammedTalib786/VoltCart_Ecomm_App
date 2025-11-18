@@ -1,13 +1,9 @@
-import { useEffect } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 import '../../index.css'
-import { useLocation } from 'react-router-dom';
+
 
 const PrivacyPolicy = () => {
-
-    let location = useLocation()
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Privacy Policy - VoltCart');
 
@@ -37,7 +33,6 @@ const PrivacyPolicy = () => {
                     <li>We will also collect sign in information for third party accounts shared on our website such as, Google, Facebook, Instagram, Twitter, Pinterest etc.</li>
                     <li>We shall ask for email communication by any user, for product inquiry, order and transaction details, for any complaints and disputes etc.</li>
                     <li>You agree to provide information, which shall be true, correct, up to date and accurate. You may access, amend, alter or require deletion of your information partially or fully by logging into your account on the website.</li>
-
                 </ul>
 
                 <h2>How we use or share it:</h2>
@@ -72,12 +67,9 @@ const PrivacyPolicy = () => {
 
                 <h2>Severability:</h2>
                 <p>In the event any provision of this Policy (or part of any provision) is invalid, illegal or unenforceable, such provision shall be ineffective only to the extent of such prohibition or invalidity and such provision be deemed to be deleted, and the validity and enforceability of the other provisions of this Policy will not be affected.</p>
-
-
-
             </div>
         </>
     )
 }
 
-export default PrivacyPolicy
+export default PrivacyPolicy;

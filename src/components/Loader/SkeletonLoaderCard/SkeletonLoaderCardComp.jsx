@@ -1,6 +1,4 @@
-const SkeletonLoaderCardComp = ({
-    additionalClassName=""
-}) => {
+const SkeletonLoaderCardComp = ({ additionalClassName = "" }) => {
     return (
         <div className={`skeleton-card ${additionalClassName} `} >
             <div className=" flex w-full relative ">
@@ -18,4 +16,4 @@ const SkeletonLoaderCardComp = ({
     )
 }
 
-export default SkeletonLoaderCardComp
+export default SkeletonLoaderCardComp;

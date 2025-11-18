@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import statesJSON from '../../states_JSON/states.json'
+import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import Button from '../../FormComp/Button';
 import InputBar from '../../FormComp/InputBar';
 import SelectDropdown from '../../FormComp/SelectDropdown';
 
 
-const ShippingForm = ({
-    setIsVisible
-}) => {
+const ShippingForm = ({ setIsVisible }) => {
     let { shippingDetails, addShippingDetails } = useShippingDetails();
     let [countryMsg, showCountryMsg] = useState(false);
     let [formData, setFormData] = useState({
@@ -48,7 +46,6 @@ const ShippingForm = ({
             addShippingDetails(formData.town_cityInp,
                 formData.pincodeInp,
                 formData.stateInp === "" || formData.stateInp == undefined ? "Maharashtra" : formData.stateInp);
-
             setIsVisible(prev => !prev);
         }
     }
@@ -60,7 +57,6 @@ const ShippingForm = ({
             stateInp: shippingDetails.states,
             pincodeInp: shippingDetails.pincode,
         }));
-
     }, [shippingDetails.states, shippingDetails.pincode, shippingDetails.town_city])
 
     return (
@@ -68,7 +64,6 @@ const ShippingForm = ({
             <div className=""  >
                 <div
                     className="shippingFormCont flex flex-col gap-[18px] pt-[20px] " >
-
                     <div className="countryCont relative "  >
                         <InputBar label_text="Country" html_for="country" id="country" read_only={true} type="text" value="India" onclick_func={handlerCountryInp}
                         />
@@ -125,7 +120,6 @@ const ShippingForm = ({
                         handlerClickBtnComp={handlerSubmitForm}
                         text='Update Details'
                     />
-
                 </div>
             </div>
         </>

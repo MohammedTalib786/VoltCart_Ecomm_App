@@ -14,11 +14,9 @@ footer ul li a::after {
     content: '';
     width: 0%;
     height: 1px;
-    /* background-color: var(--para-black-color); */
     background-color: var(--primary-color);
     display: block;
     position: absolute;
-    /* margin-top: 28px; */
     border-radius: 30px;
     transition: all .35s ease-in-out;
 }
@@ -33,15 +31,12 @@ footer ul li a.active::after {
     transition: all .35s ease-in-out;
 }
 
-
 .socials a,
 .socials a svg {
     transition: all .35s ease-in-out;
 }
 
-
 .socials a:hover svg {
-    /* background-color: var(--primary-color); */
     fill: var(--primary-color);
     transition: all .35s ease-in-out;
 }

@@ -1,4 +1,5 @@
-import './global_button.css'
+import './global_button.css';
+
 
 const Button = ({
     text = "Button",
@@ -15,7 +16,6 @@ const Button = ({
     disabled = false,
     btnIcon
 }) => {
-
     return (
         <button
             onClick={handlerClickBtnComp}

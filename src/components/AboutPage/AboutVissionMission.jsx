@@ -1,4 +1,4 @@
-import mission from '../../assets/about-page/revised-img/vision_mission.webp'
+import mission from '../../assets/about-page/revised-img/vision_mission.webp';
 
 
 const AboutVissionMission = () => {
@@ -6,14 +6,11 @@ const AboutVissionMission = () => {
         <div className="container_layout">
 
             <div className="main-cont flex gt-tab:items-start desktop:gap-[60px] desktop:gap-[40px] gap-[30px] w-full desktop:py-[100px] gt-tab:py-[80px] py-[60px] gt-tab:flex-row tab:flex-col flex-col " >
-
                 <div className="img desktop:w-[40%] gt-tab:w-[45%]  tab:w-full w-full " >
                     <img
                         className='w-full desktop:h-[600px] gt-tab:h-[650px] tab:h-[350px] h-[300px] object-cover rounded-[12px] ' src={mission} alt="Hand holding mobile" />
                 </div>
-
                 <div className="contnt desktop:w-[60%] gt-tab:w-[55%]  tab:w-[100%] flex flex-col desktop:gap-[40px] gt-tab:gap-[25px] gap-[30px]  " >
-
                     <div className="flex flex-col desktop:tab:gap-[20px] tab:gap-[10px] gap-[8px]">
                         <h3
                             className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-black">Our Vision</h3>
@@ -24,17 +21,13 @@ const AboutVissionMission = () => {
                             VoltCart strives to shape the future of how people interact with their devices — one accessory at a time.
                         </p>
                     </div>
-
                     <div className="flex flex-col desktop:gap-[25px] tab:gap-[15px] gap-[10px] ">
-
                         <h3
                             className="font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-black">Our Values</h3>
-
 
                         <p className=" text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300]  pt-[0px] pb-[10px] " >
                             Our values form the foundation of everything we create and deliver:
                         </p>
-
 
                         <div className="flex flex-row tab:flex-nowrap flex-wrap justify-start tab:gap-[30px] gap-y-[30px]  ">
 
@@ -74,15 +67,10 @@ const AboutVissionMission = () => {
                                 </p>
                             </div>
 
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     )
 }

@@ -9,7 +9,6 @@
 
 .blog_post_box {
     overflow: hidden;
-    /* box-shadow: -4px 9px 14px 0px #0000001f; */
     border: 1px solid #00000026;
 }
 
@@ -55,6 +54,7 @@
 }
 
 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>> Media Queries */
 @media (max-width: 600px) {
     .blog_post_box .cta {
         left: 0;

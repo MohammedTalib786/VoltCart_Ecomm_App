@@ -13,21 +13,14 @@ const About = () => {
   useDocumentTitle('About VoltCart | Redefining Everyday Tech Essentials');
 
   return (
-
     <div className="lg:w-full flex flex-col items-center">
       <AboutSpotlight />
-
       <AboutIntro />
-
       <AboutJoinUs />
-
       <AboutVissionMission />
-
       <OurPromise />
-
     </div>
-
   )
 }
 
-export default About
+export default About;

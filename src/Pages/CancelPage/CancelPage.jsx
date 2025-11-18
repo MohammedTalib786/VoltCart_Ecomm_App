@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BsCart2 } from "react-icons/bs";
 import { BsCartXFill } from "react-icons/bs";
 
@@ -7,9 +7,8 @@ import Button from '../../components/FormComp/Button';
 
 
 const CancelPage = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Your Order Has Been Canceled | VoltCart');
+    useDocumentTitle('Order Canceled! We are Sorry to See You Go');
 
     return (
         <>
@@ -19,7 +18,6 @@ const CancelPage = () => {
                     {/* Cancel Icon */}
                     <div className="flex justify-center mb-6">
                         <div className="w-[85px] h-[85px] flex items-center justify-center rounded-full bg-red-500/20 border border-red-500/30">
-                            {/* <IoCloseOutline className="text-red-500 text-5xl" /> */}
                             <BsCartXFill className="text-red-500 text-[45px]/[45px] " />
                         </div>
                     </div>
@@ -33,7 +31,6 @@ const CancelPage = () => {
 
                     {/* CTA buttons */}
                     <div className="  tab:w-[90%] w-full flex flex-col items-center gap-[20px]   " >
-
                         <div className=" w-full flex tab:gap-[20px] gap-[12px]  tab:flex-row flex-col " >
                             <Link
                                 to="/cart"
@@ -69,4 +66,4 @@ const CancelPage = () => {
     )
 }
 
-export default CancelPage
+export default CancelPage;

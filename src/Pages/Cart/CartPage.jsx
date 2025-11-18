@@ -7,7 +7,6 @@ import CartSpotlight from '../../components/CartPage/CartSpotlight'
 
 
 const Cart = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Your Shopping Cart | Review & Proceed to Checkout');
     let { cartProducts } = useCart();
@@ -19,7 +18,6 @@ const Cart = () => {
             <div className=" desktop:py-[100px] gt-tab:py-[80px] py-[60px] ">
                 {/* >>>>>>>>>>>>>> In Cont */}
                 <div className="container_layout mx-auto flex justify-center items-center flex-col "  >
-
                     <div className="cart_card_cont w-full  flex  gt-tab:gap-[20px] gap-[35px] gt-tab:flex-row  flex-col "  >
                         {
                             cartProducts.length <= 0
@@ -47,10 +45,8 @@ const Cart = () => {
                                     </>
                                 )
                         }
-
                     </div>
                 </div>
-
             </div>
         </>
     )

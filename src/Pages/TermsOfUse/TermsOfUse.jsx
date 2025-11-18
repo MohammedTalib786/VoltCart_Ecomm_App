@@ -1,16 +1,15 @@
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-import '../../index.css'
+import '../../index.css';
+
 
 const TermsOfUse = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Terms of Use - VoltCart');
 
     return (
         <>
             <div className="info_pages container_layout mx-auto flex justify-center items-center flex-col "  >
-
 
                 <h1>Terms of Use</h1>
 
@@ -72,7 +71,6 @@ const TermsOfUse = () => {
                     <li><strong>Severability:</strong> Provision of the terms, or any portion because of that, found unenforceable by a competent jurisdiction, shall not affect other portion of the terms.</li>
                     <li><strong>Waiver:</strong> Failure to enforce or exercise any provision of the terms by VoltCart, shall not constitute a waiver of such provision.</li>
                     <li><strong>Feedback and Information:</strong> VoltCart is free to use the feedback provided by you to the website. You warrant that:</li>
-
                     <ul >
                         <li>Your feedback does not contain any confidential information of you.</li>
                         <li>VoltCart is not committed under any liabilities of confidentiality.</li>
@@ -80,17 +78,15 @@ const TermsOfUse = () => {
                     </ul>
                 </ul>
 
-
                 <h2>GOVERNING LAW AND JURISDICTION</h2>
                 <p>These Terms of Service and any separate agreements whereby we provide all claims and disputes arising in connection with the website services shall be governed by and construed in accordance with the laws of India.</p>
 
                 <h2>CONTACT INFORMATION</h2>
                 <p>Questions about the Terms of Service should be sent to us at <a href="mailto:info.voltcartt@gmail.com">info.voltcartt@gmail.com</a></p>
 
-
             </div>
         </>
     )
 }
 
-export default TermsOfUse
+export default TermsOfUse;

@@ -63,7 +63,6 @@
 }
 
 .share_component .x_twit__icon {
-    /* border: 2px solid #00aced !important; */
     border: 2px solid black !important;
 }
 
@@ -75,8 +74,8 @@
     border: 2px solid #e60023 !important;
 }
 
-@media (max-width: 600px) {
 
+@media (max-width: 600px) {
     .share_component {
         position: fixed;
     }

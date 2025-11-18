@@ -3,7 +3,6 @@ header.head_foot_cont_full * {
     transition: all .45s ease-in-out;
 }
 
-
 header.head_foot_cont_full .desktop_header ul li a.active {
     font-family: var(--outfit-font);
     font-weight: 300;
@@ -40,7 +39,6 @@ header.head_foot_cont_full.scrolledHeader .desktop_header ul li a:hover {
     border-radius: 30px;
 }
 
-
 header.head_foot_cont_full .desktop_header ul li a:hover::after {
     transition: all .45s ease-in-out;
     width: 100%;
@@ -72,7 +70,6 @@ header.head_foot_cont_full.unScrolledHeader .desktop_header ul li a.active::afte
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> For White Bg Pages */
-
 body.whiteBgPages header.head_foot_cont_full {
     background-color: white;
 }
@@ -80,7 +77,6 @@ body.whiteBgPages header.head_foot_cont_full {
 body.whiteBgPages header.head_foot_cont_full .logoCont path {
     fill: var(--primary-color);
 }
-
 
 body.whiteBgPages header.head_foot_cont_full .desktop_header ul li a {
     color: black;
@@ -94,14 +90,11 @@ body.whiteBgPages header.head_foot_cont_full .iconsCont .wishlist-box svg path {
     stroke: black;
 }
 
-
 body.whiteBgPages header.head_foot_cont_full .iconsCont .cart-box svg g {
     stroke: black;
 }
 
-
 body.whiteBgPages header.head_foot_cont_full .desktop_header ul li a.active {
-
     color: var(--primary-color);
 }
 
@@ -119,10 +112,61 @@ body.whiteBgPages header.head_foot_cont_full.unScrolledHeader .desktop_header ul
 
 
 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Mobile Header CSS */
+.mob_nav,
+.mob_nav * {
+    transition: all .45s ease-in-out;
+}
+
+.mob_nav {
+    border-top: 1px solid #8787876e;
+    border-bottom: 1px solid #8787876e;
+    margin-block: 35px;
+    padding-inline: 30px;
+}
+
+.mob_nav>ul {
+    padding-block: 20px;
+}
+
+.mob_nav ul li {
+    padding-left: 5px;
+    padding-block: 10px;
+}
+
+.mob_nav ul ul {
+    padding-left: 20px;
+}
+
+.mob_nav ul li a {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mob_nav ul li a:hover,
+.mob_nav ul li a.active {
+    color: var(--primary-color);
+    font-weight: 400;
+}
 
 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media Queries */
 @media (max-width: 1000px) {
     .head_foot_cont_full {
         background-color: white;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 800px) {
+    .mob_nav {
+        margin-block: 50px;
+        padding-inline: 40px;
+    }
+
+    .mob_nav>ul {
+        padding-block: 32px;
     }
 }

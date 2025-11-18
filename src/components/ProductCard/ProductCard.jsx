@@ -14,23 +14,17 @@ const ProductCard = ({
     slug,
     name = "Product Name",
     price = 500,
-    // featImg = "https://www.tintaccessories.com/wp-content/uploads/2024/01/MagPop-JPEG-1024x1024.jpg",
     featImg = { placeholderImg },
     boxWidth = "w-full",
     urlToProd,
     prodCat = "Case & cover",
     ImageGalleryFirst,
     savePercent = 20,
-    // additionalClass
 }) => {
     let [btnElement, setBtnElement] = useState('addToCart');
     let navigateToCart = useNavigate();
     let { cartProducts, addToCartFunc } = useCart();
-    let checkExisting = cartProducts.filter(elem => {
-        // console.log('getting', elem.id === id)
-        // console.log(elem.id)
-        return elem.id === id;
-    })
+    let checkExisting = cartProducts.filter(elem => elem.id === id)
 
     const ItemAddToCart = () => addToCartFunc({ id: id, name: name, feat_img: featImg, price: price, slug: slug, quantity: 1 });
 
@@ -49,16 +43,14 @@ const ProductCard = ({
         }
         else if (checkExisting[0].quantity > 9) {
             alert('Maximum number of single cart items reached.')
-            console.log('maximum number reached!')
+            // console.log('maximum number reached!')
             return
         }
         else {
-            console.log('can add')
+            // console.log('can add')
             ItemAddToCart();
             checkAddToCartElem();
         }
-
-
     }
 
     const handlerViewCart = (e) => {
@@ -68,18 +60,12 @@ const ProductCard = ({
         checkAddToCartElem();
     }
 
-
-
     return (
         <>
             <div
-                className={`prod_card flex flex-col gap-[12px] p-[15px] cursor-pointer ${boxWidth} rounded-[9px] overflow-hidden  `}
-            >
+                className={`prod_card flex flex-col gap-[12px] p-[15px] cursor-pointer ${boxWidth} rounded-[9px] overflow-hidden  `} >
                 <Link to={`/products/${urlToProd}`} >
-
                     <div className="w-full flex flex-col items-center">
-
-                        {/* Crossfade that doesn't collapse layout */}
                         <div className="image-wrapper relative ">
                             <img
                                 src={featImg}
@@ -94,7 +80,6 @@ const ProductCard = ({
                             <span
                                 className='absolute bottom-[10px] left-[10px] bg-[#0d6efdb5] px-[12px] py-[8px] rounded-[6px] text-white text-[12px]/[14px] ' >
                                 Save {savePercent}%</span>
-
                         </div>
 
                         <div className="texts flex flex-col text-center w-[100%] mt-[20px] mb-[15px] ">
@@ -103,12 +88,9 @@ const ProductCard = ({
                         </div>
 
                         <div className="flex w-full justify-between items-center  " >
-
                             <p className='font-primary text-left font-[500] text-[22px]/[28px] w-[50%] '  > &#8377;{price}</p>
-
                             {
                                 btnElement === "addToCart" ?
-
                                     (<Button
                                         text="Add to Cart"
                                         btnIcon={<BsCart2 className='text-[18px]/[18px] mb-[4px] ' />}
@@ -125,12 +107,9 @@ const ProductCard = ({
                             }
                         </div>
                     </div>
-
                 </Link>
             </div>
-
         </>
-
     )
 }
 

@@ -1,15 +1,15 @@
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+
 import '../../index.css'
 
-const CancellationPolicy = () => {
 
+const CancellationPolicy = () => {
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
-    useDocumentTitle('Cancellation, Refund & Exchange Policy - VoltCart');
+    useDocumentTitle('Cancellation, Refund and Exchange Policy - VoltCart');
 
     return (
         <>
             <div className="info_pages container_layout mx-auto flex justify-center items-center flex-col "  >
-
 
                 <h1>Cancellation, Refund and Exchange Policy</h1>
 
@@ -42,7 +42,6 @@ const CancellationPolicy = () => {
                     <li>Delivery Address</li>
                     <li>Description of the Issue</li>
                     <li>Images and/or videos of the item are to be exchanged.</li>
-
                 </ul>
 
                 <p>Our team will contact you to arrange a pick-up of the damaged product. Upon receipt at our warehouse, we will inspect the product and process a replacement. However, we reserve the right to accept or decline the exchange request at our sole discretion. Please note:</p>
@@ -58,12 +57,9 @@ const CancellationPolicy = () => {
                     <li>The credit will be for the sale amount of the returned product.</li>
                     <li>Orders placed using store credit are not eligible for any return or refund.</li>
                 </ul>
-
-
-
             </div>
         </>
     )
 }
 
-export default CancellationPolicy
+export default CancellationPolicy;

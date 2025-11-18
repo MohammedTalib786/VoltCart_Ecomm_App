@@ -34,7 +34,7 @@
     scale: 1.06;
 }
 
-/* tab:h-[275px] h-[510px]  */
+/* >>>>>>>>>>>>>>>>>>>>>>>>> Media Queries */
 @media (min-width: 768px) {
     .blog-card {
         height: 275px;

@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import useFetch from '../../hooks/useFetch';
 import BlogCard from './BlogCards/BlogCard';
-
 import Loader from '../Loader/BlogListingLoader';
 
 
@@ -13,22 +12,10 @@ const BlogDetailsSlider = ({
 }) => {
     let blogApi = import.meta.env.VITE_BLOGS_API_KEY;
     let { loader, error, data: blogData } = useFetch(blogApi);
-    // let blogData = blogDetList.data;
-
-    console.log('inside blog slider')
-
-    console.log('blogData', blogData)
-
     let filteredData = blogData.filter(elem => elem.blog_id !== blog_id)
 
-    console.log('filteredData', filteredData)
     return (
-
-
         <div className=' m-auto'>
-
-
-
             {
                 loader
                     ? <Loader />
@@ -36,13 +23,11 @@ const BlogDetailsSlider = ({
                         ? <p className='text-[20px]/[28px] font-primary  ' >No Data Found</p>
                         : <>
                             <Swiper
-                                // install Swiper modules
                                 modules={[Pagination]}
                                 spaceBetween={40}
                                 slidesPerView={4}
                                 pagination={{ clickable: true }}
                                 loop={true}
-
                                 breakpoints={{
                                     320: {
                                         slidesPerView: 1,
@@ -71,12 +56,9 @@ const BlogDetailsSlider = ({
                                             name={elem.blog_title}
                                             featImg={elem.blog_feat_img}
                                             urlToblog={elem.blog_slug}
-
                                         />
                                     </SwiperSlide>
-
                                 })}
-
                             </Swiper>
                         </>
             }
@@ -84,4 +66,4 @@ const BlogDetailsSlider = ({
     )
 }
 
-export default BlogDetailsSlider
+export default BlogDetailsSlider;

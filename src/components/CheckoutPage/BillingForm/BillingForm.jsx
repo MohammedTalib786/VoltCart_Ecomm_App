@@ -1,16 +1,12 @@
 import { useEffect } from 'react';
 
-import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import statesJSON from '../../states_JSON/states.json';
+import { useShippingDetails } from '../../../contexts/ShippingDetProvider';
 import InputBar from '../../FormComp/InputBar';
 import SelectDropdown from '../../FormComp/SelectDropdown';
 
 
-const BillingForm = ({
-    formData,
-    setFormData,
-    errorMsg
-}) => {
+const BillingForm = ({ formData, setFormData, errorMsg }) => {
     let { shippingDetails, addShippingDetails } = useShippingDetails();
     let { pincode, states, town_city } = shippingDetails;
 
@@ -25,13 +21,11 @@ const BillingForm = ({
         }
     }, [pincode, states, town_city]);
 
-
     return (
         <>
             <div className=""  >
                 <div
-                    className="checkoutFormCont flex flex-col gap-[18px] pt-[20px] "
-                >
+                    className="checkoutFormCont flex flex-col gap-[18px] pt-[20px] " >
                     <div className="nameCont relative flex tab:flex-row flex-col justify-between gap-[22px] "  >
                         <div className=" tab:w-[50%] w-full ">
                             <InputBar label_text="First Name" type="text" html_for="first_name" id="first_name"
@@ -67,7 +61,6 @@ const BillingForm = ({
                             onChange_func={(e) => setFormData({ ...formData, email_address: e.target.value })}
                             value={formData.email_address}
                         />
-
                         {
                             errorMsg.email &&
                             <p className='bg-red-800 text-white fixed top-[120px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >
@@ -87,7 +80,6 @@ const BillingForm = ({
                                 e.target.value.length > 10 ? e.target.value = e.target.value.slice(0, 10) : e.target.value
                             }}
                         />
-
                         {
                             errorMsg.phone &&
                             <p className='bg-red-800 text-white fixed top-[120px] desktop:right-[55%] gt-tab:right-[50%] tab:right-[30%] right-[50px] w-auto text-center text-[15px]/[21px] px-[16px] py-[10px] rounded-[12px] z-[9999]  ' >

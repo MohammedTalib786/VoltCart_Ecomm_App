@@ -13,7 +13,6 @@ import './blogDeatils.css'
 const BlogDetails = () => {
   let paramet = useParams();
   let blogAPI = import.meta.env.VITE_BLOGS_API_KEY;
-
   let blogDetail = useFetch(`${blogAPI}${paramet.slug}`);
   let { loader, error, data: blogData } = blogDetail;
   let { blog_id, blog_title, blog_slug, blog_excerpt, blog_feat_img,
@@ -34,13 +33,10 @@ const BlogDetails = () => {
           <div className="container_layout m-auto">
             <div className='flex flex-col justify-left items-start m-auto  desktop:pt-[100px] gt-tab:pt-[80px] pt-[60px] w-full'>
               <BreadCrumbs />
-
               <h1 className=" mt-[10px] font-primary desktop:text-[45px]/[55px] gt-tab:text-[34px]/[42px] tab:text-[30px]/[40px] text-[26px]/[34px] font-[300] ">{blog_title}</h1>
-
               <div className=" gt-tab:py-[50px] py-[30px] ">
                 <img className={` object-cover w-full  object-center tab:rounded-[22px] rounded-[12px]  `} src={blog_feat_img} />
               </div>
-
               <p className="blogDesc" dangerouslySetInnerHTML={{ __html: blog_content }} />
             </div>
 
@@ -52,11 +48,10 @@ const BlogDetails = () => {
                 blog_id={blog_id}
               />
             </div>
-
           </div>
       }
     </>
   )
 }
 
-export default BlogDetails
+export default BlogDetails;

@@ -1,9 +1,9 @@
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import '../../index.css'
+
+import '../../index.css';
 
 
 const ShippingPolicy = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Shipping Policy - VoltCart');
 
@@ -24,7 +24,6 @@ const ShippingPolicy = () => {
                     <li>Please note that Saturdays, Sundays, and Public Holidays are not set as working or business days for standard deliveries.</li>
                     <li>If you find that the package appears to be tampered with, please refuse delivery and return the package to the courier or delivery person. Additionally, notify us immediately at <a href="mailto:info.voltcartt@gmail.com">info.voltcartt@gmail.com</a> so we can address the issue with our logistics partner.</li>
                 </ul>
-
 
                 <h2>For International Shipping</h2>
                 <p>At VoltCart, we’re committed to ensuring a seamless and trustworthy international shopping experience. Here’s everything you need to know before placing an order:</p>
@@ -50,4 +49,4 @@ const ShippingPolicy = () => {
     )
 }
 
-export default ShippingPolicy
+export default ShippingPolicy;

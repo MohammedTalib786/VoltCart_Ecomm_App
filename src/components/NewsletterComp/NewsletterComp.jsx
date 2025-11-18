@@ -1,12 +1,10 @@
-import { useRef, useState } from 'react'
-// import emailIcon from './TopFooter/email_icon.svg'
-import Button from '../FormComp/Button'
-
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { FaRegEnvelope } from "react-icons/fa";
 
-import emailjs from '@emailjs/browser';
-import InputBar from '../FormComp/InputBar';
 import Loader from '../Loader/SpinnerLoader';
+import Button from '../FormComp/Button';
+
 
 const NewsletterComp = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,19 +21,15 @@ const NewsletterComp = () => {
     const handlerSubmitForm = async (e) => {
         let to_email = formRef.current.from_email.value
         e.preventDefault();
-
         try {
             if (to_email.length <= 0) {
-                // setLoader(true)
                 setErrorMsg({ success_form: false, error_email: true, error_msg: "The Field is Empty!" })
                 setTimeout(() => setErrorMsg({ error_email: false, success_form: false }), 5000)
-                // console.log('email field is empty!')
             }
 
             else if (!emailRegex.test(to_email)) {
                 setErrorMsg({ success_form: false, error_email: true, error_msg: "The Field is Incorrect!" })
                 setTimeout(() => setErrorMsg({ error_email: false, success_form: false }), 5000)
-                // console.log('email field is incorrect!')
             }
 
             else {
@@ -54,7 +48,7 @@ const NewsletterComp = () => {
                         publicKey: import.meta.env.VITE_EJS_PUBLIC_KEY,
                     })
 
-                console.log('Success Newsletter Form Submitted!');
+                // console.log('Success Newsletter Form Submitted!');
                 setErrorMsg({ error_email: false, error_msg: "", success_form: true })
                 setTimeout(() => setErrorMsg({ error_email: false, success_form: false }), 2000)
                 setEmailValue('');
@@ -66,7 +60,7 @@ const NewsletterComp = () => {
         catch (err) {
             setLoader(true)
             setIsDisabled(true)
-            console.log('an Error Occured', err);
+            console.log('An Error Occured', err);
             setEmailValue('');
             setErrorMsg({ error_email: true, error_msg: "An Error Occured!", success_form: false })
             setTimeout(() => setErrorMsg({ error_email: false, success_form: false }), 2500)
@@ -75,7 +69,6 @@ const NewsletterComp = () => {
         }
     }
 
-
     return (
         <div className='w-full bg-[#eff2f4] py-[40px] px-[20px] flex flex-col justify-center items-center  border-[#b9b9b9] border-t ' >
             <h3 className='font-primary  tab:text-[24px]/[30px] text-[20px]/[26px] tab:pb-0 pb-[5px] font-[500] text-black capitalize ' >Subscribe on our newsletter</h3>
@@ -83,39 +76,30 @@ const NewsletterComp = () => {
 
             <form action=""
                 ref={formRef} onSubmit={handlerSubmitForm}
-                className=' w-full relative flex gap-[8px] tab:flex-row flex-col justify-center items-center '
-            >
-                {/* <img src={emailIcon} alt="" className=' w-[24px] absolute top-[13px] left-[8px] ' /> */}
+                className=' w-full relative flex gap-[8px] tab:flex-row flex-col justify-center items-center ' >
                 <div className="input_text relative tab:w-auto w-full " >
-
                     <FaRegEnvelope className=' text-[#8B96A5] text-[16px] absolute top-[13px] left-[14px] ' />
                     <div className="flex flex-col  ">
-
                         <input type="email" placeholder='Email' name='from_email' value={emailValue} onChange={(e) => setEmailValue(e.target.value)}
                             className=' font-body text-black-1c  tab:min-w-[300px] min-w-full  border-[#DEE2E7] border-1 bg-white placeholder:text-[#8B96A5] py-[8px] pr-[20px] pl-[40px] rounded-[6px] outline-0 '
                         />
-
                         {
                             errorMsg.error_email && <span className=' text-[#c31717]  w-full px-[6px] py-[4px] text-[15px]/[21px] font-medium absolute tab:bottom-[-30px] bottom-[-80px] ' >{errorMsg.error_msg}</span>
                         }
                         {
                             errorMsg.success_form && <span className=' text-[#00a90e]  w-full px-[6px] py-[4px] text-[15px]/[21px] font-medium absolute tab:bottom-[-30px] bottom-[-80px] ' >You've successfully subscribed!</span>
                         }
-
                     </div>
                 </div>
 
-                {/* <Button disabled={true} type='submit' id="newsletter_submit_btn" text={<Loader />} btnWidth='fit' /> */}
                 <Button
                     disabled={isDisabled}
                     type='submit' id="newsletter_submit_btn"
-                    text={loader ? <Loader /> : "Subscribe"} 
+                    text={loader ? <Loader /> : "Subscribe"}
                     btnWidth='fit'
                     additionalClass="min-w-[115px]"
                 />
-
             </form>
-
         </div>
     )
 }

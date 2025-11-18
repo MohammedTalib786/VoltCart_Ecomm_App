@@ -1,9 +1,7 @@
-
 const SelectDropdown = ({
   label_text,
   html_for,
   id,
-  // value="Maharashtra",
   value = "",
   onchange_func,
   options_arr = [],
@@ -18,16 +16,11 @@ const SelectDropdown = ({
           value={value}
           onChange={onchange_func}
         >
-          {
-            options_arr.map((elem) => {
-              // console.log('Main State', elem.name)
-              return <option key={elem.code} value={elem.name} >{elem.name}</option>
-            })
-          }
+          {options_arr.map((elem) => <option key={elem.code} value={elem.name} >{elem.name}</option>)}
         </select>
       </div>
     </>
   )
 }
 
-export default SelectDropdown
+export default SelectDropdown;

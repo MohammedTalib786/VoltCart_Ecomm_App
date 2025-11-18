@@ -3,7 +3,6 @@ import BlogCard from './BlogCard'
 
 
 const BlogCardListing = ({ value, loader, error, blogData }) => {
-
   let mainData = blogData.filter((dataFil) => value === "" ? blogData : dataFil.blog_category === value)
 
   return (
@@ -16,7 +15,6 @@ const BlogCardListing = ({ value, loader, error, blogData }) => {
               <BlogCard
                 key={elem.blog_id}
                 id={elem.blog_id}
-                // slug={elem.blog_slug}
                 name={elem.blog_title}
                 featImg={elem.blog_feat_img}
                 urlToblog={elem.blog_slug}
@@ -30,4 +28,4 @@ const BlogCardListing = ({ value, loader, error, blogData }) => {
   )
 }
 
-export default BlogCardListing
+export default BlogCardListing;

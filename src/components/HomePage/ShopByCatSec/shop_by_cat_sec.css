@@ -1,12 +1,8 @@
-/* tab:gap-[35px] gap-[30px]  */
-
-
 @media (min-width: 1281px) {
     .shop_cat_sec_one {
         gap: 30px;
     }
 }
-
 
 @media (min-width: 1200px) and (max-width: 1280px) {
     .shop_cat_sec_one {
@@ -31,7 +27,6 @@
         gap: 25px;
     }
 }
-
 
 
 .cat_card,
@@ -76,11 +71,9 @@
 }
 
 @media (max-width: 500px) {
-
     .cat_card .texts {
         bottom: 30px;
     }
-
 
     .cat_card .texts p.shop_link {
         opacity: 1;
@@ -92,6 +85,4 @@
         height: 70%;
         transition: all .45s ease-in-out;
     }
-
-
 }

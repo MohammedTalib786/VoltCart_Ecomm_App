@@ -11,7 +11,6 @@ import './contactStyle.css';
 
 
 const Contact = () => {
-
   // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
   useDocumentTitle('Get in Touch | We’re Here to Help | VoltCart');
 
@@ -26,7 +25,14 @@ const Contact = () => {
   })
 
   let [toggleMsg, setToggleMsg] = useState(false)
+  // let [toggleMsg, setToggleMsg] = useState(true)
+
   let [succesMsg, setSuccessMsg] = useState({})
+  // let [succesMsg, setSuccessMsg] = useState({
+  //   message: "Checkin Form...",
+  //   additionalClass: "bg-[#d1950a] tab:w-auto w-[65%] "
+  //   // additionalClass: "bg-[#1ca928] tab:w-auto w-[65%] "
+  // })
 
   let [cFormData, setcFormData] = useState({
     name: '',
@@ -42,7 +48,6 @@ const Contact = () => {
 
   const handlerSubmitForm = async (e) => {
     e.preventDefault();
-
     let from_name = formRef.current.from_name.value
     let to_email = formRef.current.from_email.value
     let to_phone = formRef.current.from_phone.value
@@ -50,11 +55,8 @@ const Contact = () => {
 
     try {
       if (from_name.length <= 0) setErrorMsg({ phone: false, phoneStyle: "", email: false, emailStyle: "", name: true, nameStyle: "border-b-[#c31717] border-b-2" })
-
       else if (to_email.length <= 0 || !emailRegex.test(to_email)) setErrorMsg({ name: false, nameStyle: "", phone: false, phoneStyle: "", email: true, emailStyle: "border-b-[#c31717] border-b-2" })
-
       else if (to_phone.length < 10) setErrorMsg({ name: false, nameStyle: "", email: false, emailStyle: "", phone: true, phoneStyle: "border-b-[#c31717] border-b-2", })
-
       else {
         setLoader(true);
         setIsDisabled(true);
@@ -62,9 +64,30 @@ const Contact = () => {
         console.log('Form Submitting!');
         setToggleMsg(true)
         setSuccessMsg({
-          message: "Form Submitting...",
-          additionalClass: "bg-[#e1a313] tab:w-auto w-[65%] "
+          // message: "Form Submitting...",
+          message: "Just a moment...",
+          additionalClass: "bg-[#d1950a] tab:w-auto w-[65%] "
         })
+
+        // setTimeout(() => {
+        //   console.log('check submitting!')
+        //   setcFormData({
+        //     name: '',
+        //     email: '',
+        //     phone: '',
+        //     message: ''
+        //   })
+
+        //   setToggleMsg(true)
+        //   setSuccessMsg({
+        //     message: "Form Submitted Successfully!",
+        //     additionalClass: "bg-[#46b450] tab:w-auto w-[80%] "
+        //   })
+        //   setTimeout(() => setToggleMsg(false), 3500)
+        //   setLoader(false);
+        //   setIsDisabled(false)
+        //   return true
+        // }, 4000)
         console.log('Success');
 
         // Receiver - Admin
@@ -88,11 +111,11 @@ const Contact = () => {
 
         setToggleMsg(true)
         setSuccessMsg({
-          message: "Form Submitted Successfully!",
-          additionalClass: "bg-[#46b450] tab:w-auto w-[80%] "
+          // message: "Form Submitted Successfully!",
+          message: "Submitted successfully!",
+          additionalClass: "bg-[#1ca928] tab:w-auto w-[80%] "
         })
-        setTimeout(() => setToggleMsg(false), 2500)
-
+        setTimeout(() => setToggleMsg(false), 3000)
         setLoader(false);
         setIsDisabled(false)
       }
@@ -101,20 +124,15 @@ const Contact = () => {
     catch (err) {
       setLoader(true);
       setIsDisabled(true)
-      console.log('an Error Occured', err)
+      console.log('An error occured while submitting the form', err)
       setToggleMsg(true)
       setSuccessMsg({
-        message: "An Error Occured while submitting the Form!",
+        message: "An error occured while submitting the form!",
         additionalClass: "bg-[#b74556] tab:w-auto w-[80%] "
       })
       setTimeout(() => setToggleMsg(false), 2500)
       setLoader(false);
       setIsDisabled(false)
-      // setcFormData({
-      //   name: '',
-      //   email: '',
-      //   message: ''
-      // })
     }
   }
 
@@ -125,10 +143,8 @@ const Contact = () => {
         <ContactSpotlight />
 
         <div className="container_layout m-auto" >
-
           <div className="flex gt-tab:flex-row flex-col desktop:py-[100px] gt-tab:py-[80px] py-[60px] desktop:gap-[50px] gt-tab:gap-[30px] tab:gap-[60px] gap-[50px] " >
             <ContactInfo />
-
             <ContactForm
               formRef={formRef}
               errorMsg={errorMsg}
@@ -141,17 +157,14 @@ const Contact = () => {
               isDisabled={isDisabled}
             />
           </div>
-
         </div>
 
         <div className=" w-full " >
           <ContactIframe />
         </div>
-
       </div>
-
     </>
   )
 }
 
-export default Contact
+export default Contact;

@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, useLocation } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import Lenis from 'lenis';
 
+import { ProdProvider } from './contexts/ProdProvider';
+import { ShippingDetProvider } from './contexts/ShippingDetProvider';
+import { CartTotalProvider } from './contexts/cartTotalProvider'
+import { OrderProvider } from './contexts/orderItemsProvider';
 
-import HomePage from './Pages/Home/HomePage'
-import AboutPage from './Pages/About/AboutPage'
+import HomePage from './Pages/Home/HomePage';
+import AboutPage from './Pages/About/AboutPage';
 import BlogPage from './Pages/Blogs/BlogPage';
 import BlogDetails from './Pages/BlogsDetails/BlogDetails';
 import Products from './Pages/Products_List/Products';
@@ -14,7 +18,6 @@ import TestPage from './Pages/TestPage/TestPage';
 import Contact from './Pages/Contact/Contact';
 import CheckoutPage from './Pages/Checkout/CheckoutPage';
 import SearchListing from './Pages/SearchListingPage/SearchListing';
-import IntersectionEx from './Pages/CounterTest/IntersectionEx';
 import HelpPage from './Pages/HelpPage/HelpPage';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import CancellationPolicy from './Pages/CancellationPolicy/CancellationPolicy';
@@ -24,31 +27,21 @@ import SuccessPage from './Pages/SuccessPage/SuccessPage';
 import CancelPage from './Pages/CancelPage/CancelPage';
 import Error404Page from './Pages/404Page/Error404Page';
 
-import { ProdProvider } from './contexts/ProdProvider';
-import { ShippingDetProvider } from './contexts/ShippingDetProvider';
-import { CartTotalProvider } from './contexts/cartTotalProvider'
-import { OrderProvider } from './contexts/orderItemsProvider';
-
 import Layout from './components/Layout'
 import ScrollToTopFunc from './components/ScrollToTopFunc/ScrollToTopFunc';
 import Cursor from './components/Cursor/Cursor';
 
 
 
-
 const App = () => {
   let location = useLocation();
-
   const whiteBgPages = ['/search-listing', '/help-and-support', '/privacy-policy', '/cancellation-policy', '/terms-of-use', '/shipping-policy', '/order-cancel', '/order-successful', '/*'];
 
   useEffect(() => {
     const path = location.pathname;
-
     const isProductDetail = path.startsWith("/products/") && path !== "/products";
     const isBlogDetail = path.startsWith("/blogs/") && path !== "/blogs";
     const allWhiteBgPages = !whiteBgPages.includes(path) && !isProductDetail && !isBlogDetail;
-    // console.log('location', location)
-    // console.log('check incl', !allWhiteBgPages)
 
     if (!allWhiteBgPages) {
       document.body.classList.add('whiteBgPages')
@@ -111,13 +104,9 @@ const App = () => {
     ])
   }
 
-
-
   const [itemTotal, setItemTotal] = useState({ total: 0 })
 
   const calculateTotal = (amt) => setItemTotal({ total: amt })
-
-  // console.log('itemTotal', itemTotal, typeof itemTotal)
 
   let [shippingDetails, setShippingDetails] = useState({
     first_name: "",
@@ -130,11 +119,8 @@ const App = () => {
     phone_number: null,
     email_address: ""
   })
-  // console.log('shippingDetails Contxt', shippingDetails)
 
   const addShippingDetails = (town_city, pincode, states) => {
-    // console.log('Adding Shipping Det');
-    // console.log(theMessage)
     setShippingDetails({
       town_city: town_city,
       pincode: pincode,
@@ -185,40 +171,24 @@ const App = () => {
 
 
   const addToCartFunc = (cartItem) => {
-    // console.log('Added To Cart')
     setCartProducts((prevItem) => {
       let existingItem = prevItem.find((elem) => elem.id === cartItem.id)
-      // console.log('existingItem', existingItem)
       if (existingItem) {
-        // console.log('Existing Item')
         return prevItem.map((prevElem) => prevElem.id === cartItem.id ? { ...prevElem, quantity: prevElem.quantity + cartItem.quantity } : prevElem)
       }
 
       return [...prevItem, cartItem]
-
     })
-    // console.log(cartItem)
   }
 
-  const clearCartFunc = () => {
-    setCartProducts([])
-  }
-
+  const clearCartFunc = () => setCartProducts([])
 
   const changeQuantityFunc = (id, newQty) => {
-    setCartProducts(prevItems =>
-      prevItems.map(item =>
-        item.id === id ? { ...item, quantity: newQty } : item
-      )
+    setCartProducts(prevItems => prevItems.map(item => item.id === id ? { ...item, quantity: newQty } : item)
     );
   };
 
-
-  const removeFromCartFunc = (id) => {
-    setCartProducts((prevItem) => prevItem.filter((elem) => elem.id !== id))
-    // console.log('Remove From CaRT')
-  }
-
+  const removeFromCartFunc = (id) => setCartProducts((prevItem) => prevItem.filter((elem) => elem.id !== id))
 
 
   // >>>>>>>>>>>>>>>> Initialize Lenis (Smooth Scroll Library)
@@ -228,7 +198,7 @@ const App = () => {
       smooth: true,
       smoothTouch: true,
       duration: 2,
-      autoRaf: false, // disable the internal loop
+      autoRaf: false,
     });
 
     let animationFrame;
@@ -240,26 +210,18 @@ const App = () => {
 
     animationFrame = requestAnimationFrame(raf);
 
-
-    // 👉 Make it accessible globally
     window.lenis = lenis;
-
-
 
     return () => {
       cancelAnimationFrame(animationFrame); // ✅ Clean up
       lenis.destroy();
     };
   }, []);
-
   // >>>>>>>>>>>>>>>>>>> ENDS Initialize LENIS
 
 
   return (
     <>
-
-
-
       {/* <Cursor /> */}
 
       <OrderProvider value={{ orderItems, loadingOrder, addOrderItems }} >
@@ -271,8 +233,6 @@ const App = () => {
             <ShippingDetProvider value={{ shippingDetails, addShippingDetails }}  >
 
               <ScrollToTopFunc />
-
-
 
               <Routes  >
 
@@ -315,19 +275,13 @@ const App = () => {
 
                   <Route path='/shipping-policy' element={<ShippingPolicy />} />
 
-                  {/* <Route path='*' element={<Error404Page />} /> */}
-
-                  <Route path='/counter-test-1' element={<IntersectionEx />} />
-
-                  <Route path='/test' element={<TestPage />} />
+                  {/* <Route path='/test' element={<TestPage />} /> */}
 
                 </Route>
 
                 <Route path='*' element={<Error404Page />} />
 
               </Routes>
-
-
 
             </ShippingDetProvider>
 
@@ -336,9 +290,8 @@ const App = () => {
         </CartTotalProvider>
 
       </OrderProvider>
-
     </>
   )
 }
 
-export default App
+export default App;

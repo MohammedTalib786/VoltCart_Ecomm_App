@@ -1,8 +1,11 @@
-import { FiMinus, FiPlus } from "react-icons/fi"
-import Button from "../FormComp/Button"
-import { useCart } from "../../contexts/ProdProvider"
-import { useState } from "react"
-import './quantity_counter.css'
+import { FiMinus, FiPlus } from "react-icons/fi";
+import { useState } from "react";
+
+import Button from "../FormComp/Button";
+import { useCart } from "../../contexts/ProdProvider";
+
+import './quantity_counter.css';
+
 
 const QuantityCounter = ({
     id,
@@ -11,12 +14,10 @@ const QuantityCounter = ({
 }) => {
     let { cartProducts, changeQuantityFunc } = useCart()
     let item = cartProducts.find(item => item.id === id);
-
     let [msg, showMsg] = useState({
         maxItemMsg: false,
         minItemMsg: false
     })
-
     const handlerAddQnt = () => {
         if (item.quantity >= 10) {
             showMsg(prevVal => ({ ...prevVal, maxItemMsg: true }))
@@ -34,7 +35,6 @@ const QuantityCounter = ({
     }
 
     return (
-
         <div className={`qnty flex items-center h-fit p-[12px] relative border-[2px] border-${borderColor} rounded-[12px] ${additionalClass} `} >
             {/* >>>>>>>>>>>>>>>>>>>> Message */}
             {
@@ -57,22 +57,19 @@ const QuantityCounter = ({
                 text={<FiMinus className='text-[26px]/[26px] text-primary ' />}
                 additionalClass="counter_btn w-fit h-fit p-[0] bg-transparent "
             />
-
             <input type="number"
                 id='qunt_val'
                 className=' w-[60px] text-[28px]/[34px] text-center focus:outline-0 '
                 value={item ? item.quantity : 0}
                 onChange={(e) => changeQuantityFunc(id, Number(e.target.value < 1 ? 1 : e.target.value > 10 ? 10 : e.target.value))}
             />
-
             <Button
                 handlerClickBtnComp={handlerAddQnt}
                 text={<FiPlus className='text-[26px]/[26px] text-primary ' />}
                 additionalClass=" counter_btn w-fit h-fit p-[0] bg-transparent "
             />
-
         </div>
     )
 }
 
-export default QuantityCounter
+export default QuantityCounter;

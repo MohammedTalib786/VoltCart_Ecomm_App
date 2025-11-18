@@ -1,16 +1,17 @@
 import { useState } from "react";
 
+
 const FilterTest = () => {
     const [selectedItems, setSelectedItems] = useState([]);
-
     const handleCheckbox = (e) => {
         const value = e.target.value;
         const checked = e.target.checked;
 
         if (checked) {
-            setSelectedItems((prev) => [...prev, value]); // add
-        } else {
-            setSelectedItems((prev) => prev.filter((item) => item !== value)); // remove
+            setSelectedItems((prev) => [...prev, value]);
+        }
+        else {
+            setSelectedItems((prev) => prev.filter((item) => item !== value));
         }
     };
 
@@ -58,4 +59,4 @@ const FilterTest = () => {
     )
 }
 
-export default FilterTest
+export default FilterTest;

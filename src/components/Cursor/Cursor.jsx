@@ -1,6 +1,8 @@
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-import './cursor.css'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+import './cursor.css';
+
 
 const Cursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -9,13 +11,10 @@ const Cursor = () => {
 
   useEffect(() => {
     const handleMouseMove = (e) => setMousePosition({ x: e.clientX, y: e.clientY })
-
     const handleMouseDown = () => setIsClicked(true)
     const handleMouseUp = () => setIsClicked(false)
-
     const handleMouseEnter = () => setIsVisible(true)
     const handleMouseLeave = () => setIsVisible(false)
-
     const registerCursorEvent = (event, handler) => document.addEventListener(event, handler)
     const removeCursorEvent = (event, handler) => document.removeEventListener(event, handler)
 
@@ -34,6 +33,7 @@ const Cursor = () => {
     }
   }, [])
 
+
   return (
     <>
       <motion.div
@@ -47,7 +47,6 @@ const Cursor = () => {
           type: "tween",
           ease: "easeOut",
           duration: 0.25,
-          // duration: 0.20,
         }}
       />
 

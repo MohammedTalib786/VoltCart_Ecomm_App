@@ -5,12 +5,10 @@
 }
 
 .prod_card {
-    /* box-shadow: -3px 6px 22px 0px #d5d5d5; */
     background-color: white;
 }
 
 .prod_card:hover {
-    /* box-shadow: -5px 5px 0px 5px #000000; */
     box-shadow: 0px 0px 12px 1px #00000040;
     transform: translate(0px, -5px);
 }
@@ -44,8 +42,6 @@
 .add_to_cart_btn {
     opacity: 1;
     pointer-events: all;
-    /* top: 310px; */
-    /* top: 290px; */
 }
 
 .item_added_toolTip::after {
@@ -67,7 +63,7 @@
     .prod_card {
         width: 32%;
     }
-    
+
     .prodSlider .prod_card {
         width: 100%;
     }

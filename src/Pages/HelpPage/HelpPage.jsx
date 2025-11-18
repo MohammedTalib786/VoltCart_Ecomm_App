@@ -2,16 +2,15 @@ import { Accordion } from 'radix-ui';
 import { Link } from 'react-router-dom';
 import { BsChevronDown } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
-import {  FaPhone } from 'react-icons/fa6';
+import { FaPhone } from 'react-icons/fa6';
 
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-import './help_page.css'
+import './help_page.css';
 
 
 const HelpPage = () => {
-
-    useDocumentTitle('Help and Support | VoltCart');
+    useDocumentTitle('Help and Support - VoltCart');
 
     return (
         <>
@@ -21,8 +20,6 @@ const HelpPage = () => {
                     <p className=" text-black font-primary tab:text-[22px]/[28px] text-[20px]/[26px] font-[400] text-left pt-[12px] " >Find quick answers, browse help topics, or contact our support team.</p>
                 </div>
             </div>
-
-
 
             <div className=" w-full border-b-1 border-[#00000038]  ">
                 <div className="container_layout m-auto flex gt-tab:gap-[50px] gt-tab:flex-row flex-col  " >
@@ -197,18 +194,13 @@ const HelpPage = () => {
                                         <Accordion.Content
                                             className='AccordionContent px-[20px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
                                         >
-                                            <p
-                                                className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] '
-                                            >
-                                                <ul>
-                                                    <li>Products purchased during promotions or sales are not eligible for return.</li>
-                                                    <li>Exchange requests are accepted for manufacturing defects or if an incorrect item is delivered. For more details please refer to our Incorrect/Damaged/Defective Item Policy</li>
-                                                    <li>Customized products and special bulk orders are not eligible for returns or exchanges.</li>
-                                                    <li>International orders are not eligible for returns or exchanges.</li>
-                                                    <li>Gift card purchased online/store credit are not eligible for refund, or return.</li>
-                                                </ul>
-
-                                            </p>
+                                            <ul className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] ' >
+                                                <li>Products purchased during promotions or sales are not eligible for return.</li>
+                                                <li>Exchange requests are accepted for manufacturing defects or if an incorrect item is delivered. For more details please refer to our Incorrect/Damaged/Defective Item Policy</li>
+                                                <li>Customized products and special bulk orders are not eligible for returns or exchanges.</li>
+                                                <li>International orders are not eligible for returns or exchanges.</li>
+                                                <li>Gift card purchased online/store credit are not eligible for refund, or return.</li>
+                                            </ul>
                                         </Accordion.Content>
                                     </Accordion.Item>
                                 </Accordion.Root>
@@ -257,11 +249,8 @@ const HelpPage = () => {
                 </div>
             </div>
 
-
-
             <div className="container_layout m-auto flex gap-[50px]  " >
                 <div className="  w-full desktop:pt-[50px] desktop:pb-[100px] gt-tab:pt-[50px] gt-tab:pb-[100px] pt-[50px] pb-[80px]   flex gt-tab:gap-y-[30px] gt-tab:gap-x-0 tab:gap-y-[40px] gap-y-[25px] tab:gap-x-[20px] flex-wrap ">
-
                     <div className=" w-full ">
                         <h2
                             className="font-primary  tab:text-[35px]/[40px] text-[26px]/[34px] font-[300] " >Still Need Assistance!</h2>

@@ -2,20 +2,11 @@
     transition: all 0.9s ease-in-out;
 }
 
-
 .searchBarMainBox .search_btn {
     padding: 0px 40px;
     min-height: 48px;
     max-height: 48px;
 }
-
-
-@media (max-width: 600px) {
-    .searchBarMainBox .search_btn {
-        padding: 0px 25px;
-    }
-}
-
 
 .searchBarMainBox .search_btn,
 .searchBarMainBox .search_btn:hover {
@@ -26,13 +17,11 @@
     border-bottom-right-radius: 6px;
 }
 
-/*
-.searchBarMainBox {
-} */
 
-@media (max-width: 768px) {
-    /* .searchBarMainBox {
-        transition: all .25s ease-in-out;
-        top: 108px !important;
-    } */
+
+/* >>>>>>>>>>>>>>>>>> Media Queries */
+@media (max-width: 600px) {
+    .searchBarMainBox .search_btn {
+        padding: 0px 25px;
+    }
 }

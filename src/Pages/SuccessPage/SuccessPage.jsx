@@ -10,11 +10,10 @@ import { useOrder } from '../../contexts/orderItemsProvider'
 import { useCart } from '../../contexts/ProdProvider';
 import Button from '../../components/FormComp/Button';
 
-import './success-page.css'
+import './success-page.css';
 
 
 const SuccessPage = () => {
-
     // >>>>>>>>>>>>>>>>> Change Document Title Dynamically
     useDocumentTitle('Thank You! Your Order Has Been Successfully Placed');
 
@@ -37,7 +36,6 @@ const SuccessPage = () => {
             !orderIdParam ||
             orderIdParam === null
         ) navigate('/cart')
-
         else clearCartFunc();
     }, [orderItems])
 
@@ -47,11 +45,8 @@ const SuccessPage = () => {
         setTimeout(() => setCoppiedState(false), 2000)
     }
 
-
     return (
-        <div
-            className=' min-h-[90vh] flex items-center '
-        >
+        <div className=' min-h-[90vh] flex items-center ' >
             {/* >>>>>>>>>>>>>> In Cont */}
             <div
                 className=" gt-tab:max-w-[900px] tab:max-w-[90%] max-w-full mx-auto tab:px-0 px-[20px]  py-[60px] " >
@@ -62,7 +57,6 @@ const SuccessPage = () => {
                 </div>
 
                 <div className=" gt-tab:grid gt-tab:grid-cols-2 tab:flex tab:flex-col gap-8  " >
-
                     <div className=' gt-tab:p-6 tab:p-0 relative order_info_cont tab:mb-0 mb-[35px] ' >
                         {
                             !coppiedState
@@ -71,18 +65,14 @@ const SuccessPage = () => {
                                     onClick={handlerCopyToClipboard}
                                     title='Copy to Clipboard'
                                 />
-
                                 : <IoCheckmarkOutline
                                     className=' absolute top-0 right-0 text-[28px]/[28px] cursor-pointer '
                                 />
                         }
-                        {
-                            coppiedState && <p className=' OrderTxtCoppiedMsg transition-all p-[10px] bg-primary text-white text-[16px]/[24px] font-[400] rounded-[12px] absolute gt-tab:top-[-35px] gt-tab:right-[92px] tab:-top-[10px] tab:right-[60px] -top-[33px] right-[30px] w-auto  ' >Order details coppied to clipboard</p>
-                        }
+                        { coppiedState && <p className=' OrderTxtCoppiedMsg transition-all p-[10px] bg-primary text-white text-[16px]/[24px] font-[400] rounded-[12px] absolute gt-tab:top-[-35px] gt-tab:right-[92px] tab:-top-[10px] tab:right-[60px] -top-[33px] right-[30px] w-auto  ' >Order details coppied to clipboard</p> }
 
-                        <div className=" order_info flex flex-wrap gap-y-[15px] "
+                        <div className=" order_info flex flex-wrap gap-y-[15px] " 
                             ref={order_info} >
-
                             <div className=' gt-tab:w-auto tab:w-[50%] w-auto ' >
                                 <span className="font-[600] tab:text-[18px]/[24px] text-[16px]/[24px] ">Order ID: </span>
                                 <span className=' font-[400] tab:text-[18px]/[24px] text-[16px]/[24px]  ' >{orderIdParam ? orderIdParam : 'null'}</span>
@@ -133,7 +123,6 @@ const SuccessPage = () => {
 
                     <div className="bg-white p-6 rounded-lg">
                         <h3 className=" font-body tab:text-[22px]/[28px] text-[20px]/[26px] font-[500] mb-6 " >Order Summary</h3>
-
                         <div className="space-y-4">
                             <div className="space-y-2" >
                                 {
@@ -147,7 +136,6 @@ const SuccessPage = () => {
                                         )
                                     })
                                 }
-
                             </div>
 
                             <hr className="border-black" />
@@ -177,4 +165,4 @@ const SuccessPage = () => {
     )
 }
 
-export default SuccessPage
+export default SuccessPage;

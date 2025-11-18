@@ -1,16 +1,10 @@
-
-import searchIcon from '../../../assets/Header/search_icon.svg'
 import { IoIosSearch } from "react-icons/io";
 
 
 const SearchBarMob = () => {
   return (
     <div className='w-full flex items-center ' >
-
-
-      {/* <img src={searchIcon} alt="" className=' w-[20px] absolute left-[27px] ' /> */}
-
-      <IoIosSearch className=' text-[18px]/[18px]  absolute left-[36px] '  />
+      <IoIosSearch className=' text-[18px]/[18px]  absolute left-[36px] ' />
       <input type="text" name="search" id="search" placeholder='Search'
         className=' bg-[#F7FAFC] w-[100%] py-[5px] pl-[34px] font-inter text-[#8B96A5] border-1 border-[#DEE2E7] placeholder-get-grey outline-0 rounded-[6px] '
       />
@@ -18,4 +12,4 @@ const SearchBarMob = () => {
   )
 }
 
-export default SearchBarMob
+export default SearchBarMob;

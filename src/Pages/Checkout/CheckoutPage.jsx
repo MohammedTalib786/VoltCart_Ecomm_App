@@ -25,7 +25,6 @@ const CheckoutPage = () => {
     let { shippingDetails } = useShippingDetails();
     let [shippingCharges, setShippingCharges] = useState(55);
     let { orderItems, addOrderItems } = useOrder();
-
     let get_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][new Date().getMonth()];
     let date = `${new Date().getDate()} ${get_months} ${new Date().getFullYear()}`;
 
@@ -73,8 +72,6 @@ const CheckoutPage = () => {
             }
 
             if (formData.first_name === '' || !formData.first_name) {
-                console.log('first_name inp cant be empty!')
-
                 setErrorMsg({ ...errorMsg, firstName: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, firstName: false })
@@ -83,7 +80,6 @@ const CheckoutPage = () => {
             }
 
             else if (!formData.email_address || !emailRegex.test(formData.email_address)) {
-                console.log('Invalid Email!');
                 setErrorMsg({ ...errorMsg, email: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, email: false })
@@ -92,7 +88,6 @@ const CheckoutPage = () => {
             }
 
             else if (!formData.phone_number || !phoneNumberRegex.test(formData.phone_number)) {
-                console.log('phone_number inp cant be empty!')
                 setErrorMsg({ ...errorMsg, phone: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, phone: false })
@@ -101,7 +96,6 @@ const CheckoutPage = () => {
             }
 
             else if (formData.street_address === '' || !formData.street_address) {
-                console.log('street_address inp cant be empty!')
                 setErrorMsg({ ...errorMsg, streetAddress: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, streetAddress: false })
@@ -110,7 +104,6 @@ const CheckoutPage = () => {
             }
 
             else if (formData.town_cityInp == '' || !formData.town_cityInp) {
-                console.log('town_city inp cant be empty!')
                 setErrorMsg({ ...errorMsg, townCity: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, townCity: false })
@@ -119,7 +112,6 @@ const CheckoutPage = () => {
             }
 
             else if (!formData.pincodeInp || !pincodeRegex.test(formData.pincodeInp)) {
-                console.log('Pincode Invalid!');
                 setErrorMsg({ ...errorMsg, pincode: true })
                 setTimeout(() => {
                     setErrorMsg({ ...errorMsg, pincode: false })
@@ -130,15 +122,15 @@ const CheckoutPage = () => {
             else {
                 setOrderProcessLoader(true);
                 setIsDisabled(true)
-                console.log('formData.first_name', formData.first_name)
-                console.log('formData.last_name', formData.last_name)
-                console.log('formData.phone_number', formData.phone_number)
-                console.log('formData.email_address', formData.email_address)
-                console.log('formData.pincodeInp', formData.pincodeInp)
-                console.log('formData.stateInp', formData.stateInp)
-                console.log('formData.street_address', formData.street_address)
-                console.log('formData.town_cityInp', formData.town_cityInp)
-                console.log('cartProducts checkout', cartProducts)
+                // console.log('formData.first_name', formData.first_name)
+                // console.log('formData.last_name', formData.last_name)
+                // console.log('formData.phone_number', formData.phone_number)
+                // console.log('formData.email_address', formData.email_address)
+                // console.log('formData.pincodeInp', formData.pincodeInp)
+                // console.log('formData.stateInp', formData.stateInp)
+                // console.log('formData.street_address', formData.street_address)
+                // console.log('formData.town_cityInp', formData.town_cityInp)
+                // console.log('cartProducts checkout', cartProducts)
 
                 addOrderItems({
                     name: `${formData.first_name} ${formData.last_name}`,
@@ -213,20 +205,18 @@ const CheckoutPage = () => {
                     phone_number: Number(""),
                     email_address: ""
                 })
-
                 return true;
             }
         }
         catch (err) {
-            console.log(err)
+            console.log('error while making the payment', err)
             alert('Something went Wrong!')
         }
         finally {
-            setOrderProcessLoader(false); // stop loading once flow is complete
+            setOrderProcessLoader(false);
             setIsDisabled(false)
         }
     }
-
 
     return (
         <>
@@ -235,15 +225,12 @@ const CheckoutPage = () => {
             <div className="  desktop:py-[100px] gt-tab:py-[80px] py-[60px] " >
                 {/* >>>>>>>>>>>>>> In Cont */}
                 <div className="container_layout mx-auto flex justify-center items-center flex-col "  >
-
                     <form onSubmit={handlerPlaceOrder} className='w-full' >
                         <div className="cart_card_cont w-full flex gt-tab:flex-row flex-col desktop:gap-[35px] gt-tab:gap-[25px] gap-[35px] " >
-
                             <div className=" gt-tab:w-[50%] w-full flex flex-col gap-[15px]  "  >
                                 <h3 className=' font-primary tab:text-[36px]/[44px] text-[30px]/[38px] font-[400] ' >Billing Details</h3>
                                 <BillingForm errorMsg={errorMsg} formData={formData} setFormData={setFormData} />
                             </div>
-
                             <YourOrderComp
                                 itemTotal={itemTotal}
                                 calculateTotal={calculateTotal}

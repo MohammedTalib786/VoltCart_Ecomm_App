@@ -12,7 +12,6 @@
   line-height: 26px;
 }
 
-
 .dang-cont ul li::before {
   content: '';
   position: absolute;
@@ -20,18 +19,10 @@
   top: 7px;
   width: 15px;
   height: 15px;
-  /* background: url(../../../assets/paper-plane-solid-full.svg); */
   background: url(../../assets/paper-plane-solid-full.svg);
   background-repeat: no-repeat;
   background-size: 15px;
 }
-
-@media (max-width: 600px) {
-  .dang-cont ul li {
-    font-size: 16px;
-  }
-}
-
 
 
 .right_sec,
@@ -53,3 +44,12 @@
 .right_sec .buy_now_btn:hover svg {
   fill: white;
 }
+
+
+
+@media (max-width: 600px) {
+  .dang-cont ul li {
+    font-size: 16px;
+  }
+}
+

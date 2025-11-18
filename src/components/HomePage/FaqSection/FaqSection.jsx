@@ -6,7 +6,6 @@ import './faq_section.css'
 
 
 const FaqSection = () => {
-
     let all_faqs = [
         {
             id: 1,
@@ -38,12 +37,8 @@ const FaqSection = () => {
             title: "What are VoltCart's payment options?",
             content: (<>Payment is an integral part of an online shopping experience. All payments shall be collected through secured payment options. We accept all prepaid payment options such as all the major Credit Cards, Debit Cards, Net-Banking etc. Read more about it in our <Link to='/terms-of-use'>Terms of Use</Link> Page.</>),
             value: "item-5"
-        },
-
+        }
     ];
-
-    // console.log('all_faqs', all_faqs)
-
 
     return (
         <div className=" bg-white whyChooseSec w-full flex flex-col desktop:pt-[90px] gt-tab:pt-[70px] pt-[50px]  desktop:pb-[100px] gt-tab:pb-[80px] pb-[60px]   ">
@@ -53,9 +48,7 @@ const FaqSection = () => {
             <p className=" text-black font-primary tab:text-[22px]/[28px] text-[20px]/[26px] font-[400] text-center pt-[20px] pb-[25px]" >
                 Answers to our most frequently asked questions are just one click away.
             </p>
-
             <div className=" mx-auto w-full gt-tab:max-w-[900px] max-w-full flex  w-full  justify-center tab:flex-row flex-col tab:gap-[35px] tab:gap-[25px] gap-[30px]  " >
-
                 <Accordion.Root
                     className="AccordionRoot faq_accord_cont w-full flex flex-col tab:gap-[25px] gap-[20px]   "
                     type="single"
@@ -77,19 +70,13 @@ const FaqSection = () => {
                                     <Accordion.Content
                                         className='AccordionContent px-[20px] pb-[15px] text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont '
                                     >
-                                        <p
-                                            className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] faq-content ' 
-                                        >
-                                            {elem.content}
-                                        </p>
+                                        <p className='Text text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] faq-content '  >{elem.content}</p>
                                     </Accordion.Content>
                                 </Accordion.Item>
                             )
                         })
                     }
-
                 </Accordion.Root>
-
             </div>
         </div>
     )

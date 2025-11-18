@@ -1,7 +1,6 @@
-import BreadCrumbs from "../BreadCrumbs/BreadCrumbs"
-// import spotlightImg from '../../assets/about-page/revised-img/about_spotlight.jpg'
-// import spotlightImg from '../../assets/cart-page/cart-page-spotlight.jpg'
 import spotlightImg from '../../assets/cart-page/cart_spotlight_main.webp'
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs"
+
 
 const CartSpotlight = () => {
   return (
@@ -11,7 +10,6 @@ const CartSpotlight = () => {
 
       <div className="container_layout m-auto flex justify-center items-center flex-col  ">
         <BreadCrumbs breadColor="#fff" />
-        {/* <h1 className="font-body font-bold tab:text-[90px]/[100px] text-[55px]/[65px]  uppercase text-white mt-[10px] relative z-[99] " >Cart</h1> */}
         <h1 className="font-primary tab:text-[120px]/[130px] text-[65px]/[70px] font-[100] text-white mt-[10px] relative z-[99] " >Cart</h1>
       </div>
     </div>

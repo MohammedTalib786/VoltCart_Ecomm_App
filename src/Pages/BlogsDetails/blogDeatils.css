@@ -35,7 +35,6 @@
 .blogDesc strong {
     font-weight: 500;
     margin-bottom: 4px;
-    /* display: block; */
 }
 
 .blogDesc ul {
@@ -51,10 +50,6 @@
     font-size: 18px;
     line-height: 28px;
     font-weight: 300;
-}
-
-.blogDesc ul li strong {
-    /* display: block; */
 }
 
 .blogDesc ul li::before {
@@ -85,6 +80,8 @@
     min-height: 350px;
 }
 
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media Queries */
 @media (min-width: 768px) and (max-width: 1024px) {
     .blogDesc h2 {
         font-size: 24px;
@@ -118,11 +115,9 @@
         margin-bottom: 10px;
     }
 
-
     .blogDesc img {
         border-radius: 12px;
     }
-
 
     .blog_slider .swiper {
         min-height: 550px;

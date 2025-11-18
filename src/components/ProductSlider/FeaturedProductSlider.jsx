@@ -1,36 +1,27 @@
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import placeholderImg from '../../assets/placeholder_img.png'
+import placeholderImg from '../../assets/placeholder_img.png';
 import useFetch from '../../hooks/useFetch';
-import Loader from '../Loader/HomePage/FeatProdLoader'
-import ProductCard from '../ProductCard/ProductCard'
+import Loader from '../Loader/HomePage/FeatProdLoader';
+import ProductCard from '../ProductCard/ProductCard';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './productSlider.css'
+import './productSlider.css';
 
 
-const FeaturedProductSlider = ({
-    title,
-    urlText,
-    urlVal
-}) => {
-
+const FeaturedProductSlider = ({ title }) => {
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
-
     let useProdList = useFetch(productsAPI);
     let { loader, error, data: prodData } = useProdList;
-
     let filteredData = prodData.filter(elem => !elem.featured_col)
 
     return (
         <div className=' w-full  gt-tab:py-[80px] py-[60px] ' >
-
             <div className="texts flex items-center justify-between gt-tab:pb-[30px] tab:pb-[25px] pb-[15px] ">
                 <h3 className=' font-primary gt-tab:text-[45px]/[55px] tab:text-[40px]/[45px] text-[32px]/[40px] font-[300] text-left ' >{title}</h3>
             </div>
-
             <div className="prodSlider">
                 {
                     loader
@@ -39,11 +30,15 @@ const FeaturedProductSlider = ({
                             ? <p className='text-[20px]/[28px] font-primary  ' >No Data Found</p>
                             : <>
                                 <Swiper
-                                    modules={[Pagination]}
+                                    modules={[Autoplay, Pagination]}
                                     spaceBetween={40}
                                     slidesPerView={4}
                                     pagination={{ clickable: true }}
                                     loop={true}
+                                    autoplay={{
+                                        delay: 3500,
+                                        disableOnInteraction: true,
+                                    }}
                                     breakpoints={{
                                         320: {
                                             slidesPerView: 1,
@@ -61,7 +56,7 @@ const FeaturedProductSlider = ({
                                             slidesPerView: 4,
                                             spaceBetween: 20,
                                         },
-                                        
+
                                     }}
                                 >
                                     {filteredData.map((elem) => {
@@ -79,7 +74,6 @@ const FeaturedProductSlider = ({
                                                 savePercent={parseInt((elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100)}
                                             />
                                         </SwiperSlide>
-
                                     })}
                                 </Swiper>
                             </>
@@ -89,4 +83,4 @@ const FeaturedProductSlider = ({
     )
 }
 
-export default FeaturedProductSlider
+export default FeaturedProductSlider;

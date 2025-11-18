@@ -14,11 +14,9 @@
     content: '';
     width: 0%;
     height: 1px;
-    /* background-color: var(--para-black-color); */
     background-color: var(--primary-color);
     display: block;
     position: absolute;
-    /* margin-top: 28px; */
     border-radius: 30px;
     transition: all .35s ease-in-out;
 }
@@ -32,3 +30,10 @@
     width: 100%;
     transition: all .35s ease-in-out;
 }
+
+
+.input_msg {
+    box-shadow: -2px 4px 12px 0px #0000002e;
+}
+
+/* input_msg */

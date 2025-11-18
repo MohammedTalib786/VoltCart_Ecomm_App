@@ -11,6 +11,7 @@
 }
 
 
+
 @media (max-width: 600px) {
     .copy_order_details_btn {
         opacity: 1;
@@ -20,7 +21,6 @@
 }
 
 @media (max-width: 365px) {
-
     .OrderTxtCoppiedMsg {
         width: 100%;
         top: -35px;

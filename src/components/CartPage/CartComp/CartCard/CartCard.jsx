@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { FiMinus } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
-import './cartCard.css'
-import { useCart } from '../../../../contexts/ProdProvider'
-import placeholderImg from '../../../../assets/placeholder_img.png'
-import Button from '../../../FormComp/Button';
+
+import placeholderImg from '../../../../assets/placeholder_img.png';
+import { useCart } from '../../../../contexts/ProdProvider';
 import QuantityCounter from '../../../QuantityCounter/QuantityCounter';
+
+import './cartCard.css';
+
 
 const CartCard = ({
     id,
@@ -15,37 +14,11 @@ const CartCard = ({
     slug,
     feat_img = placeholderImg
 }) => {
-
-    let { cartProducts, changeQuantityFunc, removeFromCartFunc } = useCart();
-    // let item = cartProducts.find(item => item.id === id);
-
-    // let [msg, showMsg] = useState({
-    //     maxItemMsg: false,
-    //     minItemMsg: false
-    // })
-
+    let { removeFromCartFunc } = useCart();
     const handlerRemoveItem = (id) => removeFromCartFunc(id)
 
-    // const handlerAddQnt = () => {
-    //     if (item.quantity >= 10) {
-    //         showMsg(prevVal => ({ ...prevVal, maxItemMsg: true }))
-    //         setTimeout(() => showMsg(prevVal => ({ ...prevVal, maxItemMsg: false })), 1500)
-    //     }
-    //     changeQuantityFunc(id, item.quantity <= 9 ? item.quantity + 1 : 10)
-    // }
-
-    // const handlerMinusQnt = () => {
-    //     if (item.quantity <= 1) {
-    //         showMsg(prevVal => ({ ...prevVal, minItemMsg: true }))
-    //         setTimeout(() => showMsg(prevVal => ({ ...prevVal, minItemMsg: false })), 1500)
-    //     }
-    //     changeQuantityFunc(id, item.quantity > 1 ? item.quantity - 1 : 1)
-    // }
-
     return (
-
         <div className="cart_card w-full p-[20px] flex justify-between items-center tab:flex-row flex-col rounded-[12px] border-[1px] border-[#737373] " >
-
             <Link to={`/products/${slug}`} className=' w-full ' >
                 <div className="prodInfo flex w-full items-center tab:flex-row flex-col gap-[20px] ">
                     <img src={feat_img}
@@ -60,24 +33,19 @@ const CartCard = ({
                                 e.stopPropagation();
                                 handlerRemoveItem(id)
                             }}
-                            className='text-red-500 cursor-pointer hover:underline tab:w-auto w-full tab:text-left text-center  ' 
+                            className='text-red-500 cursor-pointer hover:underline tab:w-auto w-full tab:text-left text-center  '
                         >Remove Item From Cart</button>
                     </div>
                 </div>
             </Link>
 
-
             <QuantityCounter
                 id={id}
                 borderColor="primary"
                 additionalClass=" tab:w-auto w-[70%] flex justify-between tab:mt-0 mt-[20px] "
-
             />
-
         </div>
-
     )
-
 }
 
-export default CartCard
+export default CartCard;

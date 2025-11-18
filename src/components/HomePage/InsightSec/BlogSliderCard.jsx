@@ -38,4 +38,4 @@ const BlogSliderCard = ({
     )
 }
 
-export default BlogSliderCard
+export default BlogSliderCard;

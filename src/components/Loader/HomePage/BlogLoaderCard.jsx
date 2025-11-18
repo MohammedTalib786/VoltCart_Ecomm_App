@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BlogLoaderCard = () => {
     return (
         <div className="post  ">
@@ -9,7 +7,6 @@ const BlogLoaderCard = () => {
             </div>
 
             <div className="flex flex-col w-full gap-[16px] ">
-                {/* <div className="line"></div> */}
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
@@ -17,4 +14,4 @@ const BlogLoaderCard = () => {
     )
 }
 
-export default BlogLoaderCard
+export default BlogLoaderCard;

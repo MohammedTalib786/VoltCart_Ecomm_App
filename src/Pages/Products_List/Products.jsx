@@ -18,8 +18,6 @@ const Products = () => {
     useDocumentTitle('Shop E Gadgets Online | VoltCart');
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
-    // console.log('Vite API Key', import.meta.env.VITE_PRODUCT_API_KEY)
-
     let useProdList = useFetch(productsAPI);
     let { loader, error, data: prodData } = useProdList;
     let [checkValue, setcheckValue] = useState([])
@@ -28,10 +26,10 @@ const Products = () => {
     const query = queryParams.get('category');
 
     useEffect(() => {
-        if (query === "power_bank") setcheckValue((prev) => [...prev, 'Power Banks']);
-        else if (query === "stand_and_straps") setcheckValue((prev) => [...prev, 'Stand and Straps']);
-        else if (query === "covers_and_cases") setcheckValue((prev) => [...prev, 'Covers and Cases']);
-    }, [location.pathname])
+        if (query === "power_bank") setcheckValue(() => ['Power Banks']);
+        else if (query === "stand_and_straps") setcheckValue(() => ['Stand and Straps']);
+        else if (query === "covers_and_cases") setcheckValue(() => ['Covers and Cases']);
+    }, [location.pathname, location.search])
 
     const handleCheckbox = (e) => {
         const value = e.target.value;
@@ -57,9 +55,6 @@ const Products = () => {
         .filter(elem => checkValue.length === 0 ? prodData : checkValue.includes(elem.category))
         .filter(elem => elem.price.sale_price <= priceFilter)
 
-    // console.log('mainData', mainData)
-    // console.log('checkValue', checkValue)
-
 
     return (
         <>
@@ -71,7 +66,6 @@ const Products = () => {
                     {/* >>>>>>>>>>>>>> In Cont */}
                     <div className=" w-full desktop:py-[100px] gt-tab:py-[80px] py-[60px]  "  >
                         <div className=" flex md:flex-row flex-col desktop:gap-[40px] gt-tab: gap-[25px] items-start prod_list_cont   " >
-
                             <ProductFilter
                                 minVal={minVal} maxVal={maxVal}
                                 priceFilter={priceFilter}
@@ -99,7 +93,6 @@ const Products = () => {
                                                         price={elem.price.sale_price}
                                                         featImg={!elem.feat_img || elem.feat_img == "empty" ? placeholderImg : elem.feat_img}
                                                         ImageGalleryFirst={!elem.img_gallery[1] || elem.img_gallery[1] == "empty" ? placeholderImg : elem.img_gallery[1]}
-                                                        // ImageGalleryFirst={}
                                                         prodCat={elem.category}
                                                         savePercent={parseInt((elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100)}
                                                     />
@@ -107,9 +100,7 @@ const Products = () => {
                                             )
                                 }
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -117,4 +108,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Products;

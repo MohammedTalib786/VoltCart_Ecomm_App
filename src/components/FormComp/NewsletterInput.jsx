@@ -1,5 +1,5 @@
-
 import Button from './Button'
+
 
 const NewsletterInput = () => {
     return (
@@ -14,13 +14,9 @@ const NewsletterInput = () => {
                 hoverBgClr="bg-white"
                 hoverTextClr="text-black"
                 btnWidth="w-100"
-
-
             />
-
-
         </div>
     )
 }
 
-export default NewsletterInput
+export default NewsletterInput;

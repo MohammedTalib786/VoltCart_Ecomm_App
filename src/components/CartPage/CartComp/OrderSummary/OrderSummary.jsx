@@ -7,11 +7,8 @@ import ShippingForm from '../../ShippingComp/ShippingForm';
 import CartAccordian from '../OrderSummary/CartAccordian/CartAccordian'
 import Button from '../../../FormComp/Button';
 
-import './orderSummary.css'
-
 
 const OrderSummary = () => {
-
     let { cartProducts } = useCart();
     let cartItemSubTotal = 0;
     let [isVisible, setIsVisible] = useState(false);
@@ -62,7 +59,6 @@ const OrderSummary = () => {
         // 538 * 5 % = 26
 
         let gstCalc = ((cartItemTotal * 100) / (100 + 5)) * 5 / 100;
-
         let text = '';
         if (states === 'Maharashtra' || states === '' || states === undefined) {
             const halfGst = (gstCalc / 2).toFixed(2);
@@ -77,7 +73,6 @@ const OrderSummary = () => {
         e.preventDefault();
         navigate("/checkout");
     }
-
 
     return (
         <div className="order_sum gt-tab:w-[40%] tab:w-full h-full flex flex-col gap-[16px] tab:pt-[40px] tab:px-[30px] tab:pb-[45px] pt-[25px] px-[20px] pb-[30px] rounded-[12px] bg-white  ">

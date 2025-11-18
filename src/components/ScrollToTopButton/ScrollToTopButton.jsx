@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { FaAngleUp } from "react-icons/fa6";
 import { HiOutlineChevronUp } from "react-icons/hi2";
 
 import './scrollToTopButton.css'
+
 
 const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -13,44 +13,29 @@ const ScrollToTopButton = () => {
             const scrollTop = window.scrollY;
             const docHeight =
                 document.documentElement.scrollHeight - window.innerHeight;
-
-            // Show/hide button
             setIsVisible(scrollTop > 100);
 
-            // Update progress %
             if (docHeight > 0) {
                 const scrolled = (scrollTop / docHeight) * 100;
                 setProgress(scrolled);
             }
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-    // Circle math
     const radius = 26;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (progress / 100) * circumference;
 
     return (
         <>
-            {/* <button
-                className={` ${toggleClass ? 'onScrollBtn' : ''} scrollToTopBtn opacity-0 pointer-events-none transition-all  w-[55px] h-[55px] text-[28px]/[28px] text-white flex justify-center items-center fixed z-[9999] bottom-[10px] right-[40px] rounded-[50%] cursor-pointer bg-primary `}
-                onClick={handlerScrollToTop}
-            >
-                <FaAngleUp />
-            </button> */}
-
             <button
                 className={` ${isVisible ? "onScrollBtn" : ""}
                 scrollToTopBtn bg-[#cacaca91] opacity-0 pointer-events-none w-[55px] h-[55px] text-white flex justify-center items-center fixed z-[9999] rounded-full cursor-pointer `}
-                onClick={scrollToTop}
-            >
+                onClick={scrollToTop} >
                 <svg
                     className="absolute top-0 left-0 rotate-[-90deg] pointer-events-none scale-[1.2] "
                     width="55"
@@ -78,13 +63,10 @@ const ScrollToTopButton = () => {
                     />
                 </svg>
 
-                {/* Icon in the center */}
-                {/* <FaAngleUp className="relative z-10 text-[22px]" /> */}
                 <HiOutlineChevronUp className=" stroke-[#0D6EFD] relative z-10 text-[28px]/[28px]" />
             </button>
-
         </>
     )
 }
 
-export default ScrollToTopButton
+export default ScrollToTopButton;

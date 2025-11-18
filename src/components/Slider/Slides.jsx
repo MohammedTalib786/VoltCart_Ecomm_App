@@ -1,5 +1,3 @@
-
-
 const Slides = ({ source }) => {
     return (
         <div className="flex justify-center items-center  ">
@@ -8,4 +6,4 @@ const Slides = ({ source }) => {
     )
 }
 
-export default Slides
+export default Slides;

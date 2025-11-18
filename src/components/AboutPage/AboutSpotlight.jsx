@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
 import spotlightImg from '../../assets/about-page/about_spotlight_main.webp'
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
 
 
 const AboutSpotlight = () => {
@@ -31,4 +31,4 @@ const AboutSpotlight = () => {
   )
 }
 
-export default AboutSpotlight
+export default AboutSpotlight;

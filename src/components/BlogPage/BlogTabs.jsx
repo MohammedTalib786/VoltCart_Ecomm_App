@@ -68,4 +68,4 @@ const BlogTabs = () => {
     )
 }
 
-export default BlogTabs
+export default BlogTabs;

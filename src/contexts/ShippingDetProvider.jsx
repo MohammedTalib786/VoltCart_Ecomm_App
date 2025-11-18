@@ -21,4 +21,3 @@ export const ShippingDetProvider = shippingDetailsContext.Provider;
 export const useShippingDetails = () => {
     return useContext(shippingDetailsContext)
 }
-

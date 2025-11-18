@@ -17,9 +17,7 @@
     width: 10px;
     height: 10px;
     background: black;
-    /* background: #0D6EFD; */
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
 }
-

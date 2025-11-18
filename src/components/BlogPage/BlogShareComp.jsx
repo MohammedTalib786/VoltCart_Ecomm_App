@@ -4,12 +4,9 @@ import {
     LinkedinShareButton,
     LinkedinIcon,
     TwitterShareButton,
-    TwitterIcon,
     XIcon,
     TelegramShareButton,
     TelegramIcon,
-    PinterestShareButton,
-    PinterestIcon,
     WhatsappIcon,
     WhatsappShareButton,
 } from "react-share";
@@ -17,7 +14,6 @@ import {
 
 const BlogShareComp = ({ currentLocalShareURL }) => {
     return (
-
         <div className="share_blog flex items-center gap-[15px]  pt-[15px] desktop:pb-[100px] gt-tab:pb-[80px] pb-[60px] ">
             <h4>Share It:</h4>
 
@@ -52,10 +48,9 @@ const BlogShareComp = ({ currentLocalShareURL }) => {
                 <TelegramShareButton url={currentLocalShareURL} className='telegram_icon'  >
                     <TelegramIcon size={35} round />
                 </TelegramShareButton>
-
             </div>
         </div>
     )
 }
 
-export default BlogShareComp
+export default BlogShareComp;

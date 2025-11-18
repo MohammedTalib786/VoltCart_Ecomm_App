@@ -46,7 +46,6 @@
     background: linear-gradient(-90deg, white 10%, transparent 100%);
 }
 
-
 .logo-marquee--marquee-group {
     animation: scroll-left 10s linear infinite;
     display: flex;
@@ -70,7 +69,6 @@
 .logo-marquee--marquee-group .samsung_logo {
     height: 100px;
 }
-
 
 @media (max-width: 1024px) {
     .logo-marquee {

@@ -1,4 +1,3 @@
-// hooks/useInViewMotion.js
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 

@@ -13,7 +13,6 @@ const InputBar = ({
     onChange_func,
     on_input_func
 }) => {
-
     return (
         <>
             {label_text && <label htmlFor={html_for} className='block mb-2 font-body text-[16px] font-medium text-black  ' > {label_text} </label>}

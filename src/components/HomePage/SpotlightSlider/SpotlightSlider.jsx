@@ -1,6 +1,6 @@
-import { Pagination, EffectFade } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 
 import subtleBgImg from '../../../assets/HomePage/spotlight_images/subtle_bg_img.webp'
 import phoneCoverSpotImg from '../../../assets/HomePage/spotlight_images/phone_cover_spotlight_obj.webp'
@@ -9,11 +9,10 @@ import watchesSpotImg from '../../../assets/HomePage/spotlight_images/watches_sp
 import useFetch from '../../../hooks/useFetch';
 import Slides from './Slides';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './spotlight_slider_home_pg.css'
-
+import 'swiper/css/effect-fade';
+import './spotlight_slider_home_pg.css';
 
 
 const SpotlightSlider = () => {
@@ -22,17 +21,14 @@ const SpotlightSlider = () => {
 
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
     let { data: prodData } = useFetch(productsAPI)
-
     let prices = [];
     let percents = [];
     prodData.map(elem => {
         prices.push(elem.price.sale_price)
         percents.push((parseInt(elem.price.reg_price - elem.price.sale_price) / elem.price.reg_price * 100).toFixed())
     })
-
     let saleMainPrice = prices.sort().slice(0, 1).join()
     let mainPercentage = percents.sort().slice(-1).join()
-
     let slides = [
         {
             title: "Shield Your Iphone in Style",
@@ -61,14 +57,18 @@ const SpotlightSlider = () => {
         <div className=" bg-[#F6F6F6] home_pg_spotlight_slider ">
             <Swiper
                 className='home_pg_spot_slider'
-                modules={[Pagination, EffectFade]}
+                modules={[Autoplay, Pagination, EffectFade]}
                 spaceBetween={0}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
                 loop={true}
                 effect="fade"
-                fadeEffect={{ crossFade: true }}
+                // fadeEffect={{ crossFade: true }}
                 speed={2000}
+                autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: true,
+                }}
                 onSlideChange={(swiper) => {
                     setActiveIndex(swiper.realIndex)
                     setActiveIndexObj(swiper.realIndex)
@@ -96,4 +96,4 @@ const SpotlightSlider = () => {
     )
 }
 
-export default SpotlightSlider
+export default SpotlightSlider;

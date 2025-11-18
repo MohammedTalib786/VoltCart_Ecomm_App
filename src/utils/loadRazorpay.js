@@ -1,4 +1,3 @@
-// utils/loadRazorpay.js
 export function loadRazorpayScript(src) {
     return new Promise((resolve) => {
         const script = document.createElement("script");

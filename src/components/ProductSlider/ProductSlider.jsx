@@ -12,31 +12,20 @@ import 'swiper/css/pagination';
 import './productSlider.css'
 
 
-const ProductSlider = ({
-    prodId,
-    title,
-    urlText,
-    urlVal,
-    categoryName,
-    isFeatCollecion = false
-}) => {
+const ProductSlider = ({ prodId, title, urlText, urlVal, categoryName }) => {
     let productsAPI = import.meta.env.VITE_PRODUCT_API_KEY;
     let { loader, error, data: prodData } = useFetch(productsAPI)
     let filteredData = prodData.filter(elem => elem.category == categoryName)
     let mainFilteredData;
     if (prodId) mainFilteredData = filteredData.filter(elem => elem.id !== prodId)
 
-
     return (
         <div className=' w-full py-[50px] ' >
-
             <div className="texts flex items-center justify-between pb-[20px] ">
                 <h3 className='font-primary font-medium text-[28px]/[36px] text-black ' >{title}</h3>
                 <Link to={urlVal} className='font-primary font-regular text-[16px] hover:underline '>{urlText}</Link>
             </div>
-
             <div className="prodSlider">
-
                 {
                     loader
                         ? <Loader />
@@ -44,11 +33,9 @@ const ProductSlider = ({
                             ? <p className='text-[20px]/[28px] font-primary  ' >No Data Found</p>
                             : <>
                                 <Swiper
-                                    // install Swiper modules
                                     modules={[Pagination]}
                                     spaceBetween={40}
                                     slidesPerView={4}
-                                    // navigation
                                     pagination={{ clickable: true }}
                                     loop={true}
                                     breakpoints={{
@@ -89,14 +76,10 @@ const ProductSlider = ({
                                         })}
                                 </Swiper>
                             </>
-
                 }
-
-
-
             </div>
         </div>
     )
 }
 
-export default ProductSlider
+export default ProductSlider;

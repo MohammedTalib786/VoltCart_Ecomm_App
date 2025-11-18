@@ -53,27 +53,21 @@ const ProductDetail = () => {
     let checkExisting = cartProducts.filter(elem => elem.id === id)
 
     const handlerAddToCartItem = () => {
-        console.log('item added to cart')
-
         if (checkExisting[0] === undefined) {
             addToCartFunc({ id: id, name: name, feat_img: feat_img, price: price.sale_price, slug: slug, quantity: 1 })
             checkAddToCartElem()
         }
         else if (checkExisting[0].quantity > 9) {
             alert('Maximum number of single cart items reached.')
-            console.log('maximum number reached!')
             return
         }
         else {
-            console.log('can add')
             addToCartFunc({ id: id, name: name, feat_img: feat_img, price: price.sale_price, slug: slug, quantity: 1 })
             checkAddToCartElem()
         }
     }
 
-    const handlerViewCart = () => {
-        navigate("/cart")
-    }
+    const handlerViewCart = () => navigate("/cart")
 
     const handlerBuyNowItem = () => {
         if (checkExisting[0] === undefined) {
@@ -82,7 +76,6 @@ const ProductDetail = () => {
         }
         else if (checkExisting[0].quantity > 9) {
             alert('Please reduce the quantity of this product in your cart to continue.')
-            console.log('maximum number reached!')
             return
         }
         else {
@@ -98,13 +91,10 @@ const ProductDetail = () => {
                 loader ? <Loader /> : error ? (<p className="text-red-500 font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] ">Something went wrong: {error.message}</p>) : (
                     <>
                         <div className="container_layout mx-auto flex justify-center items-center flex-col"  >
-
                             <div className="w-full pt-[50px] pb-[20px] tab:block hidden ">
                                 <BreadCrumbs />
                             </div>
-
                             <div className=' w-full flex flex-wrap sm:flex-nowrap tab:gap-[30px] gap-[50px]  pb-[50px] ' >
-
                                 {/* >>>>>>>>>>>>> Left Section */}
                                 <div className="left_sec w-[100%] md:w-[50%] tab:pt-0 pt-[50px] " >
                                     {/* >>>>>>>>>> Image Gallery Slider */}
@@ -143,7 +133,6 @@ const ProductDetail = () => {
                                                     ? parseInt((price.reg_price - price.sale_price) / price.reg_price * 100) : "20"}% Off
                                             </span>
                                         </p>
-                                        {/* <p className='font-body tab:text-[24px]/[30px] text-[22px]/[28px] text-center line-through text-[#A0A0A0]'  > &#8377;{price?.reg_price}</p> */}
 
                                         <p
                                             className='font-body text-left text-[#494949] text-[16px]/[22px] flex items-center gap-[6px] '
@@ -185,10 +174,6 @@ const ProductDetail = () => {
                                             {excerpt}
                                         </p>
 
-                                        {/* <p
-                                            className='text-black font-body tab:text-[18px]/[28px] text-[16px]/[26px] font-[300] dang-cont'
-                                            dangerouslySetInnerHTML={{ __html: description?.split('<ul>')?.slice(0, 1)?.join() }}
-                                        /> */}
                                     </div>
 
                                 </div>

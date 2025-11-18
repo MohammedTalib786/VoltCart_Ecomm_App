@@ -1,16 +1,5 @@
-/* .onScrollBtn {
-    bottom: 50px;
-    opacity: 1;
-    pointer-events: all;
-}
-
-.scrollToTopBtn {
-    transition: all .45s ease-in-out;
-} */
-
-
 .onScrollBtn {
-    bottom: 50px;
+    bottom: 60px;
     right: 20px;
     opacity: 1;
     pointer-events: all;

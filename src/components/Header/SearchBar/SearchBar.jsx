@@ -54,15 +54,12 @@ const SearchBar = ({ searchBoxOpen, setSearchBoxOpen, setHeaderBg, setSvgLogoCol
         <div className={` min-h-[250px] h-full w-full bg-white absolute ${searchBoxOpen.topVal} z-[9999999] flex flex-col gap-[20px] text-black justify-center items-start opacity-${searchBoxOpen.opacity} pointer-events-${searchBoxOpen.pointerEvents} searchBarMainBox `} >
 
             <div className=" relative max-w-[1440px] w-full mx-auto flex flex-col gap-[20px] text-black justify-center items-start  ">
-
                 <h4 className='font-primary text-[26px]/[34px] font-[300] desktop:px-[50px] tab:px-[30px] px-[20px] ' >Explore More</h4>
-
                 <form
                     onSubmit={handlerSearch}
                     className='w-full desktop:px-[50px] tab:px-[30px] px-[20px]  '
                 >
                     <div className='flex items-center' >
-
                         <input type="text" name="search" id="search" placeholder='Search'
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -76,7 +73,6 @@ const SearchBar = ({ searchBoxOpen, setSearchBoxOpen, setHeaderBg, setSvgLogoCol
                         />
                     </div>
                 </form>
-
                 <button
                     onClick={handerCloseSearchBar}
                     className=' absolute tab:-top-[30px] -top-[15px] desktop:right-[45px] gt-tab:right-[25px] tab:right-[30px] right-[20px] text-black text-[40px]/[40px] cursor-pointer ' >

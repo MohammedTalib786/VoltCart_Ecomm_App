@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence, scale } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom';
 
 import Button from '../../FormComp/Button'
@@ -17,7 +17,6 @@ const Slides = ({
     saleMainPrice,
     mainPercentage
 }) => {
-
     const [isMobile, setIsMobile] = useState(false);
     const [animateKey, setAnimateKey] = useState(0);
     const [animateKeyObj, setAnimateKeyObj] = useState(0);
@@ -38,41 +37,33 @@ const Slides = ({
         ? {
             initial: { x: -80, opacity: 0 },
             animate: { x: 0, opacity: 1 },
-            exit: { x: -80, opacity: 0 },
+            // exit: { x: -80, opacity: 0 },
+            exit: { x: -200, opacity: 1 },
             transition: { duration: 1.2, ease: "easeInOut" },
         }
         : {
             initial: { y: 80, opacity: 0 },
             animate: { y: 0, opacity: 1 },
-            exit: { y: 80, opacity: 0 },
+            exit: { y: 200, opacity: 1 },
+            // exit: { y: 80, opacity: 0 },
             transition: { duration: 1.2, ease: "easeInOut" },
         };
 
     const imgAnim = isMobile
         ? {
-            initial: {
-                x: 80,
-                opacity: 0
-            },
-            animate: {
-                x: 0,
-                opacity: 1
-            },
-            exit: {
-                x: 80,
-                opacity: 0
-            },
+            initial: { x: 80, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            exit: { x: 200, opacity: 1 },
+            // exit: { x: 80, opacity: 0 },
             transition: { duration: 1.35, ease: "easeInOut" },
         }
         : {
             initial: { y: -80, opacity: 0 },
             animate: { y: 0, opacity: 1 },
-            exit: { y: -80, opacity: 0 },
+            exit: { y: -200, opacity: 1 },
+            // exit: { y: -80, opacity: 0 },
             transition: { duration: 1.35, ease: "easeInOut" },
         };
-
-    // const current = isMobile ? variants.mobile : variants.desktop;
-
 
     return (
         <>
@@ -82,12 +73,11 @@ const Slides = ({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className={` ${dynBgColor} home_spotlight_slides_bg bg-center bg-cover bg-no-repeat w-full h-[100vh] min-h-[650px] flex relative `}
+                    className={` ${dynBgColor} home_spotlight_slides_bg bg-center bg-cover bg-no-repeat w-full gt-tab:h-[100vh] tab:h-[86vh] h-[100vh] min-h-[650px] flex relative  `}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     style={{ backgroundImage: `url(${source})` }}
                 >
                     <div className="  w-full max-w-[1440px] gt-tab:h-[65%] tab:h-[80%] h-[90%] m-auto flex gt-tab:flex-row flex-col gt-tab:justify-between justify-end gt-tab:items-end items-center desktop:px-[50px] tab:px-[30px] px-[20px] gt-tab:gap-0 tab:gap-[35px] gap-[25px]  " >
-
                         <motion.div
                             className="texts flex flex-col gt-tab:items-start items-center "
                             key={`text-${animateKey}`}
@@ -99,19 +89,11 @@ const Slides = ({
                             <span
                                 className='  bg-[#0d6efdb5] w-fit px-[12px] py-[8px] rounded-[6px] text-white desktop:text-[16px]/[20px] tab:text-[14px]/[20px] text-[12px]/[18px] relative z-[999] ' >
                                 Flat {mainPercentage ? mainPercentage : '20'}% Off</span>
-
-                            <h3 className=" desktop:w-[70%] gt-tab:w-[80%] tab:w-[70%] w-full capitalize font-primary font-[300] desktop:text-[70px]/[75px] gt-tab:text-[60px]/[60px] tab:text-[55px]/[55px] text-[38px]/[38px] text-white tab:my-[24px] my-[14px]  relative z-[99] gt-tab:text-left text-center " >
-                                {title}
-                            </h3>
-
-                            <h4 className=" font-body font-[300] desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] text-[#ffffffcc] relative z-[99] gt-tab:text-left text-center  " >
-                                {subTitle}
-                            </h4>
-
+                            <h3 className=" desktop:w-[70%] gt-tab:w-[80%] tab:w-[70%] w-full capitalize font-primary font-[300] desktop:text-[70px]/[75px] gt-tab:text-[60px]/[60px] tab:text-[55px]/[55px] text-[38px]/[38px] text-white tab:my-[24px] my-[14px]  relative z-[99] gt-tab:text-left text-center " >{title}</h3>
+                            <h4 className=" font-body font-[300] desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] text-[#ffffffcc] relative z-[99] gt-tab:text-left text-center  " >{subTitle}</h4>
                             <h2 className=" flex items-center gap-[6px] font-body font-[300] desktop:text-[24px]/[32px] gt-tab:text-[20px]/[28px] text-[14px]/[20px] text-[#ffffffcc] relative z-[99] tab:mt-[10px] tab:mb-[25px] mt-[6px] mb-[15px]  " >
                                 From: <span className=' desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] font-[500] text-[#d5b303] '  >&#8377;{saleMainPrice ? saleMainPrice : '999'}</span>
                             </h2>
-
                             <Link to="/products" >
                                 <Button
                                     text="Shop Now"
@@ -134,13 +116,11 @@ const Slides = ({
                         >
                             <img src={objectImg} alt="" className={` w-full ${objectImgAddClass}  `} />
                         </motion.div>
-
                     </div>
-
                 </motion.div>
             </AnimatePresence>
         </>
     )
 }
 
-export default Slides
+export default Slides;

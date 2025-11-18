@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const useFetch = (fetchURL) => {
     let [loader, setLoader] = useState(true);
@@ -9,14 +9,10 @@ const useFetch = (fetchURL) => {
         if (!fetchURL) return;
         try {
             const fetchingData = async () => {
-                // console.log('Fetching URL:', fetchURL);
                 setLoader(true);
                 let getData = await fetch(fetchURL);
                 let res = await getData.json();
-                // console.log('inside fetch', getData.text())
-                // console.log('get json', getData.json())
                 setData(res)
-                // console.log('res', res);
                 setLoader(false);
             }
             fetchingData();

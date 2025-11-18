@@ -10,12 +10,8 @@ import 'swiper/css/pagination';
 
 
 const BlogSlider = () => {
-
     const blogapi = import.meta.env.VITE_BLOGS_API_KEY;
     const { loader, error, data: blogData } = useFetch(blogapi);
-
-    // console.log('HomePage blogData', blogData)
-    // console.log('HomePage blogData sliced', blogData.slice(0, 6))
 
     return (
         <>
@@ -68,4 +64,4 @@ const BlogSlider = () => {
     )
 }
 
-export default BlogSlider
+export default BlogSlider;
