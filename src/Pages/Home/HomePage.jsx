@@ -5,7 +5,7 @@ import FeaturedProductSlider from '../../components/ProductSlider/FeaturedProduc
 import CompatBrandSec from '../../components/HomePage/CompatBrandSec/CompatBrandSec'
 import WhyChooseUs from '../../components/HomePage/WhyChooseUs/WhyChooseUs'
 import InsightSec from '../../components/HomePage/InsightSec/InsightSec'
-import FaqSection from '../../components/HomePage/FAQsection/FaqSection'
+import FaqSection from '../../components/HomePage/FaqSection/FaqSection'
 
 import '../../components/layout.css'
 
