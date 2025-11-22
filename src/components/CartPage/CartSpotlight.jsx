@@ -9,7 +9,7 @@ const CartSpotlight = () => {
       style={{ backgroundImage: `url(${spotlightImg})` }}>
 
       <div className="container_layout m-auto flex justify-center items-center flex-col  ">
-        <BreadCrumbs breadColor="#fff" />
+        <BreadCrumbs additionalColorClass=" text-white " />
         <h1 className="font-primary tab:text-[120px]/[130px] text-[65px]/[70px] font-[100] text-white mt-[10px] relative z-[99] " >Cart</h1>
       </div>
     </div>
