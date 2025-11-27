@@ -24,12 +24,20 @@ const Products = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const query = queryParams.get('category');
+    let [shopPgTitle, setShopPgTitle] = useState('Shop All')
 
     useEffect(() => {
         if (query === "power_bank") setcheckValue(() => ['Power Banks']);
         else if (query === "stand_and_straps") setcheckValue(() => ['Stand and Straps']);
         else if (query === "covers_and_cases") setcheckValue(() => ['Covers and Cases']);
     }, [location.pathname, location.search])
+
+    useEffect(() => {
+        if (checkValue == 'Power Banks' && query === "power_bank") setShopPgTitle('Power Banks')
+        else if (checkValue == 'Stand and Straps' && query === "stand_and_straps") setShopPgTitle('Stand and Straps')
+        else if (checkValue == 'Covers and Cases' && query === "covers_and_cases") setShopPgTitle('Covers and Cases')
+        else setShopPgTitle('Shop All')
+    }, [location.pathname, location.search, checkValue, setcheckValue])
 
     const handleCheckbox = (e) => {
         const value = e.target.value;
@@ -60,7 +68,9 @@ const Products = () => {
         <>
             <div className="lg:w-[100%] flex flex-col items-center  ">
 
-                <ProductsSpotlight />
+                <ProductsSpotlight
+                    pageTitle={shopPgTitle}
+                />
 
                 <div className=" container_layout flex flex-col justify-center items-center relative "  >
                     {/* >>>>>>>>>>>>>> In Cont */}

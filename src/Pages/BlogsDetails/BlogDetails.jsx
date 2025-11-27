@@ -18,7 +18,7 @@ const BlogDetails = () => {
   let { blog_id, blog_title, blog_slug, blog_excerpt, blog_feat_img,
     blog_inside_img, blog_category, blog_tags, blog_content } = blogData;
 
-  let currentLocalShareURL = `${window.location.hostname}:${window.location.port}${window.location.pathname}`
+  let currentLocalShareURL = window.location.href;
 
   if (!blogData) return ("no Blog found")
 

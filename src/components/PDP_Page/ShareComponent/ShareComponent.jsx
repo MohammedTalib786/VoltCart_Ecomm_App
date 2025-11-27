@@ -16,19 +16,21 @@ import { TfiClose } from "react-icons/tfi";
 import "./share_comp.css"
 
 
-const ShareComponent = ({ shareComp, openShareComp, currentLocalShareURL }) => {
+const ShareComponent = ({ shareComp, openShareComp, currentLocalShareURL, prodName }) => {
+    let message = `Check out this ${prodName} at the best price on VoltCart
+
+`;
+
     return (
         <motion.div
             className="share_component  "
             animate={{ opacity: shareComp.opacity, pointerEvents: shareComp.pointerEvents }}
             transition={{ type: 'spring', stiffness: 300, damping: 35, }}
             style={{ opacity: shareComp.opacity, pointerEvents: shareComp.pointerEvents }}
-            onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })}
-        >
+            onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })} >
             <div
                 className="inside_share_cont"
-                onClick={(e) => e.stopPropagation()}
-            >
+                onClick={(e) => e.stopPropagation()} >
                 <TfiClose
                     className='text-[26px]/[26px] absolute top-[15px] right-[20px] cursor-pointer  '
                     onClick={() => openShareComp({ opacity: 0, pointerEvents: "none" })} />
@@ -36,32 +38,44 @@ const ShareComponent = ({ shareComp, openShareComp, currentLocalShareURL }) => {
 
                 <div className="share_btns">
                     {/* WhatsApp Share */}
-                    <WhatsappShareButton url={currentLocalShareURL} className='whatsapp_icon'
-                    // title={title}
-                    // separator=" - "
-                    // quote={title}
+                    <WhatsappShareButton
+                        url={currentLocalShareURL}
+                        title={message}
+                        className='whatsapp_icon'
                     >
                         <WhatsappIcon size={35} round />
                     </WhatsappShareButton>
 
                     {/* Facebook Share */}
-                    <FacebookShareButton url={currentLocalShareURL} className='fb_icon' >
+                    <FacebookShareButton
+                        url={currentLocalShareURL}
+                        title={message}
+                        className='fb_icon'
+                    >
                         <FacebookIcon size={35} round />
                     </FacebookShareButton>
 
                     {/* LinkedIn Share */}
-                    <LinkedinShareButton url={currentLocalShareURL} className='linked_in_icon'  >
+                    <LinkedinShareButton
+                        url={currentLocalShareURL}
+                        title={message}
+                        className='linked_in_icon'  >
                         <LinkedinIcon size={35} round />
                     </LinkedinShareButton>
 
                     {/* Twitter Share */}
-                    <TwitterShareButton url={currentLocalShareURL} className='x_twit__icon'  >
-                        {/* <TwitterIcon size={35} round /> */}
+                    <TwitterShareButton
+                        url={currentLocalShareURL}
+                        title={message}
+                        className='x_twit__icon'  >
                         <XIcon size={35} round />
                     </TwitterShareButton>
 
                     {/* Telegram Share */}
-                    <TelegramShareButton url={currentLocalShareURL} className='telegram_icon'  >
+                    <TelegramShareButton
+                        url={currentLocalShareURL}
+                        title={message}
+                        className='telegram_icon'  >
                         <TelegramIcon size={35} round />
                     </TelegramShareButton>
                 </div>

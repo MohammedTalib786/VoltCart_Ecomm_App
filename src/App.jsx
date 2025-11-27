@@ -234,7 +234,7 @@ const App = () => {
 
               <ScrollToTopFunc />
 
-              <Routes  >
+              <Routes >
 
                 <Route path='/' element={<Layout />} >
 

@@ -9,7 +9,8 @@
 }
 
 .prod_card:hover {
-    box-shadow: 0px 0px 12px 1px #00000040;
+    /* box-shadow: 0px 0px 12px 1px #00000040; */
+    box-shadow: 0px 0px 12px 1px #0000001f;
     transform: translate(0px, -5px);
 }
 
