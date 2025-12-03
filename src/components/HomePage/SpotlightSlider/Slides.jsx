@@ -15,7 +15,8 @@ const Slides = ({
     isActiveObj,
     dynBgColor,
     saleMainPrice,
-    mainPercentage
+    mainPercentage,
+    linkToCat
 }) => {
     const [isMobile, setIsMobile] = useState(false);
     const [animateKey, setAnimateKey] = useState(0);
@@ -90,7 +91,7 @@ const Slides = ({
                             <h2 className=" flex items-center gap-[6px] font-body font-[300] desktop:text-[24px]/[32px] gt-tab:text-[20px]/[28px] text-[14px]/[20px] text-[#ffffffcc] relative z-[99] tab:mt-[10px] tab:mb-[25px] mt-[6px] mb-[15px]  " >
                                 From: <span className=' desktop:text-[30px]/[38px] gt-tab:text-[24px]/[32px] tab:text-[22px]/[28px] text-[16px]/[22px] font-[500] text-[#d5b303] '  >&#8377;{saleMainPrice ? saleMainPrice : '1399'}</span>
                             </h2>
-                            <Link to="/products" >
+                            <Link to={linkToCat} >
                                 <Button
                                     text="Shop Now"
                                     btnIcon={<svg width="22" height="22" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">

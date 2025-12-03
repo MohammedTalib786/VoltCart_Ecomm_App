@@ -37,6 +37,7 @@ const SpotlightSlider = () => {
             objectImgAddClass: "gt-tab:max-w-[400px] tab:max-w-[300px] max-w-[240px] ",
             saleMainPrice: calculateSalePrice("Covers and Cases"),
             mainPercentage: calculateSalePercent("Covers and Cases"),
+            linkToCat: '/products?category=covers_and_cases'
         },
         {
             title: "Stay Charged, Always Ready",
@@ -46,6 +47,7 @@ const SpotlightSlider = () => {
             objectImgAddClass: " gt-tab:max-w-[500px] tab:max-w-[300px] max-w-[240px]  ",
             saleMainPrice: calculateSalePrice("Power Banks"),
             mainPercentage: calculateSalePercent("Power Banks"),
+            linkToCat: '/products?category=power_bank'
         },
         {
             title: "Redefine Your Wrist Game",
@@ -55,6 +57,7 @@ const SpotlightSlider = () => {
             objectImgAddClass: "gt-tab:max-w-[400px] tab:max-w-[300px] max-w-[240px] ",
             saleMainPrice: calculateSalePrice("Stand and Straps"),
             mainPercentage: calculateSalePercent("Stand and Straps"),
+            linkToCat: '/products?category=stand_and_straps'
         }
     ];
 
@@ -96,6 +99,8 @@ const SpotlightSlider = () => {
 
                                 saleMainPrice={elem.saleMainPrice}
                                 mainPercentage={elem.mainPercentage}
+
+                                linkToCat={elem.linkToCat}
                             /> </SwiperSlide>
                     })
                 }
